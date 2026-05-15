@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoMobile Mockups</title>
+<style>
+  :root { --yellow: #f0c000; --black: #111; --gray: #1a1a1a; --muted: #666; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--black); color: #fff; font-family: 'Courier New', monospace; min-height: 100vh; }
+  header { border-bottom: 2px solid var(--yellow); padding: 2rem 3rem; display: flex; align-items: center; gap: 1rem; }
+  header .logo { width: 32px; height: 32px; background: var(--yellow); border-radius: 4px; }
+  header h1 { font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  header span { color: var(--yellow); }
+  main { padding: 3rem; max-width: 960px; }
+  .scope-tag { display: inline-block; background: var(--yellow); color: var(--black); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-bottom: 2rem; }
+  .empty { border: 1px dashed #333; border-radius: 6px; padding: 4rem 2rem; text-align: center; color: var(--muted); }
+  .empty p { font-size: 0.85rem; line-height: 1.8; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .card { background: var(--gray); border: 1px solid #2a2a2a; border-radius: 6px; padding: 1.5rem; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--yellow); }
+  .card-project { font-size: 0.65rem; color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .card-date { font-size: 0.75rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"></div>
+  <h1>GoMobile <span>Mockups</span></h1>
+</header>
+<main>
+  <div class="scope-tag">GoMobile Client</div>
+  <div class="empty" id="gallery">
+    <p>No mockups yet.<br>Run <strong>/mockup</strong> in the GoMobile workspace to generate your first one.</p>
+  </div>
+</main>
+</body>
+</html>
