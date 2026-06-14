@@ -1,130 +1,115 @@
 <!DOCTYPE html>
 <!-- Project: GoMobile -->
-<!-- Change: Security incident brief for the CEO — two concurrent attacks (WordPress compromise + SMS flood) -->
+<!-- Change: Security status brief for the CEO — light, calm, informative (two issues: WP content + SMS) -->
 <!-- Generated: 2026-06-14 -->
 <!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoMobile — סקירת אירוע אבטחה | OctoMonic</title>
+<title>GoMobile — סקירת מצב אבטחה | OctoMonic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg0:#08090E; --bg1:#0E1017; --glass:rgba(255,255,255,.035); --glass2:rgba(255,255,255,.06);
-    --hair:rgba(255,255,255,.08); --hair2:rgba(255,255,255,.14);
-    --tx:#EEF0F6; --tx2:#9AA3B5; --tx3:#6B7488;
-    --gold:#F0C000; --cerise:#FF3DA6; --cerise-deep:#EC008C; --sky:#4CC4F0; --sky-deep:#29ABE2; --coral:#FF9A5C;
-    --danger:#FF5A5A; --danger-deep:#E23B3B;
-    --cerise-g:rgba(255,61,166,.16); --sky-g:rgba(76,196,240,.16); --danger-g:rgba(255,90,90,.18); --ok-g:rgba(76,196,240,.14);
-    --shadow:0 30px 70px -28px rgba(0,0,0,.75);
+    --bg:#F5F7FB; --card:#FFFFFF; --ink:#16203A; --ink2:#4A576E; --ink3:#8A94A8;
+    --line:#E7EBF2; --line2:#D7DEEA;
+    --cerise:#EC008C; --sky:#29ABE2; --coral:#FF8F4D; --green:#1E9E6A; --amber:#E08600;
+    --sky-s:#EAF6FC; --amber-s:#FCF3E5; --green-s:#E8F6EF; --cerise-s:#FCEAF4; --ink-s:#F1F4F9;
+    --shadow:0 1px 2px rgba(16,24,40,.04),0 10px 30px -16px rgba(16,24,40,.16);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg0);color:var(--tx);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
 
-  /* chrome bar */
-  .ombar{position:sticky;top:0;z-index:1000;height:50px;background:rgba(8,9,14,.82);backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--hair);display:flex;align-items:center;justify-content:space-between;padding:0 20px;direction:ltr}
+  /* chrome bar (brand) */
+  .ombar{position:sticky;top:0;z-index:1000;height:50px;background:#0F172A;display:flex;align-items:center;justify-content:space-between;padding:0 20px;direction:ltr}
   .ombar .l{display:flex;align-items:center;gap:10px}
-  .ombar .l img{height:28px;width:auto}
-  .ombar .l b{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--gold)}
-  .ombar .c{font-size:12px;font-weight:700;letter-spacing:4px;color:var(--tx2)}
-  .ombar .r{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--tx3)}
-  .ombar .r button{font-family:inherit;background:var(--glass2);color:var(--tx);border:1px solid var(--hair);border-radius:9px;padding:7px 13px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
-  .ombar .r button:hover{background:rgba(255,255,255,.1)}
+  .ombar .l img{height:26px;width:auto}
+  .ombar .l b{font-size:12px;font-weight:800;letter-spacing:1.5px;color:#F0C000}
+  .ombar .c{font-size:12px;font-weight:700;letter-spacing:4px;color:#9AA6BE}
+  .ombar .r{display:flex;align-items:center;gap:12px;font-size:12px;color:#7E8AA3}
+  .ombar .r button{font-family:inherit;background:rgba(255,255,255,.08);color:#E8ECF4;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
+  .ombar .r button:hover{background:rgba(255,255,255,.16)}
   body.editing .ombar .r .edit{background:var(--cerise);border-color:var(--cerise);color:#fff}
 
-  .page{max-width:1040px;margin:0 auto;padding:26px 30px}
-  .sheet{position:relative;background:linear-gradient(180deg,#0E1017,#0B0D13);border:1px solid var(--hair);border-radius:24px;overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)}
-  .glow{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;z-index:0}
-  .glow.c{background:radial-gradient(circle,var(--cerise-g),transparent 70%);top:-200px;inset-inline-start:-120px}
-  .glow.s{background:radial-gradient(circle,var(--sky-g),transparent 70%);top:-200px;inset-inline-start:-120px}
-  .glow.d{background:radial-gradient(circle,var(--danger-g),transparent 70%);top:-200px;inset-inline-start:-120px}
-  .inner{position:relative;z-index:1;padding:28px 32px 32px}
+  .page{max-width:900px;margin:0 auto;padding:26px 22px 40px}
+  .sheet{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);margin-bottom:16px;padding:24px 26px}
 
-  .cobrand{display:flex;align-items:center;gap:12px;margin-bottom:18px;direction:ltr}
-  .cobrand .brand{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--tx2)}
-  .cobrand .brand img{height:22px;width:auto;border-radius:5px}
-  .cobrand .x{color:var(--tx3);font-weight:300}
+  .cobrand{display:flex;align-items:center;gap:11px;margin-bottom:16px;direction:ltr}
+  .cobrand .brand{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink2)}
+  .cobrand .brand img{height:20px;width:auto;border-radius:4px}
+  .cobrand .x{color:var(--ink3);font-weight:300}
 
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--tx2)}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--ink3)}
   .eyebrow .pp{width:8px;height:8px;border-radius:50%}
-  .eyebrow.crit .pp{background:var(--danger);box-shadow:0 0 12px var(--danger)}
-  .eyebrow.crit{color:var(--danger)}
-  .eyebrow.sms .pp{background:var(--sky);box-shadow:0 0 12px var(--sky)}
-  .eyebrow.sum .pp{background:var(--gold);box-shadow:0 0 12px var(--gold)}
-  .eyebrow.act .pp{background:var(--cerise);box-shadow:0 0 12px var(--cerise)}
+  .eyebrow.att .pp{background:var(--amber)} .eyebrow.att{color:var(--amber)}
+  .eyebrow.sms .pp{background:var(--sky)} .eyebrow.sms{color:var(--sky)}
+  .eyebrow.sum .pp{background:var(--cerise)} .eyebrow.sum{color:var(--cerise)}
+  .eyebrow.rec .pp{background:var(--green)} .eyebrow.rec{color:var(--green)}
 
-  h1.hh{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.5px;line-height:1.12;margin:14px 0 10px}
-  h2.sh{font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.3px;line-height:1.18;margin:13px 0 8px}
-  .val{font-size:16px;color:var(--tx2);font-weight:400;max-width:80ch;line-height:1.65}
-  .val b{color:var(--tx);font-weight:700}
+  h1.hh{font-size:clamp(23px,3.2vw,31px);font-weight:800;letter-spacing:-.4px;line-height:1.2;margin:12px 0 10px;color:var(--ink)}
+  h2.sh{font-size:clamp(18px,2.2vw,22px);font-weight:800;letter-spacing:-.2px;line-height:1.25;margin:11px 0 6px;color:var(--ink)}
+  .val{font-size:15.5px;color:var(--ink2);font-weight:400;line-height:1.68}
+  .val b{color:var(--ink);font-weight:700}
 
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
-  .acard{border-radius:16px;padding:18px 18px 16px;border:1px solid var(--hair);background:var(--glass)}
-  .acard.crit{border-color:rgba(255,90,90,.4);background:rgba(255,90,90,.05)}
-  .acard.ok{border-color:rgba(76,196,240,.34);background:rgba(76,196,240,.045)}
-  .acard .tag{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-  .acard.crit .tag{color:var(--danger)} .acard.ok .tag{color:var(--sky)}
-  .acard h4{font-size:16px;font-weight:800;margin:7px 0 6px;color:var(--tx)}
-  .acard p{font-size:13.5px;color:var(--tx2);line-height:1.55}
-  .acard .st{display:inline-block;margin-top:9px;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px}
-  .acard.crit .st{background:rgba(255,90,90,.14);color:#FF8a8a;border:1px solid rgba(255,90,90,.3)}
-  .acard.ok .st{background:rgba(76,196,240,.14);color:#9fdcf5;border:1px solid rgba(76,196,240,.3)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:18px}
+  .acard{border-radius:13px;padding:16px 16px 15px;border:1px solid var(--line2)}
+  .acard.att{border-color:#F0D6A8;background:var(--amber-s)}
+  .acard.ok{border-color:#BfE4F5;background:var(--sky-s)}
+  .acard .tag{font-size:11px;font-weight:800;letter-spacing:.4px}
+  .acard.att .tag{color:var(--amber)} .acard.ok .tag{color:var(--sky)}
+  .acard h4{font-size:15.5px;font-weight:800;margin:6px 0 5px;color:var(--ink)}
+  .acard p{font-size:13px;color:var(--ink2);line-height:1.55}
 
-  ul.blist{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:11px}
-  ul.blist li{position:relative;padding-inline-start:24px;font-size:15px;color:var(--tx2);line-height:1.55}
-  ul.blist li b{color:var(--tx);font-weight:700}
-  ul.blist li::before{content:"";position:absolute;inset-inline-start:4px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--tx3)}
-  ul.blist.crit li::before{background:var(--danger);box-shadow:0 0 9px var(--danger)}
-  ul.blist.sky li::before{background:var(--sky);box-shadow:0 0 9px var(--sky)}
+  ul.blist{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+  ul.blist li{position:relative;padding-inline-start:22px;font-size:15px;color:var(--ink2);line-height:1.6}
+  ul.blist li b{color:var(--ink);font-weight:700}
+  ul.blist li::before{content:"";position:absolute;inset-inline-start:3px;top:9px;width:7px;height:7px;border-radius:50%}
+  ul.blist.att li::before{background:var(--amber)}
+  ul.blist.sky li::before{background:var(--sky)}
 
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
-  .k{background:var(--glass);border:1px solid var(--hair);border-radius:13px;padding:13px 12px;text-align:center}
-  .k .v{font-size:21px;font-weight:900;color:var(--tx);line-height:1.1}
-  .k.crit .v{color:#FF8a8a}
-  .k .l{font-size:11.5px;color:var(--tx3);margin-top:4px;font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+  .k{background:var(--ink-s);border:1px solid var(--line);border-radius:12px;padding:13px 10px;text-align:center}
+  .k .v{font-size:18px;font-weight:900;color:var(--ink);line-height:1.15}
+  .k.att .v{color:var(--amber)}
+  .k .l{font-size:11.5px;color:var(--ink3);margin-top:4px;font-weight:600}
 
-  .callout{margin-top:20px;border-radius:14px;padding:16px 18px;display:flex;gap:13px;align-items:flex-start}
-  .callout.danger{background:rgba(255,90,90,.08);border:1px solid rgba(255,90,90,.34)}
-  .callout .ic{font-size:20px;line-height:1}
-  .callout .ct h5{font-size:15px;font-weight:800;color:#FF8a8a;margin-bottom:3px}
-  .callout .ct p{font-size:14px;color:var(--tx2);line-height:1.55}
+  .note{margin-top:18px;border-radius:12px;padding:14px 16px;display:flex;gap:11px;align-items:flex-start}
+  .note.tip{background:var(--cerise-s);border:1px solid #F4C9E2}
+  .note.good{background:var(--green-s);border:1px solid #BEE6D3}
+  .note .ic{font-size:17px;line-height:1.2}
+  .note .ct h5{font-size:14.5px;font-weight:800;margin-bottom:2px}
+  .note.tip .ct h5{color:#B80F73} .note.good .ct h5{color:#137A50}
+  .note .ct p{font-size:13.5px;color:var(--ink2);line-height:1.55}
 
-  .steps{counter-reset:s;list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:11px}
-  .steps li{counter-increment:s;position:relative;padding:13px 16px 13px 52px;background:var(--glass);border:1px solid var(--hair);border-radius:13px;font-size:14.5px;color:var(--tx2);line-height:1.5}
-  .steps li b{color:var(--tx)}
-  .steps li::before{content:counter(s);position:absolute;inset-inline-start:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--cerise-deep),var(--cerise));color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .steps{counter-reset:s;list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .steps li{counter-increment:s;position:relative;padding:12px 15px 12px 48px;background:var(--ink-s);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .steps li b{color:var(--ink)}
+  .steps li::before{content:counter(s);position:absolute;inset-inline-start:12px;top:50%;transform:translateY(-50%);width:25px;height:25px;border-radius:8px;background:var(--cerise);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
 
-  .qbox{margin-top:18px;border-radius:14px;padding:15px 18px;background:rgba(76,196,240,.06);border:1px dashed rgba(76,196,240,.4)}
-  .qbox .qh{font-size:13px;font-weight:800;letter-spacing:.5px;color:var(--sky);text-transform:uppercase;margin-bottom:5px}
-  .qbox p{font-size:14.5px;color:var(--tx2);line-height:1.55}
-  .qbox p b{color:var(--tx)}
-
-  .foot{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;padding:6px 8px 0;font-size:12.5px;color:var(--tx3)}
-  .foot b{color:var(--tx2)}
-  .note{margin-top:14px;font-size:13px;color:var(--tx3);border-top:1px solid var(--hair);padding-top:12px;line-height:1.55}
-
-  @media (max-width:720px){.split{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
-  @media print{.ombar{display:none}.glow{display:none}@page{size:A4;margin:8mm}.sheet{break-inside:avoid}}
-  [contenteditable]{outline:1px dashed #f0c000;outline-offset:2px;border-radius:3px}
-
-  .utable{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
-  .utable th{text-align:right;font-size:10.5px;font-weight:800;letter-spacing:.5px;color:var(--tx3);text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap}
-  .utable td{padding:9px 10px;border-bottom:1px solid var(--hair);color:var(--tx2);vertical-align:middle}
-  .utable td.uid{color:var(--tx3);font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
-  .utable td.un b{color:var(--tx);font-weight:700}
-  .utable td.un span{color:var(--tx3);font-size:11.5px}
-  .utable td.up{font-variant-numeric:tabular-nums;text-align:center;font-weight:800;color:var(--tx2)}
+  .utable-wrap{overflow-x:auto;margin-top:16px}
+  .utable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+  .utable th{text-align:right;font-size:10.5px;font-weight:800;letter-spacing:.4px;color:var(--ink3);text-transform:uppercase;padding:8px 10px;border-bottom:2px solid var(--line2);white-space:nowrap}
+  .utable td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:middle}
+  .utable td.uid{color:var(--ink3);font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
+  .utable td.un b{color:var(--ink);font-weight:700}
+  .utable td.un span{color:var(--ink3);font-size:11.5px}
+  .utable td.up{font-variant-numeric:tabular-nums;text-align:center;font-weight:800;color:var(--ink2)}
   .utable .ok{color:var(--sky);font-size:12.5px}
-  .utable tr.bad td{background:rgba(255,90,90,.1)}
-  .utable tr.bad td.un b{color:#FF8a8a}
-  .utable tr.bad .flag{color:var(--danger);font-weight:800;font-size:12.5px}
-  .uhint{font-size:13.5px;color:var(--tx2);max-width:82ch;line-height:1.62;margin-top:8px}
-  .uhint b{color:var(--tx)}
+  .utable tr.bad td{background:var(--amber-s)}
+  .utable tr.bad td.un b{color:#B86A00}
+  .utable tr.bad .flag{color:var(--amber);font-weight:800;font-size:12px}
+  .uhint{font-size:13.5px;color:var(--ink2);line-height:1.62;margin-top:8px}
+  .uhint b{color:var(--ink)}
+
+  .foot{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;padding:8px 6px 0;font-size:12.5px;color:var(--ink3)}
+  .foot b{color:var(--ink2)}
+
+  @media (max-width:680px){.split{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+  @media print{.ombar{position:static}@page{size:A4;margin:9mm}.sheet{break-inside:avoid;box-shadow:none}}
+  [contenteditable]{outline:1px dashed var(--cerise);outline-offset:2px;border-radius:3px}
 </style>
 </head>
 <body>
@@ -135,91 +120,59 @@
   <div class="r"><span>14 ביוני 2026</span><button class="edit" onclick="toggleEdit()">✏️ עריכה</button><button class="copy" onclick="copyHTML()" style="display:none">📋 העתק</button></div>
 </div>
 
-<!-- ════ HERO · EXECUTIVE SUMMARY ════ -->
 <div class="page">
-  <div class="sheet">
-    <div class="glow d"></div>
-    <div class="inner">
-      <div class="cobrand">
-        <span class="brand"><img src="gomobile.png" alt="GoMobile">GoMobile</span>
-        <span class="x">×</span>
-        <span class="brand"><img src="logo.png" alt="OctoMonic">OctoMonic</span>
-      </div>
-      <div class="eyebrow sum"><span class="pp"></span>סיכום מנהלים · אירוע אבטחה</div>
-      <h1 class="hh">שתי מתקפות שונות על האתר — והטיפול הנוכחי מכסה רק אחת מהן</h1>
-      <p class="val">על האתר מתרחשות כרגע <b>שתי מתקפות נפרדות בו-זמנית</b> — הן לא אותו דבר ודורשות שני טיפולים שונים. המפתח שלכם מטפל בְּאחת מהן (הצפת SMS) וזה תקין. אבל המתקפה <b>החמורה יותר — פריצה לשרת הוורדפרס שמזריקה תוכן הימורים לאתר</b> — עדיין פתוחה ולא טופלה, וכבר מוצגת בפועל לגולשים תחת השם של GoMobile.</p>
 
-      <div class="split">
-        <div class="acard crit">
-          <div class="tag">● מתקפה 1 · קריטית</div>
-          <h4>פריצה לשרת הוורדפרס</h4>
-          <p>קוד אוטומטי (דלת אחורית) מפרסם פוסטים של קזינו/הימורים בלי שום התחברות אנושית. כבר מוצג חי באתר הלקוחות.</p>
-          <span class="st">עדיין פתוחה · לא טופלה</span>
-        </div>
-        <div class="acard ok">
-          <div class="tag">● מתקפה 2 · בטיפול</div>
-          <h4>הצפת SMS</h4>
-          <p>בוטים מציפים טופס ששולח SMS (התחברות/אימות). המפתח חוסם לפי מספר ו-IP ומגביל קצב — מענה סביר למתקפה הזו.</p>
-          <span class="st">המפתח מטפל</span>
-        </div>
+  <!-- ════ HERO ════ -->
+  <div class="sheet">
+    <div class="cobrand">
+      <span class="brand"><img src="gomobile.png" alt="GoMobile">GoMobile</span>
+      <span class="x">×</span>
+      <span class="brand"><img src="logo.png" alt="OctoMonic">OctoMonic</span>
+    </div>
+    <div class="eyebrow sum"><span class="pp"></span>סקירת מצב · אבטחת האתר</div>
+    <h1 class="hh">תמונת מצב: שני נושאים נפרדים — ומה מומלץ לעשות</h1>
+    <p class="val">להלן תמונת מצב ברורה של מה שקורה כרגע באתר. יש <b>שני נושאים נפרדים</b> — הם לא אותו דבר. אחד מהם (הצפת SMS) כבר <b>בטיפול המפתח</b>, וזה טוב. השני — <b>תוכן שמתווסף אוטומטית בצד הוורדפרס</b> — דורש כמה צעדים נוספים, מפני שהטיפול ב-SMS לא נוגע בו. המסמך מסביר את שניהם, בשפה פשוטה, ואת הצעדים המומלצים.</p>
+
+    <div class="split">
+      <div class="acard att">
+        <div class="tag">● נושא 1 · דורש טיפול</div>
+        <h4>צד הוורדפרס</h4>
+        <p>קוד אוטומטי מפרסם פוסטים בנושא קזינו/הימורים, וכרגע הם מוצגים גם בחזית האתר. צריך לאתר ולהסיר את המקור.</p>
+      </div>
+      <div class="acard ok">
+        <div class="tag">● נושא 2 · בטיפול</div>
+        <h4>הצפת SMS</h4>
+        <p>בוטים מציפים טופס ששולח SMS. המפתח כבר חוסם ומגביל קצב — מענה סביר. נושא נפרד לחלוטין מהראשון.</p>
       </div>
     </div>
   </div>
 
-  <!-- ════ ATTACK 1 ════ -->
+  <!-- ════ WORDPRESS SIDE ════ -->
   <div class="sheet">
-    <div class="glow d"></div>
-    <div class="inner">
-      <div class="eyebrow crit"><span class="pp"></span>מתקפה 1 — פריצה לשרת הוורדפרס · קריטית · עדיין פתוחה</div>
-      <h2 class="sh">דלת אחורית מזריקה תוכן הימורים — וכעת הוא חי באתר הלקוחות</h2>
-
-      <ul class="blist crit">
-        <li>על <b>admin.gomobile.co.il</b> רץ קוד שמפרסם אוטומטית פוסטים של <b>קזינו והימורים</b> ("ספאם SEO טפילי") במספר שפות.</li>
-        <li>כל פוסט נוצר עם <b>author=0</b> — כלומר בלי שום משתמש מחובר. זו חתימה ודאית של <b>דלת אחורית אוטומטית עם הרשאת כתיבה</b> לוורדפרס, לא פריצה של סיסמה אנושית.</li>
-        <li><b>34 פוסטים</b> הוזרקו בין 09/06 ל-13/06 (שיא ב-10/06 — 25 פוסטים). כרגע ההזרקה נעצרה — אבל <b>כל הפוסטים עדיין חיים ולא נוקו</b>.</li>
-        <li><b>ההסלמה המרכזית:</b> ב-12/06 חזית האתר עדיין החזירה שגיאה 404 על הכתובות האלה. <b>היום הספאם כבר מוצג חי</b> ב-<b>www.gomobile.co.il</b> — מאמר קזינו מלא, עם הכותרת "גומובייל — …", תחת המותג שלכם. בדקנו חי היום, כולל בתור Googlebot — <b>אין הסתרה, גוגל יכול לאנדקס את זה</b>.</li>
-        <li>חשבון בשם <b>"baruch" (#807)</b> מפרסם ספאם — כל פעילותו <b>פוסט קזינו אחד</b>. המזהה הנמוך (מתוך ~50,000 משתמשי האתר) מצביע על <b>חשבון ותיק/ישן</b>, כך שסביר יותר שמדובר ב<b>חשבון קיים שנפרץ או נוצל</b> מאשר חשבון חדש שהושתל. פירוט מלא בהמשך (״מי יכול לכתוב לאתר״).</li>
-        <li>התוכן כרגע הוא <b>קישורי-ספאם בלבד</b> (אין סקריפט/סקימר זדוני בגוף הדף) — <b>אבל אותה הרשאת כתיבה יכולה לעבור בכל רגע</b> להזרקת קוד לעמוד התשלום או לגניבת נתוני לקוחות.</li>
-      </ul>
-
-      <div class="stats">
-        <div class="k crit"><div class="v">34</div><div class="l">פוסטי ספאם</div></div>
-        <div class="k crit"><div class="v">author=0</div><div class="l">בלי התחברות</div></div>
-        <div class="k crit"><div class="v">חי באתר</div><div class="l">מוצג לגולשים</div></div>
-        <div class="k crit"><div class="v">1</div><div class="l">חשבון זר ("baruch")</div></div>
-      </div>
+    <div class="eyebrow att"><span class="pp"></span>נושא 1 — צד הוורדפרס</div>
+    <h2 class="sh">קוד אוטומטי מוסיף פוסטים, וכעת הם מוצגים בחזית</h2>
+    <ul class="blist att">
+      <li>בצד הניהול (<b>admin.gomobile.co.il</b>) רץ קוד שמפרסם אוטומטית פוסטים בנושא <b>קזינו/הימורים</b> בכמה שפות.</li>
+      <li>כל פוסט נוצר עם <b>author=0</b> — כלומר ע"י <b>קוד, בלי משתמש מחובר</b>. המשמעות: מדובר בתהליך אוטומטי שיש לו הרשאת כתיבה, ולא בכניסה עם סיסמה של מישהו מהצוות.</li>
+      <li>כ-<b>34 פוסטים</b> נוצרו בין 09/06 ל-13/06. ההוספה <b>נעצרה כרגע</b>, אבל הפוסטים <b>עדיין קיימים</b> ולא הוסרו.</li>
+      <li>עד 12/06 הפוסטים החזירו שגיאה (404) בחזית. <b>היום הם כבר מוצגים</b> ב-<b>www.gomobile.co.il</b> תחת המותג שלכם — בדקנו חי, כולל בתור Googlebot. זה החלק שהכי כדאי לטפל בו מבחינת מיתוג ו-SEO.</li>
+      <li>יש חשבון אחד חריג בשם <b>baruch</b> שכל פעילותו פוסט קזינו אחד — פירוט בטבלה למטה.</li>
+      <li>כרגע מדובר ב<b>קישורי-ספאם בלבד</b>, ללא קוד זדוני לגולשים. הסיבה לסגור את זה היא בעיקר <b>מניעתית</b> — כדי שאותה גישה לא תשמש בהמשך לדברים רגישים יותר.</li>
+    </ul>
+    <div class="stats">
+      <div class="k att"><div class="v">34</div><div class="l">פוסטים שנוספו</div></div>
+      <div class="k att"><div class="v">author=0</div><div class="l">קוד, לא משתמש</div></div>
+      <div class="k att"><div class="v">מוצג בחזית</div><div class="l">נראה לגולשים</div></div>
+      <div class="k att"><div class="v">1</div><div class="l">חשבון חריג</div></div>
     </div>
   </div>
 
-  <!-- ════ HOW THEY GOT IN · RCE ════ -->
+  <!-- ════ USERS ════ -->
   <div class="sheet">
-    <div class="glow d"></div>
-    <div class="inner">
-      <div class="eyebrow crit"><span class="pp"></span>איך כנראה נכנסו — RCE (הרצת קוד מרחוק)</div>
-      <h2 class="sh">RCE — החולשה החמורה ביותר: הרצת קוד זר על השרת שלכם</h2>
-      <ul class="blist crit">
-        <li><b>RCE = Remote Code Execution (הרצת קוד מרחוק)</b> — סוג החולשה החמור ביותר שקיים. הוא מאפשר לתוקף <b>להריץ קוד משלו על השרת שלכם — מרחוק, ובלי הרשאה</b>.</li>
-        <li>במילים פשוטות: זה כמו למסור לזר את המפתח לבניין. ברגע שהוא יכול להריץ קוד הוא יכול <b>ליצור פוסטים</b> (הדלת האחורית author=0), <b>להוסיף משתמשים</b> (baruch), <b>לקרוא את מסד הנתונים</b> (פרטי לקוחות), ולהשתיל עוד דלתות אחוריות.</li>
-        <li><b>איך זה קורה דרך תוסף פגיע:</b> לתוסף יש פגם (למשל מאפשר העלאת קובץ בלי בדיקה תקינה). התוקף מעלה קובץ PHP זדוני ("web shell"), ניגש אליו בדפדפן — ומאותו רגע הקוד שלו רץ על השרת. זו ככל הנראה נקודת הכניסה שמסבירה את כל מה שאנחנו רואים.</li>
-        <li><b>אצלכם:</b> התוסף <b>WP File Manager</b> מותקן בגרסה ישנה (8.0.4) — תוסף לגיטימי, אך לגרסה הזו <b>היסטוריה של חולשות RCE קריטיות</b> (העלאת קובץ ← הרצת קוד). מערכת לא מעודכנת = החור נשאר פתוח. זה מתיישב עם התיאוריה של המפתח (מנוי האבטחה פג ← השרת לא עודכן/לא הוגן). את ה-CVE המדויק יש לאמת בבדיקה הטכנית מול הקבצים.</li>
-      </ul>
-      <div class="callout danger">
-        <div class="ic">🔑</div>
-        <div class="ct">
-          <h5>נקודה קריטית: הכניסה ≠ הדלת האחורית</h5>
-          <p>ה-RCE היא כנראה <b>איך נכנסו</b>. הדלת האחורית (author=0) היא <b>מה שהשאירו מאחור</b>. <b>עדכון או תיקון התוסף לא מסיר את הדלת האחורית</b> — צריך לנקות אותה בנפרד, אחרת הפריצה נשארת גם אחרי העדכון.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════ WHO CAN WRITE · USERS ════ -->
-  <div class="sheet">
-    <div class="glow s"></div>
-    <div class="inner">
-      <div class="eyebrow sms"><span class="pp"></span>מי יכול לכתוב לאתר — 11 חשבונות מתוך ~50,000</div>
-      <h2 class="sh">רק 11 חשבונות יכולים לכתוב תוכן — ואחד מהם זר</h2>
-      <p class="uhint">באתר יש <b>~50,000 חשבונות משתמש</b> — אבל כמעט כולם <b>לקוחות</b> (כל לקוח WooCommerce הוא חשבון וורדפרס). ללקוחות <b>אין שום יכולת כתיבה</b> — רק הזמנות וחשבון אישי. רק <b>11 חשבונות</b> יכולים לכתוב תוכן או לגשת לניהול. הנה כולם — שימו לב לשורה האדומה:</p>
+    <div class="eyebrow sum"><span class="pp"></span>מי יכול לכתוב לאתר</div>
+    <h2 class="sh">רק 11 חשבונות יכולים לכתוב — מתוך ~50,000 משתמשים</h2>
+    <p class="uhint">באתר יש <b>~50,000 חשבונות</b>, אבל כמעט כולם <b>לקוחות</b> (כל לקוח באתר הוא חשבון משתמש) — וללקוחות אין שום יכולת כתיבה, רק הזמנות וחשבון אישי. רק <b>11 חשבונות</b> יכולים לכתוב תוכן או לגשת לניהול. הנה כולם:</p>
+    <div class="utable-wrap">
       <table class="utable">
         <thead><tr><th>מזהה</th><th>חשבון</th><th>פוסטים</th><th>פעילות אחרונה</th><th>סטטוס</th></tr></thead>
         <tbody>
@@ -229,71 +182,61 @@
           <tr><td class="uid">#206</td><td class="un"><b>אנטון — ארכיון תמונות</b> <span>anton-gomobile</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
           <tr><td class="uid">#209</td><td class="un"><b>Shimon Asulin</b> <span>shimon</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
           <tr><td class="uid">#214</td><td class="un"><b>יעל</b> <span>yael_gomobile</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
-          <tr class="bad"><td class="uid">#807</td><td class="un"><b>Baruch</b> <span>baruch</span></td><td class="up">1</td><td>12/06/2026</td><td class="flag">⚠ חשוד — פוסט הקזינו היחיד</td></tr>
+          <tr class="bad"><td class="uid">#807</td><td class="un"><b>Baruch</b> <span>baruch</span></td><td class="up">1</td><td>12/06/2026</td><td class="flag">⚑ חריג — פוסט הקזינו היחיד</td></tr>
           <tr><td class="uid">#1304</td><td class="un"><b>כפיר אדוויג</b> <span>kfir-gomobile</span></td><td class="up">18</td><td>מרץ 2025</td><td class="ok">צוות</td></tr>
           <tr><td class="uid">#16883</td><td class="un"><b>אנטון דיגיטל</b> <span>anton-3</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
           <tr><td class="uid">#26449</td><td class="un"><b>טל בכר</b> <span>talbahar</span></td><td class="up">1</td><td>נוב׳ 2025</td><td class="ok">צוות</td></tr>
           <tr><td class="uid">#37656</td><td class="un"><b>יעל</b> <span>yaelh</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
         </tbody>
       </table>
-      <p class="uhint" style="margin-top:14px"><b>baruch (#807)</b> הוא החשבון היחיד שכל פעילותו <b>פוסט קזינו אחד</b> (12/06/2026). כל שאר החשבונות הם צוות עם תוכן מוצרים אמיתי (2024–2025) או ללא פוסטים כלל. כפי שצוין, המזהה הנמוך מצביע על <b>חשבון ותיק</b> — ייתכן חשבון אמיתי רדום שנפרץ, או חשבון שהושתל. <b>תאריך ההרשמה והתפקיד</b> ניתנים לאימות רק בגישה למסד הנתונים. (הערה: רשימת המשתמשים הזו גלויה לציבור דרך ה-API — חולשת הקשחה בפני עצמה.)</p>
     </div>
+    <p class="uhint" style="margin-top:14px"><b>baruch (#807)</b> הוא היחיד שכל פעילותו פוסט קזינו אחד (12/06). כל השאר הם צוות עם תוכן מוצרים אמיתי (2024–2025) או ללא פוסטים. המזהה הנמוך (מתוך ~50,000) מצביע על <b>חשבון ותיק</b> — קרוב לוודאי חשבון קיים שנפרץ ולא חשבון חדש שהושתל. את תאריך ההרשמה והתפקיד אפשר לאמת בגישה למסד הנתונים.</p>
   </div>
 
-  <!-- ════ ATTACK 2 ════ -->
+  <!-- ════ SMS SIDE ════ -->
   <div class="sheet">
-    <div class="glow s"></div>
-    <div class="inner">
-      <div class="eyebrow sms"><span class="pp"></span>מתקפה 2 — הצפת SMS · זו שהמפתח מטפל בה</div>
-      <h2 class="sh">בוטים מציפים טופס ששולח SMS — בעיה אמיתית, אבל אחרת לגמרי</h2>
+    <div class="eyebrow sms"><span class="pp"></span>נושא 2 — צד ה-SMS · בטיפול</div>
+    <h2 class="sh">הצפת טופס SMS — בעיה אמיתית, אבל נפרדת</h2>
+    <ul class="blist sky">
+      <li>במקביל, בוטים מפציצים <b>טופס ציבורי ששולח SMS</b> (כנראה התחברות/אימות) — כ-<b>142 מספרים ו-873 הודעות</b>, עם החלפת כתובת IP.</li>
+      <li><b>המפתח כבר מטפל בזה</b> — חסימה לפי מספר ו-IP והגבלת קצב. זה מענה סביר ונכון לבעיה הזו.</li>
+      <li>הנקודה החשובה: זו בעיה <b>נפרדת</b> מהתוכן בצד הוורדפרס. הטיפול ב-SMS לא מסיר את הפוסטים ולא נוגע בנושא 1.</li>
+    </ul>
+  </div>
 
-      <ul class="blist sky">
-        <li>בוטים מפציצים <b>טופס ציבורי ששולח SMS</b> (ככל הנראה התחברות ללא-סיסמה / אימות OTP) — <b>142 מספרי טלפון, כ-873 הודעות</b>, כשהם <b>מחליפים כתובת IP כל ~10 דקות</b>.</li>
-        <li>זו מתקפת <b>הצפת SMS</b> שמנצלת <b>פיצ'ר ציבורי</b> — היא <b>לא דורשת גישה לשרת</b> בכלל.</li>
-        <li>הטיפול של המפתח — <b>חסימה לפי מספר + IP והגבלת קצב</b> — הוא מענה <b>סביר ונכון למתקפה הזו</b>.</li>
-        <li><b>אבל הוא לא נוגע במתקפה 1.</b> חסימת מספרי טלפון לא עוצרת אפילו פוסט קזינו אחד, לא מסירה את הדלת האחורית, ולא מורידה את הספאם מהאתר.</li>
-      </ul>
-
-      <div class="qbox">
-        <div class="qh">שאלה פתוחה למפתח</div>
-        <p><b>מה כתוב בתוך 873 ההודעות?</b> אם יש בהן קישורי קזינו — מדובר באותה מתקפה דרך ערוץ שני (SMS), והשתיים מקושרות. אם זה "רעש" אימות בלבד — הן בעיות נפרדות. התשובה קובעת אם זה תוקף אחד או שניים.</p>
+  <!-- ════ RECOMMENDATIONS ════ -->
+  <div class="sheet">
+    <div class="eyebrow rec"><span class="pp"></span>מה מומלץ עכשיו</div>
+    <h2 class="sh">ארבעה צעדים לסגירת הנושא בצד הוורדפרס</h2>
+    <div class="note tip">
+      <div class="ic">💡</div>
+      <div class="ct">
+        <h5>הטיפול ב-SMS מצוין — הוא פשוט נוגע בנושא אחר</h5>
+        <p>כדי לסגור את הנושא בצד הוורדפרס (הפוסטים) צריך את הצעדים הבאים, במקביל לטיפול ב-SMS.</p>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><b>צילום מצב</b> (קבצים + מסד נתונים) לפני שינויים — לשמירת מידע למקרה הצורך.</li>
+      <li><b>גישה</b> (שלנו או של חברת האחסון) לקבצים / מסד נתונים / ניהול — כדי לאתר ולהסיר את הקוד שמוסיף את הפוסטים.</li>
+      <li><b>הסרת התוכן מהחזית ומה-sitemap</b> — לעצירת ההשפעה על המיתוג וה-SEO.</li>
+      <li><b>החלפת מפתחות לאחר הניקוי</b> (כולל מפתח הקריאה שלנו) — כצעד שגרתי שמונע פריצה חוזרת.</li>
+    </ol>
+    <div class="note good">
+      <div class="ic">✓</div>
+      <div class="ct">
+        <h5>לגבי הצד שלנו</h5>
+        <p>המערכת והאינטגרציה של OctoMonic הן <b>לקריאה בלבד</b> ו<b>אינן</b> נקודת הכניסה. כל הממצאים במסמך אומתו חי מול האתר היום (14/06), כולל אימות עצמאי בתור Googlebot.</p>
       </div>
     </div>
   </div>
 
-  <!-- ════ MEANING + ACTIONS ════ -->
-  <div class="sheet">
-    <div class="glow c"></div>
-    <div class="inner">
-      <div class="eyebrow act"><span class="pp"></span>המשמעות · ומה צריך לקרות עכשיו</div>
-      <h2 class="sh">לא להניח שהטופל ב-SMS = "טיפלנו במתקפה"</h2>
-
-      <div class="callout danger">
-        <div class="ic">⚠️</div>
-        <div class="ct">
-          <h5>הסיכון: תחושת ביטחון שגויה</h5>
-          <p>חסימת מספרי הטלפון עוצרת את הצפת ה-SMS — אבל הדלת המסוכנת (הרשאת כתיבה לשרת) <b>עדיין פתוחה לרווחה</b>. הגבלת קצב למספרים <b>אינה</b> טיפול באירוע. הדלת האחורית, חשבון "baruch", והספאם החי באתר — כולם עדיין שם.</p>
-        </div>
-      </div>
-
-      <ol class="steps">
-        <li><b>צילום מצב מלא (קבצים + מסד נתונים)</b> לפני שנוגעים בכלום — כדי לא להשמיד ראיות.</li>
-        <li><b>גישה ל-OctoMonic (או לחברת האחסון) — קבצים + DB + ניהול</b> כדי לאתר ולהסיר את הדלת האחורית.</li>
-        <li><b>להוריד מהחזית את הצגת הכתובות האלה ולמחוק אותן מ-sitemap</b> — לעצור מיד את הנזק למותג ול-SEO.</li>
-        <li><b>להחליף את כל המפתחות אחרי הסרת הדלת האחורית</b> — כולל מפתח ה-WooCommerce (לקריאה בלבד) של OctoMonic — כדי שהניקוי לא ייפרץ מחדש.</li>
-      </ol>
-
-      <div class="note">הערה: המערכת והאינטגרציה של OctoMonic / GPI הן <b>לקריאה בלבד</b> ו<b>אינן</b> נקודת הכניסה של הפריצה. כל הממצאים לעיל אומתו <b>חי מול האתר היום (14/06)</b>, כולל אימות עצמאי בתור Googlebot.</div>
-    </div>
-  </div>
-
-  <div class="foot"><span><b>OctoMonic</b> · תום לוי</span><span>סקירת אירוע אבטחה · הוכן עבור הנהלת GoMobile · 14 ביוני 2026</span></div>
+  <div class="foot"><span><b>OctoMonic</b> · תום לוי</span><span>סקירת מצב אבטחה · הוכן עבור הנהלת GoMobile · 14 ביוני 2026</span></div>
 </div>
 
 <script>
   function toggleEdit(){
     const on=document.body.classList.toggle('editing');
-    document.querySelectorAll('.inner h1,.inner h2,.inner h4,.inner h5,.inner p,.inner span,.inner b,.inner small,.inner li,.inner .v,.inner .l').forEach(el=>{
+    document.querySelectorAll('.sheet h1,.sheet h2,.sheet h4,.sheet h5,.sheet p,.sheet span,.sheet b,.sheet li,.sheet td').forEach(el=>{
       if(on)el.setAttribute('contenteditable','true'); else el.removeAttribute('contenteditable');
     });
     document.querySelector('.ombar .copy').style.display=on?'inline-block':'none';
