@@ -164,7 +164,15 @@
   .safe b{color:var(--cerise)}
   .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}
   @media(max-width:880px){.menu{grid-template-columns:1fr}}
-  .pkg{padding:18px;position:relative}
+  .pkg{padding:18px;position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:.18s}
+  a.pkg:hover{transform:translateY(-3px);border-color:var(--hair2)}
+  .pneed,.phow{font-size:12px;color:var(--tx2);margin-top:9px;line-height:1.5;display:flex;gap:7px}
+  .pneed span,.phow span{font-weight:800;color:var(--tx);flex:none}
+  .pmore{margin-top:auto;padding-top:13px;border-top:1px solid var(--hair);font-size:12.5px;font-weight:800}
+  .p1 .pmore{color:var(--cerise)} .p2 .pmore{color:var(--sky)} .p3 .pmore{color:var(--gold)}
+  .future{margin-top:18px;padding:16px 18px}
+  .future h5{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:11px}
+  .future .chips{display:flex;flex-direction:row;gap:9px;flex-wrap:wrap}
   .pkg.hot{border-color:rgba(240,192,0,.45);box-shadow:0 0 0 1px rgba(240,192,0,.25),0 20px 50px -25px rgba(240,192,0,.25)}
   .pkg .rib{position:absolute;top:-11px;inset-inline-start:18px;background:var(--gold);color:#1a1500;font-size:11px;font-weight:800;padding:3px 11px;border-radius:999px}
   .pkg.p1{border-top:3px solid var(--cerise)} .pkg.p2{border-top:3px solid var(--sky)} .pkg.p3{border-top:3px solid var(--gold)}
@@ -333,16 +341,39 @@
         </div>
         <div class="flow"><div class="pill src">🧾 קופה</div><span class="ar">←</span><div class="pill">📊 מכירות</div><div class="pill">📦 מלאי</div></div>
       </div>
-      <p class="safe">המשמעות עבורכם: הכלים נבנים <b>מעל</b> המערכת שלכם — לא בתוכה. בלי סיכון לליבה, בלי האטה, והמפתח שלכם שומר שליטה מלאה.</p>
+      <p class="safe">המשמעות עבורכם: הכלים נבנים <b>מעל</b> המערכת שלכם — לא בתוכה. בלי סיכון לליבה ובלי האטה. אנחנו מספקים למפתח שלכם תוכנית מוכנה לבנייה, והוא שומר שליטה מלאה.</p>
       <div class="menu">
-        <div class="pkg glass-c p1"><span class="plabel">אופציה 01</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>כל מוצר בנפרד</h4><p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p><div class="preq">👁️ רק <b>קריאה</b> מהמערכת — בלי לגעת או לשנות דבר</div></div>
-        <div class="pkg glass-c p2"><span class="plabel">אופציה 02</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>שני המוצרים יחד</h4><p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p><div class="preq">👁️ רק <b>קריאה</b> מהמערכת — בלי לגעת, ובלי האטה</div></div>
-        <div class="pkg glass-c p3"><span class="plabel">אופציה 03</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div><h4>"GoMobile Ops" — הכל + קופה</h4><p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p><div class="preq">✍️ קריאה + רישום כל מכירה בחזרה — דרך חיבור אחד שהמפתח שלכם שולט בו</div></div>
+        <a class="pkg glass-c p1" href="option-01.html">
+          <span class="plabel">אופציה 01</span>
+          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
+          <h4>כל מוצר בנפרד</h4>
+          <p>מתחילים מכלי אחד — מעקב מכירות או דשבורד מלאי — לפי מה שדחוף לכם.</p>
+          <div class="pneed"><span>צריך:</span>גישת קריאה למידע — רק לקרוא, לא לשנות</div>
+          <div class="phow"><span>איך:</span>מתחברים למידע הקיים ובונים את הדשבורד מעליו</div>
+          <div class="pmore">לפרטים מלאים ›</div>
+        </a>
+        <a class="pkg glass-c p2" href="option-02.html">
+          <span class="plabel">אופציה 02</span>
+          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
+          <h4>שני המוצרים יחד</h4>
+          <p>מעקב מכירות + דשבורד מלאי, יחד, מהיום הראשון.</p>
+          <div class="pneed"><span>צריך:</span>גישת קריאה לשני סוגי המידע — עדיין רק קריאה</div>
+          <div class="phow"><span>איך:</span>שני דשבורדים תחת התחברות אחת, בלי שינוי לצוות</div>
+          <div class="pmore">לפרטים מלאים ›</div>
+        </a>
+        <a class="pkg glass-c p3" href="option-03.html">
+          <span class="plabel">אופציה 03</span>
+          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div>
+          <h4>"GoMobile Ops" — הכל + קופה</h4>
+          <p>המערכת המלאה — קופה שמזינה את הכול: מכירות, מלאי וצוות.</p>
+          <div class="pneed"><span>צריך:</span>קריאה + רישום מכירות, דרך חיבור שהמפתח שלכם שולט בו</div>
+          <div class="phow"><span>איך:</span>הקופה רושמת כל מכירה ברגע אמת — והכלים מתמלאים לבד</div>
+          <div class="pmore">לפרטים מלאים ›</div>
+        </a>
       </div>
-      <div class="band">
-        <div class="col glass-c"><h5>🔑 מה צריך מכם</h5><ul><li>גישת קריאה למידע — רק לקרוא, לא לשנות</li><li>לקופה: סליקת האשראי הקיימת שלכם (CreditGuard)</li><li>סניף אחד לניסוי</li></ul></div>
-        <div class="col glass-c"><h5>🤝 מי בונה ושולט</h5><div class="roles"><span class="rc">אנחנו מספקים למפתח שלכם תוכנית מוכנה לבנייה</span><span class="rc">המפתח שלכם בונה ושומר שליטה מלאה</span><span class="rc" style="border-color:rgba(255,61,166,.35);color:var(--cerise)">לא נוגעים בליבה — רק בונים מעליה</span></div></div>
-        <div class="col glass-c"><h5>🔭 בהמשך הדרך</h5><div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span><span class="dchip">🤖 סוכן תמיכה חכם לאתר</span></div></div>
+      <div class="future glass-c">
+        <h5>🔭 בהמשך הדרך — כיוונים נוספים לדיון</h5>
+        <div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span><span class="dchip">🤖 סוכן תמיכה חכם לאתר</span></div>
       </div>
     </div>
   </div>
