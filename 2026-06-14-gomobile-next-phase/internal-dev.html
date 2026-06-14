@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Project: GoMobile · Working alongside existing development (client-facing, diplomatic) -->
+<!-- Project: GoMobile · Working alongside existing development + retainer offer + optional positioning click-down -->
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{--bg0:#08090E;--glass:rgba(255,255,255,.035);--hair:rgba(255,255,255,.08);--hair2:rgba(255,255,255,.14);
+  :root{--bg0:#08090E;--glass:rgba(255,255,255,.035);--glass2:rgba(255,255,255,.06);--hair:rgba(255,255,255,.08);--hair2:rgba(255,255,255,.14);
     --tx:#EEF0F6;--tx2:#9AA3B5;--tx3:#6B7488;--gold:#F0C000;--ac:#4CC4F0;--ac-g:rgba(76,196,240,.16)}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg0);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -18,17 +18,25 @@
   .back{display:inline-flex;gap:7px;color:var(--tx2);text-decoration:none;font-weight:700;font-size:13px;margin-bottom:20px}
   .back:hover{color:var(--ac)}
   .chip{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:5px 12px;border-radius:999px;background:var(--ac-g);color:var(--ac);margin-bottom:14px}
-  h1{font-size:clamp(26px,4vw,38px);font-weight:900;letter-spacing:-.5px;line-height:1.08}
-  .sum{font-size:18px;color:var(--tx2);margin-top:10px;max-width:72ch}
+  h1{font-size:clamp(25px,3.7vw,36px);font-weight:900;letter-spacing:-.5px;line-height:1.1}
+  .sum{font-size:18px;color:var(--tx2);margin-top:10px;max-width:74ch}
   .sec{background:var(--glass);border:1px solid var(--hair);border-radius:18px;padding:22px 24px;margin-top:18px}
+  .sec.hl{border-color:rgba(76,196,240,.3);background:rgba(76,196,240,.05)}
   .sec h3{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ac);margin-bottom:13px}
   .sec p{color:var(--tx);font-size:15.5px}
   .sec ul{list-style:none;display:flex;flex-direction:column;gap:10px}
   .sec li{font-size:15px;color:var(--tx);display:flex;gap:10px}
   .sec li::before{content:"✓";color:var(--ac);font-weight:900}
-  .sec li b{color:#fff}
-  .foot{color:var(--tx3);font-size:12.5px;padding:24px 2px 0}
+  .sec li b,.sec p b{color:#fff}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  details{margin-top:20px;border:1px dashed var(--hair2);border-radius:16px;background:rgba(240,192,0,.05);overflow:hidden}
+  summary{cursor:pointer;padding:16px 20px;font-weight:800;font-size:14px;color:var(--gold);list-style:none;display:flex;align-items:center;gap:10px}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"▾";transition:.2s;font-size:12px}
+  details[open] summary::before{transform:rotate(180deg)}
+  .dd{padding:2px 20px 20px;font-size:15px;color:var(--tx);line-height:1.7}
+  .dd p{margin-bottom:11px}.dd p:last-child{margin-bottom:0}.dd b{color:#fff}
+  .foot{color:var(--tx3);font-size:12.5px;padding:24px 2px 0}
 </style>
 </head>
 <body>
@@ -36,33 +44,47 @@
 <div class="wrap">
   <a class="back" href="./">‹ חזרה למצגת</a>
   <div class="chip">פיתוח פנימי כללי</div>
-  <h1>עבודה לצד הפיתוח הקיים שלכם</h1>
-  <p class="sum">תוספת יכולת פיתוח — בלי לשבש ובלי להחליף את מי שמתחזק את המערכות שלכם היום. יותר כוח, יותר גמישות, ושותף טכני נוסף לצידכם.</p>
+  <h1>הגורם הטכני שלכם — לצד הפיתוח הקיים</h1>
+  <p class="sum">המפתח הקיים ממשיך להריץ ולתחזק את המערכות, בשליטה מלאה. אנחנו נכנסים כשותף הטכני שלכם לצידו — מרכזים, מאפיינים ומבצעים — ועוזרים לכם לראות את התמונה המלאה.</p>
 
-  <div class="sec"><h3>💡 הגישה</h3>
-    <p>אנחנו בונים <b>מעל</b> המערכות הקיימות שלכם, דרך נקודות חיבור מוגדרות. הפיתוח הקיים נשאר בשליטה מלאה על התחום שלו — האתר והמערכת המרכזית. אנחנו מוסיפים יכולות חדשות מעליהם, ומשמשים שותף טכני נוסף.</p>
+  <div class="sec"><h3>🤝 הגישה</h3>
+    <p>הפיתוח הקיים נשאר <b>במקומו ובשליטתו</b> — מריץ ומתחזק את המערכות כפי שהוא עושה היום. אנחנו עובדים <b>לצידו</b>: מוסיפים יכולת, מרכזים את העבודה הטכנית, ובונים את הכלים החדשים מעל.</p>
+  </div>
+
+  <div class="sec hl"><h3>🛠️ ההצעה</h3>
+    <ul>
+      <li>OctoMonic משמשת <b>הגורם הטכני שלכם</b>, בבסיס ריטיינר</li>
+      <li><b>נקודת קשר אחת</b> שמרכזת את כל התקשורת מול הספקים — Parallax, bGate וכל גורם אחר</li>
+      <li>ייעוץ, <b>כתיבת אפיונים מוכנים לבנייה</b>, וניהול — כך שכל פרויקט יוצא זול יותר, מהיר יותר, מבוצע טוב יותר ובזמן</li>
+      <li>ובכל רגע נכנסים ומסייעים גם <b>בפיתוח עצמו</b> — בדיוק כפי שאנחנו מסייעים כעת בליווי אירוע האבטחה שלכם</li>
+    </ul>
   </div>
 
   <div class="grid2">
-    <div class="sec"><h3>📈 היתרון לכם</h3>
+    <div class="sec"><h3>📊 בהירות להחלטה</h3>
       <ul>
-        <li><b>זריזות</b> — פרויקטים חדשים מתקדמים בקצב שלכם, בלי להיתקע על זמינות של גורם אחד</li>
-        <li><b>בלי תלות בנקודה אחת</b> — שותף טכני נוסף שמבטיח שלא תיתקעו</li>
-        <li><b>הפיתוח הקיים נשאר מרכזי</b> — אנחנו מספקים תוכניות מוכנות לבנייה; הם נעזרים, לא מודחים</li>
+        <li>נעזור לכם למפות את <b>התמונה הכספית המלאה</b> — מה משולם היום מול מה שנדרש קדימה</li>
+        <li>כך כל החלטה — מה להשאיר ומה אולי להכניס פנימה — מתקבלת בעיניים פקוחות</li>
+        <li>בהירות, לא ניחושים</li>
       </ul>
     </div>
-    <div class="sec"><h3>⚙️ איך זה עובד</h3>
+    <div class="sec"><h3>📈 היתרון לכם</h3>
       <ul>
-        <li>תפקידים ברורים — לכל גורם התחום שלו</li>
-        <li>אנחנו מאפיינים ומספקים תוכנית מוכנה → הם בונים ושומרים בעלות</li>
-        <li>או: אנחנו בונים את השכבה החדשה מעל — בלי לגעת בליבה</li>
+        <li><b>המשכיות</b> — המפתח הקיים שומר על תפקידו</li>
+        <li><b>זריזות</b> — הכול זז מהר יותר, דרך גורם אחד שמרכז</li>
+        <li><b>עומק טכני בצד שלכם</b> — ליווי, הדרכה וייעוץ בכל החלטה</li>
       </ul>
     </div>
   </div>
 
-  <div class="sec"><h3>🤝 שותף טכני לצידכם</h3>
-    <p>מעבר לבנייה — OctoMonic זמינה כשותף טכני שוטף: ליווי לשיחות ולפגישות טכניות כמומחים מטעמכם, הדרכת צוות, וייעוץ כללי. כך יש לכם עומק טכני <b>בצד שלכם</b> של השולחן — בכל החלטה ובכל מול-ספק.</p>
-  </div>
+  <details>
+    <summary>זווית הצגה — לשיקולכם (לחצו לפתיחה)</summary>
+    <div class="dd">
+      <p>זו במהותה <b>החלטה משפחתית</b>. הבעלים הם שמובילים את הכיוון, ורוצים את OctoMonic עובדת לצד הפיתוח הקיים.</p>
+      <p>כך כדאי למסגר זאת מולו: לא תחרות, אלא שיתוף פעולה שהמשפחה יוזמת. הוא שומר על תפקידו ועל השליטה; אנחנו נכנסים כי המשפחה מבקשת זאת. כך הוא מקבל <b>ודאות</b>, לא תחושת איום.</p>
+      <p>אפשרות לבחון יחד, כחלק מאותה שיחה: הסדרת האחסון/הניהול בתנאים הוגנים, לצד הבנת העלות הנוכחית מול המוצע — כך שכולם יוצאים מרוצים.</p>
+    </div>
+  </details>
 
   <div class="foot">OctoMonic · תום לוי · עבור הנהלת GoMobile</div>
 </div>
