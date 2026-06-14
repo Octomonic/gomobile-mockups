@@ -165,11 +165,15 @@
   .pkg{padding:18px;position:relative}
   .pkg.hot{border-color:rgba(240,192,0,.45);box-shadow:0 0 0 1px rgba(240,192,0,.25),0 20px 50px -25px rgba(240,192,0,.25)}
   .pkg .rib{position:absolute;top:-11px;inset-inline-start:18px;background:var(--gold);color:#1a1500;font-size:11px;font-weight:800;padding:3px 11px;border-radius:999px}
+  .pkg.p1{border-top:3px solid var(--cerise)} .pkg.p2{border-top:3px solid var(--sky)} .pkg.p3{border-top:3px solid var(--gold)}
+  .plabel{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:1.5px;padding:3px 10px;border-radius:7px;margin-bottom:11px}
+  .p1 .plabel{background:var(--cerise-g);color:var(--cerise)} .p2 .plabel{background:var(--sky-g);color:var(--sky)} .p3 .plabel{background:var(--gold-g);color:var(--gold)}
   .pkg .blk{display:flex;gap:5px;margin:2px 0 11px}
   .bb{width:25px;height:25px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:11.5px;color:#fff}
   .bb.a{background:var(--cerise-deep)} .bb.b{background:var(--sky-deep)} .bb.c{background:var(--coral)} .bb.off{background:rgba(255,255,255,.1);color:var(--tx3)}
   .pkg h4{font-size:15px;font-weight:800}
   .pkg p{font-size:12.5px;color:var(--tx2);margin-top:4px;line-height:1.55}
+  .preq{margin-top:13px;padding-top:11px;border-top:1px solid var(--hair);font-size:11.5px;font-weight:700;color:var(--tx2);line-height:1.5}
   .band{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:15px;margin-top:18px}
   @media(max-width:880px){.band{grid-template-columns:1fr}}
   .col{padding:16px 18px}
@@ -210,8 +214,8 @@
       <h2>מעקב ביצועי מכירות ולוח תוצאות</h2>
       <p class="val">מי מכר מה — לפי עובד, סניף ויום. לוח תחרות חי שמייצר מוטיבציה בין הצוותים ומעלה המרות, בלי שצריך לדבר על זה.</p>
       <div class="btnrow">
-        <a class="seebtn sales" href="sales.html">📊 לוח תוצאות וסטטיסטיקות</a>
-        <a class="seebtn pos" href="pos.html">🧾 דוגמת קופה (POS)</a>
+        <a class="seebtn sales" href="sales.html">🖥️ הדגמת לוח התוצאות והסטטיסטיקות</a>
+        <a class="seebtn pos" href="pos.html">🧾 הדגמת קופה (POS)</a>
       </div>
       <div class="sgrid">
         <div class="win">
@@ -265,7 +269,7 @@
       <div class="eyebrow logi"><span class="pp"></span>מוצר 02 — לוגיסטיקה</div>
       <h2>דשבורד מלאי · לוגיסטיקה</h2>
       <p class="val">איפה נמצא כל פריט, בכל רגע. תמונת מלאי חיה לפי סניף — עם התראות חוסר והמלצות העברה כדי לא לפספס מכירה.</p>
-      <a class="seebtn logi" href="logistics.html">▶ צפו במערכת המלאי המלאה</a>
+      <a class="seebtn logi" href="logistics.html">🖥️ הדגמת דשבורד המלאי</a>
       <div class="findbar"><span class="ic">🔎</span><span class="q">iPhone 17 Pro Max 256GB — טיטניום כחול</span><span class="go">חפש מלאי</span></div>
       <div class="win">
         <div class="winbar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="t">מלאי לפי סניף</span></div>
@@ -328,9 +332,9 @@
         <div class="flow"><div class="pill src">🧾 קופה</div><span class="ar">←</span><div class="pill">📊 מכירות</div><div class="pill">📦 מלאי</div></div>
       </div>
       <div class="menu">
-        <div class="pkg glass-c"><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>כל מוצר בנפרד</h4><p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p></div>
-        <div class="pkg glass-c"><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>שני המוצרים יחד</h4><p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p></div>
-        <div class="pkg glass-c hot"><div class="rib">★ ההמלצה שלנו</div><div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div><h4>"GoMobile Ops" — הכל + קופה</h4><p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p></div>
+        <div class="pkg glass-c p1"><span class="plabel">אופציה 01</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>כל מוצר בנפרד</h4><p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p><div class="preq">🔌 דורש: חיבור קריאה אחד ל-bGate (הזמנות או מלאי) · קריאה בלבד</div></div>
+        <div class="pkg glass-c p2"><span class="plabel">אופציה 02</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>שני המוצרים יחד</h4><p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p><div class="preq">🔌 דורש: שני חיבורי קריאה ל-bGate · קריאה בלבד · עומס נמוך</div></div>
+        <div class="pkg glass-c p3"><span class="plabel">אופציה 03</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div><h4>"GoMobile Ops" — הכל + קופה</h4><p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p><div class="preq">🔌 דורש: קריאה + כתיבה ל-bGate (דרך הקופה) · מייתר את ממשק ההזמנות</div></div>
       </div>
       <div class="band">
         <div class="col glass-c"><h5>🔑 מה נדרש מכם</h5><ul><li>ממשק קריאה מ-bGate — או קופה שמייתרת אותו</li><li>אישור היקף + מעקב ביצועי עובדים</li><li>סניף לפיילוט</li></ul></div>
