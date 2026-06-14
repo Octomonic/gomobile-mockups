@@ -119,7 +119,7 @@
   .vbar .fill{height:100%;background:linear-gradient(90deg,var(--cerise-deep),var(--cerise));border-radius:999px;box-shadow:0 0 16px var(--cerise-g)}
   .vbar .amt{text-align:left;font-weight:800;color:#fff}
 
-  /* ── PAGE 2 · LOGISTICS ── */
+  /* ── PAGE 3 · LOGISTICS ── */
   .findbar{display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--hair);border-radius:14px;padding:14px 18px;font-size:15px;margin-top:26px;margin-bottom:18px}
   .findbar .ic{font-size:17px;opacity:.8}
   .findbar .q{flex:1;color:var(--tx)}
@@ -195,6 +195,8 @@
   .rc{background:var(--glass);border:1px solid var(--hair);border-radius:9px;padding:8px 11px}
   .chips{display:flex;flex-direction:column;gap:9px}
   .dchip{background:var(--glass);border:1px solid var(--hair);border-radius:11px;padding:10px 12px;font-size:12.5px;font-weight:700;display:flex;gap:9px;align-items:center}
+  a.dchip{text-decoration:none;color:inherit;cursor:pointer;transition:.15s}
+  a.dchip.clk:hover{border-color:var(--hair2);background:var(--glass2)}
   .foot{display:flex;justify-content:space-between;align-items:center;color:var(--tx3);font-size:12.5px;padding:2px 34px 34px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:10px}
   .foot b{color:var(--tx2)}
 
@@ -210,16 +212,70 @@
   <div class="r"><span>14 ביוני 2026</span><button class="edit" onclick="toggleEdit()">✏️ עריכה</button><button class="copy" onclick="copyHTML()" style="display:none">📋 העתק</button></div>
 </div>
 
-<!-- ════ PAGE 1 · SALES ════ -->
+<!-- ════ PAGE 1 · OVERVIEW ════ -->
 <div class="page">
   <div class="sheet">
-    <div class="glow c"></div>
+    <div class="glow g"></div>
     <div class="inner">
       <div class="cobrand">
         <span class="brand gm"><img src="gomobile.png" alt="GoMobile">GoMobile</span>
         <span class="x">×</span>
         <span class="brand om"><img src="logo.png" alt="OctoMonic">OctoMonic</span>
       </div>
+      <div class="eyebrow roof"><span class="pp"></span>השלב הבא — תחת קורת גג אחת</div>
+      <h2>שני מוצרים נפרדים — שאפשר לאחד למערכת אחת</h2>
+      <p class="val">אפשר לקחת כל מוצר בנפרד, או לאחד אותם — והקופה (POS) היא שמחברת את הכול ומזינה את שניהם אוטומטית.</p>
+      <div class="found">
+        <div class="star">⭐</div>
+        <div class="ft">
+          <div class="h">הקופה (POS) — לא "תוספת", אלא <b>הבסיס</b></div>
+          <p>רושמת כל מכירה ברגע שהיא קורית ומעדכנת מלאי אוטומטית — כך שני הכלים האחרים מתמלאים לבד, בלי הקלדה ידנית.</p>
+        </div>
+        <div class="flow"><div class="pill src">🧾 קופה</div><span class="ar">←</span><div class="pill">📊 מכירות</div><div class="pill">📦 מלאי</div></div>
+      </div>
+      <p class="safe">המשמעות עבורכם: הכלים נבנים <b>מעל</b> המערכת שלכם — לא בתוכה. בלי סיכון לליבה ובלי האטה. אנחנו מספקים למפתח שלכם תוכנית מוכנה לבנייה, והוא שומר שליטה מלאה.</p>
+      <div class="menu">
+        <a class="pkg glass-c p1" href="option-01.html">
+          <span class="plabel">אופציה 01</span>
+          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
+          <h4>כל מוצר בנפרד</h4>
+          <p>מתחילים מכלי אחד — מעקב מכירות או דשבורד מלאי — לפי מה שדחוף לכם.</p>
+          <div class="pneed"><span>צריך:</span>גישת קריאה למידע — רק לקרוא, לא לשנות</div>
+          <div class="phow"><span>איך:</span>מתחברים למידע הקיים ובונים את הדשבורד מעליו</div>
+          <div class="pmore">לפרטים מלאים ›</div>
+        </a>
+        <a class="pkg glass-c p2" href="option-02.html">
+          <span class="plabel">אופציה 02</span>
+          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
+          <h4>שני המוצרים יחד</h4>
+          <p>מעקב מכירות + דשבורד מלאי, יחד, מהיום הראשון.</p>
+          <div class="pneed"><span>צריך:</span>גישת קריאה לשני סוגי המידע — עדיין רק קריאה</div>
+          <div class="phow"><span>איך:</span>שני דשבורדים תחת התחברות אחת, בלי שינוי לצוות</div>
+          <div class="pmore">לפרטים מלאים ›</div>
+        </a>
+        <a class="pkg glass-c p3" href="option-03.html">
+          <span class="plabel">אופציה 03</span>
+          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div>
+          <h4>"GoMobile Ops" — הכל + קופה</h4>
+          <p>המערכת המלאה — קופה שמזינה את הכול: מכירות, מלאי וצוות.</p>
+          <div class="pneed"><span>צריך:</span>קריאה + רישום מכירות, דרך חיבור שהמפתח שלכם שולט בו</div>
+          <div class="phow"><span>איך:</span>הקופה רושמת כל מכירה ברגע אמת — והכלים מתמלאים לבד</div>
+          <div class="pmore">לפרטים מלאים ›</div>
+        </a>
+      </div>
+      <div class="future glass-c">
+        <h5>🔭 בהמשך הדרך — כיוונים נוספים לדיון</h5>
+        <div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span><span class="dchip">🤖 סוכן תמיכה חכם לאתר</span><span class="dchip">🎓 הדרכת צוות</span><span class="dchip">🧑‍💼 ליווי לפגישות כמומחה טכני</span><span class="dchip">💡 ייעוץ כללי</span><a class="dchip clk" href="internal-dev.html">🔧 פיתוח פנימי כללי ›</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PAGE 2 · SALES ════ -->
+<div class="page pagebreak">
+  <div class="sheet">
+    <div class="glow c"></div>
+    <div class="inner">
       <div class="eyebrow sales"><span class="pp"></span>מוצר 01 — מכירות</div>
       <h2>מעקב ביצועי מכירות ולוח תוצאות</h2>
       <p class="val">מי מכר מה — לפי עובד, סניף ויום. לוח תחרות חי שמייצר מוטיבציה בין הצוותים ומעלה המרות, בלי שצריך לדבר על זה.</p>
@@ -325,60 +381,7 @@
   </div>
 </div>
 
-<!-- ════ PAGE 3 · ROOF ════ -->
-<div class="page pagebreak">
-  <div class="sheet">
-    <div class="glow g"></div>
-    <div class="inner">
-      <div class="eyebrow roof"><span class="pp"></span>תחת קורת גג אחת — ומה שמעבר</div>
-      <h2>שני מוצרים נפרדים — שאפשר לאחד למערכת אחת</h2>
-      <p class="val">אפשר לקחת כל מוצר בנפרד, או לאחד אותם — והקופה (POS) היא שמחברת את הכול ומזינה את שניהם אוטומטית.</p>
-      <div class="found">
-        <div class="star">⭐</div>
-        <div class="ft">
-          <div class="h">הקופה (POS) — לא "תוספת", אלא <b>הבסיס</b></div>
-          <p>רושמת כל מכירה ברגע שהיא קורית ומעדכנת מלאי אוטומטית — כך שני הכלים האחרים מתמלאים לבד, בלי הקלדה ידנית.</p>
-        </div>
-        <div class="flow"><div class="pill src">🧾 קופה</div><span class="ar">←</span><div class="pill">📊 מכירות</div><div class="pill">📦 מלאי</div></div>
-      </div>
-      <p class="safe">המשמעות עבורכם: הכלים נבנים <b>מעל</b> המערכת שלכם — לא בתוכה. בלי סיכון לליבה ובלי האטה. אנחנו מספקים למפתח שלכם תוכנית מוכנה לבנייה, והוא שומר שליטה מלאה.</p>
-      <div class="menu">
-        <a class="pkg glass-c p1" href="option-01.html">
-          <span class="plabel">אופציה 01</span>
-          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
-          <h4>כל מוצר בנפרד</h4>
-          <p>מתחילים מכלי אחד — מעקב מכירות או דשבורד מלאי — לפי מה שדחוף לכם.</p>
-          <div class="pneed"><span>צריך:</span>גישת קריאה למידע — רק לקרוא, לא לשנות</div>
-          <div class="phow"><span>איך:</span>מתחברים למידע הקיים ובונים את הדשבורד מעליו</div>
-          <div class="pmore">לפרטים מלאים ›</div>
-        </a>
-        <a class="pkg glass-c p2" href="option-02.html">
-          <span class="plabel">אופציה 02</span>
-          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
-          <h4>שני המוצרים יחד</h4>
-          <p>מעקב מכירות + דשבורד מלאי, יחד, מהיום הראשון.</p>
-          <div class="pneed"><span>צריך:</span>גישת קריאה לשני סוגי המידע — עדיין רק קריאה</div>
-          <div class="phow"><span>איך:</span>שני דשבורדים תחת התחברות אחת, בלי שינוי לצוות</div>
-          <div class="pmore">לפרטים מלאים ›</div>
-        </a>
-        <a class="pkg glass-c p3" href="option-03.html">
-          <span class="plabel">אופציה 03</span>
-          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div>
-          <h4>"GoMobile Ops" — הכל + קופה</h4>
-          <p>המערכת המלאה — קופה שמזינה את הכול: מכירות, מלאי וצוות.</p>
-          <div class="pneed"><span>צריך:</span>קריאה + רישום מכירות, דרך חיבור שהמפתח שלכם שולט בו</div>
-          <div class="phow"><span>איך:</span>הקופה רושמת כל מכירה ברגע אמת — והכלים מתמלאים לבד</div>
-          <div class="pmore">לפרטים מלאים ›</div>
-        </a>
-      </div>
-      <div class="future glass-c">
-        <h5>🔭 בהמשך הדרך — כיוונים נוספים לדיון</h5>
-        <div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span><span class="dchip">🤖 סוכן תמיכה חכם לאתר</span></div>
-      </div>
-    </div>
-  </div>
   <div class="foot"><span><b>OctoMonic</b> · תום לוי</span><span>נבנה עבור הנהלת GoMobile · 14 ביוני 2026</span></div>
-</div>
 
 <script>
   function toggleEdit(){
