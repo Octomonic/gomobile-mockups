@@ -58,6 +58,9 @@
   .seebtn:hover{transform:translateY(-2px)}
   .seebtn.sales{background:linear-gradient(135deg,#EC008C,#FF5FAE);color:#fff;box-shadow:0 14px 36px -12px rgba(236,0,140,.6)}
   .seebtn.logi{background:linear-gradient(135deg,#29ABE2,#5ec6ee);color:#04222e;box-shadow:0 14px 36px -12px rgba(41,171,226,.6)}
+  .seebtn.pos{background:linear-gradient(135deg,#FF8F4D,#ffb079);color:#3a1c00;box-shadow:0 14px 36px -12px rgba(255,143,77,.6)}
+  .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .btnrow .seebtn{margin-top:0}
 
   /* cobrand */
   .cobrand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
@@ -206,7 +209,10 @@
       <div class="eyebrow sales"><span class="pp"></span>מוצר 01 — מכירות</div>
       <h2>מעקב ביצועי מכירות ולוח תוצאות</h2>
       <p class="val">מי מכר מה — לפי עובד, סניף ויום. לוח תחרות חי שמייצר מוטיבציה בין הצוותים ומעלה המרות, בלי שצריך לדבר על זה.</p>
-      <a class="seebtn sales" href="sales.html">▶ צפו במערכת המכירות המלאה</a>
+      <div class="btnrow">
+        <a class="seebtn sales" href="sales.html">📊 לוח תוצאות וסטטיסטיקות</a>
+        <a class="seebtn pos" href="pos.html">🧾 דוגמת קופה (POS)</a>
+      </div>
       <div class="sgrid">
         <div class="win">
           <div class="winbar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="t">לוח תוצאות · השבוע</span></div>
@@ -329,7 +335,7 @@
       <div class="band">
         <div class="col glass-c"><h5>🔑 מה נדרש מכם</h5><ul><li>ממשק קריאה מ-bGate — או קופה שמייתרת אותו</li><li>אישור היקף + מעקב ביצועי עובדים</li><li>סניף לפיילוט</li></ul></div>
         <div class="col glass-c"><h5>🤝 מודל העבודה</h5><div class="roles"><span class="rc">הליבה (WC / bGate) — בשליטת הפיתוח הקיים</span><span class="rc" style="border-color:rgba(255,61,166,.35);color:var(--cerise)">OctoMonic — הכלים החדשים מעל</span></div></div>
-        <div class="col glass-c"><h5>🔭 בהמשך הדרך</h5><div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span></div></div>
+        <div class="col glass-c"><h5>🔭 בהמשך הדרך</h5><div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span><span class="dchip">🤖 סוכן תמיכה חכם לאתר</span></div></div>
       </div>
     </div>
   </div>
