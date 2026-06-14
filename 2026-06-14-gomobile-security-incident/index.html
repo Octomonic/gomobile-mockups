@@ -111,6 +111,20 @@
   @media (max-width:720px){.split{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
   @media print{.ombar{display:none}.glow{display:none}@page{size:A4;margin:8mm}.sheet{break-inside:avoid}}
   [contenteditable]{outline:1px dashed #f0c000;outline-offset:2px;border-radius:3px}
+
+  .utable{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+  .utable th{text-align:right;font-size:10.5px;font-weight:800;letter-spacing:.5px;color:var(--tx3);text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--hair2);white-space:nowrap}
+  .utable td{padding:9px 10px;border-bottom:1px solid var(--hair);color:var(--tx2);vertical-align:middle}
+  .utable td.uid{color:var(--tx3);font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
+  .utable td.un b{color:var(--tx);font-weight:700}
+  .utable td.un span{color:var(--tx3);font-size:11.5px}
+  .utable td.up{font-variant-numeric:tabular-nums;text-align:center;font-weight:800;color:var(--tx2)}
+  .utable .ok{color:var(--sky);font-size:12.5px}
+  .utable tr.bad td{background:rgba(255,90,90,.1)}
+  .utable tr.bad td.un b{color:#FF8a8a}
+  .utable tr.bad .flag{color:var(--danger);font-weight:800;font-size:12.5px}
+  .uhint{font-size:13.5px;color:var(--tx2);max-width:82ch;line-height:1.62;margin-top:8px}
+  .uhint b{color:var(--tx)}
 </style>
 </head>
 <body>
@@ -164,7 +178,7 @@
         <li>כל פוסט נוצר עם <b>author=0</b> — כלומר בלי שום משתמש מחובר. זו חתימה ודאית של <b>דלת אחורית אוטומטית עם הרשאת כתיבה</b> לוורדפרס, לא פריצה של סיסמה אנושית.</li>
         <li><b>34 פוסטים</b> הוזרקו בין 09/06 ל-13/06 (שיא ב-10/06 — 25 פוסטים). כרגע ההזרקה נעצרה — אבל <b>כל הפוסטים עדיין חיים ולא נוקו</b>.</li>
         <li><b>ההסלמה המרכזית:</b> ב-12/06 חזית האתר עדיין החזירה שגיאה 404 על הכתובות האלה. <b>היום הספאם כבר מוצג חי</b> ב-<b>www.gomobile.co.il</b> — מאמר קזינו מלא, עם הכותרת "גומובייל — …", תחת המותג שלכם. בדקנו חי היום, כולל בתור Googlebot — <b>אין הסתרה, גוגל יכול לאנדקס את זה</b>.</li>
-        <li>הופיע משתמש וורדפרס חדש בשם <b>"baruch" (#807)</b> שכל פעילותו פוסט קזינו אחד. מספר המזהה הנמוך מרמז שהוא <b>הוכנס ישירות למסד הנתונים כדי להיראות ותיק</b> — נוצר ע"י התוקף או חשבון אמיתי שנפרץ.</li>
+        <li>חשבון בשם <b>"baruch" (#807)</b> מפרסם ספאם — כל פעילותו <b>פוסט קזינו אחד</b>. המזהה הנמוך (מתוך ~50,000 משתמשי האתר) מצביע על <b>חשבון ותיק/ישן</b>, כך שסביר יותר שמדובר ב<b>חשבון קיים שנפרץ או נוצל</b> מאשר חשבון חדש שהושתל. פירוט מלא בהמשך (״מי יכול לכתוב לאתר״).</li>
         <li>התוכן כרגע הוא <b>קישורי-ספאם בלבד</b> (אין סקריפט/סקימר זדוני בגוף הדף) — <b>אבל אותה הרשאת כתיבה יכולה לעבור בכל רגע</b> להזרקת קוד לעמוד התשלום או לגניבת נתוני לקוחות.</li>
       </ul>
 
@@ -172,8 +186,57 @@
         <div class="k crit"><div class="v">34</div><div class="l">פוסטי ספאם</div></div>
         <div class="k crit"><div class="v">author=0</div><div class="l">בלי התחברות</div></div>
         <div class="k crit"><div class="v">חי באתר</div><div class="l">מוצג לגולשים</div></div>
-        <div class="k crit"><div class="v">+1</div><div class="l">חשבון חדש "baruch"</div></div>
+        <div class="k crit"><div class="v">1</div><div class="l">חשבון זר ("baruch")</div></div>
       </div>
+    </div>
+  </div>
+
+  <!-- ════ HOW THEY GOT IN · RCE ════ -->
+  <div class="sheet">
+    <div class="glow d"></div>
+    <div class="inner">
+      <div class="eyebrow crit"><span class="pp"></span>איך כנראה נכנסו — RCE (הרצת קוד מרחוק)</div>
+      <h2 class="sh">RCE — החולשה החמורה ביותר: הרצת קוד זר על השרת שלכם</h2>
+      <ul class="blist crit">
+        <li><b>RCE = Remote Code Execution (הרצת קוד מרחוק)</b> — סוג החולשה החמור ביותר שקיים. הוא מאפשר לתוקף <b>להריץ קוד משלו על השרת שלכם — מרחוק, ובלי הרשאה</b>.</li>
+        <li>במילים פשוטות: זה כמו למסור לזר את המפתח לבניין. ברגע שהוא יכול להריץ קוד הוא יכול <b>ליצור פוסטים</b> (הדלת האחורית author=0), <b>להוסיף משתמשים</b> (baruch), <b>לקרוא את מסד הנתונים</b> (פרטי לקוחות), ולהשתיל עוד דלתות אחוריות.</li>
+        <li><b>איך זה קורה דרך תוסף פגיע:</b> לתוסף יש פגם (למשל מאפשר העלאת קובץ בלי בדיקה תקינה). התוקף מעלה קובץ PHP זדוני ("web shell"), ניגש אליו בדפדפן — ומאותו רגע הקוד שלו רץ על השרת. זו ככל הנראה נקודת הכניסה שמסבירה את כל מה שאנחנו רואים.</li>
+        <li><b>אצלכם:</b> התוסף <b>WP File Manager</b> מותקן בגרסה ישנה (8.0.4) — תוסף לגיטימי, אך לגרסה הזו <b>היסטוריה של חולשות RCE קריטיות</b> (העלאת קובץ ← הרצת קוד). מערכת לא מעודכנת = החור נשאר פתוח. זה מתיישב עם התיאוריה של המפתח (מנוי האבטחה פג ← השרת לא עודכן/לא הוגן). את ה-CVE המדויק יש לאמת בבדיקה הטכנית מול הקבצים.</li>
+      </ul>
+      <div class="callout danger">
+        <div class="ic">🔑</div>
+        <div class="ct">
+          <h5>נקודה קריטית: הכניסה ≠ הדלת האחורית</h5>
+          <p>ה-RCE היא כנראה <b>איך נכנסו</b>. הדלת האחורית (author=0) היא <b>מה שהשאירו מאחור</b>. <b>עדכון או תיקון התוסף לא מסיר את הדלת האחורית</b> — צריך לנקות אותה בנפרד, אחרת הפריצה נשארת גם אחרי העדכון.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ WHO CAN WRITE · USERS ════ -->
+  <div class="sheet">
+    <div class="glow s"></div>
+    <div class="inner">
+      <div class="eyebrow sms"><span class="pp"></span>מי יכול לכתוב לאתר — 11 חשבונות מתוך ~50,000</div>
+      <h2 class="sh">רק 11 חשבונות יכולים לכתוב תוכן — ואחד מהם זר</h2>
+      <p class="uhint">באתר יש <b>~50,000 חשבונות משתמש</b> — אבל כמעט כולם <b>לקוחות</b> (כל לקוח WooCommerce הוא חשבון וורדפרס). ללקוחות <b>אין שום יכולת כתיבה</b> — רק הזמנות וחשבון אישי. רק <b>11 חשבונות</b> יכולים לכתוב תוכן או לגשת לניהול. הנה כולם — שימו לב לשורה האדומה:</p>
+      <table class="utable">
+        <thead><tr><th>מזהה</th><th>חשבון</th><th>פוסטים</th><th>פעילות אחרונה</th><th>סטטוס</th></tr></thead>
+        <tbody>
+          <tr><td class="uid">#1</td><td class="un"><b>עידן ליבוביץ</b> <span>parallax</span></td><td class="up">2</td><td>2024</td><td class="ok">צוות · המפתח</td></tr>
+          <tr><td class="uid">#178</td><td class="un"><b>Gomobile</b> <span>gomobile</span></td><td class="up">1</td><td>2024</td><td class="ok">צוות</td></tr>
+          <tr><td class="uid">#205</td><td class="un"><b>Michael Gomobile</b> <span>gomobile-digital</span></td><td class="up">75</td><td>אוג׳ 2025</td><td class="ok">צוות · כותב התוכן הראשי</td></tr>
+          <tr><td class="uid">#206</td><td class="un"><b>אנטון — ארכיון תמונות</b> <span>anton-gomobile</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
+          <tr><td class="uid">#209</td><td class="un"><b>Shimon Asulin</b> <span>shimon</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
+          <tr><td class="uid">#214</td><td class="un"><b>יעל</b> <span>yael_gomobile</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
+          <tr class="bad"><td class="uid">#807</td><td class="un"><b>Baruch</b> <span>baruch</span></td><td class="up">1</td><td>12/06/2026</td><td class="flag">⚠ חשוד — פוסט הקזינו היחיד</td></tr>
+          <tr><td class="uid">#1304</td><td class="un"><b>כפיר אדוויג</b> <span>kfir-gomobile</span></td><td class="up">18</td><td>מרץ 2025</td><td class="ok">צוות</td></tr>
+          <tr><td class="uid">#16883</td><td class="un"><b>אנטון דיגיטל</b> <span>anton-3</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
+          <tr><td class="uid">#26449</td><td class="un"><b>טל בכר</b> <span>talbahar</span></td><td class="up">1</td><td>נוב׳ 2025</td><td class="ok">צוות</td></tr>
+          <tr><td class="uid">#37656</td><td class="un"><b>יעל</b> <span>yaelh</span></td><td class="up">0</td><td>—</td><td class="ok">צוות</td></tr>
+        </tbody>
+      </table>
+      <p class="uhint" style="margin-top:14px"><b>baruch (#807)</b> הוא החשבון היחיד שכל פעילותו <b>פוסט קזינו אחד</b> (12/06/2026). כל שאר החשבונות הם צוות עם תוכן מוצרים אמיתי (2024–2025) או ללא פוסטים כלל. כפי שצוין, המזהה הנמוך מצביע על <b>חשבון ותיק</b> — ייתכן חשבון אמיתי רדום שנפרץ, או חשבון שהושתל. <b>תאריך ההרשמה והתפקיד</b> ניתנים לאימות רק בגישה למסד הנתונים. (הערה: רשימת המשתמשים הזו גלויה לציבור דרך ה-API — חולשת הקשחה בפני עצמה.)</p>
     </div>
   </div>
 
