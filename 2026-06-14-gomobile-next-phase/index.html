@@ -160,6 +160,8 @@
   .pill{background:var(--glass2);border:1px solid var(--hair);border-radius:10px;padding:7px 11px;display:flex;align-items:center;gap:6px}
   .pill.src{border-color:rgba(255,154,92,.4);color:var(--coral)}
   .ar{color:var(--tx3);font-weight:900}
+  .safe{margin-top:16px;padding:13px 17px;border:1px solid var(--hair);border-radius:13px;background:var(--glass);font-size:13.5px;color:var(--tx);font-weight:500;line-height:1.6}
+  .safe b{color:var(--cerise)}
   .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}
   @media(max-width:880px){.menu{grid-template-columns:1fr}}
   .pkg{padding:18px;position:relative}
@@ -322,23 +324,24 @@
     <div class="inner">
       <div class="eyebrow roof"><span class="pp"></span>תחת קורת גג אחת — ומה שמעבר</div>
       <h2>שני מוצרים נפרדים — שאפשר לאחד למערכת אחת</h2>
-      <p class="val">אפשר לקחת כל מוצר בנפרד, או לאחד אותם. והקופה (POS) היא מה שמחבר את הכול ומפעיל אותם מעצמה.</p>
+      <p class="val">אפשר לקחת כל מוצר בנפרד, או לאחד אותם — והקופה (POS) היא שמחברת את הכול ומזינה את שניהם אוטומטית.</p>
       <div class="found">
         <div class="star">⭐</div>
         <div class="ft">
           <div class="h">הקופה (POS) — לא "תוספת", אלא <b>הבסיס</b></div>
-          <p>תופסת כל מכירה במקור ומעדכנת מלאי בזמן אמת — מזינה את שני המוצרים האחרים באופן טבעי, ופותרת את ההקלדה הידנית.</p>
+          <p>רושמת כל מכירה ברגע שהיא קורית ומעדכנת מלאי אוטומטית — כך שני הכלים האחרים מתמלאים לבד, בלי הקלדה ידנית.</p>
         </div>
         <div class="flow"><div class="pill src">🧾 קופה</div><span class="ar">←</span><div class="pill">📊 מכירות</div><div class="pill">📦 מלאי</div></div>
       </div>
+      <p class="safe">המשמעות עבורכם: הכלים נבנים <b>מעל</b> המערכת שלכם — לא בתוכה. בלי סיכון לליבה, בלי האטה, והמפתח שלכם שומר שליטה מלאה.</p>
       <div class="menu">
-        <div class="pkg glass-c p1"><span class="plabel">אופציה 01</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>כל מוצר בנפרד</h4><p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p><div class="preq">🔌 דורש: חיבור קריאה אחד ל-bGate (הזמנות או מלאי) · קריאה בלבד</div></div>
-        <div class="pkg glass-c p2"><span class="plabel">אופציה 02</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>שני המוצרים יחד</h4><p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p><div class="preq">🔌 דורש: שני חיבורי קריאה ל-bGate · קריאה בלבד · עומס נמוך</div></div>
-        <div class="pkg glass-c p3"><span class="plabel">אופציה 03</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div><h4>"GoMobile Ops" — הכל + קופה</h4><p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p><div class="preq">🔌 דורש: קריאה + כתיבה ל-bGate (דרך הקופה) · מייתר את ממשק ההזמנות</div></div>
+        <div class="pkg glass-c p1"><span class="plabel">אופציה 01</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>כל מוצר בנפרד</h4><p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p><div class="preq">👁️ רק <b>קריאה</b> מהמערכת — בלי לגעת או לשנות דבר</div></div>
+        <div class="pkg glass-c p2"><span class="plabel">אופציה 02</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>שני המוצרים יחד</h4><p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p><div class="preq">👁️ רק <b>קריאה</b> מהמערכת — בלי לגעת, ובלי האטה</div></div>
+        <div class="pkg glass-c p3"><span class="plabel">אופציה 03</span><div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div><h4>"GoMobile Ops" — הכל + קופה</h4><p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p><div class="preq">✍️ קריאה + רישום כל מכירה בחזרה — דרך חיבור אחד שהמפתח שלכם שולט בו</div></div>
       </div>
       <div class="band">
-        <div class="col glass-c"><h5>🔑 מה נדרש מכם</h5><ul><li>ממשק קריאה מ-bGate — או קופה שמייתרת אותו</li><li>אישור היקף + מעקב ביצועי עובדים</li><li>סניף לפיילוט</li></ul></div>
-        <div class="col glass-c"><h5>🤝 מודל העבודה</h5><div class="roles"><span class="rc">הליבה (WC / bGate) — בשליטת הפיתוח הקיים</span><span class="rc" style="border-color:rgba(255,61,166,.35);color:var(--cerise)">OctoMonic — הכלים החדשים מעל</span></div></div>
+        <div class="col glass-c"><h5>🔑 מה צריך מכם</h5><ul><li>גישת קריאה למידע — רק לקרוא, לא לשנות</li><li>לקופה: סליקת האשראי הקיימת שלכם (CreditGuard)</li><li>סניף אחד לניסוי</li></ul></div>
+        <div class="col glass-c"><h5>🤝 מי בונה ושולט</h5><div class="roles"><span class="rc">אנחנו מספקים למפתח שלכם תוכנית מוכנה לבנייה</span><span class="rc">המפתח שלכם בונה ושומר שליטה מלאה</span><span class="rc" style="border-color:rgba(255,61,166,.35);color:var(--cerise)">לא נוגעים בליבה — רק בונים מעליה</span></div></div>
         <div class="col glass-c"><h5>🔭 בהמשך הדרך</h5><div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span><span class="dchip">🤖 סוכן תמיכה חכם לאתר</span></div></div>
       </div>
     </div>
