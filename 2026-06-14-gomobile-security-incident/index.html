@@ -85,7 +85,7 @@
   .note .ct p{font-size:13.5px;color:var(--ink2);line-height:1.55}
 
   .steps{counter-reset:s;list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-  .steps li{counter-increment:s;position:relative;padding:12px 15px 12px 48px;background:var(--ink-s);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .steps li{counter-increment:s;position:relative;padding:12px 16px;padding-inline-start:50px;background:var(--ink-s);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink2);line-height:1.5}
   .steps li b{color:var(--ink)}
   .steps li::before{content:counter(s);position:absolute;inset-inline-start:12px;top:50%;transform:translateY(-50%);width:25px;height:25px;border-radius:8px;background:var(--cerise);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
 
@@ -131,7 +131,7 @@
     </div>
     <div class="eyebrow sum"><span class="pp"></span>סקירת מצב · אבטחת האתר</div>
     <h1 class="hh">תמונת מצב: שני נושאים נפרדים — ומה מומלץ לעשות</h1>
-    <p class="val">להלן תמונת מצב ברורה של מה שקורה כרגע באתר. יש <b>שני נושאים נפרדים</b> — הם לא אותו דבר. אחד מהם (הצפת SMS) כבר <b>בטיפול המפתח</b>, וזה טוב. השני — <b>תוכן שמתווסף אוטומטית בצד הוורדפרס</b> — דורש כמה צעדים נוספים, מפני שהטיפול ב-SMS לא נוגע בו. המסמך מסביר את שניהם, בשפה פשוטה, ואת הצעדים המומלצים.</p>
+    <p class="val">להלן תמונת מצב ברורה של מה שקורה כרגע באתר. יש <b>שני נושאים</b>: אחד מהם (הצפת SMS) כבר <b>בטיפול המפתח</b>. השני — <b>תוכן שמתווסף אוטומטית בצד הוורדפרס</b> — דורש כמה צעדים נוספים. המסמך מסביר את שניהם, בשפה פשוטה, ואת הצעדים המומלצים.</p>
 
     <div class="split">
       <div class="acard att">
@@ -142,7 +142,7 @@
       <div class="acard ok">
         <div class="tag">● נושא 2 · בטיפול</div>
         <h4>הצפת SMS</h4>
-        <p>בוטים מציפים טופס ששולח SMS. המפתח כבר חוסם ומגביל קצב — מענה סביר. נושא נפרד לחלוטין מהראשון.</p>
+        <p>בוטים מציפים טופס ששולח SMS. המפתח כבר חוסם ומגביל קצב — מענה סביר.</p>
       </div>
     </div>
   </div>
@@ -195,12 +195,11 @@
 
   <!-- ════ SMS SIDE ════ -->
   <div class="sheet">
-    <div class="eyebrow sms"><span class="pp"></span>נושא 2 — צד ה-SMS · בטיפול</div>
-    <h2 class="sh">הצפת טופס SMS — בעיה אמיתית, אבל נפרדת</h2>
+    <div class="eyebrow sms"><span class="pp"></span>נושא 2 — צד ה-SMS</div>
+    <h2 class="sh">הצפת טופס SMS — בטיפול המפתח</h2>
     <ul class="blist sky">
-      <li>במקביל, בוטים מפציצים <b>טופס ציבורי ששולח SMS</b> (כנראה התחברות/אימות) — כ-<b>142 מספרים ו-873 הודעות</b>, עם החלפת כתובת IP.</li>
-      <li><b>המפתח כבר מטפל בזה</b> — חסימה לפי מספר ו-IP והגבלת קצב. זה מענה סביר ונכון לבעיה הזו.</li>
-      <li>הנקודה החשובה: זו בעיה <b>נפרדת</b> מהתוכן בצד הוורדפרס. הטיפול ב-SMS לא מסיר את הפוסטים ולא נוגע בנושא 1.</li>
+      <li>בוטים מפציצים <b>טופס ציבורי ששולח SMS</b> (כנראה התחברות/אימות) — כ-<b>142 מספרים ו-873 הודעות</b>, עם החלפת כתובת IP.</li>
+      <li><b>המפתח כבר מטפל בזה</b> — חסימה לפי מספר ו-IP והגבלת קצב.</li>
     </ul>
   </div>
 
@@ -208,13 +207,6 @@
   <div class="sheet">
     <div class="eyebrow rec"><span class="pp"></span>מה מומלץ עכשיו</div>
     <h2 class="sh">ארבעה צעדים לסגירת הנושא בצד הוורדפרס</h2>
-    <div class="note tip">
-      <div class="ic">💡</div>
-      <div class="ct">
-        <h5>הטיפול ב-SMS מצוין — הוא פשוט נוגע בנושא אחר</h5>
-        <p>כדי לסגור את הנושא בצד הוורדפרס (הפוסטים) צריך את הצעדים הבאים, במקביל לטיפול ב-SMS.</p>
-      </div>
-    </div>
     <ol class="steps">
       <li><b>צילום מצב</b> (קבצים + מסד נתונים) לפני שינויים — לשמירת מידע למקרה הצורך.</li>
       <li><b>גישה</b> (שלנו או של חברת האחסון) לקבצים / מסד נתונים / ניהול — כדי לאתר ולהסיר את הקוד שמוסיף את הפוסטים.</li>
