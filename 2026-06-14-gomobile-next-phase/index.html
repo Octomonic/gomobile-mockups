@@ -27,7 +27,7 @@
     display:flex;align-items:center;justify-content:space-between;padding:0 18px;direction:ltr}
   .ombar .l{display:flex;align-items:center;gap:10px}
   .ombar .l img{height:26px;width:auto}
-  .ombar .l b{font-size:12px;font-weight:700;letter-spacing:1px;color:#cbd5e1}
+  .ombar .l b{font-size:12px;font-weight:800;letter-spacing:1px;color:#f0c000}
   .ombar .c{font-size:13px;font-weight:800;letter-spacing:3px;color:#fff}
   .ombar .r{display:flex;align-items:center;gap:12px;font-size:12px;color:#94a3b8}
   .ombar .r button{font-family:inherit;background:#1e293b;color:#fff;border:1px solid #334155;border-radius:8px;
@@ -43,8 +43,12 @@
   .title h1{font-size:30px;font-weight:900;letter-spacing:-.4px;line-height:1.05}
   .title h1 .g{background:linear-gradient(90deg,var(--cerise),var(--coral));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .title p{color:var(--muted);font-size:15px;margin-top:5px;font-weight:500}
-  .logochip{width:66px;height:66px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 2px 8px rgba(10,15,35,.05);display:grid;place-items:center}
-  .logochip img{max-width:48px;max-height:48px;object-fit:contain}
+  .cobrand{display:flex;align-items:center;gap:12px;margin-bottom:15px;flex-wrap:wrap}
+  .brand{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:13px;font-weight:800;font-size:19px;line-height:1}
+  .brand img{height:26px;width:auto}
+  .brand.gm{background:#fff;border:1px solid var(--line);color:var(--cerise);box-shadow:var(--shadow)}
+  .brand.om{background:#111;color:#f0c000}
+  .cobrand .x{color:#cbd5e1;font-size:20px;font-weight:300}
 
   .body{padding:6px 28px 26px}
   .lead{font-size:18px;color:#344054;font-weight:600;max-width:78ch;margin:4px 0 22px}
@@ -143,10 +147,14 @@
     <div class="accentbar"></div>
     <div class="head">
       <div class="title">
-        <h1><span class="g">GoMobile × OctoMonic</span> — השלב הבא</h1>
+        <div class="cobrand">
+          <span class="brand gm"><img src="gomobile.png" alt="GoMobile">GoMobile</span>
+          <span class="x">×</span>
+          <span class="brand om"><img src="logo.png" alt="OctoMonic">OctoMonic</span>
+        </div>
+        <h1>השלב הבא</h1>
         <p>שלושה כלים חכמים לניהול מכירות, מלאי ונקודת המכירה — בנויים מעל המערכת הקיימת שלכם</p>
       </div>
-      <div class="logochip"><img src="gomobile.png" alt="GoMobile"></div>
     </div>
     <div class="body">
       <p class="lead">היום כל הזמנה מוקלדת ידנית למערכת, ואין תמונה חיה של מי מוכר מה ואיפה נמצא המלאי. אנחנו בונים שכבת כלים חכמה <b>מעל</b> המערכת הקיימת — בלי לגעת בליבה.</p>
