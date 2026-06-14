@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Project: GoMobile -->
-<!-- Change: Next-phase proposal — Sales (p1) · Logistics (p2) · One-roof + rest (p3) -->
+<!-- Change: Next-phase proposal — premium dark deck · Sales (p1) · Logistics (p2) · One-roof (p3) -->
 <!-- Generated: 2026-06-14 -->
 <!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
 <html lang="he" dir="rtl">
@@ -10,158 +10,175 @@
 <title>GoMobile — השלב הבא | OctoMonic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cerise:#EC008C; --cerise-d:#C4007A; --sky:#29ABE2; --sky-d:#1479A8;
-    --coral:#FF8F4D; --coral-d:#B8590A; --gold:#f0c000;
-    --ink:#0a0f23; --muted:#667085; --line:#eaecf0; --bg:#f8fafc;
-    --surface:#fff; --soft:#f0f4f8;
-    --shadow:0 4px 24px rgba(10,15,35,.06); --shadow-lg:0 12px 40px rgba(10,15,35,.10);
+    /* dark premium canvas */
+    --bg0:#08090E; --bg1:#0E1017; --glass:rgba(255,255,255,.035); --glass2:rgba(255,255,255,.06);
+    --hair:rgba(255,255,255,.08); --hair2:rgba(255,255,255,.14);
+    --tx:#EEF0F6; --tx2:#9AA3B5; --tx3:#6B7488;
+    /* brand jewel tones (tuned for dark) */
+    --gold:#F0C000; --cerise:#FF3DA6; --cerise-deep:#EC008C; --sky:#4CC4F0; --sky-deep:#29ABE2; --coral:#FF9A5C;
+    --cerise-g:rgba(255,61,166,.16); --sky-g:rgba(76,196,240,.16); --gold-g:rgba(240,192,0,.14);
+    --shadow:0 30px 70px -28px rgba(0,0,0,.75);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth}
+  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg0);color:var(--tx);line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
 
-  /* OctoMonic chrome bar */
-  .ombar{position:sticky;top:0;z-index:1000;height:48px;background:#0F172A;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;direction:ltr}
+  /* chrome bar */
+  .ombar{position:sticky;top:0;z-index:1000;height:50px;background:rgba(8,9,14,.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--hair);display:flex;align-items:center;justify-content:space-between;padding:0 20px;direction:ltr}
   .ombar .l{display:flex;align-items:center;gap:10px}
-  .ombar .l img{height:26px;width:auto}
-  .ombar .l b{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--gold)}
-  .ombar .c{font-size:13px;font-weight:800;letter-spacing:3px;color:#fff}
-  .ombar .r{display:flex;align-items:center;gap:12px;font-size:12px;color:#94a3b8}
-  .ombar .r button{font-family:inherit;background:#1e293b;color:#fff;border:1px solid #334155;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;transition:.15s}
-  .ombar .r button:hover{background:#334155}
-  body.editing .ombar .r .edit{background:var(--cerise);border-color:var(--cerise)}
+  .ombar .l img{height:28px;width:auto}
+  .ombar .l b{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--gold)}
+  .ombar .c{font-size:12px;font-weight:700;letter-spacing:4px;color:var(--tx2)}
+  .ombar .r{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--tx3)}
+  .ombar .r button{font-family:inherit;background:var(--glass2);color:var(--tx);border:1px solid var(--hair);border-radius:9px;padding:7px 13px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
+  .ombar .r button:hover{background:rgba(255,255,255,.1)}
+  body.editing .ombar .r .edit{background:var(--cerise);border-color:var(--cerise);color:#fff}
 
-  .page{max-width:1180px;margin:0 auto;padding:24px 30px}
-  .sheet{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
-  .accentbar{height:7px}
-  .accentbar.sales{background:linear-gradient(90deg,var(--cerise),var(--coral))}
-  .accentbar.logi{background:linear-gradient(90deg,var(--sky),#5ec6ee)}
-  .accentbar.roof{background:linear-gradient(90deg,var(--ink),var(--gold))}
+  .page{max-width:1140px;margin:0 auto;padding:30px 32px}
+  .sheet{position:relative;background:linear-gradient(180deg,#0E1017,#0B0D13);border:1px solid var(--hair);border-radius:26px;overflow:hidden;margin-bottom:26px;box-shadow:var(--shadow)}
+  .glow{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none;z-index:0}
+  .glow.c{background:radial-gradient(circle,var(--cerise-g),transparent 70%);top:-180px;inset-inline-start:-120px}
+  .glow.s{background:radial-gradient(circle,var(--sky-g),transparent 70%);top:-180px;inset-inline-start:-120px}
+  .glow.g{background:radial-gradient(circle,var(--gold-g),transparent 70%);top:-200px;inset-inline-start:-120px}
+  .inner{position:relative;z-index:1;padding:30px 34px 34px}
 
-  /* cobrand (page 1 only) */
-  .cobrand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 28px 0}
-  .brand{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:13px;font-weight:800;font-size:19px;line-height:1}
-  .brand img{height:26px;width:auto}
-  .brand.gm{background:#fff;border:1px solid var(--line);color:var(--cerise);box-shadow:var(--shadow)}
-  .brand.om{background:#111;color:var(--gold)}
-  .cobrand .x{color:#cbd5e1;font-size:20px;font-weight:300}
+  .topline{height:1px;background:linear-gradient(90deg,transparent,var(--hair2),transparent);margin:0}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tx2)}
+  .eyebrow .pp{width:7px;height:7px;border-radius:50%}
+  .eyebrow.sales .pp{background:var(--cerise);box-shadow:0 0 12px var(--cerise)}
+  .eyebrow.logi .pp{background:var(--sky);box-shadow:0 0 12px var(--sky)}
+  .eyebrow.roof .pp{background:var(--gold);box-shadow:0 0 12px var(--gold)}
+  h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.6px;line-height:1.07;margin:14px 0 8px}
+  .val{font-size:16.5px;color:var(--tx2);font-weight:400;max-width:74ch;line-height:1.6}
 
-  /* product header */
-  .phead{padding:18px 28px 6px}
-  .ptag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 13px;border-radius:999px}
-  .ptag.sales{background:rgba(236,0,140,.09);color:var(--cerise)}
-  .ptag.logi{background:rgba(41,171,226,.1);color:var(--sky-d)}
-  .ptag.roof{background:rgba(17,17,17,.06);color:var(--ink)}
-  .phead h2{font-size:30px;font-weight:900;letter-spacing:-.5px;line-height:1.08;margin:11px 0 4px}
-  .phead .val{font-size:16.5px;color:#344054;font-weight:600;max-width:80ch}
-  .body{padding:14px 28px 26px}
+  /* cobrand */
+  .cobrand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+  .brand{display:inline-flex;align-items:center;gap:10px;padding:8px 15px 8px 11px;border-radius:13px;font-weight:800;font-size:18px;line-height:1;
+    background:var(--glass);border:1px solid var(--hair)}
+  .brand img{height:30px;width:auto}
+  .brand.gm{color:var(--cerise)} .brand.om{color:var(--gold)}
+  .cobrand .x{color:var(--tx3);font-size:18px;font-weight:300}
 
-  /* ───── PAGE 1 · SALES (cerise, competition) ───── */
-  .sales-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}
-  @media(max-width:860px){.sales-grid{grid-template-columns:1fr}}
-  .champ{background:linear-gradient(135deg,var(--cerise),#ff5fae);color:#fff;border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:16px;position:relative;overflow:hidden}
-  .champ::after{content:"🏆";position:absolute;left:-6px;bottom:-14px;font-size:78px;opacity:.16}
-  .champ .cav{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-weight:900;font-size:22px;flex:none;border:2px solid rgba(255,255,255,.5)}
-  .champ .cmeta small{font-weight:700;opacity:.9;font-size:12px;letter-spacing:1px}
-  .champ .cmeta b{display:block;font-size:21px;font-weight:900;margin:1px 0}
-  .champ .cmeta .sub{font-size:12.5px;opacity:.92}
+  /* generic glass card */
+  .glass-c{background:var(--glass);border:1px solid var(--hair);border-radius:18px}
+
+  /* floating light "screenshot" window */
+  .win{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 40px 80px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.05);color:#0a0f23}
+  .winbar{height:36px;background:#f4f5f8;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid #e9ebef;direction:ltr}
+  .winbar .d{width:10px;height:10px;border-radius:50%}
+  .winbar .d1{background:#ff5f57} .winbar .d2{background:#febc2e} .winbar .d3{background:#28c840}
+  .winbar .t{margin:0 auto;font-size:11.5px;color:#8a93a3;font-weight:600;direction:rtl}
+  .winbody{padding:16px}
+
+  /* ── PAGE 1 · SALES ── */
+  .sgrid{display:grid;grid-template-columns:1.32fr 1fr;gap:22px;margin-top:26px}
+  @media(max-width:880px){.sgrid{grid-template-columns:1fr}}
+  .champ{background:linear-gradient(135deg,#EC008C,#FF5FAE);color:#fff;border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:15px;position:relative;overflow:hidden}
+  .champ::after{content:"🏆";position:absolute;left:-8px;bottom:-16px;font-size:80px;opacity:.15}
+  .champ .cav{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-weight:900;font-size:21px;flex:none;border:2px solid rgba(255,255,255,.5)}
+  .champ .cmeta small{font-weight:700;opacity:.92;font-size:11.5px;letter-spacing:1px}
+  .champ .cmeta b{display:block;font-size:20px;font-weight:900;margin:1px 0}
+  .champ .cmeta .sub{font-size:12px;opacity:.92}
   .champ .camt{margin-inline-start:auto;text-align:left}
-  .champ .camt .big{font-size:26px;font-weight:900;letter-spacing:-.5px}
-  .champ .camt .st{font-size:12px;opacity:.95;font-weight:700}
-  .lblist{margin-top:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .lbrow{display:grid;grid-template-columns:30px 1fr auto;gap:11px;align-items:center;padding:10px 14px;border-bottom:1px solid #f2f4f7;font-size:14px}
+  .champ .camt .big{font-size:25px;font-weight:900;letter-spacing:-.5px}
+  .champ .camt .st{font-size:11.5px;opacity:.95;font-weight:700}
+  .lblist{margin-top:10px}
+  .lbrow{display:grid;grid-template-columns:26px 1fr auto;gap:11px;align-items:center;padding:9px 4px;border-bottom:1px solid #eef0f3;font-size:13.5px}
   .lbrow:last-child{border:none}
-  .lbrow .rk{font-weight:900;text-align:center;color:#b9c0cc}
+  .lbrow .rk{font-weight:900;text-align:center;color:#c2c8d2}
   .lbrow .nm{display:flex;align-items:center;gap:9px}
   .lbrow .av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px}
-  .lbrow .nm small{display:block;color:var(--muted);font-size:11.5px}
+  .lbrow .nm small{display:block;color:#8a93a3;font-size:11.5px}
   .lbrow .v{font-weight:800}
-  .sales-side{display:flex;flex-direction:column;gap:13px}
-  .kpi2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .kpi{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:12px 14px}
-  .kpi .v{font-size:21px;font-weight:900;color:var(--cerise);letter-spacing:-.5px}
-  .kpi .l{font-size:12px;color:var(--muted);font-weight:600}
-  .kpi .up{font-size:11.5px;color:var(--coral-d);font-weight:800}
-  .caps{border:1px solid var(--line);border-radius:13px;padding:14px}
-  .caps h5{font-size:12.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:9px}
-  .caps ul{list-style:none;display:flex;flex-direction:column;gap:7px}
-  .caps li{font-size:13.5px;color:#344054;display:flex;gap:8px}
+  .sside{display:flex;flex-direction:column;gap:14px}
+  .kpi2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .kpi{padding:15px 16px}
+  .kpi .v{font-size:23px;font-weight:900;letter-spacing:-.5px;color:#fff}
+  .kpi .l{font-size:12px;color:var(--tx2);font-weight:500;margin-top:1px}
+  .kpi .up{font-size:11.5px;color:var(--coral);font-weight:800;margin-top:3px}
+  .caps{padding:16px 18px}
+  .caps h5{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:11px}
+  .caps ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .caps li{font-size:13.5px;color:var(--tx);display:flex;gap:9px;font-weight:400}
   .caps li::before{content:"✦";color:var(--cerise);font-weight:900}
-  .vsbars{margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-  .vsbars h5{font-size:12.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-  .vbar{display:grid;grid-template-columns:64px 1fr 64px;gap:10px;align-items:center;margin-bottom:9px;font-size:13px;font-weight:600}
-  .vbar .track{height:12px;background:#f1f3f6;border-radius:999px;overflow:hidden}
-  .vbar .fill{height:100%;background:linear-gradient(90deg,var(--cerise),#ff7ec0);border-radius:999px}
-  .vbar .amt{text-align:left;font-weight:800;color:var(--cerise-d)}
+  .vsbars{margin-top:18px;padding:16px 20px}
+  .vsbars h5{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+  .vbar{display:grid;grid-template-columns:60px 1fr 64px;gap:12px;align-items:center;margin-bottom:11px;font-size:13px;font-weight:600;color:var(--tx2)}
+  .vbar .track{height:10px;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden}
+  .vbar .fill{height:100%;background:linear-gradient(90deg,var(--cerise-deep),var(--cerise));border-radius:999px;box-shadow:0 0 16px var(--cerise-g)}
+  .vbar .amt{text-align:left;font-weight:800;color:#fff}
 
-  /* ───── PAGE 2 · LOGISTICS (sky, operational grid) ───── */
-  .findbar{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid rgba(41,171,226,.35);border-radius:14px;padding:13px 16px;box-shadow:var(--shadow);font-size:15px;margin-bottom:16px}
-  .findbar .ic{font-size:18px}
-  .findbar input{flex:1;border:none;outline:none;font-family:inherit;font-size:15px;color:var(--ink);background:transparent}
-  .findbar .go{background:var(--sky);color:#fff;border-radius:9px;padding:7px 16px;font-weight:800;font-size:13px}
-  .matrix{border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .matrix table{width:100%;border-collapse:collapse;font-size:13.5px;margin:0}
-  .matrix th{background:#eef7fc;color:var(--sky-d);font-weight:800;padding:11px 10px;text-align:center;font-size:12.5px;border-bottom:1px solid var(--line)}
-  .matrix th.prod{text-align:right;width:38%}
-  .matrix td{padding:10px;text-align:center;border-bottom:1px solid #f2f4f7;font-weight:800}
-  .matrix td.prod{text-align:right;font-weight:700;color:var(--ink)}
-  .matrix tr:last-child td{border-bottom:none}
-  .cell{display:inline-block;min-width:34px;padding:4px 0;border-radius:8px;font-size:13.5px}
-  .cell.ok{background:rgba(41,171,226,.12);color:var(--sky-d)}
-  .cell.lo{background:rgba(255,143,77,.16);color:var(--coral-d)}
-  .cell.zr{background:rgba(236,0,140,.1);color:var(--cerise-d)}
-  .logi-row{display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:14px;margin-top:16px}
-  @media(max-width:860px){.logi-row{grid-template-columns:1fr}}
-  .lcard{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fff}
-  .lcard h5{font-size:13px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:7px;color:var(--ink)}
-  .transfer{display:flex;align-items:center;gap:10px;font-size:13.5px;background:rgba(41,171,226,.06);border:1px solid rgba(41,171,226,.2);border-radius:11px;padding:10px 12px;font-weight:600}
-  .transfer .ar{color:var(--sky);font-weight:900;font-size:18px}
-  .alert{display:flex;align-items:center;gap:9px;font-size:13px;padding:8px 0;border-bottom:1px solid #f2f4f7;font-weight:600}
+  /* ── PAGE 2 · LOGISTICS ── */
+  .findbar{display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--hair);border-radius:14px;padding:14px 18px;font-size:15px;margin-top:26px;margin-bottom:18px}
+  .findbar .ic{font-size:17px;opacity:.8}
+  .findbar .q{flex:1;color:var(--tx)}
+  .findbar .go{background:var(--sky);color:#04222e;border-radius:9px;padding:8px 17px;font-weight:800;font-size:13px}
+  .matrix table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .matrix th{color:#8a93a3;font-weight:800;padding:11px 8px;text-align:center;font-size:12px}
+  .matrix th.prod{text-align:right;width:36%}
+  .matrix td{padding:9px;text-align:center;border-top:1px solid #eef0f3;font-weight:800}
+  .matrix td.prod{text-align:right;font-weight:700;color:#0a0f23}
+  .cell{display:inline-block;min-width:36px;padding:5px 0;border-radius:8px;font-size:13.5px}
+  .cell.ok{background:rgba(41,171,226,.14);color:#1479a8}
+  .cell.lo{background:rgba(255,143,77,.18);color:#b8590a}
+  .cell.zr{background:rgba(236,0,140,.12);color:#c4007a}
+  .lrow{display:grid;grid-template-columns:1.2fr 1.2fr 1fr;gap:16px;margin-top:18px}
+  @media(max-width:880px){.lrow{grid-template-columns:1fr}}
+  .lcard{padding:16px 18px}
+  .lcard h5{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+  .transfer{display:flex;align-items:center;gap:10px;font-size:13px;background:var(--sky-g);border:1px solid rgba(76,196,240,.2);border-radius:11px;padding:10px 12px;font-weight:600;color:var(--tx)}
+  .transfer .ar{color:var(--sky);font-weight:900;font-size:17px}
+  .transfer+.transfer{margin-top:9px}
+  .alert{display:flex;align-items:center;gap:10px;font-size:13px;padding:9px 0;border-bottom:1px solid var(--hair);font-weight:500;color:var(--tx)}
   .alert:last-child{border:none}
-  .dot{width:9px;height:9px;border-radius:50%;flex:none}
-  .dot.lo{background:var(--coral)} .dot.zr{background:var(--cerise)}
-  .lkpi{display:flex;flex-direction:column;gap:10px}
-  .lkpi .k{background:rgba(41,171,226,.06);border:1px solid rgba(41,171,226,.18);border-radius:11px;padding:11px 13px}
-  .lkpi .k .v{font-size:20px;font-weight:900;color:var(--sky-d)}
-  .lkpi .k .l{font-size:12px;color:var(--muted);font-weight:600}
+  .adot{width:8px;height:8px;border-radius:50%;flex:none}
+  .adot.lo{background:var(--coral);box-shadow:0 0 10px var(--coral)} .adot.zr{background:var(--cerise);box-shadow:0 0 10px var(--cerise)}
+  .lkpi{display:flex;flex-direction:column;gap:11px}
+  .lkpi .k{padding:12px 14px;border-radius:12px;background:var(--sky-g);border:1px solid rgba(76,196,240,.18)}
+  .lkpi .k .v{font-size:21px;font-weight:900;color:#fff}
+  .lkpi .k .l{font-size:12px;color:var(--tx2);font-weight:500}
 
-  /* ───── PAGE 3 · ONE ROOF + REST (brief) ───── */
-  .found{display:flex;align-items:center;gap:14px;background:linear-gradient(100deg,rgba(255,143,77,.12),rgba(236,0,140,.06));border:1px solid rgba(255,143,77,.3);border-radius:16px;padding:15px 18px;flex-wrap:wrap}
-  .found .star{font-size:28px}
-  .found .ft{flex:1;min-width:240px}
-  .found .ft b{color:var(--coral-d)}
-  .found .flow{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:#475467;flex-wrap:wrap}
-  .pill{background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 10px;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow)}
-  .pill.src{border-color:var(--coral);color:var(--coral-d)}
-  .ar{color:#cbd5e1;font-weight:900}
-  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-  @media(max-width:860px){.menu{grid-template-columns:1fr}}
-  .pkg{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;box-shadow:var(--shadow);position:relative}
-  .pkg.hot{border:2px solid var(--cerise)}
-  .pkg .rib{position:absolute;top:-11px;inset-inline-start:16px;background:var(--cerise);color:#fff;font-size:11px;font-weight:800;padding:3px 11px;border-radius:999px}
-  .pkg .blk{display:flex;gap:5px;margin:3px 0 9px}
+  /* ── PAGE 3 · ROOF ── */
+  .found{display:flex;align-items:center;gap:16px;background:linear-gradient(100deg,var(--gold-g),rgba(255,61,166,.05));border:1px solid rgba(240,192,0,.22);border-radius:16px;padding:17px 20px;flex-wrap:wrap;margin-top:24px}
+  .found .star{font-size:26px}
+  .found .ft{flex:1;min-width:250px}
+  .found .ft .h{font-size:16px;font-weight:800;margin-bottom:3px}
+  .found .ft .h b{color:var(--gold)}
+  .found .ft p{font-size:13px;color:var(--tx2)}
+  .found .flow{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--tx2)}
+  .pill{background:var(--glass2);border:1px solid var(--hair);border-radius:10px;padding:7px 11px;display:flex;align-items:center;gap:6px}
+  .pill.src{border-color:rgba(255,154,92,.4);color:var(--coral)}
+  .ar{color:var(--tx3);font-weight:900}
+  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}
+  @media(max-width:880px){.menu{grid-template-columns:1fr}}
+  .pkg{padding:18px;position:relative}
+  .pkg.hot{border-color:rgba(240,192,0,.45);box-shadow:0 0 0 1px rgba(240,192,0,.25),0 20px 50px -25px rgba(240,192,0,.25)}
+  .pkg .rib{position:absolute;top:-11px;inset-inline-start:18px;background:var(--gold);color:#1a1500;font-size:11px;font-weight:800;padding:3px 11px;border-radius:999px}
+  .pkg .blk{display:flex;gap:5px;margin:2px 0 11px}
   .bb{width:25px;height:25px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:11.5px;color:#fff}
-  .bb.a{background:var(--cerise)} .bb.b{background:var(--sky)} .bb.c{background:var(--coral)} .bb.off{background:#e2e8f0;color:#aeb6c2}
-  .pkg h4{font-size:14.5px;font-weight:800}
-  .pkg p{font-size:12.5px;color:#475467;margin-top:3px}
-  .band{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:14px;margin-top:18px}
-  @media(max-width:860px){.band{grid-template-columns:1fr}}
-  .col{border:1px solid var(--line);border-radius:14px;padding:15px;background:var(--soft)}
-  .col h5{font-size:12.5px;font-weight:800;margin-bottom:8px;display:flex;gap:7px;align-items:center}
-  .col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
-  .col li{font-size:12.5px;color:#475467;display:flex;gap:7px}
+  .bb.a{background:var(--cerise-deep)} .bb.b{background:var(--sky-deep)} .bb.c{background:var(--coral)} .bb.off{background:rgba(255,255,255,.1);color:var(--tx3)}
+  .pkg h4{font-size:15px;font-weight:800}
+  .pkg p{font-size:12.5px;color:var(--tx2);margin-top:4px;line-height:1.55}
+  .band{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:15px;margin-top:18px}
+  @media(max-width:880px){.band{grid-template-columns:1fr}}
+  .col{padding:16px 18px}
+  .col h5{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:11px;display:flex;gap:7px;align-items:center}
+  .col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .col li{font-size:12.5px;color:var(--tx);display:flex;gap:8px}
   .col li::before{content:"•";color:var(--cerise);font-weight:900}
-  .roles{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:700;color:#475467}
-  .rc{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 10px}
-  .chips{display:flex;flex-direction:column;gap:8px}
-  .dchip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:12.5px;font-weight:700;display:flex;gap:8px;align-items:center}
-  .foot{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;padding:2px 30px 30px;max-width:1180px;margin:0 auto;flex-wrap:wrap;gap:10px}
-  .foot b{color:var(--ink)}
+  .roles{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:600;color:var(--tx2)}
+  .rc{background:var(--glass);border:1px solid var(--hair);border-radius:9px;padding:8px 11px}
+  .chips{display:flex;flex-direction:column;gap:9px}
+  .dchip{background:var(--glass);border:1px solid var(--hair);border-radius:11px;padding:10px 12px;font-size:12.5px;font-weight:700;display:flex;gap:9px;align-items:center}
+  .foot{display:flex;justify-content:space-between;align-items:center;color:var(--tx3);font-size:12.5px;padding:2px 34px 34px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:10px}
+  .foot b{color:var(--tx2)}
 
-  body.editing [contenteditable]{outline:1px dashed #f0c000;outline-offset:2px;border-radius:3px}
-  @media print{.ombar{display:none}body{background:#fff}.page{padding:0 6mm}.sheet{box-shadow:none;break-inside:avoid}.pagebreak{break-before:page}@page{size:A4;margin:9mm}}
+  body.editing [contenteditable]{outline:1px dashed var(--gold);outline-offset:2px;border-radius:3px}
+  @media print{.ombar{display:none}.glow{display:none}@page{size:A4;margin:8mm}.sheet{break-inside:avoid}.pagebreak{break-before:page}}
 </style>
 </head>
 <body>
@@ -175,40 +192,40 @@
 <!-- ════ PAGE 1 · SALES ════ -->
 <div class="page">
   <div class="sheet">
-    <div class="accentbar sales"></div>
-    <div class="cobrand">
-      <span class="brand gm"><img src="gomobile.png" alt="GoMobile">GoMobile</span>
-      <span class="x">×</span>
-      <span class="brand om"><img src="logo.png" alt="OctoMonic">OctoMonic</span>
-    </div>
-    <div class="phead">
-      <span class="ptag sales">📊 מוצר 01 · מכירות</span>
+    <div class="glow c"></div>
+    <div class="inner">
+      <div class="cobrand">
+        <span class="brand gm"><img src="gomobile.png" alt="GoMobile">GoMobile</span>
+        <span class="x">×</span>
+        <span class="brand om"><img src="logo.png" alt="OctoMonic">OctoMonic</span>
+      </div>
+      <div class="eyebrow sales"><span class="pp"></span>מוצר 01 — מכירות</div>
       <h2>מעקב מכירות + לוח תוצאות</h2>
       <p class="val">מי מכר מה — לפי עובד, סניף ויום. לוח תחרות חי שמייצר מוטיבציה בין הצוותים ומעלה המרות, בלי שצריך לדבר על זה.</p>
-    </div>
-    <div class="body">
-      <div class="sales-grid">
-        <div>
-          <div class="champ">
-            <div class="cav">יכ</div>
-            <div class="cmeta"><small>🏆 מוביל השבוע</small><b>יוסי כהן</b><span class="sub">סניף ר"ג · 🔥 רצף 6 ימים</span></div>
-            <div class="camt"><div class="big">₪96,400</div><div class="st">128% מהיעד</div></div>
-          </div>
-          <div class="lblist">
-            <div class="lbrow"><div class="rk">2</div><div class="nm"><div class="av" style="background:#EC008C">דל</div><div><b>דנה לוי</b><small>סניף ת"א · 92% מהיעד</small></div></div><div class="v">₪88,150</div></div>
-            <div class="lbrow"><div class="rk">3</div><div class="nm"><div class="av" style="background:#29ABE2">מב</div><div><b>מורן ביטון</b><small>סניף חיפה · 86% מהיעד</small></div></div><div class="v">₪81,900</div></div>
-            <div class="lbrow"><div class="rk">4</div><div class="nm"><div class="av" style="background:#8B5CF6">אמ</div><div><b>אבי מזרחי</b><small>סניף ב"ש · עלה 2 מקומות</small></div></div><div class="v">₪74,300</div></div>
-            <div class="lbrow"><div class="rk">5</div><div class="nm"><div class="av" style="background:#FF8F4D">נש</div><div><b>נטע שגב</b><small>סניף נתניה</small></div></div><div class="v">₪69,050</div></div>
+      <div class="sgrid">
+        <div class="win">
+          <div class="winbar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="t">לוח תוצאות · השבוע</span></div>
+          <div class="winbody">
+            <div class="champ">
+              <div class="cav">יכ</div>
+              <div class="cmeta"><small>🏆 מוביל השבוע</small><b>יוסי כהן</b><span class="sub">סניף ר"ג · 🔥 רצף 6 ימים</span></div>
+              <div class="camt"><div class="big">₪96,400</div><div class="st">128% מהיעד</div></div>
+            </div>
+            <div class="lblist">
+              <div class="lbrow"><div class="rk">2</div><div class="nm"><div class="av" style="background:#EC008C">דל</div><div><b>דנה לוי</b><small>סניף ת"א · 92% מהיעד</small></div></div><div class="v">₪88,150</div></div>
+              <div class="lbrow"><div class="rk">3</div><div class="nm"><div class="av" style="background:#29ABE2">מב</div><div><b>מורן ביטון</b><small>סניף חיפה · 86% מהיעד</small></div></div><div class="v">₪81,900</div></div>
+              <div class="lbrow"><div class="rk">4</div><div class="nm"><div class="av" style="background:#8B5CF6">אמ</div><div><b>אבי מזרחי</b><small>סניף ב"ש · עלה 2 מקומות</small></div></div><div class="v">₪74,300</div></div>
+            </div>
           </div>
         </div>
-        <div class="sales-side">
+        <div class="sside">
           <div class="kpi2">
-            <div class="kpi"><div class="v">₪412K</div><div class="l">מכירות היום</div><div class="up">▲ 12%</div></div>
-            <div class="kpi"><div class="v">186</div><div class="l">יחידות</div><div class="up">▲ 8%</div></div>
-            <div class="kpi"><div class="v">31%</div><div class="l">צירוף GoCare</div><div class="up">▲ 4%</div></div>
-            <div class="kpi"><div class="v">₪2,214</div><div class="l">סל ממוצע</div></div>
+            <div class="kpi glass-c"><div class="v">₪412K</div><div class="l">מכירות היום</div><div class="up">▲ 12%</div></div>
+            <div class="kpi glass-c"><div class="v">186</div><div class="l">יחידות</div><div class="up">▲ 8%</div></div>
+            <div class="kpi glass-c"><div class="v">31%</div><div class="l">צירוף GoCare</div><div class="up">▲ 4%</div></div>
+            <div class="kpi glass-c"><div class="v">₪2,214</div><div class="l">סל ממוצע</div></div>
           </div>
-          <div class="caps">
+          <div class="caps glass-c">
             <h5>מה זה נותן</h5>
             <ul>
               <li>דירוג עובדים בזמן אמת — היום / שבוע / חודש</li>
@@ -219,7 +236,7 @@
           </div>
         </div>
       </div>
-      <div class="vsbars">
+      <div class="vsbars glass-c">
         <h5>תחרות בין סניפים · השבוע</h5>
         <div class="vbar"><span>ר"ג</span><div class="track"><div class="fill" style="width:92%"></div></div><span class="amt">₪288K</span></div>
         <div class="vbar"><span>ת"א</span><div class="track"><div class="fill" style="width:78%"></div></div><span class="amt">₪244K</span></div>
@@ -233,42 +250,39 @@
 <!-- ════ PAGE 2 · LOGISTICS ════ -->
 <div class="page pagebreak">
   <div class="sheet">
-    <div class="accentbar logi"></div>
-    <div class="phead">
-      <span class="ptag logi">📦 מוצר 02 · לוגיסטיקה</span>
+    <div class="glow s"></div>
+    <div class="inner">
+      <div class="eyebrow logi"><span class="pp"></span>מוצר 02 — לוגיסטיקה</div>
       <h2>לוח מלאי חי</h2>
       <p class="val">איפה נמצא כל פריט, בכל רגע. תמונת מלאי חיה לפי סניף — עם התראות חוסר והמלצות העברה כדי לא לפספס מכירה.</p>
-    </div>
-    <div class="body">
-      <div class="findbar">
-        <span class="ic">🔎</span>
-        <input value="iPhone 17 Pro Max 256GB — טיטניום כחול" readonly>
-        <span class="go">חפש מלאי</span>
+      <div class="findbar"><span class="ic">🔎</span><span class="q">iPhone 17 Pro Max 256GB — טיטניום כחול</span><span class="go">חפש מלאי</span></div>
+      <div class="win">
+        <div class="winbar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="t">מלאי לפי סניף</span></div>
+        <div class="winbody matrix">
+          <table>
+            <thead><tr><th class="prod">פריט</th><th>ר"ג</th><th>ת"א</th><th>חיפה</th><th>ב"ש</th><th>נתניה</th></tr></thead>
+            <tbody>
+              <tr><td class="prod">iPhone 17 Pro Max 256GB</td><td><span class="cell ok">7</span></td><td><span class="cell ok">4</span></td><td><span class="cell lo">1</span></td><td><span class="cell zr">0</span></td><td><span class="cell ok">3</span></td></tr>
+              <tr><td class="prod">Galaxy S25 Ultra 512GB</td><td><span class="cell ok">5</span></td><td><span class="cell lo">2</span></td><td><span class="cell ok">6</span></td><td><span class="cell ok">4</span></td><td><span class="cell lo">1</span></td></tr>
+              <tr><td class="prod">iPad Air M3 128GB</td><td><span class="cell ok">9</span></td><td><span class="cell ok">7</span></td><td><span class="cell ok">5</span></td><td><span class="cell lo">2</span></td><td><span class="cell ok">4</span></td></tr>
+              <tr><td class="prod">Roborock Qrevo S</td><td><span class="cell lo">1</span></td><td><span class="cell ok">3</span></td><td><span class="cell zr">0</span></td><td><span class="cell ok">3</span></td><td><span class="cell ok">2</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="matrix">
-        <table>
-          <thead><tr><th class="prod">פריט</th><th>ר"ג</th><th>ת"א</th><th>חיפה</th><th>ב"ש</th><th>נתניה</th></tr></thead>
-          <tbody>
-            <tr><td class="prod">iPhone 17 Pro Max 256GB</td><td><span class="cell ok">7</span></td><td><span class="cell ok">4</span></td><td><span class="cell lo">1</span></td><td><span class="cell zr">0</span></td><td><span class="cell ok">3</span></td></tr>
-            <tr><td class="prod">Galaxy S25 Ultra 512GB</td><td><span class="cell ok">5</span></td><td><span class="cell lo">2</span></td><td><span class="cell ok">6</span></td><td><span class="cell ok">4</span></td><td><span class="cell lo">1</span></td></tr>
-            <tr><td class="prod">iPad Air M3 128GB</td><td><span class="cell ok">9</span></td><td><span class="cell ok">7</span></td><td><span class="cell ok">5</span></td><td><span class="cell lo">2</span></td><td><span class="cell ok">4</span></td></tr>
-            <tr><td class="prod">Roborock Qrevo S</td><td><span class="cell lo">1</span></td><td><span class="cell ok">3</span></td><td><span class="cell zr">0</span></td><td><span class="cell ok">3</span></td><td><span class="cell ok">2</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="logi-row">
-        <div class="lcard">
+      <div class="lrow">
+        <div class="lcard glass-c">
           <h5>🔁 המלצות העברה</h5>
-          <div class="transfer">העבר 2 יח׳ <span class="ar">←</span> מר"ג לב"ש <b style="margin-inline-start:auto;color:var(--cerise-d)">iPhone 17 PM</b></div>
-          <div class="transfer" style="margin-top:8px">העבר 3 יח׳ <span class="ar">←</span> מב"ש לחיפה <b style="margin-inline-start:auto;color:var(--cerise-d)">Roborock</b></div>
+          <div class="transfer">העבר 2 יח׳ <span class="ar">←</span> מר"ג לב"ש <b style="margin-inline-start:auto;color:var(--cerise)">iPhone 17 PM</b></div>
+          <div class="transfer">העבר 3 יח׳ <span class="ar">←</span> מב"ש לחיפה <b style="margin-inline-start:auto;color:var(--cerise)">Roborock</b></div>
         </div>
-        <div class="lcard">
+        <div class="lcard glass-c">
           <h5>⚠️ התראות מלאי</h5>
-          <div class="alert"><span class="dot zr"></span>iPhone 17 PM — <b>אזל בב"ש</b>, ביקוש גבוה</div>
-          <div class="alert"><span class="dot zr"></span>Roborock Qrevo — <b>אזל בחיפה</b></div>
-          <div class="alert"><span class="dot lo"></span>Galaxy S25 Ultra — נמוך בנתניה (1)</div>
+          <div class="alert"><span class="adot zr"></span>iPhone 17 PM — <b>אזל בב"ש</b>, ביקוש גבוה</div>
+          <div class="alert"><span class="adot zr"></span>Roborock Qrevo — <b>אזל בחיפה</b></div>
+          <div class="alert"><span class="adot lo"></span>Galaxy S25 Ultra — נמוך בנתניה (1)</div>
         </div>
-        <div class="lcard">
+        <div class="lcard glass-c">
           <h5>📊 תמונת מצב</h5>
           <div class="lkpi">
             <div class="k"><div class="v">₪2.4M</div><div class="l">שווי מלאי כולל</div></div>
@@ -281,63 +295,31 @@
   </div>
 </div>
 
-<!-- ════ PAGE 3 · ONE ROOF + REST ════ -->
+<!-- ════ PAGE 3 · ROOF ════ -->
 <div class="page pagebreak">
   <div class="sheet">
-    <div class="accentbar roof"></div>
-    <div class="phead">
-      <span class="ptag roof">🏠 תחת קורת גג אחת — ומה שמעבר</span>
+    <div class="glow g"></div>
+    <div class="inner">
+      <div class="eyebrow roof"><span class="pp"></span>תחת קורת גג אחת — ומה שמעבר</div>
       <h2>שני מוצרים נפרדים — שאפשר לאחד למערכת אחת</h2>
       <p class="val">אפשר לקחת כל מוצר בנפרד, או לאחד אותם. והקופה (POS) היא מה שמחבר את הכול ומפעיל אותם מעצמה.</p>
-    </div>
-    <div class="body" style="padding-top:6px">
       <div class="found">
         <div class="star">⭐</div>
         <div class="ft">
-          <div style="font-size:16px;font-weight:800;margin-bottom:2px">הקופה (POS) — לא "תוספת", אלא <b>הבסיס</b></div>
-          <div style="font-size:13px;color:#475467">תופסת כל מכירה במקור ומעדכנת מלאי בזמן אמת — מזינה את שני המוצרים האחרים באופן טבעי, ופותרת את ההקלדה הידנית.</div>
+          <div class="h">הקופה (POS) — לא "תוספת", אלא <b>הבסיס</b></div>
+          <p>תופסת כל מכירה במקור ומעדכנת מלאי בזמן אמת — מזינה את שני המוצרים האחרים באופן טבעי, ופותרת את ההקלדה הידנית.</p>
         </div>
         <div class="flow"><div class="pill src">🧾 קופה</div><span class="ar">←</span><div class="pill">📊 מכירות</div><div class="pill">📦 מלאי</div></div>
       </div>
-
       <div class="menu">
-        <div class="pkg">
-          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
-          <h4>כל מוצר בנפרד</h4>
-          <p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p>
-        </div>
-        <div class="pkg">
-          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div>
-          <h4>שני המוצרים יחד</h4>
-          <p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p>
-        </div>
-        <div class="pkg hot">
-          <div class="rib">★ ההמלצה שלנו</div>
-          <div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div>
-          <h4>"GoMobile Ops" — הכל + קופה</h4>
-          <p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p>
-        </div>
+        <div class="pkg glass-c"><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>כל מוצר בנפרד</h4><p>מתחילים מאחד — לפי סדר העדיפויות שלכם. הכי מדורג.</p></div>
+        <div class="pkg glass-c"><div class="blk"><div class="bb a">A</div><div class="bb b">B</div></div><h4>שני המוצרים יחד</h4><p>מכירות + מלאי תחת קורת גג אחת, בלי שינוי תהליך לצוות.</p></div>
+        <div class="pkg glass-c hot"><div class="rib">★ ההמלצה שלנו</div><div class="blk"><div class="bb a">A</div><div class="bb b">B</div><div class="bb c">C</div></div><h4>"GoMobile Ops" — הכל + קופה</h4><p>קופה כבסיס, מכירות ומלאי זורמים ממנה. ללא תלות בפיתוח חיצוני.</p></div>
       </div>
-
       <div class="band">
-        <div class="col">
-          <h5>🔑 מה נדרש מכם</h5>
-          <ul><li>ממשק קריאה מ-bGate — או קופה שמייתרת אותו</li><li>אישור היקף + מעקב ביצועי עובדים</li><li>סניף לפיילוט</li></ul>
-        </div>
-        <div class="col">
-          <h5>🤝 מודל העבודה</h5>
-          <div class="roles">
-            <span class="rc">הליבה (WC / bGate) — בשליטת הפיתוח הקיים</span>
-            <span class="rc" style="border-color:var(--cerise);color:var(--cerise-d)">OctoMonic — הכלים החדשים מעל</span>
-          </div>
-        </div>
-        <div class="col">
-          <h5>🔭 בהמשך הדרך</h5>
-          <div class="chips">
-            <span class="dchip">🎙️ ניתוח שיחות מכירה</span>
-            <span class="dchip">🎟️ תור + לכידת לידים</span>
-          </div>
-        </div>
+        <div class="col glass-c"><h5>🔑 מה נדרש מכם</h5><ul><li>ממשק קריאה מ-bGate — או קופה שמייתרת אותו</li><li>אישור היקף + מעקב ביצועי עובדים</li><li>סניף לפיילוט</li></ul></div>
+        <div class="col glass-c"><h5>🤝 מודל העבודה</h5><div class="roles"><span class="rc">הליבה (WC / bGate) — בשליטת הפיתוח הקיים</span><span class="rc" style="border-color:rgba(255,61,166,.35);color:var(--cerise)">OctoMonic — הכלים החדשים מעל</span></div></div>
+        <div class="col glass-c"><h5>🔭 בהמשך הדרך</h5><div class="chips"><span class="dchip">🎙️ ניתוח שיחות מכירה</span><span class="dchip">🎟️ תור + לכידת לידים</span></div></div>
       </div>
     </div>
   </div>
@@ -347,7 +329,7 @@
 <script>
   function toggleEdit(){
     const on=document.body.classList.toggle('editing');
-    document.querySelectorAll('.page h2,.page h4,.page h5,.page p,.page span,.page b,.page small,.page li').forEach(el=>{
+    document.querySelectorAll('.inner h2,.inner h4,.inner h5,.inner p,.inner span,.inner b,.inner small,.inner li,.inner .v,.inner .l').forEach(el=>{
       if(on)el.setAttribute('contenteditable','true'); else el.removeAttribute('contenteditable');
     });
     document.querySelector('.ombar .copy').style.display=on?'inline-block':'none';
