@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>GPI Dictionary — מילון GPI</title>
+<script>(function(){try{var l=localStorage.getItem('gpi_lang')||'en';document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('dir',l==='he'?'rtl':'ltr');document.documentElement.setAttribute('lang',l)}catch(e){}})();</script>
+<style>
+  :root{--ink:#1a2233;--muted:#667085;--line:#e6e9ef;--bg:#f6f7f9;--panel:#fff;
+    --pink:#ec008c;--pink-d:#b8006e;
+    --good:#0a8a5b;--good-bg:#eafaf2;--warn:#b8590a;--warn-bg:#fff6ec;
+    --bad:#c01e5c;--bad-bg:#fdeef4;--neu:#667085;--neu-bg:#f1f3f7;--info:#1479a8;--info-bg:#e8f4fa;--pink-bg:#fde7f3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  [data-lang=en] .he-only{display:none} [data-lang=he] .en-only{display:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  a{color:var(--pink-d);text-decoration:none}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.85em;background:#eef0f4;padding:1px 5px;border-radius:4px}
+  .sku{font-family:"SF Mono",Menlo,monospace;font-weight:700;color:var(--info);font-size:12px;direction:ltr;unicode-bidi:embed}
+  header{background:linear-gradient(120deg,#fff,#fdf2f8);border-bottom:3px solid var(--pink)}
+  .hd{display:flex;align-items:center;gap:16px;padding:22px 0}
+  .hd img{height:38px} .hd .grow{flex:1}
+  .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-d);font-weight:700}
+  h1{font-size:27px;font-weight:800;margin-top:2px}
+  .sub{color:var(--muted);margin-top:6px;max-width:720px}
+  .langtoggle{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;align-self:flex-start}
+  .langtoggle button{border:0;background:#fff;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:6px 13px;cursor:pointer}
+  .langtoggle button[aria-pressed=true]{background:var(--pink);color:#fff}
+  /* controls */
+  .controls{position:sticky;top:0;z-index:8;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0}
+  .ctop{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+  .search input{border:0;outline:0;font:inherit;font-size:14px;flex:1;background:transparent;color:var(--ink)}
+  .count{font-size:12.5px;color:var(--muted);white-space:nowrap}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+  .chip{border:1px solid var(--line);background:#fff;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:6px 13px;border-radius:20px;cursor:pointer;transition:.12s}
+  .chip:hover{border-color:var(--pink)}
+  .chip[aria-pressed=true]{background:var(--pink);color:#fff;border-color:var(--pink)}
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;padding:22px 0 10px}
+  .entry{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px;box-shadow:0 1px 2px rgba(16,24,40,.04);border-inline-start:4px solid var(--line);display:flex;flex-direction:column;gap:7px}
+  .entry.c-good{border-inline-start-color:var(--good)} .entry.c-warn{border-inline-start-color:var(--warn)}
+  .entry.c-bad{border-inline-start-color:var(--bad)} .entry.c-neu{border-inline-start-color:var(--neu)}
+  .entry.c-info{border-inline-start-color:var(--info)} .entry.c-pink{border-inline-start-color:var(--pink)}
+  .etop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .tag{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+  .t-good{background:var(--good-bg);color:var(--good)} .t-warn{background:var(--warn-bg);color:var(--warn)}
+  .t-bad{background:var(--bad-bg);color:var(--bad)} .t-neu{background:var(--neu-bg);color:var(--neu)}
+  .t-pink{background:var(--pink-bg);color:var(--pink-d)} .t-info{background:var(--info-bg);color:var(--info)}
+  .ecount{font-size:12px;font-weight:800;color:var(--muted)}
+  .ename{font-weight:800;font-size:15px}
+  .edef{font-size:13.5px;color:#3a4254}
+  .eact{font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:7px;margin-top:1px}
+  .eact b{color:var(--pink-d)}
+  .ex{font-size:11.5px;color:var(--muted)}
+  .cat-label{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#a7b0c0}
+  .hidden{display:none!important}
+  .empty{padding:30px;text-align:center;color:var(--muted)}
+  footer{color:var(--muted);font-size:12.5px;padding:26px 0 50px;border-top:1px solid var(--line);margin-top:20px}
+  .home{font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <img src="gomobile.png" alt="GoMobile" />
+  <div class="grow">
+    <div class="kick">GoSolutions GPI · <span class="en-only">Price Intelligence</span><span class="he-only">מודיעין תמחור</span></div>
+    <h1><span class="en-only">GPI Dictionary</span><span class="he-only">מילון GPI</span></h1>
+    <div class="sub"><span class="en-only">Every sign, badge, state and term on the dashboard — what each one means and what to do. Filter by type up top, or search.</span><span class="he-only">כל סימן, תג, מצב ומונח בדאשבורד — מה כל אחד אומר ומה לעשות. סננו לפי סוג למעלה, או חפשו.</span></div>
+    <div class="home"><a href="./">↩ <span class="en-only">Training home</span><span class="he-only">דף הדרכה</span></a></div>
+  </div>
+  <div class="langtoggle"><button data-langbtn="en">EN</button><button data-langbtn="he">עברית</button></div>
+</div></header>
+
+<div class="controls"><div class="wrap">
+  <div class="ctop">
+    <label class="search">🔎 <input id="q" type="search" placeholder="" aria-label="search"></label>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="chips" id="chips">
+    <button class="chip" data-filter="all" aria-pressed="true"><span class="en-only">All</span><span class="he-only">הכל</span></button>
+    <button class="chip" data-filter="state"><span class="en-only">Comparison states</span><span class="he-only">מצבי השוואה</span></button>
+    <button class="chip" data-filter="block"><span class="en-only">Block reasons</span><span class="he-only">סיבות חסימה</span></button>
+    <button class="chip" data-filter="badge"><span class="en-only">Badges</span><span class="he-only">תגים</span></button>
+    <button class="chip" data-filter="flow"><span class="en-only">Price-change flow</span><span class="he-only">תהליך מחיר</span></button>
+    <button class="chip" data-filter="term"><span class="en-only">Glossary</span><span class="he-only">מונחים</span></button>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <div class="grid" id="grid">
+
+  <!-- ===== STATES ===== -->
+  <article class="entry c-neu" data-cat="state">
+    <div class="etop"><span class="tag t-neu">ללא השוואה</span><span class="ecount">730</span></div>
+    <div class="ename"><span class="en-only">No comparison</span><span class="he-only">ללא השוואה</span></div>
+    <div class="edef"><span class="en-only">We track it, but no competitor carries it — mostly accessories. Nothing to compare.</span><span class="he-only">עוקבים אחריו, אבל אף מתחרה לא מוכר אותו — בעיקר אביזרים. אין מה להשוות.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Nothing — unless you'd expect a rival to exist → flag for URL discovery.</span><span class="he-only">כלום — אלא אם ציפיתם שיהיה מתחרה ← סמנו לאיתור URL.</span></div>
+    <div class="ex"><span class="sku">1198161</span> JBL Tune 290</div>
+  </article>
+  <article class="entry c-good" data-cat="state">
+    <div class="etop"><span class="tag t-good">מושווים</span><span class="ecount">252</span></div>
+    <div class="ename"><span class="en-only">Compared</span><span class="he-only">מושווים</span></div>
+    <div class="edef"><span class="en-only">Has ≥1 <b>buyable</b> competitor — in stock, same identity, has a price.</span><span class="he-only">יש לפחות מתחרה <b>אחד שניתן לקנות</b> — במלאי, אותה זהות, עם מחיר.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Read the price gap.</span><span class="he-only">קראו את פער המחיר.</span></div>
+    <div class="ex"><span class="sku">7534767</span> Galaxy A16</div>
+  </article>
+  <article class="entry c-bad" data-cat="state">
+    <div class="etop"><span class="tag t-bad"><span class="en-only">we're pricier</span><span class="he-only">אנחנו יקרים יותר</span></span><span class="ecount">~112</span></div>
+    <div class="ename"><span class="en-only">Compared — we're more expensive</span><span class="he-only">מושווה — אנחנו יקרים יותר</span></div>
+    <div class="edef"><span class="en-only">A comparable competitor is cheaper than us. <b>Severity:</b> 5–10% = sanity-check; &gt;10% = real opportunity <i>or</i> a data error.</span><span class="he-only">מתחרה בר-השוואה זול מאיתנו. <b>חומרה:</b> 5–10% = בדיקת היגיון; מעל 10% = הזדמנות אמיתית <i>או</i> שגיאת נתונים.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Decide: lower our price, or confirm the gap is genuine (warranty / bundle).</span><span class="he-only">החליטו: להוריד מחיר, או לוודא שהפער אמיתי (אחריות / חבילה).</span></div>
+    <div class="ex"><span class="sku">5702017589282</span> LEGO Mars <b>+33%</b></div>
+  </article>
+  <article class="entry c-warn" data-cat="state">
+    <div class="etop"><span class="tag t-warn">מתחרה אזל / פנטום</span><span class="ecount">16</span></div>
+    <div class="ename"><span class="en-only">Competitor unbuyable</span><span class="he-only">מתחרה לא ניתן לקנייה</span></div>
+    <div class="edef"><span class="en-only">Competitor exists but can't be bought: ≤1 stock ("⚠ פנטום") or contact-us-only. Price shown, checkout gated.</span><span class="he-only">המתחרה קיים אבל אי אפשר לקנות: מלאי ≤1 ("⚠ פנטום") או "צרו קשר בלבד". המחיר מוצג, הרכישה חסומה.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Treat as <b>not comparable</b> — never price-match a phantom.</span><span class="he-only">התייחסו כ<b>לא בר-השוואה</b> — לעולם לא להתיישר לפי פנטום.</span></div>
+    <div class="ex"><span class="sku">7675827</span> Kindle · <span class="sku">7676230</span> S25 FE</div>
+  </article>
+  <article class="entry c-warn" data-cat="state">
+    <div class="etop"><span class="tag t-warn">חסום להשוואה</span><span class="ecount">~26</span></div>
+    <div class="ename"><span class="en-only">Blocked for comparison</span><span class="he-only">חסום להשוואה</span></div>
+    <div class="edef"><span class="en-only">Competitor found but <b>different identity</b> → comparison suppressed on purpose. The system protecting you from a wrong compare.</span><span class="he-only">נמצא מתחרה אבל <b>זהות שונה</b> ← ההשוואה מושתקת בכוונה. המערכת מגינה עליכם מהשוואה שגויה.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Usually nothing — the block is correct. See block reasons.</span><span class="he-only">בדרך כלל כלום — החסימה נכונה. ראו סיבות חסימה.</span></div>
+  </article>
+  <article class="entry c-neu" data-cat="state">
+    <div class="etop"><span class="tag t-neu">ללא סריקה</span><span class="ecount">6</span></div>
+    <div class="ename"><span class="en-only">Scan failed</span><span class="he-only">סריקה נכשלה</span></div>
+    <div class="edef"><span class="en-only">Has a competitor URL but the <b>last scan failed</b>.</span><span class="he-only">יש URL מתחרה אבל <b>הסריקה האחרונה נכשלה</b>.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Re-check the URL / wait for the next scan.</span><span class="he-only">בדקו את ה-URL / המתינו לסריקה הבאה.</span></div>
+    <div class="ex"><span class="sku">7675825</span> iPad Air M3</div>
+  </article>
+
+  <!-- ===== BLOCK REASONS ===== -->
+  <article class="entry c-warn" data-cat="block">
+    <div class="etop"><span class="tag t-warn">importer_mismatch</span><span class="ecount">15</span></div>
+    <div class="ename"><span class="en-only">Importer mismatch</span><span class="he-only">אי-התאמת יבואן</span></div>
+    <div class="edef"><span class="en-only">Competitor is parallel-import, we're official (or vice-versa) — different warranty &amp; price tier. The most common block.</span><span class="he-only">המתחרה ייבוא מקביל, אנחנו רשמי (או להפך) — דרגת אחריות ומחיר שונה. החסימה הנפוצה ביותר.</span></div>
+    <div class="ex"><span class="sku">7675864</span> Roborock Qrevo</div>
+  </article>
+  <article class="entry c-warn" data-cat="block">
+    <div class="etop"><span class="tag t-warn">sim_type</span><span class="ecount">3</span></div>
+    <div class="ename"><span class="en-only">SIM-type mismatch</span><span class="he-only">אי-התאמת סים</span></div>
+    <div class="edef"><span class="en-only">eSIM-only vs physical-SIM mismatch.</span><span class="he-only">אי-התאמה בין eSIM-בלבד לסים פיזי.</span></div>
+    <div class="ex"><span class="sku">7676040</span> Pixel 10</div>
+  </article>
+  <article class="entry c-warn" data-cat="block">
+    <div class="etop"><span class="tag t-warn">warranty</span><span class="ecount">3</span></div>
+    <div class="ename"><span class="en-only">Warranty length</span><span class="he-only">אורך אחריות</span></div>
+    <div class="edef"><span class="en-only">Different warranty length between us and the competitor.</span><span class="he-only">אורך אחריות שונה בינינו לבין המתחרה.</span></div>
+    <div class="ex"><span class="sku">7344667</span> Dreame H14</div>
+  </article>
+  <article class="entry c-warn" data-cat="block">
+    <div class="etop"><span class="tag t-warn">connectivity</span><span class="ecount">3</span></div>
+    <div class="ename"><span class="en-only">Connectivity (tablets)</span><span class="he-only">קישוריות (טאבלטים)</span></div>
+    <div class="edef"><span class="en-only">Wi-Fi vs cellular mismatch on tablets.</span><span class="he-only">אי-התאמה Wi-Fi מול סלולרי בטאבלטים.</span></div>
+    <div class="ex"><span class="sku">7676336</span> Galaxy Tab S11 Ultra</div>
+  </article>
+  <article class="entry c-warn" data-cat="block">
+    <div class="etop"><span class="tag t-warn">storage / brand</span><span class="ecount">2</span></div>
+    <div class="ename"><span class="en-only">Storage tier / brand rule</span><span class="he-only">דרגת אחסון / כלל מותג</span></div>
+    <div class="edef"><span class="en-only">Different storage tier, or a brand-carriage rule (a competitor doesn't really carry that brand).</span><span class="he-only">דרגת אחסון שונה, או כלל החזקת מותג (מתחרה לא באמת מחזיק את המותג).</span></div>
+    <div class="ex"><span class="sku">7675510</span> Poco X7 Pro</div>
+  </article>
+
+  <!-- ===== BADGES ===== -->
+  <article class="entry c-pink" data-cat="badge">
+    <div class="etop"><span class="tag t-pink">GoSale</span><span class="ecount">44</span></div>
+    <div class="ename"><span class="en-only">GoSale badge</span><span class="he-only">תג GoSale</span></div>
+    <div class="edef"><span class="en-only">In GoMobile's curated <b>GoSale</b> collection (WC category 2580). Membership only — <b>not</b> necessarily a markdown.</span><span class="he-only">נמצא באוסף <b>GoSale</b> האצור (קטגוריית WC 2580). חברות בלבד — <b>לא</b> בהכרח הנחה.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Repricing allowed unless locked (see lock).</span><span class="he-only">שינוי מחיר מותר אלא אם נעול (ראו נעילה).</span></div>
+    <div class="ex"><span class="sku">7513886</span> Pixel 9</div>
+  </article>
+  <article class="entry c-warn" data-cat="badge">
+    <div class="etop"><span class="tag t-warn">🔒 GoSale · N ימים</span></div>
+    <div class="ename"><span class="en-only">GoSale 14-day lock</span><span class="he-only">נעילת GoSale ל-14 יום</span></div>
+    <div class="edef"><span class="en-only">A product that <b>just</b> entered GoSale → 14-day price-lock with countdown. A push is blocked (an override checkbox exists).</span><span class="he-only">מוצר ש<b>זה עתה</b> נכנס ל-GoSale ← נעילת מחיר ל-14 יום עם ספירה לאחור. דחיפה חסומה (יש תיבת עקיפה).</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Don't reprice during the lock unless intentional — don't yank a price the moment marketing promotes it.</span><span class="he-only">אל תשנו מחיר בזמן הנעילה אלא אם זה מכוון — לא למשוך מחיר בדיוק כשהשיווק מקדם.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="badge">
+    <div class="etop"><span class="tag t-info">importer: official / parallel</span></div>
+    <div class="ename"><span class="en-only">Importer tier</span><span class="he-only">דרגת יבואן</span></div>
+    <div class="edef"><span class="en-only">Which warranty tier this row's price belongs to. The single biggest "don't compare these" rule — <b>never compare official vs parallel.</b></span><span class="he-only">לאיזו דרגת אחריות שייך מחיר השורה. הכלל החשוב ביותר של "אל תשוו את אלה" — <b>לעולם לא להשוות רשמי מול מקביל.</b></span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Read it before judging any gap.</span><span class="he-only">קראו לפני שיפוט פער.</span></div>
+  </article>
+  <article class="entry c-neu" data-cat="badge">
+    <div class="etop"><span class="tag t-neu"><span class="en-only">on-sale markdown</span><span class="he-only">הנחת מחיר אמיתית</span></span><span class="ecount">25</span></div>
+    <div class="ename"><span class="en-only">On-sale markdown</span><span class="he-only">הנחה אמיתית</span></div>
+    <div class="edef"><span class="en-only">A genuine <code>regular &gt; sale</code> discount — distinct from GoSale. (Most of the catalog stores its price in <code>sale_price</code> with a blank <code>regular</code>, which is <b>not</b> a sale.)</span><span class="he-only">הנחה אמיתית <code>regular &gt; sale</code> — שונה מ-GoSale. (רוב הקטלוג שומר מחיר ב-<code>sale_price</code> עם <code>regular</code> ריק — וזו <b>לא</b> הנחה.)</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Mostly informational.</span><span class="he-only">בעיקר אינפורמטיבי.</span></div>
+  </article>
+  <article class="entry c-warn" data-cat="badge">
+    <div class="etop"><span class="tag t-warn">⚠ פנטום / אזל</span></div>
+    <div class="ename"><span class="en-only">Stock chip (phantom / OOS)</span><span class="he-only">צ׳יפ מלאי (פנטום / אזל)</span></div>
+    <div class="edef"><span class="en-only">On a competitor row: ≤1 unit (phantom) or out of stock.</span><span class="he-only">בשורת מתחרה: ≤1 יחידה (פנטום) או אזל מהמלאי.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Don't recommend or match it.</span><span class="he-only">אל תמליצו או תתיישרו לפיו.</span></div>
+  </article>
+
+  <!-- ===== PRICE FLOW ===== -->
+  <article class="entry c-good" data-cat="flow">
+    <div class="etop"><span class="tag t-good">מאושר</span><span class="ecount">184</span></div>
+    <div class="ename"><span class="en-only">Confirmed</span><span class="he-only">מאושר</span></div>
+    <div class="edef"><span class="en-only">Push landed — WC reads the new price back on every variant.</span><span class="he-only">הדחיפה נחתה — WC מחזיר את המחיר החדש בכל וריאנט.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Done.</span><span class="he-only">סיימתם.</span></div>
+  </article>
+  <article class="entry c-neu" data-cat="flow">
+    <div class="etop"><span class="tag t-neu">ממתין</span><span class="ecount">23</span></div>
+    <div class="ename"><span class="en-only">Pending</span><span class="he-only">ממתין</span></div>
+    <div class="edef"><span class="en-only">Sent; the verifier is still polling (seconds–minutes).</span><span class="he-only">נשלח; המאמת עדיין בודק (שניות–דקות).</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Wait.</span><span class="he-only">המתינו.</span></div>
+  </article>
+  <article class="entry c-bad" data-cat="flow">
+    <div class="etop"><span class="tag t-bad">הוחל על N מתוך M</span><span class="ecount">7</span></div>
+    <div class="ename"><span class="en-only">Partial apply (mismatch)</span><span class="he-only">הוחל חלקית (אי-התאמה)</span></div>
+    <div class="edef"><span class="en-only">bGate applied the price to only <b>some</b> colour-variants; the rest are stuck at the old price. "Sent OK" ≠ "applied".</span><span class="he-only">bGate החיל את המחיר רק על <b>חלק</b> מוריאנטי הצבע; השאר תקועים במחיר הישן. "נשלח" ≠ "הוחל".</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Click <b>↻ ניסיון חוזר</b> to retry the stuck colours, or re-push.</span><span class="he-only">לחצו <b>↻ ניסיון חוזר</b> לנסות שוב את הצבעים התקועים, או דחפו מחדש.</span></div>
+  </article>
+  <article class="entry c-warn" data-cat="flow">
+    <div class="etop"><span class="tag t-warn">timeout</span><span class="ecount">2</span></div>
+    <div class="ename"><span class="en-only">Timeout</span><span class="he-only">פג זמן</span></div>
+    <div class="edef"><span class="en-only">Never confirmed inside the verification window.</span><span class="he-only">לא אושר בתוך חלון האימות.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Re-check / retry.</span><span class="he-only">בדקו מחדש / נסו שוב.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="flow">
+    <div class="etop"><span class="tag t-info"><span class="en-only">variant decision</span><span class="he-only">החלטת וריאנט</span></span></div>
+    <div class="ename"><span class="en-only">Variant-decision popup</span><span class="he-only">חלון החלטת וריאנט</span></div>
+    <div class="edef"><span class="en-only">The price change hit a SKU whose <b>colours sit at different prices</b>. Choose <b>לאחד/unify</b> (all → one), <b>shift</b> (all by the same ₪), or <b>per-variant</b>.</span><span class="he-only">שינוי המחיר פגע במק״ט ש<b>הצבעים שלו במחירים שונים</b>. בחרו <b>לאחד</b> (כולם ← מחיר אחד), <b>shift</b> (כולם באותו ₪), או <b>per-variant</b>.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Pick <b>unify</b> unless colours are intentionally priced apart (e.g. Suunto titanium).</span><span class="he-only">בחרו <b>לאחד</b> אלא אם הצבעים מתומחרים שונה בכוונה (למשל Suunto טיטניום).</span></div>
+  </article>
+  <article class="entry c-info" data-cat="flow">
+    <div class="etop"><span class="tag t-info">⟳ <span class="en-only">refresh</span><span class="he-only">רענון</span></span></div>
+    <div class="ename"><span class="en-only">Live row refresh ⟳</span><span class="he-only">רענון שורה חי ⟳</span></div>
+    <div class="edef"><span class="en-only">A live single-SKU pull — updates price, Eilat, stock <b>and the GoSale badge within seconds</b>, without waiting for the 3×/day scan.</span><span class="he-only">משיכה חיה של מק״ט בודד — מעדכן מחיר, אילת, מלאי <b>ותג GoSale תוך שניות</b>, בלי לחכות לסריקה של 3×/יום.</span></div>
+    <div class="eact"><b>→</b> <span class="en-only">Refresh before judging or pushing.</span><span class="he-only">רעננו לפני שיפוט או דחיפה.</span></div>
+  </article>
+
+  <!-- ===== GLOSSARY ===== -->
+  <article class="entry c-pink" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename">GPI · <span class="en-only">Price Intelligence</span><span class="he-only">מודיעין תמחור</span></div>
+    <div class="edef"><span class="en-only">The system that tracks GoMobile's prices against competitors and flags where we're priced above a comparable rival.</span><span class="he-only">המערכת שעוקבת אחר מחירי GoMobile מול מתחרים ומסמנת היכן אנחנו מתומחרים מעל מתחרה בר-השוואה.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Tracked competitors</span><span class="he-only">המתחרים במעקב</span></div>
+    <div class="edef"><span class="en-only">The retailers we compare against: <b>KSP · Tripley · Eline · Tzilzul · SuperPharm</b>.</span><span class="he-only">הקמעונאים שמולם משווים: <b>KSP · Tripley · Eline · Tzilzul · SuperPharm</b>.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Product identity</span><span class="he-only">זהות מוצר</span></div>
+    <div class="edef"><span class="en-only">What must match for two listings to be comparable: <b>importer, warranty, SIM type, storage, connectivity</b>. A mismatch = a block.</span><span class="he-only">מה חייב להתאים כדי ששני ליסטינגים יהיו בני-השוואה: <b>יבואן, אחריות, סוג סים, אחסון, קישוריות</b>. אי-התאמה = חסימה.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Official vs parallel importer</span><span class="he-only">יבואן רשמי מול מקביל</span></div>
+    <div class="edef"><span class="en-only"><b>Official</b> = manufacturer's local importer, longer warranty, higher price. <b>Parallel</b> = grey-import, different warranty, usually cheaper. Different tiers — never compared.</span><span class="he-only"><b>רשמי</b> = יבואן מקומי של היצרן, אחריות ארוכה, מחיר גבוה. <b>מקביל</b> = ייבוא אפור, אחריות שונה, בד״כ זול יותר. דרגות שונות — לא משווים.</span></div>
+  </article>
+  <article class="entry c-warn" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Phantom listing</span><span class="he-only">ליסטינג פנטום</span></div>
+    <div class="edef"><span class="en-only">A competitor listing with ≤1 stock (or "contact us only") — the price is published but you can't actually buy it. Not comparable.</span><span class="he-only">ליסטינג מתחרה עם מלאי ≤1 (או "צרו קשר בלבד") — המחיר מפורסם אבל אי אפשר באמת לקנות. לא בר-השוואה.</span></div>
+  </article>
+  <article class="entry c-pink" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename">GoSale</div>
+    <div class="edef"><span class="en-only">GoMobile's curated promo collection (WooCommerce category 2580). Being <i>in</i> it is a membership flag — not automatically a discount.</span><span class="he-only">אוסף המבצעים האצור של GoMobile (קטגוריית WooCommerce 2580). להיות <i>בתוכו</i> זו חברות — לא אוטומטית הנחה.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Eilat price</span><span class="he-only">מחיר אילת</span></div>
+    <div class="edef"><span class="en-only">The tax-free (VAT-exempt) Eilat price, shown alongside the regular price. Pushed as its own field.</span><span class="he-only">מחיר אילת ללא מע״מ, מוצג לצד המחיר הרגיל. נדחף כשדה נפרד.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename">bGate</div>
+    <div class="edef"><span class="en-only">GoMobile's core back-office system. GPI <b>writes approved prices</b> to bGate; the storefront then reflects them.</span><span class="he-only">מערכת הליבה של GoMobile. GPI <b>כותב מחירים מאושרים</b> ל-bGate; החנות משקפת אותם אחר כך.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename">WC · WooCommerce</div>
+    <div class="edef"><span class="en-only">The online storefront. GPI <b>reads</b> the live product data (price, Eilat, stock, GoSale) from it.</span><span class="he-only">חנות האונליין. GPI <b>קורא</b> ממנה את נתוני המוצר החיים (מחיר, אילת, מלאי, GoSale).</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Variant</span><span class="he-only">וריאנט</span></div>
+    <div class="edef"><span class="en-only">A colour (or option) version of a SKU. Variants can sit at the same or different prices — that's what the variant-decision popup handles.</span><span class="he-only">גרסת צבע (או אופציה) של מק״ט. וריאנטים יכולים להיות באותו מחיר או במחירים שונים — בזה מטפל חלון החלטת הווריאנט.</span></div>
+  </article>
+  <article class="entry c-info" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">Price gap &amp; severity</span><span class="he-only">פער מחיר וחומרה</span></div>
+    <div class="edef"><span class="en-only">How far our price sits from the competitor's. <b>5–10%</b> = sanity-check first. <b>&gt;10%</b> = a real opportunity <i>or</i> a data error — verify before acting.</span><span class="he-only">כמה המחיר שלנו רחוק מהמתחרה. <b>5–10%</b> = קודם בדיקת היגיון. <b>מעל 10%</b> = הזדמנות אמיתית <i>או</i> שגיאת נתונים — אמתו לפני פעולה.</span></div>
+  </article>
+  <article class="entry c-neu" data-cat="term">
+    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
+    <div class="ename"><span class="en-only">3×/day scan</span><span class="he-only">סריקה 3×/יום</span></div>
+    <div class="edef"><span class="en-only">The automatic competitor + WC refresh runs three times a day. For anything urgent, use the per-row ⟳ live refresh instead.</span><span class="he-only">רענון המתחרים + WC האוטומטי רץ שלוש פעמים ביום. לכל דבר דחוף, השתמשו ברענון ⟳ החי של השורה.</span></div>
+  </article>
+
+  </div>
+  <div class="empty hidden" id="empty"><span class="en-only">No matches.</span><span class="he-only">אין תוצאות.</span></div>
+</div>
+
+<footer><div class="wrap"><span class="en-only">GoSolutions GPI — Price Intelligence for GoMobile · built &amp; maintained by OctoMonic</span><span class="he-only">GoSolutions GPI — מודיעין תמחור עבור GoMobile · נבנה ומתוחזק ע״י OctoMonic</span></div></footer>
+
+<script>
+(function(){
+  // language toggle
+  function set(l){document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('dir',l==='he'?'rtl':'ltr');document.documentElement.setAttribute('lang',l);try{localStorage.setItem('gpi_lang',l)}catch(e){}document.querySelectorAll('[data-langbtn]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-langbtn')===l))})}
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-langbtn]');if(b)set(b.getAttribute('data-langbtn'))});
+  var s='en';try{s=localStorage.getItem('gpi_lang')||'en'}catch(e){}set(s);
+
+  // dictionary filter + search
+  var entries=[].slice.call(document.querySelectorAll('.entry'));
+  entries.forEach(function(e){e._t=e.textContent.toLowerCase()});
+  var cat='all', q='';
+  var count=document.getElementById('count'), empty=document.getElementById('empty');
+  function apply(){
+    var n=0;
+    entries.forEach(function(e){
+      var okC=cat==='all'||e.dataset.cat===cat;
+      var okQ=!q||e._t.indexOf(q)>-1;
+      var show=okC&&okQ; e.classList.toggle('hidden',!show); if(show)n++;
+    });
+    empty.classList.toggle('hidden',n>0);
+    count.textContent=n+(document.documentElement.getAttribute('data-lang')==='he'?' תוצאות':' results');
+  }
+  document.getElementById('chips').addEventListener('click',function(e){
+    var b=e.target.closest('[data-filter]'); if(!b)return;
+    cat=b.getAttribute('data-filter');
+    [].slice.call(this.querySelectorAll('.chip')).forEach(function(c){c.setAttribute('aria-pressed',String(c===b))});
+    apply();
+  });
+  document.getElementById('q').addEventListener('input',function(){q=this.value.toLowerCase().trim();apply();});
+  apply();
+})();
+</script>
+</body>
+</html>
