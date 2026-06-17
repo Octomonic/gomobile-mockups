@@ -25,7 +25,6 @@
   .langtoggle{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;align-self:flex-start}
   .langtoggle button{border:0;background:#fff;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:6px 13px;cursor:pointer}
   .langtoggle button[aria-pressed=true]{background:var(--pink);color:#fff}
-  .home{font-size:13px} .home a{color:var(--pink-d);text-decoration:none}
   .controls{position:sticky;top:0;z-index:8;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0}
   .ctop{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px}
@@ -41,6 +40,7 @@
   .entry.c-good{border-inline-start-color:var(--good)} .entry.c-warn{border-inline-start-color:var(--warn)}
   .entry.c-bad{border-inline-start-color:var(--bad)} .entry.c-neu{border-inline-start-color:var(--neu)}
   .entry.c-info{border-inline-start-color:var(--info)} .entry.c-pink{border-inline-start-color:var(--pink)}
+  .entry.noimg{cursor:default} .entry.noimg:hover{box-shadow:0 1px 2px rgba(16,24,40,.04);transform:none}
   .tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
   .t-good{background:var(--good-bg);color:var(--good)} .t-warn{background:var(--warn-bg);color:var(--warn)}
   .t-bad{background:var(--bad-bg);color:var(--bad)} .t-neu{background:var(--neu-bg);color:var(--neu)}
@@ -49,14 +49,12 @@
   .edef{font-size:13.5px;color:#3a4254;flex:1}
   .seebtn{margin-top:4px;color:var(--pink-d);font-weight:700;font-size:12.5px}
   .entry.noimg .seebtn{display:none}
-  .cat-label{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#a7b0c0}
   .hidden{display:none!important}
   .empty{padding:30px;text-align:center;color:var(--muted)}
   footer{color:var(--muted);font-size:12.5px;padding:26px 0 50px;border-top:1px solid var(--line);margin-top:20px}
-  /* modal */
   .mbg{position:fixed;inset:0;background:rgba(10,15,35,.55);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:28px 16px;overflow:auto}
   .mbg.on{display:flex}
-  .modal{background:#fff;border-radius:16px;max-width:700px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
+  .modal{background:#fff;border-radius:16px;max-width:760px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
   .mhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
   .mhead .mt{font-weight:800;font-size:16px}
   .mclose{cursor:pointer;font-size:22px;line-height:1;color:var(--muted);background:none;border:0}
@@ -65,8 +63,9 @@
   .shotcap{font-size:11.5px;color:var(--muted);text-align:center;margin-bottom:12px}
   .mbody h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--pink-d);margin:14px 0 5px}
   .mbody p,.mbody li{font-size:14px;color:#33384a}
-  .mbody ol{padding-inline-start:20px} .mbody ol li{margin:4px 0}
-  .mbody b{color:var(--ink)}
+  .mbody ol{padding-inline-start:20px} .mbody ol li{margin:4px 0} .mbody b{color:var(--ink)}
+  .openlink{display:inline-block;margin-top:16px;background:var(--pink);color:#fff;border-radius:9px;padding:9px 15px;font-weight:700;font-size:13.5px;text-decoration:none}
+  .openlink:hover{background:var(--pink-d)}
 </style>
 </head>
 <body>
@@ -75,7 +74,7 @@
   <div class="grow">
     <div class="kick">GoSolutions GPI · <span class="en-only">Price Intelligence</span><span class="he-only">מודיעין תמחור</span></div>
     <h1><span class="en-only">GPI Dictionary</span><span class="he-only">מילון GPI</span></h1>
-    <div class="sub"><span class="en-only">Every sign, status, badge and term on the dashboard. Click any entry to see it <b>circled on a real screenshot</b> — with what it is, where it lives, and how to get to it.</span><span class="he-only">כל סימן, סטטוס, תג ומונח בדאשבורד. לחצו על כל ערך כדי לראות אותו <b>מסומן בצילום מסך אמיתי</b> — עם מה זה, איפה זה, ואיך מגיעים אליו.</span></div>
+    <div class="sub"><span class="en-only">Every sign, status, badge and term on the dashboard. Click any entry to see it <b>circled on a real screenshot</b> — with what it is, where it lives, and a link to open a real example on the dashboard.</span><span class="he-only">כל סימן, סטטוס, תג ומונח בדאשבורד. לחצו על כל ערך כדי לראות אותו <b>מסומן בצילום מסך אמיתי</b> — עם מה זה, איפה זה, וקישור לפתוח דוגמה אמיתית בדאשבורד.</span></div>
   </div>
   <div class="langtoggle"><button data-langbtn="en">EN</button><button data-langbtn="he">עברית</button></div>
 </div></header>
@@ -96,150 +95,90 @@
 
 <div class="wrap"><div class="grid" id="grid">
 
-  <!-- ===== ROW STATUSES ===== -->
-  <article class="entry c-bad" data-cat="status" data-img="img/st_breach.png" data-title="🚨 חריגה">
+  <!-- STATUSES -->
+  <article class="entry c-bad" data-cat="status" data-img="img/st_breach.png" data-sku="6979181921876" data-title="🚨 חריגה">
     <div><span class="tag t-bad">🚨 חריגה</span></div>
     <div class="ename"><span class="en-only">Breach — we're pricier</span><span class="he-only">חריגה — אנחנו יקרים</span></div>
-    <div class="edef"><span class="en-only">GoMobile is priced <b>above</b> the cheapest comparable competitor. This is the action queue.</span><span class="he-only">GoMobile מתומחר <b>מעל</b> המתחרה הזול ביותר בר-ההשוואה. זה תור הפעולה.</span></div>
+    <div class="edef"><span class="en-only">GoMobile is priced <b>above</b> the cheapest comparable competitor.</span><span class="he-only">GoMobile מתומחר <b>מעל</b> המתחרה הזול ביותר בר-ההשוואה.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it on a real SKU ›</span><span class="he-only">ראו על מק״ט אמיתי ›</span></div>
     <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3>
-      <p><span class="en-only">The red 🚨 חריגה status means we're more expensive than a competitor we <i>can</i> be compared to. Read the gap columns (₪ / %) to size it.</span><span class="he-only">סטטוס 🚨 חריגה (אדום) אומר שאנחנו יקרים ממתחרה ש<i>אפשר</i> להשוות אליו. קראו את עמודות הפער (₪ / %) כדי לאמוד.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3>
-      <p><span class="en-only">The status cell at the start of each product row.</span><span class="he-only">תא הסטטוס בתחילת כל שורת מוצר.</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3>
-      <ol><li><span class="en-only">Top filters → <b>חריגים</b>, or search a SKU.</span><span class="he-only">פילוח עליון ← <b>חריגים</b>, או חפשו מק״ט.</span></li><li><span class="en-only">The status cell shows 🚨 חריגה; the gap shows ↑ ₪ / ↑ %.</span><span class="he-only">תא הסטטוס מציג 🚨 חריגה; הפער מציג ↑ ₪ / ↑ %.</span></li></ol>
+      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The red 🚨 חריגה status means we're more expensive than a competitor we can be compared to. Read the gap (₪ / %).</span><span class="he-only">סטטוס 🚨 חריגה (אדום) אומר שאנחנו יקרים ממתחרה שאפשר להשוות אליו. קראו את הפער (₪ / %).</span></p>
+      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">The status cell at the start of the row.</span><span class="he-only">תא הסטטוס בתחילת השורה.</span></p>
     </template>
   </article>
 
-  <article class="entry c-good" data-cat="status" data-img="img/st_advantage.png" data-title="✅ יתרון">
+  <article class="entry c-good" data-cat="status" data-img="img/st_advantage.png" data-sku="5702017589282" data-title="✅ יתרון">
     <div><span class="tag t-good">✅ יתרון</span></div>
     <div class="ename"><span class="en-only">Advantage — we're cheaper</span><span class="he-only">יתרון — אנחנו זולים</span></div>
-    <div class="edef"><span class="en-only">We're priced <b>below</b> the competitor. Healthy — usually leave it.</span><span class="he-only">אנחנו מתומחרים <b>מתחת</b> למתחרה. תקין — בד״כ משאירים.</span></div>
+    <div class="edef"><span class="en-only">We're priced <b>below</b> the competitor. Healthy.</span><span class="he-only">אנחנו מתומחרים <b>מתחת</b> למתחרה. תקין.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Green ✅ יתרון = we beat the competitor's price. The gap shows ↓.</span><span class="he-only">✅ יתרון (ירוק) = אנחנו זולים מהמתחרה. הפער מציג ↓.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">The status cell of the row.</span><span class="he-only">תא הסטטוס בשורה.</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Top filters → <b>זולים מהמתחרים</b>.</span><span class="he-only">פילוח עליון ← <b>זולים מהמתחרים</b>.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Green ✅ יתרון = we beat the competitor's price. The gap shows ↓.</span><span class="he-only">✅ יתרון (ירוק) = אנחנו זולים מהמתחרה. הפער מציג ↓.</span></p></template>
   </article>
 
-  <article class="entry c-warn" data-cat="status" data-img="img/st_oos.png" data-title="🚫 מתחרה אזל">
+  <article class="entry c-warn" data-cat="status" data-img="img/st_oos.png" data-sku="7675827" data-title="🚫 מתחרה אזל">
     <div><span class="tag t-warn">🚫 מתחרה אזל</span></div>
     <div class="ename"><span class="en-only">Competitor out of stock</span><span class="he-only">מתחרה אזל</span></div>
-    <div class="edef"><span class="en-only">A competitor exists but <b>can't be bought</b> (out of stock / unavailable). Not comparable.</span><span class="he-only">קיים מתחרה אבל <b>אי אפשר לקנות</b> (אזל / לא זמין). לא בר-השוואה.</span></div>
+    <div class="edef"><span class="en-only">A competitor exists but can't be bought (shows "לא זמין").</span><span class="he-only">קיים מתחרה אבל אי אפשר לקנות (מציג "לא זמין").</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">🚫 מתחרה אזל means the competitor's listing shows "לא זמין". Never price-match something you can't actually buy.</span><span class="he-only">🚫 מתחרה אזל אומר שהליסטינג של המתחרה מציג "לא זמין". לעולם לא להתיישר לפי משהו שאי אפשר באמת לקנות.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Status cell; the competitor column shows "&lt;site&gt; · לא זמין".</span><span class="he-only">תא הסטטוס; עמודת המתחרה מציגה "&lt;אתר&gt; · לא זמין".</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Status tabs → <b>מתחרה אזל</b>.</span><span class="he-only">סטטוסים ← <b>מתחרה אזל</b>.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The competitor's listing shows "לא זמין" — there's nothing buyable to compare to.</span><span class="he-only">הליסטינג של המתחרה מציג "לא זמין" — אין מה להשוות, אי אפשר לקנות.</span></p></template>
   </article>
 
-  <article class="entry c-info" data-cat="status" data-img="img/st_review.png" data-title="🔍 דורש סקירה">
+  <article class="entry c-info" data-cat="status" data-img="img/st_review.png" data-sku="7675864" data-title="🔍 דורש סקירה">
     <div><span class="tag t-info">🔍 דורש סקירה</span></div>
     <div class="ename"><span class="en-only">Needs review (blocked)</span><span class="he-only">דורש סקירה (חסום)</span></div>
-    <div class="edef"><span class="en-only">A competitor was found but with a <b>different identity</b> → comparison blocked, flagged for a human look.</span><span class="he-only">נמצא מתחרה אבל עם <b>זהות שונה</b> ← ההשוואה חסומה, מסומן לבדיקת אדם.</span></div>
+    <div class="edef"><span class="en-only">A competitor was found but with a <b>different identity</b> → comparison blocked.</span><span class="he-only">נמצא מתחרה אבל עם <b>זהות שונה</b> ← ההשוואה חסומה.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">🔍 דורש סקירה = the system suppressed the comparison because the identity differs (importer / SIM / warranty / storage / connectivity). The competitor cell shows "חסום להשוואה".</span><span class="he-only">🔍 דורש סקירה = המערכת השתיקה את ההשוואה כי הזהות שונה (יבואן / סים / אחריות / אחסון / קישוריות). תא המתחרה מציג "חסום להשוואה".</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Status cell; competitor column tag "חסום להשוואה".</span><span class="he-only">תא הסטטוס; תג "חסום להשוואה" בעמודת המתחרה.</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Status tabs → <b>דורש סקירה</b>.</span><span class="he-only">סטטוסים ← <b>דורש סקירה</b>.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The identity differs (importer / SIM / warranty / storage / connectivity), so the system didn't compare. The competitor cell shows "חסום להשוואה".</span><span class="he-only">הזהות שונה (יבואן / סים / אחריות / אחסון / קישוריות), ולכן לא הושוו. תא המתחרה מציג "חסום להשוואה".</span></p></template>
   </article>
 
-  <article class="entry c-neu" data-cat="status" data-img="img/st_nocomp.png" data-title="⚪ אין מתחרה">
+  <article class="entry c-neu" data-cat="status" data-img="img/st_nocomp.png" data-sku="1198161" data-title="⚪ אין מתחרה">
     <div><span class="tag t-neu">⚪ אין מתחרה</span></div>
     <div class="ename"><span class="en-only">No competitor</span><span class="he-only">אין מתחרה</span></div>
-    <div class="edef"><span class="en-only">No tracked competitor carries it — mostly accessories. Nothing to compare.</span><span class="he-only">אף מתחרה במעקב לא מוכר אותו — בעיקר אביזרים. אין מה להשוות.</span></div>
+    <div class="edef"><span class="en-only">No tracked competitor carries it — mostly accessories.</span><span class="he-only">אף מתחרה במעקב לא מוכר אותו — בעיקר אביזרים.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">⚪ אין מתחרה — the largest bucket (~741). Normal for accessories.</span><span class="he-only">⚪ אין מתחרה — הקבוצה הגדולה ביותר (כ-741). נורמלי לאביזרים.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Status cell; competitor column says "אין מתחרה".</span><span class="he-only">תא הסטטוס; עמודת המתחרה אומרת "אין מתחרה".</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Status tabs → <b>אין מתחרה</b>.</span><span class="he-only">סטטוסים ← <b>אין מתחרה</b>.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The largest bucket. Normal for accessories.</span><span class="he-only">הקבוצה הגדולה ביותר. נורמלי לאביזרים.</span></p></template>
   </article>
 
-  <!-- ===== TAGS & BADGES ===== -->
-  <article class="entry c-info" data-cat="tag" data-img="img/tag_blocked.png" data-title="חסום להשוואה">
+  <!-- TAGS -->
+  <article class="entry c-info" data-cat="tag" data-img="img/tag_blocked.png" data-sku="7675864" data-title="חסום להשוואה">
     <div><span class="tag t-info">חסום להשוואה</span></div>
     <div class="ename"><span class="en-only">Blocked for comparison</span><span class="he-only">חסום להשוואה</span></div>
     <div class="edef"><span class="en-only">Competitor found, but a different identity → comparison deliberately suppressed.</span><span class="he-only">נמצא מתחרה, אבל זהות שונה ← ההשוואה מושתקת בכוונה.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The competitor-column tag that appears on דורש-סקירה rows. The block is the system protecting you from a wrong compare.</span><span class="he-only">תג עמודת המתחרה שמופיע בשורות "דורש סקירה". החסימה מגינה עליכם מהשוואה שגויה.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">The competitor column, e.g. "Tzilzul · חסום להשוואה".</span><span class="he-only">עמודת המתחרה, למשל "Tzilzul · חסום להשוואה".</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Status tabs → דורש סקירה → look at the competitor column.</span><span class="he-only">סטטוסים ← דורש סקירה ← הסתכלו בעמודת המתחרה.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">A competitor-column tag on דורש-סקירה rows. The block protects you from a wrong compare.</span><span class="he-only">תג בעמודת המתחרה בשורות "דורש סקירה". החסימה מגינה מהשוואה שגויה.</span></p></template>
   </article>
 
-  <article class="entry c-warn" data-cat="tag" data-img="img/tag_unavail.png" data-title="לא זמין">
+  <article class="entry c-warn" data-cat="tag" data-img="img/tag_unavail.png" data-sku="7675827" data-title="לא זמין">
     <div><span class="tag t-warn">לא זמין</span></div>
     <div class="ename"><span class="en-only">Competitor unavailable</span><span class="he-only">מתחרה לא זמין</span></div>
-    <div class="edef"><span class="en-only">The competitor's listing is out of stock / can't be bought → don't match it.</span><span class="he-only">הליסטינג של המתחרה אזל / אי אפשר לקנות ← אל תתיישרו לפיו.</span></div>
+    <div class="edef"><span class="en-only">The competitor's listing is out of stock — can't be bought.</span><span class="he-only">הליסטינג של המתחרה אזל — אי אפשר לקנות.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">"לא זמין" on the competitor column = the competitor's price is published but the item can't actually be bought. Pairs with the 🚫 מתחרה אזל status.</span><span class="he-only">"לא זמין" בעמודת המתחרה = המחיר מפורסם אבל אי אפשר לקנות. הולך יחד עם סטטוס 🚫 מתחרה אזל.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Competitor column, e.g. "KSP · לא זמין".</span><span class="he-only">עמודת המתחרה, למשל "KSP · לא זמין".</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Status tabs → מתחרה אזל.</span><span class="he-only">סטטוסים ← מתחרה אזל.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">"לא זמין" in the competitor column, alongside the 🚫 מתחרה אזל status.</span><span class="he-only">"לא זמין" בעמודת המתחרה, יחד עם סטטוס 🚫 מתחרה אזל.</span></p></template>
   </article>
 
-  <article class="entry c-pink" data-cat="tag" data-img="img/badge_gosale.png" data-title="GoSale">
+  <article class="entry c-pink" data-cat="tag" data-img="img/badge_gosale.png" data-sku="7513886" data-title="GoSale">
     <div><span class="tag t-pink">GoSale</span></div>
     <div class="ename">GoSale</div>
     <div class="edef"><span class="en-only">In GoMobile's curated GoSale collection — membership, <b>not</b> automatically a discount.</span><span class="he-only">באוסף GoSale האצור — חברות, <b>לא</b> אוטומטית הנחה.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">A purple GoSale chip on the product. It marks membership in the GoSale collection — being in it doesn't mean the price is marked down.</span><span class="he-only">צ׳יפ GoSale סגול על המוצר. מסמן חברות באוסף GoSale — להיות בו לא אומר שהמחיר מוזל.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Next to the product name in the row.</span><span class="he-only">לצד שם המוצר בשורה.</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Search a GoSale SKU (e.g. 7513886) — the chip is in the product cell.</span><span class="he-only">חפשו מק״ט GoSale (למשל 7513886) — הצ׳יפ בתא המוצר.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">A purple GoSale chip on the product. Being in the collection doesn't mean it's marked down.</span><span class="he-only">צ׳יפ GoSale סגול על המוצר. להיות באוסף לא אומר שהמחיר מוזל.</span></p></template>
   </article>
 
-  <article class="entry c-info" data-cat="tag" data-img="img/imp_official.png" data-title="יבואן רשמי">
-    <div><span class="tag t-info">יבואן רשמי</span></div>
-    <div class="ename"><span class="en-only">Official importer</span><span class="he-only">יבואן רשמי</span></div>
-    <div class="edef"><span class="en-only">Official-importer tier — longer warranty, higher price. <b>Never compared to parallel.</b></span><span class="he-only">דרגת יבואן רשמי — אחריות ארוכה, מחיר גבוה. <b>לעולם לא מושווה למקביל.</b></span></div>
-    <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The importer tier is written inside the product name. "יבואן רשמי" = official. It's the single biggest "don't compare these" rule.</span><span class="he-only">דרגת היבואן כתובה בתוך שם המוצר. "יבואן רשמי" = רשמי. זה הכלל הכי חשוב של "אל תשוו את אלה".</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">In the product-name text in the row.</span><span class="he-only">בטקסט שם המוצר בשורה.</span></p>
-    </template>
-  </article>
-
-  <article class="entry c-warn" data-cat="tag" data-img="img/imp_parallel.png" data-title="גרסה אירופאית / מקביל">
-    <div><span class="tag t-warn"><span class="en-only">parallel</span><span class="he-only">מקביל</span></span></div>
-    <div class="ename"><span class="en-only">Parallel import</span><span class="he-only">ייבוא מקביל</span></div>
-    <div class="edef"><span class="en-only">Grey import (often "גרסה אירופאית") — different warranty tier, usually cheaper. A different price world.</span><span class="he-only">ייבוא אפור (לרוב "גרסה אירופאית") — דרגת אחריות שונה, בד״כ זול יותר. עולם מחיר אחר.</span></div>
-    <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Markers like "גרסה אירופאית" in the product name mean parallel/grey import — a different tier than official. Never compare the two.</span><span class="he-only">סימונים כמו "גרסה אירופאית" בשם המוצר אומרים ייבוא מקביל/אפור — דרגה שונה מרשמי. לעולם לא להשוות.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">In the product-name text.</span><span class="he-only">בטקסט שם המוצר.</span></p>
-    </template>
-  </article>
-
-  <!-- ===== FILTERS & CONTROLS ===== -->
+  <!-- FILTERS & CONTROLS -->
   <article class="entry c-pink" data-cat="control" data-img="img/tabs_top.png" data-title="פילוח עליון">
     <div><span class="tag t-pink"><span class="en-only">Top filters</span><span class="he-only">פילוח עליון</span></span></div>
     <div class="ename"><span class="en-only">Top filters</span><span class="he-only">פילוח עליון</span></div>
     <div class="edef">הכל · חריגים · זולים מהמתחרים · שווה למתחרים · לבדיקה</div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The main filter row ("צי המוצרים"): <b>הכל</b> (all) · <b>חריגים</b> (we're pricier) · <b>זולים מהמתחרים</b> (we're cheaper) · <b>שווה למתחרים</b> (tied) · <b>לבדיקה</b> (to check). Each shows a live count.</span><span class="he-only">שורת הסינון הראשית ("צי המוצרים"): <b>הכל</b> · <b>חריגים</b> · <b>זולים מהמתחרים</b> · <b>שווה למתחרים</b> · <b>לבדיקה</b>. לכל אחד ספירה חיה.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Just above the product table.</span><span class="he-only">בדיוק מעל טבלת המוצרים.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The main filter row, each with a live count. <b>חריגים</b> = we're pricier; <b>זולים מהמתחרים</b> = we're cheaper.</span><span class="he-only">שורת הסינון הראשית, כל אחת עם ספירה חיה. <b>חריגים</b> = אנחנו יקרים; <b>זולים מהמתחרים</b> = אנחנו זולים.</span></p></template>
   </article>
 
   <article class="entry c-info" data-cat="control" data-img="img/tabs_status.png" data-title="סטטוסים">
-    <div><span class="tag t-info"><span class="en-only">Status tabs</span><span class="he-only">סטטוסים</span></span></div>
+    <div><span class="tag t-info"><span class="en-only">Status tabs</span><span class="he-only">לשוניות סטטוס</span></span></div>
     <div class="ename"><span class="en-only">Status tabs</span><span class="he-only">לשוניות סטטוס</span></div>
     <div class="edef">מכוסה · מתחרה אזל · דורש סקירה · אין מתחרה</div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The second filter row by coverage status: <b>מכוסה</b> (has a usable competitor) · <b>מתחרה אזל</b> · <b>דורש סקירה</b> · <b>אין מתחרה</b>.</span><span class="he-only">שורת הסינון השנייה לפי סטטוס כיסוי: <b>מכוסה</b> (יש מתחרה שמיש) · <b>מתחרה אזל</b> · <b>דורש סקירה</b> · <b>אין מתחרה</b>.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Right under the top filters.</span><span class="he-only">מתחת לפילוח העליון.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The second filter row, by coverage status.</span><span class="he-only">שורת הסינון השנייה, לפי סטטוס כיסוי.</span></p></template>
   </article>
 
   <article class="entry c-neu" data-cat="control" data-img="img/stat_cards.png" data-title="כרטיסי סיכום">
@@ -247,10 +186,7 @@
     <div class="ename"><span class="en-only">Summary cards</span><span class="he-only">כרטיסי סיכום</span></div>
     <div class="edef"><span class="en-only">The top KPI strip — active SKUs, in comparison, breaches, etc.</span><span class="he-only">רצועת ה-KPI העליונה — מק״טים פעילים, בהשוואה, חריגות וכו׳.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">"תמונת ההשוואה" — the headline numbers: מוצרים פעילים (1053), בהשוואה (249), חריגה (125), זולים, אין מתחרה (741), מתחרה אזל (21), and last-scan time.</span><span class="he-only">"תמונת ההשוואה" — המספרים הראשיים: מוצרים פעילים (1053), בהשוואה (249), חריגה (125), זולים, אין מתחרה (741), מתחרה אזל (21), וזמן הסריקה האחרון.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Top of the page, above the filters.</span><span class="he-only">בראש הדף, מעל המסננים.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">"תמונת ההשוואה" — the headline numbers and the last-scan time.</span><span class="he-only">"תמונת ההשוואה" — המספרים הראשיים וזמן הסריקה האחרון.</span></p></template>
   </article>
 
   <article class="entry c-neu" data-cat="control" data-img="img/categories.png" data-title="קטגוריות">
@@ -258,10 +194,7 @@
     <div class="ename"><span class="en-only">Category filter</span><span class="he-only">סינון קטגוריה</span></div>
     <div class="edef">סמארטפונים · טאבלטים · שואבי אבק · LEGO · שעונים · שמע · בית חכם · אביזרים</div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Narrows the table to one product category.</span><span class="he-only">מצמצם את הטבלה לקטגוריית מוצר אחת.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">The chip row under the search box.</span><span class="he-only">שורת הצ׳יפים מתחת לתיבת החיפוש.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Narrows the table to one product category.</span><span class="he-only">מצמצם את הטבלה לקטגוריה אחת.</span></p></template>
   </article>
 
   <article class="entry c-info" data-cat="control" data-img="img/price_toggle.png" data-title="מחיר רגיל / אילת">
@@ -269,83 +202,67 @@
     <div class="ename"><span class="en-only">Regular / Eilat toggle</span><span class="he-only">מתג רגיל / אילת</span></div>
     <div class="edef"><span class="en-only">Switch all prices between the regular and the tax-free Eilat price.</span><span class="he-only">מחליף את כל המחירים בין הרגיל למחיר אילת ללא מע״מ.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Eilat is the VAT-exempt price. The toggle flips the whole table's view between regular and Eilat.</span><span class="he-only">אילת הוא המחיר ללא מע״מ. המתג מחליף את תצוגת כל הטבלה בין רגיל לאילת.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">Next to the status tabs.</span><span class="he-only">לצד לשוניות הסטטוס.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Eilat is the VAT-exempt price. The toggle flips the whole table.</span><span class="he-only">אילת הוא המחיר ללא מע״מ. המתג מחליף את כל הטבלה.</span></p></template>
   </article>
 
   <article class="entry c-warn" data-cat="control" data-img="img/show_breaches.png" data-title="הצג חריגים בלבד">
     <div><span class="tag t-warn"><span class="en-only">Breaches only</span><span class="he-only">חריגים בלבד</span></span></div>
     <div class="ename"><span class="en-only">"Show breaches only"</span><span class="he-only">"הצג חריגים בלבד"</span></div>
-    <div class="edef"><span class="en-only">A one-click filter to jump straight to the action queue.</span><span class="he-only">מסנן בלחיצה אחת ישר לתור הפעולה.</span></div>
+    <div class="edef"><span class="en-only">A one-click filter straight to the rows that need a decision.</span><span class="he-only">מסנן בלחיצה אחת ישר לשורות שדורשות החלטה.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Collapses the table to only the 🚨 breaches — the rows that need a decision.</span><span class="he-only">מצמצם את הטבלה רק ל-🚨 חריגות — השורות שדורשות החלטה.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">A toggle near the top of the page.</span><span class="he-only">מתג בראש הדף.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Collapses the table to only the 🚨 breaches.</span><span class="he-only">מצמצם את הטבלה רק ל-🚨 חריגות.</span></p></template>
   </article>
 
-  <article class="entry c-bad" data-cat="control" data-img="img/col_gap.png" data-title="פער (₪ / %)">
+  <article class="entry c-bad" data-cat="control" data-img="img/col_gap.png" data-sku="7534767" data-title="פער (₪ / %)">
     <div><span class="tag t-bad"><span class="en-only">Price gap</span><span class="he-only">פער מחיר</span></span></div>
     <div class="ename"><span class="en-only">Price gap (₪ / %)</span><span class="he-only">פער מחיר (₪ / %)</span></div>
     <div class="edef"><span class="en-only">How far our price sits from the competitor. ↑ = we're pricier, ↓ = cheaper.</span><span class="he-only">כמה המחיר שלנו רחוק מהמתחרה. ↑ = אנחנו יקרים, ↓ = זולים.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The "פער (₪)" and "פער (%)" columns. <b>Severity:</b> 5–10% = sanity-check first; &gt;10% = a real opportunity <i>or</i> a data error — verify before acting.</span><span class="he-only">עמודות "פער (₪)" ו-"פער (%)". <b>חומרה:</b> 5–10% = קודם בדיקת היגיון; מעל 10% = הזדמנות אמיתית <i>או</i> שגיאת נתונים — אמתו לפני פעולה.</span></p>
-      <h3><span class="en-only">Where</span><span class="he-only">איפה</span></h3><p><span class="en-only">The last data columns of each row.</span><span class="he-only">עמודות הנתונים האחרונות בשורה.</span></p>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">The "פער (₪)" and "פער (%)" columns. A small gap is usually fine to act on; a very large one is worth a quick check first.</span><span class="he-only">עמודות "פער (₪)" ו-"פער (%)". פער קטן בד״כ אפשר לפעול עליו; פער גדול מאוד שווה בדיקה קצרה קודם.</span></p></template>
   </article>
 
-  <article class="entry c-pink" data-cat="control" data-img="img/price_modal.png" data-title="שינוי מחיר">
+  <article class="entry c-pink" data-cat="control" data-img="img/price_change.png" data-sku="7534767" data-title="שינוי מחיר">
     <div><span class="tag t-pink"><span class="en-only">Price change</span><span class="he-only">שינוי מחיר</span></span></div>
     <div class="ename"><span class="en-only">Changing a price</span><span class="he-only">שינוי מחיר</span></div>
-    <div class="edef"><span class="en-only">Click a row → a modal opens with the price fields. Enter a new price and confirm with <b>שנה מחיר</b>.</span><span class="he-only">לחצו על שורה ← נפתח חלון עם שדות המחיר. הזינו מחיר חדש ואשרו ב-<b>שנה מחיר</b>.</span></div>
+    <div class="edef"><span class="en-only">Click a row → the product's price card opens. Enter a new price and confirm with <b>שנה מחיר</b> — a real price change.</span><span class="he-only">לחצו על שורה ← נפתח כרטיס המחיר של המוצר. הזינו מחיר חדש ואשרו ב-<b>שנה מחיר</b> — שינוי מחיר אמיתי.</span></div>
     <div class="seebtn">📸 <span class="en-only">See it ›</span><span class="he-only">ראו דוגמה ›</span></div>
-    <template class="detail">
-      <h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Clicking a product row opens a modal showing the current price + an input for the new price and a <b>שנה מחיר</b> button.</span><span class="he-only">לחיצה על שורת מוצר פותחת חלון עם המחיר הנוכחי + שדה למחיר חדש וכפתור <b>שנה מחיר</b>.</span></p>
-      <h3><span class="en-only">How to get there</span><span class="he-only">איך מגיעים</span></h3><ol><li><span class="en-only">Click any product row in the table.</span><span class="he-only">לחצו על כל שורת מוצר בטבלה.</span></li></ol>
-    </template>
+    <template class="detail"><h3><span class="en-only">What it is</span><span class="he-only">מה זה</span></h3><p><span class="en-only">Clicking a product row opens its price card with the current price, the competitor comparison, and a <b>שנה מחיר</b> button.</span><span class="he-only">לחיצה על שורת מוצר פותחת את כרטיס המחיר עם המחיר הנוכחי, ההשוואה למתחרה, וכפתור <b>שנה מחיר</b>.</span></p></template>
   </article>
 
-  <!-- ===== GLOSSARY (text only) ===== -->
+  <!-- GLOSSARY -->
   <article class="entry c-info noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename"><span class="en-only">Tracked competitors</span><span class="he-only">המתחרים במעקב</span></div>
     <div class="edef"><b>KSP · Tripley · Eline · Tzilzul · SuperPharm</b></div>
   </article>
   <article class="entry c-info noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename"><span class="en-only">Product identity</span><span class="he-only">זהות מוצר</span></div>
     <div class="edef"><span class="en-only">What must match to compare: <b>importer, warranty, SIM, storage, connectivity</b>. A mismatch → דורש סקירה / חסום.</span><span class="he-only">מה חייב להתאים להשוואה: <b>יבואן, אחריות, סים, אחסון, קישוריות</b>. אי-התאמה ← דורש סקירה / חסום.</span></div>
   </article>
+  <article class="entry c-info noimg" data-cat="term">
+    <div class="ename"><span class="en-only">Official vs parallel importer</span><span class="he-only">יבואן רשמי מול מקביל</span></div>
+    <div class="edef"><span class="en-only"><b>Official</b> = longer warranty, higher price. <b>Parallel</b> (grey import) = different warranty, usually cheaper. Different tiers — never compared.</span><span class="he-only"><b>רשמי</b> = אחריות ארוכה, מחיר גבוה. <b>מקביל</b> (ייבוא אפור) = אחריות שונה, בד״כ זול יותר. דרגות שונות — לא משווים.</span></div>
+  </article>
   <article class="entry c-pink noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename">GoSale</div>
     <div class="edef"><span class="en-only">GoMobile's curated promo collection (WooCommerce cat 2580). Membership, not auto-discount.</span><span class="he-only">אוסף המבצעים האצור (קטגוריית WooCommerce 2580). חברות, לא הנחה אוטומטית.</span></div>
   </article>
   <article class="entry c-info noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename"><span class="en-only">Eilat price</span><span class="he-only">מחיר אילת</span></div>
     <div class="edef"><span class="en-only">The VAT-exempt Eilat price, shown alongside the regular price.</span><span class="he-only">מחיר אילת ללא מע״מ, מוצג לצד המחיר הרגיל.</span></div>
   </article>
   <article class="entry c-info noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename">bGate</div>
     <div class="edef"><span class="en-only">GoMobile's core system. Approved prices are written back to it.</span><span class="he-only">מערכת הליבה של GoMobile. מחירים מאושרים נכתבים אליה.</span></div>
   </article>
   <article class="entry c-info noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename">WC · WooCommerce</div>
     <div class="edef"><span class="en-only">The online storefront. GPI reads live product data (price, Eilat, stock, GoSale) from it.</span><span class="he-only">חנות האונליין. GPI קורא ממנה נתונים חיים (מחיר, אילת, מלאי, GoSale).</span></div>
   </article>
   <article class="entry c-neu noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename"><span class="en-only">Margin (מרווח)</span><span class="he-only">מרווח</span></div>
-    <div class="edef"><span class="en-only">Our margin %, shown inline under the price (cost incl. VAT vs our price).</span><span class="he-only">אחוז המרווח שלנו, מוצג מתחת למחיר (עלות כולל מע״מ מול המחיר שלנו).</span></div>
+    <div class="edef"><span class="en-only">Our margin %, shown under the price (cost incl. VAT vs our price).</span><span class="he-only">אחוז המרווח שלנו, מתחת למחיר (עלות כולל מע״מ מול המחיר שלנו).</span></div>
   </article>
   <article class="entry c-neu noimg" data-cat="term">
-    <div class="cat-label"><span class="en-only">Term</span><span class="he-only">מונח</span></div>
     <div class="ename"><span class="en-only">3×/day scan</span><span class="he-only">סריקה 3×/יום</span></div>
     <div class="edef"><span class="en-only">The automatic competitor + WC refresh runs three times a day (see last-scan time in the summary cards).</span><span class="he-only">רענון המתחרים + WC האוטומטי רץ שלוש פעמים ביום (ראו זמן סריקה אחרון בכרטיסי הסיכום).</span></div>
   </article>
@@ -366,28 +283,22 @@
   function set(l){document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('dir',l==='he'?'rtl':'ltr');document.documentElement.setAttribute('lang',l);try{localStorage.setItem('gpi_lang',l)}catch(e){}document.querySelectorAll('[data-langbtn]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-langbtn')===l))})}
   document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-langbtn]');if(b)set(b.getAttribute('data-langbtn'))});
   var s='en';try{s=localStorage.getItem('gpi_lang')||'en'}catch(e){}set(s);
-
-  // modal
   var mbg=document.getElementById('mbg'), mt=document.getElementById('mt'), mbody=document.getElementById('mbody');
   function openDetail(entry){
-    var tpl=entry.querySelector('template.detail'); var img=entry.dataset.img, title=entry.dataset.title||'';
+    var tpl=entry.querySelector('template.detail'); var img=entry.dataset.img, title=entry.dataset.title||'', sku=entry.dataset.sku;
     if(!tpl && !img) return;
-    mt.textContent=title||'';
-    mbody.innerHTML='';
+    mt.textContent=title||''; mbody.innerHTML='';
     if(img){ var im=document.createElement('img'); im.src=img; im.alt=title; mbody.appendChild(im);
-      var cap=document.createElement('div'); cap.className='shotcap';
-      cap.innerHTML='<span class="en-only">Live screenshot · the element is circled</span><span class="he-only">צילום מסך חי · הרכיב מסומן</span>'; mbody.appendChild(cap); }
+      var cap=document.createElement('div'); cap.className='shotcap'; cap.innerHTML='<span class="en-only">Live screenshot · the element is circled</span><span class="he-only">צילום מסך חי · הרכיב מסומן</span>'; mbody.appendChild(cap); }
     if(tpl) mbody.appendChild(tpl.content.cloneNode(true));
+    if(sku){ var a=document.createElement('a'); a.className='openlink'; a.href='https://pi-dashboard-omega.vercel.app/?q='+encodeURIComponent(sku); a.target='_blank'; a.rel='noopener';
+      a.innerHTML='🔗 <span class="en-only">Open SKU '+sku+' on the dashboard</span><span class="he-only">פתח מק״ט '+sku+' בדאשבורד</span>'; mbody.appendChild(a); }
     mbg.classList.add('on');
   }
-  document.getElementById('grid').addEventListener('click',function(e){
-    var en=e.target.closest('.entry'); if(en && !en.classList.contains('noimg')) openDetail(en);
-  });
+  document.getElementById('grid').addEventListener('click',function(e){var en=e.target.closest('.entry');if(en && !en.classList.contains('noimg')) openDetail(en);});
   document.getElementById('mclose').addEventListener('click',function(){mbg.classList.remove('on')});
   mbg.addEventListener('click',function(e){if(e.target===mbg)mbg.classList.remove('on')});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')mbg.classList.remove('on')});
-
-  // filter + search
   var entries=[].slice.call(document.querySelectorAll('.entry'));
   entries.forEach(function(e){e._t=e.textContent.toLowerCase()});
   var cat='all', q='', count=document.getElementById('count'), empty=document.getElementById('empty');
