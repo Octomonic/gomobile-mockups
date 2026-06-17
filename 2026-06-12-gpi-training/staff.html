@@ -7,190 +7,304 @@
 <title>GPI Training — 17.06.2026 / הדרכת GPI</title>
 <script>(function(){try{var l=localStorage.getItem('gpi_lang')||'en';document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('dir',l==='he'?'rtl':'ltr');document.documentElement.setAttribute('lang',l)}catch(e){}})();</script>
 <style>
-  :root{--ink:#1a2233;--muted:#667085;--line:#e6e9ef;--bg:#f6f7f9;--panel:#ffffff;
-    --pink:#ec008c;--pink-d:#b8006e;--good:#0a8a5b;--warn:#b8590a;--info:#1479a8}
+  :root{
+    --ink:#16203a;--muted:#6b7488;--faint:#9aa3b5;--line:#e9ebf1;--line-soft:#f0f2f6;
+    --bg:#f5f6fa;--panel:#ffffff;
+    --pink:#ec008c;--pink-d:#b8006e;--pink-bg:#fdeaf5;--pink-bd:#f6c3e2;
+    --good:#0a8a5b;--good-bg:#e9faf2;--good-bd:#bfead6;
+    --warn:#b8590a;--warn-bg:#fff5ea;--warn-bd:#f5dcbb;
+    --bad:#c01e5c;--bad-bg:#fdebf2;--bad-bd:#f4c2d6;
+    --info:#1479a8;--info-bg:#e9f6fc;--info-bd:#bfe3f1;
+    --neu:#5b6478;--neu-bg:#f1f3f7;--neu-bd:#e0e4ec;
+    --shadow:0 1px 2px rgba(20,28,48,.04),0 8px 24px -16px rgba(20,28,48,.18);
+    --shadow-hover:0 8px 28px -10px rgba(236,0,140,.18);
+  }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
   [data-lang=en] .he-only{display:none} [data-lang=he] .en-only{display:none}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
-  .segs{display:grid;gap:16px;grid-template-columns:1fr}
-  @media(min-width:980px){.segs{grid-template-columns:1fr 1fr;align-items:start}}
-  .seg.full{grid-column:1/-1}
-  .seg-b p{max-width:90ch}
-  a{color:var(--pink-d);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
   .sku{font-family:"SF Mono",Menlo,monospace;font-weight:700;color:var(--info);font-size:12.5px;direction:ltr;unicode-bidi:embed}
-  header{background:linear-gradient(120deg,#fff 0%,#fdf2f8 100%);border-bottom:3px solid var(--pink)}
-  .hd{display:flex;align-items:center;gap:16px;padding:22px 0}
-  .hd img{height:38px} .hd .grow{flex:1}
-  .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-d);font-weight:700}
-  h1{font-size:27px;font-weight:800;margin-top:2px}
-  .sub{color:var(--muted);margin-top:6px}
-  .langtoggle{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;align-self:flex-start}
-  .langtoggle button{border:0;background:#fff;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:6px 13px;cursor:pointer}
+  b{font-weight:700}
+  /* header */
+  header{background:linear-gradient(125deg,#fff 0%,#fdf0f8 100%);border-bottom:1px solid var(--line)}
+  .hd{display:flex;align-items:center;gap:18px;padding:26px 0 24px;position:relative}
+  .hd::after{content:"";position:absolute;bottom:-1px;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--pink),#ff5db1)}
+  .hd .logo{width:54px;height:54px;border-radius:15px;background:#fff;border:1px solid var(--line);box-shadow:0 2px 8px rgba(20,28,48,.06);display:grid;place-items:center;flex:none}
+  .hd .logo img{width:36px;height:36px;object-fit:contain}
+  .hd .grow{flex:1}
+  .kick{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-d);font-weight:800}
+  .titlerow{display:flex;align-items:center;gap:14px;margin-top:3px;flex-wrap:wrap}
+  h1{font-size:28px;font-weight:900;letter-spacing:-.4px}
+  .datepill{margin-inline-start:auto;background:#fff;border:1px solid var(--pink-bd);color:var(--pink-d);font-weight:800;font-size:13px;padding:6px 14px;border-radius:999px;box-shadow:0 1px 2px rgba(20,28,48,.05);white-space:nowrap}
+  .sub{color:var(--muted);margin-top:6px;max-width:70ch;font-size:14.5px}
+  .langtoggle{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;align-self:flex-start;box-shadow:0 1px 2px rgba(20,28,48,.05)}
+  .langtoggle button{border:0;background:#fff;color:var(--muted);font:inherit;font-size:13px;font-weight:700;padding:7px 14px;cursor:pointer}
   .langtoggle button[aria-pressed=true]{background:var(--pink);color:#fff}
-  nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;gap:6px;flex-wrap:wrap;padding:9px 22px}
-  nav a{font-size:13px;color:var(--muted);padding:5px 11px;border-radius:7px;font-weight:600}
-  nav a:hover{background:#f1f3f7;color:var(--ink);text-decoration:none}
-  .goal{background:#fff;border:1px solid var(--line);border-inline-start:4px solid var(--pink);border-radius:10px;padding:14px 18px;margin:24px 0}
-  .seg{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 2px rgba(16,24,40,.04);margin-bottom:16px;overflow:hidden}
-  .seg-h{padding:14px 18px;border-bottom:1px solid var(--line);background:#fbfbfd;font-size:16.5px;font-weight:700}
-  .seg-b{padding:14px 18px}
-  .seg-b ul{margin:0;padding-inline-start:20px} .seg-b li{margin:7px 0}
-  .ex{display:inline-flex;align-items:center;gap:4px;cursor:pointer;background:#fde7f3;color:var(--pink-d);border:1px solid #f7c3e0;border-radius:20px;padding:1px 9px;font-size:12px;font-weight:700;white-space:nowrap;margin-inline-start:5px;vertical-align:middle}
-  .ex:hover{background:#fbd5ec}
-  .turn{margin-top:10px;background:#fdf2f8;border:1px dashed #f4b8d8;border-radius:8px;padding:8px 12px;font-size:13.5px}
-  .turn b{color:var(--pink-d)}
-  .edge{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;background:#fff}
-  .edge .w{font-weight:800;color:var(--ink);display:flex;align-items:center;flex-wrap:wrap;gap:4px} .edge .d{color:#3a4254;font-size:13.5px;margin-top:3px}
-  .edge.chk{border-inline-start:4px solid var(--info);background:#f3fafe}
-  .edge.esc{border-inline-start:4px solid var(--warn);background:#fff8f0}
-  .edge ul{margin:4px 0 0;padding-inline-start:18px} .edge li{margin:3px 0;font-size:13.5px;color:#3a4254}
-  footer{color:var(--muted);font-size:12.5px;padding:30px 0 50px;border-top:1px solid var(--line);margin-top:24px}
-  .mbg{position:fixed;inset:0;background:rgba(10,15,35,.55);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:28px 16px;overflow:auto}
+  /* nav */
+  nav{position:sticky;top:0;z-index:5;background:rgba(245,246,250,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;gap:6px;flex-wrap:wrap;padding:10px 24px}
+  nav a{font-size:13px;color:var(--muted);padding:6px 13px;border-radius:9px;font-weight:700;border:1px solid transparent}
+  nav a:hover{background:#fff;color:var(--ink);border-color:var(--line)}
+  /* goal */
+  .goal{display:flex;gap:13px;align-items:flex-start;background:linear-gradient(120deg,#fff,#fdf3f9);border:1px solid var(--pink-bd);border-radius:16px;padding:16px 20px;margin:24px 0 22px;box-shadow:var(--shadow);max-width:none}
+  .goal .gi{font-size:20px;flex:none}
+  .goal b{color:var(--pink-d)}
+  /* section */
+  .sec{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden}
+  .sec-h{display:flex;align-items:center;gap:12px;padding:18px 24px;border-bottom:1px solid var(--line-soft)}
+  .sec-h .bar{width:6px;height:22px;border-radius:6px;background:linear-gradient(180deg,var(--pink),#ff5db1)}
+  .sec-h .t{font-size:18px;font-weight:800;letter-spacing:-.2px}
+  .sec-b{padding:18px 24px 22px}
+  .lead{color:var(--muted);font-size:14px;margin-bottom:14px;max-width:90ch}
+  /* card grid */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:13px}
+  .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px 16px;display:flex;flex-direction:column;gap:7px;transition:.14s}
+  .card.clk{cursor:pointer}
+  .card.clk:hover{border-color:var(--pink-bd);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+  .card .pill{align-self:flex-start}
+  .card .nm{font-weight:800;font-size:14.5px;line-height:1.3}
+  .card .ds{font-size:13px;color:#454d61;flex:1}
+  .card .see{font-size:12px;font-weight:800;color:var(--pink-d);margin-top:2px}
+  .num{flex:none;width:24px;height:24px;border-radius:8px;background:var(--pink);color:#fff;font-weight:900;font-size:13px;display:grid;place-items:center;box-shadow:0 2px 6px rgba(236,0,140,.3)}
+  .nmrow{display:flex;align-items:center;gap:9px}
+  /* pills */
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;padding:4px 11px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+  .p-bad{background:var(--bad-bg);color:var(--bad);border-color:var(--bad-bd)}
+  .p-good{background:var(--good-bg);color:var(--good);border-color:var(--good-bd)}
+  .p-warn{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-bd)}
+  .p-info{background:var(--info-bg);color:var(--info);border-color:var(--info-bd)}
+  .p-neu{background:var(--neu-bg);color:var(--neu);border-color:var(--neu-bd)}
+  .p-pink{background:var(--pink-bg);color:var(--pink-d);border-color:var(--pink-bd)}
+  /* map banner */
+  .mapb{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,#fff5fb,#fde9f4);border:1px solid var(--pink-bd);border-radius:16px;padding:14px 18px;margin-bottom:16px;cursor:pointer;transition:.14s}
+  .mapb:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+  .mapb .ic{font-size:24px}
+  .mapb .mt{font-weight:800}
+  .mapb .md{font-size:13px;color:var(--muted)}
+  .mapb .go{margin-inline-start:auto;color:var(--pink-d);font-weight:800;font-size:13px;white-space:nowrap}
+  /* edge */
+  .edge{border:1px solid var(--line);border-radius:15px;padding:14px 16px;background:#fff}
+  .edge .w{font-weight:800;display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+  .edge .d{color:#454d61;font-size:13.5px;margin-top:4px}
+  .edge.chk{border-color:var(--info-bd);background:var(--info-bg)} .edge.chk .w{color:var(--info)}
+  .edge.esc{border-color:var(--warn-bd);background:var(--warn-bg)} .edge.esc .w{color:var(--warn)}
+  .edge ul{margin:5px 0 0;padding-inline-start:18px} .edge li{margin:3px 0;font-size:13.5px;color:#454d61}
+  .note{margin-top:14px;font-size:13px;color:var(--muted);background:var(--neu-bg);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+  .note b{color:var(--ink)}
+  footer{color:var(--faint);font-size:12.5px;padding:28px 0 54px;text-align:center}
+  /* modal */
+  .mbg{position:fixed;inset:0;background:rgba(16,22,40,.6);backdrop-filter:blur(2px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:28px 16px;overflow:auto}
   .mbg.on{display:flex}
-  .modal{background:#fff;border-radius:16px;max-width:860px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.4);overflow:hidden}
-  .mhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+  .modal{background:#fff;border-radius:18px;max-width:880px;width:100%;box-shadow:0 40px 90px rgba(0,0,0,.45);overflow:hidden}
+  .mhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 20px;border-bottom:1px solid var(--line)}
   .mhead .mt{font-weight:800;font-size:16px}
   .mclose{cursor:pointer;font-size:22px;line-height:1;color:var(--muted);background:none;border:0}
-  .mbody{padding:18px}
-  .mbody img{width:100%;border:1px solid var(--line);border-radius:10px;margin-bottom:6px;background:#f6f7f9}
-  .shotcap{font-size:11.5px;color:var(--muted);text-align:center;margin-bottom:10px}
-  .mbody p,.mbody li{font-size:14px;color:#33384a} .mbody b{color:var(--ink)}
-  .openlink{display:inline-block;margin-top:14px;background:var(--pink);color:#fff;border-radius:9px;padding:9px 15px;font-weight:700;font-size:13.5px;text-decoration:none}
+  .mbody{padding:20px}
+  .mbody img{width:100%;border:1px solid var(--line);border-radius:12px;margin-bottom:6px;background:var(--bg)}
+  .shotcap{font-size:11.5px;color:var(--faint);text-align:center;margin-bottom:12px}
+  .mbody p{font-size:14px;color:#33384a}
+  .openlink{display:inline-block;margin-top:16px;background:var(--pink);color:#fff;border-radius:11px;padding:10px 17px;font-weight:800;font-size:13.5px;text-decoration:none;box-shadow:0 6px 16px -6px rgba(236,0,140,.5)}
   .openlink:hover{background:var(--pink-d)}
-  @media print{nav,.langtoggle,.ex{display:none}.he-only{display:none!important}}
+  @media print{nav,.langtoggle,.see,.mapb .go{display:none}.he-only{display:none!important}}
 </style>
 </head>
 <body>
 <header><div class="wrap hd">
-  <img src="gomobile.png" alt="GoMobile" />
+  <div class="logo"><img src="gomobile.png" alt="GoMobile" /></div>
   <div class="grow">
     <div class="kick">GoSolutions GPI · <span class="en-only">Team walkthrough</span><span class="he-only">סיור לצוות</span></div>
-    <h1><span class="en-only">GPI Training — 17.06.2026</span><span class="he-only">הדרכת GPI — 17.06.2026</span></h1>
-    <div class="sub"><span class="en-only">For the team already using GPI. Click the pink <b>📸 example</b> next to anything to see it on a real screenshot — and open the real SKU on the dashboard.</span><span class="he-only">לצוות שכבר עובד עם GPI. לחצו על <b>📸 דוגמה</b> הוורוד ליד כל דבר כדי לראות אותו בצילום מסך אמיתי — ולפתוח את המק״ט האמיתי בדאשבורד.</span></div>
+    <div class="titlerow"><h1><span class="en-only">GPI Training</span><span class="he-only">הדרכת GPI</span></h1><span class="datepill" dir="ltr">17.06.2026</span></div>
+    <div class="sub"><span class="en-only">Click any card to see it <b>circled on a real screenshot</b> and open the SKU on the dashboard.</span><span class="he-only">לחצו על כל כרטיס כדי לראות אותו <b>מסומן בצילום מסך אמיתי</b> ולפתוח את המק״ט בדאשבורד.</span></div>
   </div>
   <div class="langtoggle"><button data-langbtn="en">EN</button><button data-langbtn="he">עברית</button></div>
 </div></header>
 
 <nav><div class="wrap">
-  <a href="#s1"><span class="en-only">Main sections</span><span class="he-only">חלקים מרכזיים</span></a>
-  <a href="#s2"><span class="en-only">Statuses</span><span class="he-only">סטטוסים</span></a>
-  <a href="#s3"><span class="en-only">Badges</span><span class="he-only">תגים</span></a>
-  <a href="#s4"><span class="en-only">Changing a price</span><span class="he-only">שינוי מחיר</span></a>
-  <a href="#s5"><span class="en-only">Edge cases</span><span class="he-only">מקרי קצה</span></a>
+  <a href="#s1"><span class="en-only">The screen</span><span class="he-only">המסך</span></a>
+  <a href="#s2"><span class="en-only">Reading a row</span><span class="he-only">קריאת שורה</span></a>
+  <a href="#s3"><span class="en-only">Changing a price</span><span class="he-only">שינוי מחיר</span></a>
+  <a href="#s4"><span class="en-only">Edge cases</span><span class="he-only">מקרי קצה</span></a>
 </div></nav>
 
 <div class="wrap">
-  <div class="goal"><b><span class="en-only">The point:</span><span class="he-only">העיקר:</span></b> <span class="en-only">read any status at a glance, know what each part of a row means, change a price, and know what to do when something unusual shows up. Click any 📸 to see the real thing.</span><span class="he-only">לקרוא כל סטטוס במבט, להבין מה כל חלק בשורה אומר, לשנות מחיר, ולדעת מה לעשות כשמשהו חריג מופיע. לחצו על כל 📸 כדי לראות את הדבר האמיתי.</span></div>
+  <div class="goal"><span class="gi">🎯</span><div><b><span class="en-only">The point:</span><span class="he-only">העיקר:</span></b> <span class="en-only">read any status at a glance, know what each part of a row means, change a price, and know what to do when something unusual shows up.</span><span class="he-only">לקרוא כל סטטוס במבט, להבין מה כל חלק בשורה אומר, לשנות מחיר, ולדעת מה לעשות כשמשהו חריג מופיע.</span></div></div>
 
-  <div class="segs">
-  <div class="seg full" id="s1">
-    <div class="seg-h"><span class="en-only">The main sections — what each area is called</span><span class="he-only">החלקים המרכזיים — איך כל אזור נקרא</span></div>
-    <div class="seg-b">
-      <p style="margin-bottom:10px"><span class="en-only">The GPI screen, top to bottom. Click for a labeled map of the whole page:</span><span class="he-only">מסך GPI, מלמעלה למטה. לחצו למפה ממוספרת של כל הדף:</span>
-        <span class="ex" data-img="img/sections.png" data-title="<span class='en-only'>The page sections (1–5)</span><span class='he-only'>חלקי הדף (1–5)</span>">📸 <span class="en-only">labeled map</span><span class="he-only">מפה ממוספרת</span><template><p><span class="en-only"><b>1</b> Summary cards · <b>2</b> Top filters · <b>3</b> Status tabs · <b>4</b> Categories + search · <b>5</b> The product table.</span><span class="he-only"><b>1</b> כרטיסי סיכום · <b>2</b> פילוח עליון · <b>3</b> לשוניות סטטוס · <b>4</b> קטגוריות + חיפוש · <b>5</b> טבלת המוצרים.</span></p></template></span>
-      </p>
-      <ul>
-        <li><b>1 · <span class="en-only">Summary cards</span><span class="he-only">כרטיסי סיכום</span></b> <span style="color:var(--muted)">(תמונת ההשוואה)</span> — <span class="en-only">the headline counts (active / in comparison / breaches…) + the last-scan time.</span><span class="he-only">המספרים הראשיים (פעילים / בהשוואה / חריגות…) + זמן הסריקה האחרון.</span>
-          <span class="ex" data-img="img/stat_cards.png" data-title="<span class='en-only'>Summary cards</span><span class='he-only'>כרטיסי סיכום</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">The top KPI strip.</span><span class="he-only">רצועת ה-KPI העליונה.</span></p></template></span></li>
-        <li><b>2 · <span class="en-only">Top filters</span><span class="he-only">פילוח עליון</span></b> — הכל / חריגים / זולים מהמתחרים / שווה למתחרים / לבדיקה
-          <span class="ex" data-img="img/tabs_top.png" data-title="<span class='en-only'>Top filters</span><span class='he-only'>פילוח עליון</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only"><b>חריגים</b> = we're pricier; <b>זולים מהמתחרים</b> = we're cheaper.</span><span class="he-only"><b>חריגים</b> = אנחנו יקרים; <b>זולים מהמתחרים</b> = אנחנו זולים.</span></p></template></span></li>
-        <li><b>3 · <span class="en-only">Status tabs</span><span class="he-only">לשוניות סטטוס</span></b> — מכוסה / מתחרה אזל / דורש סקירה / אין מתחרה
-          <span class="ex" data-img="img/tabs_status.png" data-title="<span class='en-only'>Status tabs</span><span class='he-only'>לשוניות סטטוס</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Filter by coverage status.</span><span class="he-only">סינון לפי סטטוס כיסוי.</span></p></template></span></li>
-        <li><b>4 · <span class="en-only">Categories + search</span><span class="he-only">קטגוריות + חיפוש</span></b>
-          <span class="ex" data-img="img/categories.png" data-title="<span class='en-only'>Categories</span><span class='he-only'>קטגוריות</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Narrow to a category, or search a product / SKU.</span><span class="he-only">צמצמו לקטגוריה, או חפשו מוצר / מק״ט.</span></p></template></span></li>
-        <li><b>5 · <span class="en-only">The product table</span><span class="he-only">טבלת המוצרים</span></b> — <span class="en-only">each row is a SKU.</span><span class="he-only">כל שורה היא מק״ט.</span>
-          <span class="ex" data-img="img/row_anatomy.png" data-sku="7534767" data-title="<span class='en-only'>A row, part by part</span><span class='he-only'>שורה, חלק-חלק</span>">📸 <span class="en-only">a row, part by part</span><span class="he-only">שורה, חלק-חלק</span><template><p><span class="en-only">Right→left: <b>status</b> · <b>product</b> + stock · <b>SKU</b> · <b>GoMobile</b> price · <b>Eilat</b> price · <b>cost</b> (incl. VAT) + margin · <b>competitor</b> + its price · <b>gap</b> (₪ / %).</span><span class="he-only">מימין לשמאל: <b>סטטוס</b> · <b>מוצר</b> + מלאי · <b>מק״ט</b> · מחיר <b>GoMobile</b> · מחיר <b>אילת</b> · <b>עלות</b> (כולל מע״מ) + מרווח · <b>מתחרה</b> + מחירו · <b>פער</b> (₪ / %).</span></p></template></span></li>
-      </ul>
-      <p style="color:var(--muted);font-size:13.5px;margin-top:6px"><span class="en-only">Two controls worth knowing: the <b>Regular / Eilat</b> toggle flips all prices, and <b>"Show breaches only"</b> jumps to the action rows. Clicking a row opens its <b>price card</b> (see "Changing a price"); the panel on the side is the <b>price-change log</b>.</span><span class="he-only">שני כלים ששווה להכיר: מתג <b>רגיל / אילת</b> מחליף את כל המחירים, ו-<b>"הצג חריגים בלבד"</b> קופץ לשורות הפעולה. לחיצה על שורה פותחת את <b>כרטיס המחיר</b> (ראו "שינוי מחיר"); הפאנל בצד הוא <b>יומן שינויי המחיר</b>.</span>
-        <span class="ex" data-img="img/price_toggle.png" data-title="<span class='en-only'>Regular / Eilat</span><span class='he-only'>רגיל / אילת</span>">📸 <span class="en-only">toggle</span><span class="he-only">מתג</span><template><p><span class="en-only">Flips the whole table between regular and tax-free Eilat.</span><span class="he-only">מחליף את כל הטבלה בין רגיל לאילת ללא מע״מ.</span></p></template></span>
-        <span class="ex" data-img="img/show_breaches.png" data-title="<span class='en-only'>Breaches only</span><span class='he-only'>חריגים בלבד</span>">📸 <span class="en-only">breaches only</span><span class="he-only">חריגים בלבד</span><template><p><span class="en-only">Shows only the rows where we're pricier.</span><span class="he-only">מציג רק שורות שבהן אנחנו יקרים.</span></p></template></span>
-      </p>
+  <!-- ===== S1 ===== -->
+  <section class="sec" id="s1">
+    <div class="sec-h"><span class="bar"></span><span class="t"><span class="en-only">The screen — main sections</span><span class="he-only">המסך — חלקים מרכזיים</span></span></div>
+    <div class="sec-b">
+      <div class="mapb" data-img="img/sections.png" data-title="<span class='en-only'>The page sections (1–5)</span><span class='he-only'>חלקי הדף (1–5)</span>">
+        <span class="ic">🗺️</span>
+        <div><div class="mt"><span class="en-only">A labeled map of the whole page</span><span class="he-only">מפה ממוספרת של כל הדף</span></div><div class="md"><span class="en-only">Sections 1–5 circled on a live screenshot.</span><span class="he-only">חלקים 1–5 מסומנים על צילום מסך חי.</span></div></div>
+        <span class="go">📸 <span class="en-only">open ›</span><span class="he-only">פתח ›</span></span>
+        <template><p><span class="en-only"><b>1</b> Summary cards · <b>2</b> Top filters · <b>3</b> Status tabs · <b>4</b> Categories + search · <b>5</b> The product table.</span><span class="he-only"><b>1</b> כרטיסי סיכום · <b>2</b> פילוח עליון · <b>3</b> לשוניות סטטוס · <b>4</b> קטגוריות + חיפוש · <b>5</b> טבלת המוצרים.</span></p></template>
+      </div>
+      <div class="cards">
+        <article class="card clk" data-img="img/stat_cards.png" data-title="<span class='en-only'>Summary cards</span><span class='he-only'>כרטיסי סיכום</span>">
+          <div class="nmrow"><span class="num">1</span><span class="nm"><span class="en-only">Summary cards</span><span class="he-only">כרטיסי סיכום</span></span></div>
+          <div class="ds"><span class="en-only">The headline counts + last-scan time ("תמונת ההשוואה").</span><span class="he-only">המספרים הראשיים + זמן הסריקה האחרון ("תמונת ההשוואה").</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The top KPI strip.</span><span class="he-only">רצועת ה-KPI העליונה.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/tabs_top.png" data-title="<span class='en-only'>Top filters</span><span class='he-only'>פילוח עליון</span>">
+          <div class="nmrow"><span class="num">2</span><span class="nm"><span class="en-only">Top filters</span><span class="he-only">פילוח עליון</span></span></div>
+          <div class="ds">הכל · חריגים · זולים מהמתחרים · שווה למתחרים · לבדיקה</div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only"><b>חריגים</b> = we're pricier; <b>זולים מהמתחרים</b> = we're cheaper.</span><span class="he-only"><b>חריגים</b> = אנחנו יקרים; <b>זולים מהמתחרים</b> = אנחנו זולים.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/tabs_status.png" data-title="<span class='en-only'>Status tabs</span><span class='he-only'>לשוניות סטטוס</span>">
+          <div class="nmrow"><span class="num">3</span><span class="nm"><span class="en-only">Status tabs</span><span class="he-only">לשוניות סטטוס</span></span></div>
+          <div class="ds">מכוסה · מתחרה אזל · דורש סקירה · אין מתחרה</div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">Filter by coverage status.</span><span class="he-only">סינון לפי סטטוס כיסוי.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/categories.png" data-title="<span class='en-only'>Categories + search</span><span class='he-only'>קטגוריות + חיפוש</span>">
+          <div class="nmrow"><span class="num">4</span><span class="nm"><span class="en-only">Categories + search</span><span class="he-only">קטגוריות + חיפוש</span></span></div>
+          <div class="ds"><span class="en-only">Narrow to a category, or search a product / SKU.</span><span class="he-only">צמצמו לקטגוריה, או חפשו מוצר / מק״ט.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The chip row + the search box.</span><span class="he-only">שורת הצ׳יפים + תיבת החיפוש.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/row_anatomy.png" data-sku="7534767" data-title="<span class='en-only'>The product table — a row</span><span class='he-only'>טבלת המוצרים — שורה</span>">
+          <div class="nmrow"><span class="num">5</span><span class="nm"><span class="en-only">The product table</span><span class="he-only">טבלת המוצרים</span></span></div>
+          <div class="ds"><span class="en-only">Each row is a SKU. Click to see a row, part by part.</span><span class="he-only">כל שורה היא מק״ט. לחצו לראות שורה חלק-חלק.</span></div>
+          <div class="see">📸 <span class="en-only">a row, part by part ›</span><span class="he-only">שורה, חלק-חלק ›</span></div>
+          <template><p><span class="en-only">Right→left: <b>status</b> · <b>product</b> + stock · <b>SKU</b> · <b>GoMobile</b> price · <b>Eilat</b> price · <b>cost</b> (incl. VAT) + margin · <b>competitor</b> + its price · <b>gap</b> (₪ / %).</span><span class="he-only">מימין לשמאל: <b>סטטוס</b> · <b>מוצר</b> + מלאי · <b>מק״ט</b> · מחיר <b>GoMobile</b> · מחיר <b>אילת</b> · <b>עלות</b> (כולל מע״מ) + מרווח · <b>מתחרה</b> + מחירו · <b>פער</b> (₪ / %).</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/price_toggle.png" data-title="<span class='en-only'>Regular / Eilat</span><span class='he-only'>רגיל / אילת</span>">
+          <div class="card .pill"><span class="pill p-info"><span class="en-only">Regular / Eilat</span><span class="he-only">רגיל / אילת</span></span></div>
+          <div class="ds"><span class="en-only">Toggles all prices between regular and tax-free Eilat.</span><span class="he-only">מחליף את כל המחירים בין רגיל לאילת ללא מע״מ.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">Flips the whole table.</span><span class="he-only">מחליף את כל הטבלה.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/show_breaches.png" data-title="<span class='en-only'>Show breaches only</span><span class='he-only'>הצג חריגים בלבד</span>">
+          <div><span class="pill p-warn"><span class="en-only">Breaches only</span><span class="he-only">חריגים בלבד</span></span></div>
+          <div class="ds"><span class="en-only">Jumps straight to the rows where we're pricier.</span><span class="he-only">קופץ ישר לשורות שבהן אנחנו יקרים.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">A one-click action filter.</span><span class="he-only">מסנן פעולה בלחיצה אחת.</span></p></template>
+        </article>
+      </div>
+      <div class="note"><span class="en-only">Clicking a row opens its <b>price card</b> (next section); the panel on the side is the <b>price-change log</b>.</span><span class="he-only">לחיצה על שורה פותחת את <b>כרטיס המחיר</b> (בחלק הבא); הפאנל בצד הוא <b>יומן שינויי המחיר</b>.</span></div>
     </div>
-  </div>
+  </section>
 
-  <div class="seg" id="s2">
-    <div class="seg-h"><span class="en-only">The 5 statuses</span><span class="he-only">5 הסטטוסים</span></div>
-    <div class="seg-b">
-      <ul>
-        <li><b>🚨 חריגה</b> — <span class="en-only">we're priced above a comparable competitor.</span><span class="he-only">אנחנו יקרים ממתחרה בר-השוואה.</span>
-          <span class="ex" data-img="img/st_breach.png" data-sku="6979181921876" data-title="🚨 חריגה">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Red status. Read the gap (₪ / %) and decide.</span><span class="he-only">סטטוס אדום. קראו את הפער (₪ / %) והחליטו.</span></p></template></span></li>
-        <li><b>✅ יתרון</b> — <span class="en-only">we're cheaper than the competitor.</span><span class="he-only">אנחנו זולים מהמתחרה.</span>
-          <span class="ex" data-img="img/st_advantage.png" data-sku="5702017589282" data-title="✅ יתרון">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Green — healthy.</span><span class="he-only">ירוק — תקין.</span></p></template></span></li>
-        <li><b>🚫 מתחרה אזל</b> — <span class="en-only">competitor is out of stock ("לא זמין").</span><span class="he-only">המתחרה אזל ("לא זמין").</span>
-          <span class="ex" data-img="img/st_oos.png" data-sku="7675827" data-title="🚫 מתחרה אזל">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Nothing buyable to compare to right now.</span><span class="he-only">אין כרגע מה להשוות — אי אפשר לקנות.</span></p></template></span></li>
-        <li><b>🔍 דורש סקירה</b> — <span class="en-only">a competitor was found but with a different identity ("חסום להשוואה").</span><span class="he-only">נמצא מתחרה אבל בזהות שונה ("חסום להשוואה").</span>
-          <span class="ex" data-img="img/st_review.png" data-sku="7675864" data-title="🔍 דורש סקירה">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">The list to look over.</span><span class="he-only">הרשימה לעבור עליה.</span></p></template></span></li>
-        <li><b>⚪ אין מתחרה</b> — <span class="en-only">no tracked competitor (mostly accessories).</span><span class="he-only">אין מתחרה במעקב (בעיקר אביזרים).</span>
-          <span class="ex" data-img="img/st_nocomp.png" data-sku="1198161" data-title="⚪ אין מתחרה">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">The largest group.</span><span class="he-only">הקבוצה הגדולה ביותר.</span></p></template></span></li>
-        <li><b><span class="en-only">The gap (₪ / %)</span><span class="he-only">הפער (₪ / %)</span></b> — <span class="en-only">↑ = we're pricier, ↓ = cheaper.</span><span class="he-only">↑ = אנחנו יקרים, ↓ = זולים.</span>
-          <span class="ex" data-img="img/col_gap.png" data-sku="7534767" data-title="<span class='en-only'>Price gap</span><span class='he-only'>פער מחיר</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">A small gap is usually fine to act on directly; a very large one is worth a quick check first — it's often an identity or availability difference.</span><span class="he-only">פער קטן בד״כ אפשר לפעול עליו ישר; פער גדול מאוד שווה בדיקה קצרה קודם — לרוב זה הבדל זהות או זמינות.</span></p></template></span></li>
-      </ul>
+  <!-- ===== S2 ===== -->
+  <section class="sec" id="s2">
+    <div class="sec-h"><span class="bar"></span><span class="t"><span class="en-only">Reading a row</span><span class="he-only">קריאת שורה</span></span></div>
+    <div class="sec-b">
+      <p class="lead"><span class="en-only">Every row carries one status. Here's each, what it means, and the two things that flag or block it.</span><span class="he-only">בכל שורה סטטוס אחד. הנה כל אחד, מה הוא אומר, ושני הדברים שמסמנים או חוסמים אותו.</span></p>
+      <div class="cards">
+        <article class="card clk" data-img="img/st_breach.png" data-sku="6979181921876" data-title="🚨 חריגה">
+          <div><span class="pill p-bad">🚨 חריגה</span></div>
+          <div class="nm"><span class="en-only">We're pricier</span><span class="he-only">אנחנו יקרים</span></div>
+          <div class="ds"><span class="en-only">Priced above a comparable competitor — the rows to act on.</span><span class="he-only">יקרים ממתחרה בר-השוואה — השורות לפעולה.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">Read the gap, then decide.</span><span class="he-only">קראו את הפער, ואז החליטו.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/st_advantage.png" data-sku="5702017589282" data-title="✅ יתרון">
+          <div><span class="pill p-good">✅ יתרון</span></div>
+          <div class="nm"><span class="en-only">We're cheaper</span><span class="he-only">אנחנו זולים</span></div>
+          <div class="ds"><span class="en-only">Below the competitor — healthy, leave it.</span><span class="he-only">מתחת למתחרה — תקין, השאירו.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">Green status; the gap shows ↓.</span><span class="he-only">סטטוס ירוק; הפער מציג ↓.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/st_oos.png" data-sku="7675827" data-title="🚫 מתחרה אזל">
+          <div><span class="pill p-warn">🚫 מתחרה אזל</span></div>
+          <div class="nm"><span class="en-only">Competitor unbuyable</span><span class="he-only">מתחרה לא ניתן לקנייה</span></div>
+          <div class="ds"><span class="en-only">Out of stock ("לא זמין") — nothing to compare to.</span><span class="he-only">אזל ("לא זמין") — אין מה להשוות.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The competitor column shows "לא זמין".</span><span class="he-only">עמודת המתחרה מציגה "לא זמין".</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/st_review.png" data-sku="7675864" data-title="🔍 דורש סקירה">
+          <div><span class="pill p-info">🔍 דורש סקירה</span></div>
+          <div class="nm"><span class="en-only">Blocked — different identity</span><span class="he-only">חסום — זהות שונה</span></div>
+          <div class="ds"><span class="en-only">A competitor was found but isn't comparable ("חסום להשוואה").</span><span class="he-only">נמצא מתחרה אבל לא בר-השוואה ("חסום להשוואה").</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The competitor column tag is "חסום להשוואה".</span><span class="he-only">התג בעמודת המתחרה הוא "חסום להשוואה".</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/st_nocomp.png" data-sku="1198161" data-title="⚪ אין מתחרה">
+          <div><span class="pill p-neu">⚪ אין מתחרה</span></div>
+          <div class="nm"><span class="en-only">No competitor</span><span class="he-only">אין מתחרה</span></div>
+          <div class="ds"><span class="en-only">Nobody tracked carries it — mostly accessories.</span><span class="he-only">אף מתחרה לא מוכר אותו — בעיקר אביזרים.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The largest group.</span><span class="he-only">הקבוצה הגדולה ביותר.</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/col_gap.png" data-sku="7534767" data-title="<span class='en-only'>The gap (₪ / %)</span><span class='he-only'>הפער (₪ / %)</span>">
+          <div><span class="pill p-bad"><span class="en-only">The gap</span><span class="he-only">הפער</span></span></div>
+          <div class="nm">₪ / %</div>
+          <div class="ds"><span class="en-only">How far our price is from the competitor. ↑ pricier, ↓ cheaper.</span><span class="he-only">כמה המחיר שלנו רחוק מהמתחרה. ↑ יקרים, ↓ זולים.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The "פער (₪)" and "פער (%)" columns.</span><span class="he-only">עמודות "פער (₪)" ו-"פער (%)".</span></p></template>
+        </article>
+        <article class="card clk" data-img="img/badge_gosale.png" data-sku="7513886" data-title="GoSale">
+          <div><span class="pill p-pink">GoSale</span></div>
+          <div class="nm"><span class="en-only">Promo collection badge</span><span class="he-only">תג אוסף מבצעים</span></div>
+          <div class="ds"><span class="en-only">In the GoSale collection — membership, <b>not</b> a discount.</span><span class="he-only">באוסף GoSale — חברות, <b>לא</b> הנחה.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">A purple chip on the product. You can still reprice it.</span><span class="he-only">צ׳יפ סגול על המוצר. עדיין אפשר לשנות לו מחיר.</span></p></template>
+        </article>
+        <article class="card">
+          <div><span class="pill p-info"><span class="en-only">Identity</span><span class="he-only">זהות</span></span></div>
+          <div class="nm"><span class="en-only">Official vs parallel</span><span class="he-only">יבואן רשמי מול מקביל</span></div>
+          <div class="ds"><span class="en-only">If the importer / warranty / SIM differs, it's a different product — that's why a row is blocked. Official = longer warranty, higher price.</span><span class="he-only">אם היבואן / האחריות / הסים שונים, זה מוצר אחר — לכן שורה נחסמת. רשמי = אחריות ארוכה, מחיר גבוה.</span></div>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="seg" id="s3">
-    <div class="seg-h"><span class="en-only">Badges &amp; identity</span><span class="he-only">תגים וזהות</span></div>
-    <div class="seg-b">
-      <ul>
-        <li><b>GoSale</b> — <span class="en-only">in the promo collection (not automatically a discount).</span><span class="he-only">באוסף המבצעים (לא אוטומטית הנחה).</span>
-          <span class="ex" data-img="img/badge_gosale.png" data-sku="7513886" data-title="GoSale">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">A purple chip on the product.</span><span class="he-only">צ׳יפ סגול על המוצר.</span></p></template></span></li>
-        <li><b>"חסום להשוואה"</b>
-          <span class="ex" data-img="img/tag_blocked.png" data-sku="7675864" data-title="חסום להשוואה">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">In the competitor column — a different identity, so the system didn't compare them.</span><span class="he-only">בעמודת המתחרה — זהות שונה, ולכן המערכת לא השוותה.</span></p></template></span>
-          <span class="en-only">and</span><span class="he-only">ו-</span> <b>"לא זמין"</b>
-          <span class="ex" data-img="img/tag_unavail.png" data-sku="7675827" data-title="לא זמין">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">The competitor's item is out of stock.</span><span class="he-only">הפריט של המתחרה אזל.</span></p></template></span>
-        </li>
-      </ul>
+  <!-- ===== S3 ===== -->
+  <section class="sec" id="s3">
+    <div class="sec-h"><span class="bar"></span><span class="t"><span class="en-only">Changing a price</span><span class="he-only">שינוי מחיר</span></span></div>
+    <div class="sec-b">
+      <div class="cards">
+        <article class="card clk" data-img="img/price_change.png" data-sku="7534767" data-title="<span class='en-only'>The price card</span><span class='he-only'>כרטיס המחיר</span>">
+          <div><span class="pill p-pink"><span class="en-only">Price card</span><span class="he-only">כרטיס המחיר</span></span></div>
+          <div class="nm"><span class="en-only">Click a row → enter a price → שנה מחיר</span><span class="he-only">לחצו על שורה ← הזינו מחיר ← שנה מחיר</span></div>
+          <div class="ds"><span class="en-only">Opens the product's card with the current price, the competitor comparison, and a new-price field. Confirming is a real price change.</span><span class="he-only">נפתח כרטיס המוצר עם המחיר הנוכחי, ההשוואה למתחרה, ושדה מחיר חדש. אישור = שינוי מחיר אמיתי.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">Current price + competitor comparison + new-price field + <b>שנה מחיר</b>.</span><span class="he-only">מחיר נוכחי + השוואה למתחרה + שדה מחיר חדש + <b>שנה מחיר</b>.</span></p></template>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="seg" id="s4">
-    <div class="seg-h"><span class="en-only">Changing a price</span><span class="he-only">שינוי מחיר</span></div>
-    <div class="seg-b">
-      <p><span class="en-only">Click a product row → its price card opens with the current price, the competitor comparison, and a field for the new price. Enter the price and confirm with <b>שנה מחיר</b> — that's a real price change.</span><span class="he-only">לחצו על שורת מוצר ← נפתח כרטיס המחיר עם המחיר הנוכחי, ההשוואה למתחרה, ושדה למחיר חדש. הזינו את המחיר ואשרו ב-<b>שנה מחיר</b> — זהו שינוי מחיר אמיתי.</span>
-        <span class="ex" data-img="img/price_change.png" data-sku="7534767" data-title="<span class='en-only'>Price change</span><span class='he-only'>שינוי מחיר</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">The product's price card: current price + competitor comparison + new-price field + <b>שנה מחיר</b>.</span><span class="he-only">כרטיס המחיר של המוצר: מחיר נוכחי + השוואה למתחרה + שדה מחיר חדש + <b>שנה מחיר</b>.</span></p></template></span>
-      </p>
+  <!-- ===== S4 ===== -->
+  <section class="sec" id="s4">
+    <div class="sec-h"><span class="bar"></span><span class="t"><span class="en-only">Edge cases — what to do</span><span class="he-only">מקרי קצה — מה עושים</span></span></div>
+    <div class="sec-b">
+      <div class="cards">
+        <article class="card clk edge" data-img="img/col_gap.png" data-sku="7534767" data-title="<span class='en-only'>A very large gap</span><span class='he-only'>פער גדול מאוד</span>">
+          <div class="w">📈 <span class="en-only">A very large gap</span><span class="he-only">פער גדול מאוד</span></div>
+          <div class="d"><span class="en-only">Refresh & check first — it's often an importer or availability difference. If it's genuinely real, change it.</span><span class="he-only">קודם רעננו ובדקו — לרוב זה הבדל יבואן או זמינות. אם הפער באמת אמיתי, שנו אותו.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The gap columns ↑/↓.</span><span class="he-only">עמודות הפער ↑/↓.</span></p></template>
+        </article>
+        <article class="card clk edge" data-img="img/tag_unavail.png" data-sku="7675827" data-title="לא זמין">
+          <div class="w">🚫 <span class="en-only">Competitor "לא זמין"</span><span class="he-only">המתחרה "לא זמין"</span></div>
+          <div class="d"><span class="en-only">Out of stock — nothing to compare to. Move on.</span><span class="he-only">אזל — אין מה להשוות. המשיכו.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">"לא זמין" in the competitor column.</span><span class="he-only">"לא זמין" בעמודת המתחרה.</span></p></template>
+        </article>
+        <article class="card clk edge" data-img="img/st_review.png" data-sku="7675864" data-title="🔍 דורש סקירה">
+          <div class="w">🔍 <span class="en-only">"חסום להשוואה" / דורש סקירה</span><span class="he-only">"חסום להשוואה" / דורש סקירה</span></div>
+          <div class="d"><span class="en-only">Different identity. If it really is the same product, run the checks below before escalating.</span><span class="he-only">זהות שונה. אם זה באמת אותו מוצר, עברו על הבדיקות למטה לפני הסלמה.</span></div>
+          <div class="see">📸 <span class="en-only">see example ›</span><span class="he-only">ראו דוגמה ›</span></div>
+          <template><p><span class="en-only">The block is deliberate.</span><span class="he-only">החסימה מכוונת.</span></p></template>
+        </article>
+        <article class="card edge">
+          <div class="w">🎨 <span class="en-only">Colours at different prices</span><span class="he-only">צבעים במחירים שונים</span></div>
+          <div class="d"><span class="en-only">The price card lets you unify them or set each colour on its own.</span><span class="he-only">כרטיס המחיר מאפשר לאחד אותם או לקבוע כל צבע בנפרד.</span></div>
+        </article>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:13px;margin-top:13px">
+        <div class="edge chk"><div class="w">🔎 <span class="en-only">Before you escalate — check</span><span class="he-only">לפני הסלמה — בדקו</span></div>
+          <ul><li><span class="en-only">Refresh the row.</span><span class="he-only">רעננו את השורה.</span></li><li><span class="en-only">The product matches across <b>bGate, WC and GPI</b> — same item, price, identity.</span><span class="he-only">המוצר תואם בין <b>bGate, WC ו-GPI</b> — אותו פריט, מחיר, זהות.</span></li><li><span class="en-only">Rule out an importer / availability difference.</span><span class="he-only">שללו הבדל יבואן / זמינות.</span></li></ul>
+        </div>
+        <div class="edge esc"><div class="w">📨 <span class="en-only">Send to Tom only if</span><span class="he-only">העבירו לתום רק אם</span></div>
+          <ul><li><span class="en-only">A very large gap you still can't explain after the checks.</span><span class="he-only">פער גדול מאוד שלא הצלחתם להסביר אחרי הבדיקות.</span></li><li><span class="en-only">The data doesn't match between bGate, WC and GPI.</span><span class="he-only">חוסר התאמה בין bGate, WC ו-GPI.</span></li></ul>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="seg" id="s5">
-    <div class="seg-h"><span class="en-only">What to do at the edge cases</span><span class="he-only">מה עושים במקרי הקצה</span></div>
-    <div class="seg-b">
-      <div class="edge"><div class="w">📈 <span class="en-only">A very large gap</span><span class="he-only">פער גדול מאוד</span>
-        <span class="ex" data-img="img/col_gap.png" data-sku="7534767" data-title="<span class='en-only'>Price gap</span><span class='he-only'>פער מחיר</span>">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">The gap columns ↑/↓.</span><span class="he-only">עמודות הפער ↑/↓.</span></p></template></span></div>
-        <div class="d"><span class="en-only">Take a quick look before acting — refresh the row; it's often an importer or availability difference. If it's genuinely real, it's a pricing opportunity — change it.</span><span class="he-only">הציצו לפני פעולה — רעננו את השורה; לרוב זה הבדל יבואן או זמינות. אם הפער באמת אמיתי — זו הזדמנות תמחור, שנו אותו.</span></div></div>
-
-      <div class="edge"><div class="w">🚫 <span class="en-only">The competitor shows "לא זמין"</span><span class="he-only">המתחרה מציג "לא זמין"</span>
-        <span class="ex" data-img="img/tag_unavail.png" data-sku="7675827" data-title="לא זמין">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Out of stock — nothing to compare.</span><span class="he-only">אזל — אין מה להשוות.</span></p></template></span></div>
-        <div class="d"><span class="en-only">It's out of stock, so there's nothing to compare to right now — move on.</span><span class="he-only">הוא אזל, אז אין כרגע מה להשוות — המשיכו הלאה.</span></div></div>
-
-      <div class="edge"><div class="w">🔍 <span class="en-only">"חסום להשוואה" / status דורש סקירה</span><span class="he-only">"חסום להשוואה" / סטטוס דורש סקירה</span>
-        <span class="ex" data-img="img/st_review.png" data-sku="7675864" data-title="🔍 דורש סקירה">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">Different identity — comparison blocked.</span><span class="he-only">זהות שונה — ההשוואה חסומה.</span></p></template></span></div>
-        <div class="d"><span class="en-only">The system found a different identity (importer / SIM / warranty…). Glance at it; if it really is the same product, run the checks below before escalating.</span><span class="he-only">המערכת מצאה זהות שונה (יבואן / סים / אחריות…). הציצו; אם זה באמת אותו מוצר, עברו על הבדיקות למטה לפני הסלמה.</span></div></div>
-
-      <div class="edge"><div class="w">🎨 <span class="en-only">One SKU's colours sit at different prices</span><span class="he-only">לאותו מק״ט יש צבעים במחירים שונים</span></div>
-        <div class="d"><span class="en-only">The price card lets you unify them or set each colour on its own.</span><span class="he-only">כרטיס המחיר מאפשר לאחד אותם או לקבוע כל צבע בנפרד.</span></div></div>
-
-      <div class="edge"><div class="w">🏷️ <span class="en-only">A GoSale item</span><span class="he-only">פריט GoSale</span>
-        <span class="ex" data-img="img/badge_gosale.png" data-sku="7513886" data-title="GoSale">📸 <span class="en-only">example</span><span class="he-only">דוגמה</span><template><p><span class="en-only">A purple GoSale chip.</span><span class="he-only">צ׳יפ GoSale סגול.</span></p></template></span></div>
-        <div class="d"><span class="en-only">It's in a promo collection — changing the price is fine; just be aware marketing may be featuring it right now.</span><span class="he-only">הוא באוסף מבצעים — שינוי מחיר בסדר; רק שימו לב שהשיווק אולי מקדם אותו כרגע.</span></div></div>
-
-      <div class="edge chk"><div class="w">🔎 <span class="en-only">Before you send anything to Tom — check:</span><span class="he-only">לפני שמעבירים משהו לתום — בדקו:</span></div>
-        <div class="d"><ul>
-          <li><span class="en-only">Refresh the row first.</span><span class="he-only">קודם רעננו את השורה.</span></li>
-          <li><span class="en-only">Make sure the product matches across <b>bGate, WC and GPI</b> — the same item, the same price, the same identity.</span><span class="he-only">ודאו שהמוצר תואם בין <b>bGate, WC ו-GPI</b> — אותו פריט, אותו מחיר, אותה זהות.</span></li>
-          <li><span class="en-only">Rule out an importer / availability / identity difference.</span><span class="he-only">שללו הבדל יבואן / זמינות / זהות.</span></li>
-        </ul></div></div>
-
-      <div class="edge esc"><div class="w">📨 <span class="en-only">Send to Tom only if:</span><span class="he-only">העבירו לתום רק אם:</span></div>
-        <div class="d"><ul>
-          <li><span class="en-only">A very large gap you still can't explain after the checks above.</span><span class="he-only">פער גדול מאוד שלא הצלחתם להסביר גם אחרי הבדיקות למעלה.</span></li>
-          <li><span class="en-only">The data doesn't match between bGate, WC and GPI.</span><span class="he-only">חוסר התאמה בין bGate, WC ו-GPI.</span></li>
-        </ul></div></div>
-    </div>
-  </div>
-  </div>
+  </section>
 </div>
 
 <div class="mbg" id="mbg"><div class="modal">
@@ -198,7 +312,7 @@
   <div class="mbody" id="mbody"></div>
 </div></div>
 
-<footer><div class="wrap"><span class="en-only">GoSolutions GPI — Price Intelligence for GoMobile · built &amp; maintained by OctoMonic · verified against live dashboard 2026-06-17</span><span class="he-only">GoSolutions GPI — מודיעין תמחור עבור GoMobile · נבנה ומתוחזק ע״י OctoMonic · אומת מול הדאשבורד החי 17-06-2026</span></div></footer>
+<footer><span class="en-only">GoSolutions GPI — Price Intelligence for GoMobile · built &amp; maintained by OctoMonic · verified against live dashboard 2026-06-17</span><span class="he-only">GoSolutions GPI — מודיעין תמחור עבור GoMobile · נבנה ומתוחזק ע״י OctoMonic · אומת מול הדאשבורד החי 17-06-2026</span></footer>
 
 <script>
 (function(){
@@ -206,20 +320,18 @@
   document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-langbtn]');if(b)set(b.getAttribute('data-langbtn'))});
   var s='en';try{s=localStorage.getItem('gpi_lang')||'en'}catch(e){}set(s);
   var mbg=document.getElementById('mbg'), mt=document.getElementById('mt'), mbody=document.getElementById('mbody');
-  document.querySelectorAll('.ex').forEach(function(ex){
-    ex.addEventListener('click',function(e){
-      e.preventDefault();
-      mt.innerHTML=ex.getAttribute('data-title')||''; mbody.innerHTML='';
-      var img=ex.getAttribute('data-img');
-      if(img){var im=document.createElement('img');im.src=img;mbody.appendChild(im);
-        var cap=document.createElement('div');cap.className='shotcap';cap.innerHTML='<span class="en-only">Live screenshot</span><span class="he-only">צילום מסך חי</span>';mbody.appendChild(cap);}
-      var tpl=ex.querySelector('template'); if(tpl) mbody.appendChild(tpl.content.cloneNode(true));
-      var sku=ex.getAttribute('data-sku');
-      if(sku){var a=document.createElement('a');a.className='openlink';a.href='https://pi-dashboard-omega.vercel.app/?q='+encodeURIComponent(sku);a.target='_blank';a.rel='noopener';
-        a.innerHTML='🔗 <span class="en-only">Open SKU '+sku+' on the dashboard</span><span class="he-only">פתח מק״ט '+sku+' בדאשבורד</span>';mbody.appendChild(a);}
-      mbg.classList.add('on');
-    });
-  });
+  function open(el){
+    var img=el.getAttribute('data-img'); if(!img) return;
+    mt.innerHTML=el.getAttribute('data-title')||''; mbody.innerHTML='';
+    var im=document.createElement('img'); im.src=img; mbody.appendChild(im);
+    var cap=document.createElement('div'); cap.className='shotcap'; cap.innerHTML='<span class="en-only">Live screenshot · the element is circled</span><span class="he-only">צילום מסך חי · הרכיב מסומן</span>'; mbody.appendChild(cap);
+    var tpl=el.querySelector('template'); if(tpl) mbody.appendChild(tpl.content.cloneNode(true));
+    var sku=el.getAttribute('data-sku');
+    if(sku){var a=document.createElement('a');a.className='openlink';a.href='https://pi-dashboard-omega.vercel.app/?q='+encodeURIComponent(sku);a.target='_blank';a.rel='noopener';
+      a.innerHTML='🔗 <span class="en-only">Open SKU '+sku+' on the dashboard</span><span class="he-only">פתח מק״ט '+sku+' בדאשבורד</span>';mbody.appendChild(a);}
+    mbg.classList.add('on');
+  }
+  document.querySelectorAll('[data-img]').forEach(function(el){el.addEventListener('click',function(){open(el)});});
   document.getElementById('mclose').addEventListener('click',function(){mbg.classList.remove('on')});
   mbg.addEventListener('click',function(e){if(e.target===mbg)mbg.classList.remove('on')});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')mbg.classList.remove('on')});
