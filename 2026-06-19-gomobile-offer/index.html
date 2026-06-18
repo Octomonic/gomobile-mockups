@@ -33,8 +33,9 @@
   .bar .ttl h1{font-size:17px;font-weight:800;line-height:1.2;margin-top:2px}
 
   .body{padding:20px 26px 16px}
-  .lead{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.55}
-  .lead b{color:var(--cerise-d)}
+  .hero{text-align:center;padding:2px 0 11px;border-bottom:1px solid var(--line);margin-bottom:15px}
+  .hero .title{font-size:23px;font-weight:900;letter-spacing:-.3px;line-height:1.22;margin-bottom:7px}
+  .hero .subtitle{font-size:12.5px;color:var(--muted);line-height:1.5;max-width:60ch;margin:0 auto}
 
   h2{font-size:13px;font-weight:900;letter-spacing:.01em;margin:0 0 9px;display:flex;align-items:center;gap:8px}
   h2::before{content:"";width:5px;height:15px;border-radius:4px;background:linear-gradient(180deg,var(--cerise),var(--coral));flex:none}
@@ -83,14 +84,23 @@
   footer{padding:10px 26px 14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--faint)}
   footer .b{color:var(--cerise-d);font-weight:800}
 
+  /* compaction to keep both languages on one A4 page */
+  section{margin-bottom:12px}
+  .hero{padding-bottom:8px;margin-bottom:11px}
+  .build ul{gap:5px} .build li{line-height:1.45}
+  .tlc{padding:12px 16px}
+  .save{margin-top:7px} .ainote{margin-top:7px} .tlnote{margin-top:8px} .pay{margin-top:8px}
+  .why{gap:5px 18px}
+
   @media(max-width:680px){.builds,.tl,.why{grid-template-columns:1fr}}
   @media print{
-    @page{size:A4;margin:10mm}
+    @page{size:A4;margin:9mm}
     html,body{background:#fff}
     .langtoggle{display:none}
     .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
-    .bar{padding:13px 18px} .body{padding:16px 18px 8px}
-    section{margin-bottom:13px}
+    .bar{padding:11px 18px} .body{padding:11px 18px 6px}
+    section{margin-bottom:9px}
+    .hero{margin-bottom:9px;padding-bottom:7px}
   }
 </style>
 </head>
@@ -104,14 +114,13 @@
     <img src="gomobile.png" alt="GoMobile" />
     <div class="ttl">
       <div class="k"><span class="he">הצעת פיתוח · יוני 2026</span><span class="en">Development Offer · June 2026</span></div>
-      <h1><span class="he">שתי מערכות מותאמות אישית</span><span class="en">Two Custom-Built Systems</span></h1>
     </div>
   </div>
 
   <div class="body">
-    <div class="lead">
-      <span class="he">הצעה לפיתוח שתי מערכות ייעודיות עבור <b>GoMobile</b> — דאשבורד מכירות לצוות ודאשבורד לוגיסטיקה. שתיהן נבנות בהתאמה אישית, מחוברות ישירות ל-bGate, ונמסרות בבעלות מלאה — בשונה ממוצר מדף בשכירות חודשית.</span>
-      <span class="en">A proposal to develop two dedicated systems for <b>GoMobile</b> — a staff sales dashboard and a logistics dashboard. Both are custom-built, wired directly into bGate, and delivered as fully-owned software — rather than rented off the shelf.</span>
+    <div class="hero">
+      <h1 class="title"><span class="he">שתי מערכות מותאמות אישית עבור GoMobile</span><span class="en">Two Custom-Built Systems for GoMobile</span></h1>
+      <p class="subtitle"><span class="he">דאשבורד מכירות לצוות ודאשבורד לוגיסטיקה — נבנים בהתאמה אישית, מחוברים ישירות ל-bGate, ונמסרים בבעלות מלאה, בשונה ממוצר מדף בשכירות חודשית.</span><span class="en">A staff sales dashboard and a logistics dashboard — custom-built, wired directly into bGate, and delivered as fully-owned software, rather than rented off the shelf.</span></p>
     </div>
 
     <!-- systems -->
@@ -146,10 +155,10 @@
         </tr></thead>
         <tbody>
           <tr><td><span class="he">פיתוח (חד-פעמי)</span><span class="en">Development (one-time)</span></td><td><span class="num">₪14,000</span></td><td class="em"><span class="num">₪12,000</span> <span class="he">לכל אחד ·</span><span class="en">each ·</span> <span class="num">₪24,000</span></td></tr>
-          <tr><td><span class="he">תחזוקה חודשית</span><span class="en">Monthly</span></td><td><span class="num">₪600</span></td><td class="em"><span class="num">₪1,000</span> <span class="he">לשני הכלים</span><span class="en">for both</span></td></tr>
+          <tr><td><span class="he">תחזוקה חודשית</span><span class="en">Monthly</span></td><td><span class="num">₪600</span></td><td class="em"><span class="num">₪900</span> <span class="he">לשני הכלים</span><span class="en">for both</span></td></tr>
         </tbody>
       </table>
-      <div class="save"><span>💡</span><span class="he">הזמנת שני הפרויקטים יחד מוזילה את הפיתוח ב-<span class="num">₪4,000</span> ואת התחזוקה ב-<span class="num">₪200</span> לחודש.</span><span class="en">Commissioning both together lowers development by <span class="num">₪4,000</span> and the monthly by <span class="num">₪200</span>.</span></div>
+      <div class="save"><span>💡</span><span class="he">הזמנת שני הפרויקטים יחד מוזילה את הפיתוח ב-<span class="num">₪4,000</span> ואת התחזוקה ב-<span class="num">₪300</span> לחודש.</span><span class="en">Commissioning both together lowers development by <span class="num">₪4,000</span> and the monthly by <span class="num">₪300</span>.</span></div>
       <div class="ainote"><span>🤖</span><span><b><span class="he">שימוש ב-AI כלול</span><span class="en">AI usage included</span></b> <span class="he">עד כ-<span class="num">50</span> שאילתות לכל מסך ביום (כ-<span class="num">12,000</span> בחודש במצב הנוכחי). מעבר לכך — <span class="num">₪25</span> לחודש לכל <span class="num">1,000</span> שאילתות נוספות.</span><span class="en">up to ≈<span class="num">50</span> queries per screen per day (~<span class="num">12,000</span>/month at the current setup). Beyond that — <span class="num">₪25</span>/month per additional <span class="num">1,000</span> queries.</span></span></div>
     </section>
 
@@ -159,14 +168,14 @@
       <div class="tl">
         <div class="tlc">
           <div class="hh"><span class="num">1.5–2</span> <span class="u"><span class="he">חודשים</span><span class="en">months</span></span></div>
-          <div class="ll"><span class="he">שני הפרויקטים יחד · ~<span class="num">100</span> שעות</span><span class="en">Both projects together · ~<span class="num">100</span> hours</span></div>
+          <div class="ll"><span class="he">שני הפרויקטים יחד · ~<span class="num">130</span> שעות</span><span class="en">Both projects together · ~<span class="num">130</span> hours</span></div>
         </div>
         <div class="tlc">
           <div class="hh"><span class="num">1–1.5</span> <span class="u"><span class="he">חודשים</span><span class="en">months</span></span></div>
           <div class="ll"><span class="he">כל פרויקט בנפרד · ~<span class="num">80</span> שעות</span><span class="en">Each project on its own · ~<span class="num">80</span> hours</span></div>
         </div>
       </div>
-      <div class="tlnote"><span class="he"><b>בנייה משותפת חוסכת כ-60 שעות עבודה</b> (כ-<span class="num">100</span> שעות יחד מול כ-<span class="num">160</span> בנפרד): תשתית אחת — אינטגרציית bGate, מאגר הנתונים והאירוח — משרתת את שתי המערכות. ספירת הזמן מתחילה ממועד אישור ההצעה ותשלום המקדמה.</span><span class="en"><b>Building both together saves ~60 hours</b> (~<span class="num">100</span> hours together vs. ~<span class="num">160</span> separately): a single foundation — bGate integration, the data store and hosting — serves both systems. The clock starts from offer approval and the deposit payment.</span></div>
+      <div class="tlnote"><span class="he"><b>בנייה משותפת חוסכת כ-30 שעות עבודה</b> (כ-<span class="num">130</span> שעות יחד מול כ-<span class="num">160</span> בנפרד): תשתית אחת — אינטגרציית bGate, מאגר הנתונים והאירוח — משרתת את שתי המערכות. ספירת הזמן מתחילה ממועד אישור ההצעה ותשלום המקדמה.</span><span class="en"><b>Building both together saves ~30 hours</b> (~<span class="num">130</span> hours together vs. ~<span class="num">160</span> separately): a single foundation — bGate integration, the data store and hosting — serves both systems. The clock starts from offer approval and the deposit payment.</span></div>
       <div class="pay">
         <div class="chip"><span class="pc"><span class="num">30%</span></span><span class="cl"><span class="he">עם החתימה · מקדמה</span><span class="en">On signing · deposit</span></span></div>
         <div class="chip"><span class="pc"><span class="num">40%</span></span><span class="cl"><span class="he">במסירת גרסת הבדיקות</span><span class="en">On testing delivery</span></span></div>
