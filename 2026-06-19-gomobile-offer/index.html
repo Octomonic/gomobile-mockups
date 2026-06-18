@@ -34,7 +34,7 @@
   .bar .ttl h1{font-size:17px;font-weight:800;line-height:1.2;margin-top:2px}
 
   .body{padding:18px 26px 14px}
-  .lead{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+  .lead{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.55}
   .lead b{color:var(--cerise-d)}
 
   h2{font-size:13px;font-weight:900;letter-spacing:.01em;margin:0 0 9px;display:flex;align-items:center;gap:8px}
@@ -61,7 +61,6 @@
   .cmp-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:13px;align-items:start}
   .hl{background:linear-gradient(120deg,#fff6fb,#fdeaf4);border:1px solid var(--pink-bd);border-radius:11px;padding:11px 13px;margin-bottom:10px}
   .hl .big{font-weight:900;font-size:14px;color:var(--cerise-d);line-height:1.35}
-  .cmp table tbody tr.even td{background:#fff}
   .cmp .be td{background:#e9faf2;font-weight:800;color:var(--good)}
   .cmp .win{color:var(--good);font-weight:900}
   .cmp .lose{color:var(--bad);font-weight:700}
@@ -73,15 +72,13 @@
   .pill b{color:var(--ink)}
 
   .why{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
-  .why div{font-size:11.5px;color:#3b4252;line-height:1.4;padding-inline-start:16px;position:relative}
-  .why div::before{content:"✓";position:absolute;inset-inline-start:0;top:0;color:var(--cerise);font-weight:900;font-size:12px}
+  .why div{font-size:11.5px;color:#3b4252;line-height:1.4;padding-inline-start:15px;position:relative}
+  .why div::before{content:"–";position:absolute;inset-inline-start:0;top:0;color:var(--cerise);font-weight:800;font-size:12px}
   .why b{color:var(--ink)}
 
-  .cta{display:flex;align-items:center;gap:12px;background:linear-gradient(115deg,#16182a,#3a0f2c);color:#fff;border-radius:11px;padding:12px 16px;margin-top:4px}
-  .cta .ct{flex:1}
-  .cta .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
-  .cta .t{font-size:13px;font-weight:700;margin-top:2px}
-  .cta .badge{background:var(--cerise);color:#fff;font-weight:900;font-size:12px;padding:8px 14px;border-radius:9px;white-space:nowrap}
+  .next{border:1px solid var(--line);border-inline-start:4px solid var(--cerise);border-radius:9px;padding:11px 15px;margin-top:4px;background:var(--soft)}
+  .next .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cerise-d);font-weight:800}
+  .next .t{font-size:13px;font-weight:700;color:var(--ink);margin-top:3px}
 
   footer{padding:9px 26px 14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--faint)}
   footer .b{color:var(--cerise-d);font-weight:800}
@@ -113,26 +110,26 @@
 
   <div class="body">
     <div class="lead">
-      <span class="he">שני הכלים שביקשתם — נבנים <b>במיוחד עבור GoMobile</b>, מחוברים ישירות ל-bGate, ובבעלותכם המלאה. לא מוצר מדף בשכירות חודשית.</span>
-      <span class="en">The two tools you asked for — built <b>specifically for GoMobile</b>, wired directly into bGate, and fully owned by you. Not a rented off-the-shelf box.</span>
+      <span class="he">הצעה לפיתוח שתי מערכות ייעודיות עבור <b>GoMobile</b> — דאשבורד מכירות לצוות ודאשבורד לוגיסטיקה. שתיהן נבנות בהתאמה אישית, מחוברות ישירות ל-bGate, ונמסרות בבעלות מלאה — בשונה ממוצר מדף בשכירות חודשית.</span>
+      <span class="en">A proposal to develop two dedicated systems for <b>GoMobile</b> — a staff sales dashboard and a logistics dashboard. Both are custom-built, wired directly into bGate, and delivered as fully-owned software — rather than rented off the shelf.</span>
     </div>
 
-    <!-- builds -->
+    <!-- systems -->
     <section>
-      <h2><span class="he">מה אנחנו בונים</span><span class="en">What we build</span></h2>
+      <h2><span class="he">המערכות</span><span class="en">The systems</span></h2>
       <div class="builds">
         <div class="build">
           <div class="bt"><span class="ic s">📊</span><span class="he">דאשבורד מכירות לצוות</span><span class="en">Staff Sales Dashboard</span></div>
           <ul>
-            <li><span class="he"><b>תחרות וביצועים:</b> לוח מובילים, מדדים ומשוב שמניעים את צוות המכירות.</span><span class="en"><b>Competition & feedback:</b> leaderboard, metrics and feedback that drive the floor.</span></li>
-            <li><span class="he"><b>עוזר מכירות חכם (AI):</b> הקלדת מספר טלפון → זיהוי לקוח קיים והצעות לפי ההיסטוריה שלו; לקוח חדש → המלצות upsell לפי לקוחות דומים.</span><span class="en"><b>AI upsell assistant:</b> enter a phone number → recognise a returning customer and suggest from their history; new customer → upsell ideas from similar buyers.</span></li>
+            <li><span class="he"><b>תחרות וביצועים:</b> לוח מובילים, מדדים ומשוב שמניעים את צוות המכירות.</span><span class="en"><b>Competition & feedback:</b> a leaderboard, metrics and feedback that drive the sales floor.</span></li>
+            <li><span class="he"><b>עוזר מכירות חכם (AI):</b> הקלדת מספר טלפון מזהה לקוח קיים ומציגה הצעות לפי ההיסטוריה שלו; עבור לקוח חדש — המלצות upsell המבוססות על לקוחות דומים.</span><span class="en"><b>AI upsell assistant:</b> entering a phone number recognises a returning customer and surfaces suggestions from their history; for a new customer — upsell ideas drawn from similar buyers.</span></li>
           </ul>
         </div>
         <div class="build">
           <div class="bt"><span class="ic l">📦</span><span class="he">דאשבורד לוגיסטיקה</span><span class="en">Logistics Dashboard</span></div>
           <ul>
-            <li><span class="he"><b>תמונת מלאי חיה</b> בכל הסניפים והמחסנים במקום אחד.</span><span class="en"><b>Live stock picture</b> across every branch and warehouse in one place.</span></li>
-            <li><span class="he"><b>היסטוריה והמלצות:</b> ניתוח מגמות → הצעות לתנועות מלאי והעברות חכמות בין סניפים.</span><span class="en"><b>History & recommendations:</b> trend analysis → suggested restocking and smart transfers between branches.</span></li>
+            <li><span class="he"><b>תמונת מלאי חיה</b> בכל הסניפים והמחסנים, במקום אחד.</span><span class="en"><b>A live stock picture</b> across every branch and warehouse, in one place.</span></li>
+            <li><span class="he"><b>היסטוריה והמלצות:</b> ניתוח מגמות מניב הצעות לתנועות מלאי ולהעברות חכמות בין סניפים.</span><span class="en"><b>History & recommendations:</b> trend analysis yields suggested restocking and smart transfers between branches.</span></li>
           </ul>
         </div>
       </div>
@@ -152,13 +149,13 @@
           <tr><td><span class="he">תחזוקה חודשית</span><span class="en">Monthly</span></td><td><span class="num">₪600</span></td><td class="em"><span class="num">₪1,000</span> <span class="he">לשני הכלים</span><span class="en">for both</span></td></tr>
         </tbody>
       </table>
-      <div class="save"><span>💡</span><span class="he">חבילה כפולה חוסכת לכם <span class="num">₪4,000</span> בפיתוח ועוד <span class="num">₪200</span> בכל חודש — וכוללת שימוש ב-AI ללא עלות נוספת.</span><span class="en">Taking both saves <span class="num">₪4,000</span> in development + <span class="num">₪200</span>/month — and AI usage is included at no extra cost.</span></div>
+      <div class="save"><span>💡</span><span class="he">הזמנת שני הפרויקטים יחד מוזילה את הפיתוח ב-<span class="num">₪4,000</span> ואת התחזוקה ב-<span class="num">₪200</span> לחודש — ושימוש ב-AI כלול ללא עלות נוספת.</span><span class="en">Commissioning both together lowers development by <span class="num">₪4,000</span> and the monthly by <span class="num">₪200</span> — with AI usage included at no extra cost.</span></div>
     </section>
 
     <!-- comparison -->
     <section class="cmp">
       <h2><span class="he">מותאם אישית מול שכירות</span><span class="en">Custom vs. rented</span></h2>
-      <div class="hl"><div class="big"><span class="he">אותם <span class="num">₪1,000</span> לחודש — אצלנו זה <u>שתי מערכות בבעלותכם</u>, אצל המתחרה זו <u>מערכת אחת בשכירות</u>.</span><span class="en">The same <span class="num">₪1,000</span>/month buys <u>two systems you own</u> from us — versus <u>one system you rent</u> from them.</span></div></div>
+      <div class="hl"><div class="big"><span class="he">באותם <span class="num">₪1,000</span> לחודש: <u>שתי מערכות בבעלות מלאה</u> מ-OctoMonic, מול <u>מערכת אחת בשכירות</u> מהמתחרה.</span><span class="en">For the same <span class="num">₪1,000</span>/month: <u>two fully-owned systems</u> from OctoMonic, against <u>one rented system</u> from the competitor.</span></div></div>
       <div class="cmp-wrap">
         <table>
           <caption><span class="he">דאשבורד המכירות מול הצעת המתחרה (8 מסכים)</span><span class="en">Sales dashboard vs. the competitor's offer (8 screens)</span></caption>
@@ -176,31 +173,28 @@
           </tbody>
         </table>
         <div class="pills">
-          <div class="pill"><span class="pi">🏷️</span><span><b><span class="he">ללא מס למסך.</span><span class="en">No per-screen tax.</span></b> <span class="he">כל מסך חדש: <span class="num">₪125</span>/חודש אצל המתחרה — <span class="num">₪0</span> אצלנו. ככל שתגדלו, נקודת האיזון רק מתקרבת.</span><span class="en">Every new screen is <span class="num">₪125</span>/mo with them — <span class="num">₪0</span> with us. The more you grow, the sooner we win.</span></span></div>
-          <div class="pill"><span class="pi">⏳</span><span><b><span class="he">מחיר הפיילוט שלהם זמני.</span><span class="en">Their price is a pilot rate.</span></b> <span class="he"><span class="num">₪125</span> למסך הוא מחיר היכרות — לאורך זמן הוא רק יעלה. <span class="num">₪500</span>/חודש שלנו קבוע, ללא הפתעות.</span><span class="en"><span class="num">₪125</span>/screen is an intro rate — it only goes up. Our <span class="num">₪500</span>/mo is the durable price, no cliff.</span></span></div>
-          <div class="pill"><span class="pi">🤖</span><span><b><span class="he">AI כלול.</span><span class="en">AI included.</span></b> <span class="he">עוזר המכירות מבוסס Gemini 3 Flash — עלות השימוש כלולה במחיר החודשי.</span><span class="en">The assistant runs on Gemini 3 Flash — usage is included in the monthly.</span></span></div>
-          <div class="pill"><span class="pi">🧱</span><span><b><span class="he">לוגיסטיקה — בלעדי לנו.</span><span class="en">Logistics — only us.</span></b> <span class="he">הכלי השני הוא מערכת שהמתחרה לא מציע בכלל, בשום מחיר.</span><span class="en">The second tool is a system the competitor doesn't offer at any price.</span></span></div>
+          <div class="pill"><span class="pi">🏷️</span><span><b><span class="he">ללא מס למסך.</span><span class="en">No per-screen tax.</span></b> <span class="he">כל מסך חדש עולה <span class="num">₪125</span>/חודש אצל המתחרה, וללא תוספת ב-OctoMonic. ככל שמספר הסניפים גדל, נקודת האיזון מתקרבת.</span><span class="en">Each new screen costs <span class="num">₪125</span>/mo with the competitor, and nothing extra with OctoMonic. As branches grow, break-even arrives sooner.</span></span></div>
+          <div class="pill"><span class="pi">⏳</span><span><b><span class="he">מחיר הפיילוט של המתחרה זמני.</span><span class="en">The competitor's price is a pilot rate.</span></b> <span class="he"><span class="num">₪125</span> למסך הוא מחיר היכרות הצפוי לעלות עם הזמן. <span class="num">₪500</span>/חודש ב-OctoMonic הוא מחיר קבוע, ללא הפתעות.</span><span class="en"><span class="num">₪125</span>/screen is an introductory rate expected to rise over time. <span class="num">₪500</span>/mo with OctoMonic is fixed, with no cliff.</span></span></div>
+          <div class="pill"><span class="pi">🤖</span><span><b><span class="he">AI כלול.</span><span class="en">AI included.</span></b> <span class="he">עוזר המכירות מבוסס Gemini 3 Flash, ועלות השימוש כלולה במחיר החודשי.</span><span class="en">The assistant runs on Gemini 3 Flash, and usage is included in the monthly fee.</span></span></div>
+          <div class="pill"><span class="pi">🧱</span><span><b><span class="he">לוגיסטיקה — מחוץ להצעת המתחרה.</span><span class="en">Logistics — outside the competitor's offer.</span></b> <span class="he">הכלי השני הוא מערכת שהמתחרה אינו מציע, בשום מחיר.</span><span class="en">The second tool is a system the competitor does not provide, at any price.</span></span></div>
         </div>
       </div>
     </section>
 
-    <!-- why -->
+    <!-- key points -->
     <section>
-      <h2><span class="he">למה OctoMonic</span><span class="en">Why OctoMonic</span></h2>
+      <h2><span class="he">נקודות מפתח</span><span class="en">Key points</span></h2>
       <div class="why">
-        <div><b><span class="he">כבר מחוברים אליכם.</span><span class="en">Already integrated.</span></b> <span class="he">אנחנו כבר מריצים את מודיעין התמחור שלכם על bGate ו-WooCommerce.</span><span class="en">We already run your price intelligence on bGate & WooCommerce.</span></div>
-        <div><b><span class="he">הנתונים נשארים אצלכם.</span><span class="en">Your data stays in-house.</span></b> <span class="he">היסטוריית הלקוחות והמכירות לא עוברת לצד שלישי.</span><span class="en">Customer & sales history never leaves to a third party.</span></div>
-        <div><b><span class="he">מאגר ייעודי שמשקף את bGate.</span><span class="en">A dedicated bGate mirror.</span></b> <span class="he">הכלים מהירים ואינם מעמיסים על ה-ERP שלכם.</span><span class="en">Tools stay instant and put zero load on your ERP.</span></div>
-        <div><b><span class="he">מותאם 100% לתהליכים שלכם.</span><span class="en">100% tailored.</span></b> <span class="he">נבנה סביב דרך העבודה שלכם — לא תבנית גנרית.</span><span class="en">Built around how you actually work — not a generic template.</span></div>
+        <div><b><span class="he">אינטגרציה קיימת.</span><span class="en">Existing integration.</span></b> <span class="he">מודיעין התמחור של GoMobile כבר פועל על bGate ו-WooCommerce דרך OctoMonic.</span><span class="en">GoMobile's price intelligence already runs on bGate and WooCommerce through OctoMonic.</span></div>
+        <div><b><span class="he">הנתונים נשארים פנימיים.</span><span class="en">Data stays in-house.</span></b> <span class="he">היסטוריית הלקוחות והמכירות אינה עוברת לצד שלישי.</span><span class="en">Customer and sales history is never handed to a third party.</span></div>
+        <div><b><span class="he">מאגר ייעודי שמשקף את bGate.</span><span class="en">A dedicated bGate mirror.</span></b> <span class="he">הכלים מהירים ואינם מעמיסים על ה-ERP.</span><span class="en">Tools stay fast and put no load on the ERP.</span></div>
+        <div><b><span class="he">התאמה מלאה לתהליכי העבודה.</span><span class="en">Fully tailored.</span></b> <span class="he">נבנה סביב תהליכי העבודה של GoMobile, ולא כתבנית גנרית.</span><span class="en">Built around GoMobile's actual workflows, not a generic template.</span></div>
       </div>
     </section>
 
-    <div class="cta">
-      <div class="ct">
-        <div class="k"><span class="he">השלב הבא</span><span class="en">Next step</span></div>
-        <div class="t"><span class="he">אישור ההצעה — ואנחנו מתחילים באפיון מיידית.</span><span class="en">Approve the offer — and we begin scoping immediately.</span></div>
-      </div>
-      <div class="badge"><span class="he">בואו נתחיל</span><span class="en">Let's start</span></div>
+    <div class="next">
+      <div class="k"><span class="he">השלב הבא</span><span class="en">Next step</span></div>
+      <div class="t"><span class="he">לאחר אישור ההצעה — אפיון מפורט וגיבוש לוח זמנים.</span><span class="en">Following approval of this offer — detailed scoping and a timeline.</span></div>
     </div>
   </div>
 
