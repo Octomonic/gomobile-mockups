@@ -11,8 +11,8 @@ export const config = {
 const EXPIRES = Date.parse('2026-07-03T23:59:59+03:00'); // 14 days, Asia/Jerusalem
 // ───────────────────────────────────────────────
 const SLUG = '/2026-06-19-gomobile-offer';
-const FROM = 'GoMobile Offer <gomobile@octomonic.com>';
-const TO = 'tom@octomonic.com';
+const FROM = 'GoMobile Offer <onboarding@resend.dev>';
+const TO = 'ivelmot@gmail.com';
 
 const BOT = /bot|crawl|spider|preview|facebookexternalhit|whatsapp|telegram|slack|discord|twitter|linkedin|embed|curl|wget|python|headless|lighthouse|vercel|pingdom|monitor|fetch|axios|go-http|okhttp/i;
 const ASSET = /\.(png|jpe?g|svg|gif|webp|ico|css|js|mjs|woff2?|ttf|map|json|txt|xml)$/i;
