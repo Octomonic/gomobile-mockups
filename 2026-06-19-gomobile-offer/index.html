@@ -12,7 +12,7 @@
   :root{
     --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--coral:#FF8F4D;--gold:#F0C000;
     --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
-    --pink-bg:#fdeaf5;--pink-bd:#f6c3e2;
+    --good:#0a8a5b;--pink-bg:#fdeaf5;--pink-bd:#f6c3e2;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased}
@@ -30,16 +30,15 @@
   .bar .x{color:var(--faint);font-weight:700;font-size:15px}
   .bar .ttl{margin-inline-start:auto;text-align:end}
   .bar .ttl .k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
-  .bar .ttl h1{font-size:17px;font-weight:800;line-height:1.2;margin-top:2px}
 
   .body{padding:20px 26px 16px}
-  .hero{text-align:center;padding:2px 0 11px;border-bottom:1px solid var(--line);margin-bottom:15px}
+  .hero{text-align:center;padding:2px 0 12px;border-bottom:1px solid var(--line);margin-bottom:15px}
   .hero .title{font-size:23px;font-weight:900;letter-spacing:-.3px;line-height:1.22;margin-bottom:7px}
   .hero .subtitle{font-size:12.5px;color:var(--muted);line-height:1.5;max-width:60ch;margin:0 auto}
 
   h2{font-size:13px;font-weight:900;letter-spacing:.01em;margin:0 0 9px;display:flex;align-items:center;gap:8px}
   h2::before{content:"";width:5px;height:15px;border-radius:4px;background:linear-gradient(180deg,var(--cerise),var(--coral));flex:none}
-  section{margin-bottom:16px}
+  section{margin-bottom:15px;break-inside:avoid;page-break-inside:avoid}
 
   .builds{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .build{border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:linear-gradient(180deg,#fff,#fcfdff)}
@@ -56,6 +55,11 @@
   tbody td:first-child{font-weight:700;color:#2b3245}
   .price td{font-size:13px}
   .price .em{color:var(--cerise-d);font-weight:900}
+  .caveat{font-size:11px;color:var(--muted);margin-bottom:9px;line-height:1.45;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px 11px}
+  .caveat b{color:var(--ink)}
+  .cmp small{font-weight:400;color:var(--faint);font-size:10px}
+  .cmp .tot td{border-top:2px solid var(--line);font-weight:900;font-size:13.5px}
+  .cmp .win{color:var(--good)} .cmp .lose{color:var(--faint)}
   .save{margin-top:9px;background:var(--pink-bg);border:1px solid var(--pink-bd);color:var(--cerise-d);border-radius:9px;padding:8px 12px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:7px}
   .ainote{margin-top:8px;font-size:11.5px;color:var(--muted);line-height:1.5;display:flex;gap:7px}
   .ainote b{color:var(--ink)}
@@ -65,7 +69,6 @@
   .tlc .hh{font-size:22px;font-weight:900;color:var(--cerise-d);line-height:1}
   .tlc .hh .u{font-size:12.5px;font-weight:700;color:var(--muted)}
   .tlc .ll{font-size:11.5px;color:var(--muted);margin-top:6px;font-weight:700}
-  .tlc.alt{background:var(--soft)} .tlc.alt .hh{color:#5b6478}
   .tlnote{margin-top:9px;font-size:11.5px;color:var(--muted);line-height:1.5;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:9px 12px}
   .tlnote b{color:var(--cerise-d)}
   .pay{display:flex;gap:9px;margin-top:10px;flex-wrap:wrap}
@@ -82,16 +85,13 @@
   .next .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cerise-d);font-weight:800}
   .next .t{font-size:13px;font-weight:700;color:var(--ink);margin-top:3px}
 
-  footer{padding:10px 26px 14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--faint)}
-  footer .b{color:var(--cerise-d);font-weight:800}
+  footer{padding:13px 26px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:11.5px;color:var(--muted)}
+  footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:13px;white-space:nowrap}
+  footer .brand img{height:18px;width:auto}
+  footer .terms{font-weight:600;text-align:end}
+  footer .terms b{color:var(--ink);font-weight:800}
 
-  /* comfortable spacing + clean page breaks (document may run ~1.5 pages) */
-  section{margin-bottom:15px;break-inside:avoid;page-break-inside:avoid}
-  .hero{padding-bottom:12px;margin-bottom:15px}
-  .build li{line-height:1.5}
-  .save{margin-top:9px} .ainote{margin-top:8px} .tlnote{margin-top:9px} .pay{margin-top:10px}
-  .build,.tlc,.chip,.why>div{break-inside:avoid;page-break-inside:avoid}
-
+  .build li,.tlc,.chip,.why>div,.build{break-inside:avoid;page-break-inside:avoid}
   @media(max-width:680px){.builds,.tl,.why{grid-template-columns:1fr}}
   @media print{
     @page{size:A4;margin:11mm}
@@ -118,7 +118,7 @@
   <div class="body">
     <div class="hero">
       <h1 class="title"><span class="he">שתי מערכות מותאמות אישית עבור GoMobile</span><span class="en">Two Custom-Built Systems for GoMobile</span></h1>
-      <p class="subtitle"><span class="he">דאשבורד מכירות לצוות ודאשבורד לוגיסטיקה — נבנים בהתאמה אישית, מחוברים ישירות ל-bGate, ונמסרים בבעלות מלאה, בשונה ממוצר מדף בשכירות חודשית.</span><span class="en">A staff sales dashboard and a logistics dashboard — custom-built, wired directly into bGate, and delivered as fully-owned software, rather than rented off the shelf.</span></p>
+      <p class="subtitle"><span class="he">דאשבורד מכירות לצוות ודאשבורד לוגיסטיקה — נבנים בהתאמה אישית, מחוברים ישירות ל-bGate, ונמסרים בבעלות מלאה — בשונה ממוצר מדף בשכירות חודשית.</span><span class="en">A staff sales dashboard and a logistics dashboard — custom-built, wired directly into bGate, and delivered as fully-owned software — rather than rented off the shelf.</span></p>
     </div>
 
     <!-- systems -->
@@ -129,7 +129,7 @@
           <div class="bt"><span class="ic s">📊</span><span class="he">דאשבורד מכירות לצוות</span><span class="en">Staff Sales Dashboard</span></div>
           <ul>
             <li><span class="he"><b>תחרות וביצועים:</b> לוח מובילים, מדדים ומשוב שמניעים את צוות המכירות.</span><span class="en"><b>Competition & feedback:</b> a leaderboard, metrics and feedback that drive the sales floor.</span></li>
-            <li><span class="he"><b>עוזר מכירות חכם (AI):</b> הקלדת מספר טלפון מזהה לקוח קיים ומציגה הצעות לפי ההיסטוריה שלו; עבור לקוח חדש — המלצות upsell המבוססות על לקוחות דומים.</span><span class="en"><b>AI upsell assistant:</b> entering a phone number recognises a returning customer and surfaces suggestions from their history; for a new customer — upsell ideas drawn from similar buyers.</span></li>
+            <li><span class="he"><b>עוזר מכירות חכם (AI):</b> הקלדת מספר טלפון מזהה לקוח קיים ומציגה הצעות לפי ההיסטוריה שלו; עבור לקוח חדש — המלצות upsell המבוססות על היסטוריית לקוחות.</span><span class="en"><b>AI upsell assistant:</b> entering a phone number recognises a returning customer and surfaces suggestions from their history; for a new customer — upsell suggestions based on customer history.</span></li>
           </ul>
         </div>
         <div class="build">
@@ -142,40 +142,8 @@
       </div>
     </section>
 
-    <!-- comparison -->
+    <!-- pricing & payment (top) -->
     <section>
-      <h2><span class="he">עלות מול המתחרה</span><span class="en">Cost vs. the competitor</span></h2>
-      <div class="tl">
-        <div class="tlc">
-          <div class="hh">~<span class="num">₪830</span> <span class="u"><span class="he">לחודש</span><span class="en">/mo</span></span></div>
-          <div class="ll"><span class="he">OctoMonic · דאשבורד מכירות, בבעלות מלאה</span><span class="en">OctoMonic · sales dashboard, fully owned</span></div>
-        </div>
-        <div class="tlc alt">
-          <div class="hh"><span class="num">₪1,000</span> <span class="u"><span class="he">לחודש</span><span class="en">/mo</span></span></div>
-          <div class="ll"><span class="he">המתחרה · בשכירות, 8 מסכים</span><span class="en">Competitor · rented, 8 screens</span></div>
-        </div>
-      </div>
-      <div class="tlnote"><span class="he">ממוצע חודשי על פני 3 שנים, כולל דמי הפיתוח. ב-OctoMonic נכללת גם מערכת הלוגיסטיקה וללא תוספת למסך; אצל המתחרה כל מסך נוסף עולה <span class="num">₪125</span> לחודש, ומחיר הפיילוט צפוי לעלות.</span><span class="en">Monthly average over 3 years, including the development fee. With OctoMonic the logistics system is included too, at no per-screen charge; with the competitor each extra screen costs <span class="num">₪125</span>/month and the pilot price is set to rise.</span></div>
-    </section>
-
-    <!-- timeline -->
-    <section>
-      <h2><span class="he">זמנים</span><span class="en">Timeline</span></h2>
-      <div class="tl">
-        <div class="tlc">
-          <div class="hh"><span class="num">1.5–2</span> <span class="u"><span class="he">חודשים</span><span class="en">months</span></span></div>
-          <div class="ll"><span class="he">שני הפרויקטים יחד · ~<span class="num">140</span> שעות</span><span class="en">Both projects together · ~<span class="num">140</span> hours</span></div>
-        </div>
-        <div class="tlc">
-          <div class="hh"><span class="num">1–1.5</span> <span class="u"><span class="he">חודשים</span><span class="en">months</span></span></div>
-          <div class="ll"><span class="he">כל פרויקט בנפרד · ~<span class="num">90</span> שעות</span><span class="en">Each project on its own · ~<span class="num">90</span> hours</span></div>
-        </div>
-      </div>
-      <div class="tlnote"><span class="he"><b>בנייה משותפת חוסכת כ-40 שעות עבודה</b> (כ-<span class="num">140</span> שעות יחד מול כ-<span class="num">180</span> בנפרד): תשתית אחת — אינטגרציית bGate, מאגר הנתונים והאירוח — משרתת את שתי המערכות. ספירת הזמן מתחילה ממועד אישור ההצעה ותשלום המקדמה.</span><span class="en"><b>Building both together saves ~40 hours</b> (~<span class="num">140</span> hours together vs. ~<span class="num">180</span> separately): a single foundation — bGate integration, the data store and hosting — serves both systems. The clock starts from offer approval and the deposit payment.</span></div>
-    </section>
-
-    <!-- pricing & payment -->
-    <section class="brk">
       <h2><span class="he">תמחור ותשלום</span><span class="en">Pricing & payment</span></h2>
       <table class="price">
         <thead><tr>
@@ -197,6 +165,22 @@
       </div>
     </section>
 
+    <!-- timeline -->
+    <section>
+      <h2><span class="he">זמנים</span><span class="en">Timeline</span></h2>
+      <div class="tl">
+        <div class="tlc">
+          <div class="hh"><span class="num">1.5–2</span> <span class="u"><span class="he">חודשים</span><span class="en">months</span></span></div>
+          <div class="ll"><span class="he">שני הפרויקטים יחד · ~<span class="num">140</span> שעות</span><span class="en">Both projects together · ~<span class="num">140</span> hours</span></div>
+        </div>
+        <div class="tlc">
+          <div class="hh"><span class="num">1–1.5</span> <span class="u"><span class="he">חודשים</span><span class="en">months</span></span></div>
+          <div class="ll"><span class="he">כל פרויקט בנפרד · ~<span class="num">90</span> שעות</span><span class="en">Each project on its own · ~<span class="num">90</span> hours</span></div>
+        </div>
+      </div>
+      <div class="tlnote"><span class="he"><b>בנייה משותפת חוסכת כ-40 שעות עבודה</b> (כ-<span class="num">140</span> שעות יחד מול כ-<span class="num">180</span> בנפרד): תשתית אחת — אינטגרציית bGate, מאגר הנתונים והאירוח — משרתת את שתי המערכות. ספירת הזמן מתחילה ממועד אישור ההצעה ותשלום המקדמה.</span><span class="en"><b>Building both together saves ~40 hours</b> (~<span class="num">140</span> hours together vs. ~<span class="num">180</span> separately): a single foundation — bGate integration, the data store and hosting — serves both systems. The clock starts from offer approval and the deposit payment.</span></div>
+    </section>
+
     <!-- key points -->
     <section>
       <h2><span class="he">נקודות מפתח</span><span class="en">Key points</span></h2>
@@ -210,6 +194,26 @@
       </div>
     </section>
 
+    <!-- competitor comparison (very bottom) -->
+    <section class="brk">
+      <h2><span class="he">השוואה ל-3 שנים · דאשבורד המכירות</span><span class="en">3-year comparison · sales dashboard</span></h2>
+      <div class="caveat"><span class="he">ההשוואה מניחה ש-GoMobile תצליח לקבע את מחיר המתחרה ל-3 שנים מלאות — 8 מסכים בלבד וללא גידול (כל מסך נוסף אצל המתחרה: <span class="num">₪125</span> לחודש).</span><span class="en">Assumes GoMobile can lock in the competitor's price for a full 3 years — at just 8 screens with no growth (each added screen with the competitor: <span class="num">₪125</span>/month).</span></div>
+      <table class="price cmp">
+        <thead><tr>
+          <th></th>
+          <th>OctoMonic</th>
+          <th><span class="he">המתחרה</span><span class="en">Competitor</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><span class="he">שנה 1</span><span class="en">Year 1</span></td><td><span class="num">₪18,000</span> <small>· <span class="num">₪1,500</span><span class="he">/חו׳</span><span class="en">/mo</span></small></td><td><span class="num">₪12,000</span> <small>· <span class="num">₪1,000</span><span class="he">/חו׳</span><span class="en">/mo</span></small></td></tr>
+          <tr><td><span class="he">שנה 2</span><span class="en">Year 2</span></td><td><span class="num">₪6,000</span> <small>· <span class="num">₪500</span><span class="he">/חו׳</span><span class="en">/mo</span></small></td><td><span class="num">₪12,000</span> <small>· <span class="num">₪1,000</span><span class="he">/חו׳</span><span class="en">/mo</span></small></td></tr>
+          <tr><td><span class="he">שנה 3</span><span class="en">Year 3</span></td><td><span class="num">₪6,000</span> <small>· <span class="num">₪500</span><span class="he">/חו׳</span><span class="en">/mo</span></small></td><td><span class="num">₪12,000</span> <small>· <span class="num">₪1,000</span><span class="he">/חו׳</span><span class="en">/mo</span></small></td></tr>
+          <tr class="tot"><td><span class="he">סה״כ · 3 שנים</span><span class="en">Total · 3 years</span></td><td class="win"><span class="num">₪30,000</span></td><td class="lose"><span class="num">₪36,000</span></td></tr>
+        </tbody>
+      </table>
+      <div class="tlnote"><span class="he">אצלנו שנה ראשונה כוללת את דמי הפיתוח; משנה שנייה — <span class="num">₪500</span> לחודש בלבד. בנוסף נכללות מערכת הלוגיסטיקה ובעלות מלאה — שאינן בהצעת המתחרה.</span><span class="en">With us, year one includes the development fee; from year two it's just <span class="num">₪500</span>/month. The logistics system and full ownership are included too — neither is in the competitor's offer.</span></div>
+    </section>
+
     <div class="next">
       <div class="k"><span class="he">השלב הבא</span><span class="en">Next step</span></div>
       <div class="t"><span class="he">לאחר אישור ההצעה — אפיון מפורט וגיבוש לוח זמנים.</span><span class="en">Following approval of this offer — detailed scoping and a timeline.</span></div>
@@ -217,8 +221,8 @@
   </div>
 
   <footer>
-    <span class="b">OctoMonic</span>
-    <span class="he">כל המחירים אינם כוללים מע״מ · הצעה זו תקפה ל-14 יום · יוני 2026</span><span class="en">All prices exclude VAT · This offer is valid for 14 days · June 2026</span>
+    <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic</span>
+    <span class="terms"><b><span class="he">כל המחירים אינם כוללים מע״מ</span><span class="en">All prices exclude VAT</span></b> · <span class="he">הצעה זו תקפה ל-14 יום · יוני 2026</span><span class="en">This offer is valid for 14 days · June 2026</span></span>
   </footer>
 </div>
 
