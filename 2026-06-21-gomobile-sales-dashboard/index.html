@@ -15,7 +15,7 @@
     --good:#0a8a5b;--pink-bg:#fdeaf5;--pink-bd:#f6c3e2;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6}
+  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased;font-size:12.5px;line-height:1.45}
   [data-lang=he] .en{display:none} [data-lang=en] .he{display:none}
   .num{font-feature-settings:"tnum";direction:ltr;unicode-bidi:embed;display:inline-block}
   .langtoggle{position:fixed;top:14px;inset-inline-end:16px;z-index:20;display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(20,28,48,.12)}
@@ -29,33 +29,33 @@
   .bar .x{color:var(--faint);font-weight:700;font-size:15px}
   .bar .k{margin-inline-start:auto;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
 
-  .body{padding:26px 30px 18px}
-  .hero{text-align:center;padding:4px 0 16px;border-bottom:1px solid var(--line);margin-bottom:8px}
-  .hero .title{font-size:25px;font-weight:900;letter-spacing:-.3px;line-height:1.22}
-  .hero .meta{font-size:12px;color:var(--muted);margin-top:8px;font-weight:600}
+  .body{padding:16px 30px 10px}
+  .hero{text-align:center;padding:2px 0 10px;border-bottom:1px solid var(--line);margin-bottom:2px}
+  .hero .title{font-size:22px;font-weight:900;letter-spacing:-.3px;line-height:1.2}
+  .hero .meta{font-size:11.5px;color:var(--muted);margin-top:6px;font-weight:600}
   .hero .meta b{color:var(--cerise-d)}
 
-  h2{font-size:15px;font-weight:900;letter-spacing:.01em;margin:0 0 10px;display:flex;align-items:center;gap:9px}
-  h2::before{content:"";width:5px;height:17px;border-radius:4px;background:linear-gradient(180deg,var(--cerise),var(--coral));flex:none}
-  section{margin:22px 0;break-inside:avoid;page-break-inside:avoid}
-  p{margin:0 0 9px;color:#2f3545}
+  h2{font-size:13.5px;font-weight:900;letter-spacing:.01em;margin:0 0 6px;display:flex;align-items:center;gap:9px}
+  h2::before{content:"";width:5px;height:15px;border-radius:4px;background:linear-gradient(180deg,var(--cerise),var(--coral));flex:none}
+  section{margin:11px 0;break-inside:avoid;page-break-inside:avoid}
+  p{margin:0 0 5px;color:#2f3545}
   .lead{color:#2f3545}
-  ul{list-style:none;margin:6px 0 0}
-  li{position:relative;padding-inline-start:17px;margin:5px 0;color:#2f3545}
+  ul{list-style:none;margin:4px 0 0}
+  li{position:relative;padding-inline-start:16px;margin:3px 0;color:#2f3545}
   li::before{content:"";position:absolute;inset-inline-start:1px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--coral)}
   li.x::before{background:var(--faint)}
   b{font-weight:700}
   .hl{color:var(--cerise-d);font-weight:800}
 
-  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
-  th,td{padding:9px 11px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+  table{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
+  th,td{padding:6px 10px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
   thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);font-weight:800;background:var(--soft)}
   tbody td:first-child{font-weight:700;color:#2b3245}
   .amt{font-weight:900;color:var(--cerise-d);white-space:nowrap}
   .tot td{border-top:2px solid var(--line);font-weight:900;font-size:14px}
 
-  .pricecard{border:1px solid var(--line);border-radius:13px;padding:16px 18px;background:linear-gradient(180deg,#fff,#fcfdff);margin:10px 0}
-  .pr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 0}
+  .pricecard{border:1px solid var(--line);border-radius:13px;padding:13px 16px;background:linear-gradient(180deg,#fff,#fcfdff);margin:8px 0}
+  .pr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:4px 0}
   .pr+.pr{border-top:1px dashed var(--line)}
   .pr .lbl{font-weight:800}
   .pr .val{font-weight:900;color:var(--cerise-d);font-size:16px;white-space:nowrap}
@@ -201,53 +201,20 @@
       <h2><span class="he">איך זה עובד (יום-יום)</span><span class="en">How it works (day to day)</span></h2>
       <ol class="flow">
         <li><span class="he">לקוח ניגש לעמדה — הנציג מקליד את מספר הטלפון שלו.</span><span class="en">A customer walks up — the rep types in their phone number.</span></li>
-        <li><span class="he">לקוח קיים → המערכת מזההת אותו ומציגה הצעות לפי ההיסטוריה שלו; לקוח חדש → המלצות upsell מבוססות היסטוריית לקוחות.</span><span class="en">Returning customer → the system recognises them and shows suggestions from their history; new customer → upsell suggestions based on customer history.</span></li>
+        <li><span class="he">לקוח קיים → המערכת מזהה אותו ומציגה הצעות לפי ההיסטוריה שלו; לקוח חדש → המלצות upsell מבוססות היסטוריית לקוחות.</span><span class="en">Returning customer → the system recognises them and shows suggestions from their history; new customer → upsell suggestions based on customer history.</span></li>
         <li><span class="he">הנציג סוגר מכירה — הביצועים מתעדכנים בלוח המובילים.</span><span class="en">The rep closes the sale — performance updates on the leaderboard.</span></li>
         <li><span class="he">המנהל רואה ביצועים ומשוב בזמן אמת, ומניע תחרות בריאה בצוות.</span><span class="en">The manager sees performance and feedback in real time, driving healthy competition.</span></li>
       </ol>
     </section>
 
-    <!-- what you get -->
-    <section>
-      <h2><span class="he">מה מקבלים</span><span class="en">What you get</span></h2>
-      <ul>
-        <li><span class="he">לוח מובילים, מדדים ומשוב לצוות המכירות</span><span class="en">A leaderboard, metrics and feedback for the sales team</span></li>
-        <li><span class="he">עוזר מכירות חכם (AI) עם זיהוי לקוחות והמלצות upsell בזמן אמת</span><span class="en">An AI upsell assistant with real-time customer recognition and suggestions</span></li>
-        <li><span class="he">דשבורד לכל הצוות · מסכים ומשתמשים ללא הגבלה</span><span class="en">A dashboard for the whole team · unlimited screens & users</span></li>
-        <li><span class="he">שימוש ב-AI כלול במחיר החודשי</span><span class="en">AI usage included in the monthly fee</span></li>
-        <li><span class="he">שירות תחזוקה חודשי — ניטור, תחזוקה ומענה ישיר</span><span class="en">Monthly maintenance — monitoring, upkeep and direct support</span></li>
-        <li><span class="he">בעלות מלאה על המערכת</span><span class="en">Full ownership of the system</span></li>
-      </ul>
-    </section>
-
     <!-- IP -->
     <section>
-      <h2><span class="he">זכויות יוצרים וקניין רוחני</span><span class="en">Ownership & IP</span></h2>
-      <p><span class="he"><b>הבעלות על המערכת:</b> המערכת נבנית במיוחד סביב הקטלוג, הלקוחות ו-bGate של GoMobile, ולכן ייחודית לה. עם המסירה הסופית והשלמת התשלומים, קוד המקור והתיעוד הם קניינה הבלעדי של GoMobile.</span><span class="en"><b>System ownership:</b> the system is built specifically around GoMobile's catalog, customers and bGate, and is therefore unique to it. On final delivery and completion of payments, the source code and documentation are GoMobile's sole property.</span></p>
-      <p><span class="he"><b>שימוש חוזר ברכיבים גנריים:</b> OctoMonic שומרת לעצמה את הזכות להשתמש ברכיבים, מודולים ותבניות גנריים שאינם ייחודיים לעסק של GoMobile (תבניות אינטגרציה, רכיבי תשתית וכו') בפרויקטים אחרים.</span><span class="en"><b>Generic component reuse:</b> OctoMonic retains the right to reuse generic components, modules and patterns not unique to GoMobile's business (integration templates, infrastructure components, etc.) in other projects.</span></p>
-      <p><span class="he"><b>אי-תחרות:</b> לאורך תקופת ההסכם הפעיל, OctoMonic מתחייבת שלא לפתח, לספק או למכור כלי בעל מטרה זהה במהותה (דשבורד תחרות-מכירות לצוות בשילוב עוזר upsell חכם בעמדת המכירה) עבור קמעונאי מוצרי אלקטרוניקה צריכה הפועלים בשוק הישראלי. מגבלה זו אינה חלה על ענפים אחרים, שווקים אחרים, או שימוש חוזר ברכיבים גנריים.</span><span class="en"><b>Non-compete:</b> for the term of the active agreement, OctoMonic will not build, supply or sell a substantially-identical tool (a staff sales-competition dashboard combined with an on-floor AI upsell assistant) for consumer-electronics retailers operating in the Israeli market. This does not apply to other industries, other markets, or reuse of generic components.</span></p>
-    </section>
-
-    <!-- continuity -->
-    <section>
-      <h2><span class="he">המשכיות התחזוקה</span><span class="en">Maintenance continuity</span></h2>
-      <p><span class="he">במקרה ש-OctoMonic תפסיק את שירות התחזוקה מכל סיבה שהיא, GoMobile תקבל את קוד המקור המלא, את כל התיעוד הטכני, וכן ליווי סביר במעבר לספק תחזוקה אחר.</span><span class="en">Should OctoMonic discontinue the maintenance service for any reason, GoMobile receives the full source code, all technical documentation, and reasonable support in transitioning to another maintenance provider.</span></p>
-    </section>
-
-    <!-- cost summary -->
-    <section>
-      <h2><span class="he">סיכום עלויות</span><span class="en">Cost summary</span></h2>
-      <table>
-        <thead><tr><th><span class="he">פריט</span><span class="en">Item</span></th><th><span class="he">סכום</span><span class="en">Amount</span></th><th><span class="he">מתי</span><span class="en">When</span></th></tr></thead>
-        <tbody>
-          <tr><td><span class="he">דמי פיתוח — מקדמה</span><span class="en">Development — deposit</span></td><td class="amt"><span class="num">₪3,600</span></td><td><span class="he">עם החתימה</span><span class="en">On signing</span></td></tr>
-          <tr><td><span class="he">דמי פיתוח — גרסת בדיקות</span><span class="en">Development — testing delivery</span></td><td class="amt"><span class="num">₪4,800</span></td><td><span class="he">במסירת גרסת הבדיקות</span><span class="en">On testing delivery</span></td></tr>
-          <tr><td><span class="he">דמי פיתוח — מסירה סופית</span><span class="en">Development — final delivery</span></td><td class="amt"><span class="num">₪3,600</span></td><td><span class="he">במסירה הסופית</span><span class="en">On final delivery</span></td></tr>
-          <tr><td><span class="he">דמי תחזוקה</span><span class="en">Maintenance</span></td><td class="amt"><span class="num">₪500</span>/<span class="he">חו׳</span><span class="en">mo</span></td><td><span class="he">מחודש 1</span><span class="en">From month 1</span></td></tr>
-          <tr class="tot"><td><span class="he">סה״כ פיתוח</span><span class="en">Total development</span></td><td class="amt"><span class="num">₪12,000</span></td><td><span class="he">חד-פעמי</span><span class="en">One-time</span></td></tr>
-        </tbody>
-      </table>
-      <div class="note"><span class="he"><b>אופציונלי / משתנה:</b> שימוש ב-AI מעבר למכסה — <span class="num">₪25</span> לחודש לכל <span class="num">1,000</span> שאילתות נוספות. מודולים עתידיים (כגון דאשבורד לוגיסטיקה) — פיתוח נפרד.</span><span class="en"><b>Optional / variable:</b> AI usage beyond the cap — <span class="num">₪25</span>/month per extra <span class="num">1,000</span> queries. Future modules (e.g. a logistics dashboard) — separate development.</span></div>
+      <h2><span class="he">בעלות, קניין רוחני והמשכיות</span><span class="en">Ownership, IP & continuity</span></h2>
+      <ul>
+        <li><span class="he"><b>בעלות:</b> עם המסירה הסופית והשלמת התשלומים, קוד המקור והתיעוד הם קניינה הבלעדי של GoMobile. OctoMonic רשאית לעשות שימוש חוזר ברכיבים גנריים שאינם ייחודיים לעסק (תבניות אינטגרציה, רכיבי תשתית) בפרויקטים אחרים.</span><span class="en"><b>Ownership:</b> on final delivery and full payment, the source code and documentation are GoMobile's sole property. OctoMonic may reuse generic, non-unique components (integration templates, infrastructure) in other projects.</span></li>
+        <li><span class="he"><b>אי-תחרות:</b> לאורך תקופת ההסכם הפעיל, OctoMonic לא תפתח כלי בעל מטרה זהה במהותה (דשבורד תחרות-מכירות לצוות בשילוב עוזר upsell חכם בעמדה) עבור קמעונאי מוצרי אלקטרוניקה צריכה בשוק הישראלי.</span><span class="en"><b>Non-compete:</b> for the term of the agreement, OctoMonic will not build a substantially-identical tool (a staff sales-competition dashboard with an on-floor AI upsell assistant) for consumer-electronics retailers in the Israeli market.</span></li>
+        <li><span class="he"><b>המשכיות:</b> אם OctoMonic תפסיק את התחזוקה, GoMobile תקבל את קוד המקור המלא, התיעוד, וליווי סביר במעבר לספק אחר.</span><span class="en"><b>Continuity:</b> if OctoMonic discontinues maintenance, GoMobile receives the full source code, documentation and reasonable transition support.</span></li>
+      </ul>
     </section>
 
     <!-- signatures -->
