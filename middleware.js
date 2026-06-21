@@ -1,23 +1,35 @@
-// Edge Middleware — scoped ONLY to the GoMobile offer.
-// 1) Hard expiry: after EXPIRES, the URL serves an "expired" page (cannot be bypassed).
-// 2) Open tracking: emails tom@octomonic.com on each real browser open (bots/prefetch filtered).
+// Edge Middleware — scoped to GoMobile offer pages only.
+// Per offer: 1) hard expiry (serves an "expired" page after the cutoff, cannot be bypassed),
+//            2) open tracking (emails on each real browser open; bots/prefetch filtered).
 // Other mockups in this repo are untouched (see config.matcher).
 
 export const config = {
-  matcher: ['/2026-06-19-gomobile-offer', '/2026-06-19-gomobile-offer/:path*'],
+  matcher: [
+    '/2026-06-19-gomobile-offer', '/2026-06-19-gomobile-offer/:path*',
+    '/2026-06-21-gomobile-sales-dashboard', '/2026-06-21-gomobile-sales-dashboard/:path*',
+  ],
 };
 
-// ─── edit this one line to change the cutoff ───
-const EXPIRES = Date.parse('2026-07-03T23:59:59+03:00'); // 14 days, Asia/Jerusalem
-// ───────────────────────────────────────────────
-const SLUG = '/2026-06-19-gomobile-offer';
+// ─── per-offer cutoff (Asia/Jerusalem). edit a line to change. ───
+const OFFERS = {
+  '/2026-06-19-gomobile-offer': { expires: Date.parse('2026-07-03T23:59:59+03:00'), label: 'GoMobile offer (sales+logistics)' },
+  '/2026-06-21-gomobile-sales-dashboard': { expires: Date.parse('2026-06-28T23:59:59+03:00'), label: 'GoMobile sales-dashboard proposal' },
+};
+// ─────────────────────────────────────────────────────────────────
 const FROM = 'GoMobile Offer <onboarding@resend.dev>';
 const TO = 'ivelmot@gmail.com';
 
 const BOT = /bot|crawl|spider|preview|facebookexternalhit|whatsapp|telegram|slack|discord|twitter|linkedin|embed|curl|wget|python|headless|lighthouse|vercel|pingdom|monitor|fetch|axios|go-http|okhttp/i;
 const ASSET = /\.(png|jpe?g|svg|gif|webp|ico|css|js|mjs|woff2?|ttf|map|json|txt|xml)$/i;
 
-function expiredPage() {
+function slugFor(path) {
+  for (const slug of Object.keys(OFFERS)) {
+    if (path === slug || path.startsWith(slug + '/')) return slug;
+  }
+  return null;
+}
+
+function expiredPage(slug) {
   return `<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>ההצעה אינה זמינה · Offer expired</title>
@@ -31,7 +43,7 @@ h1{font-size:21px;font-weight:800;margin-bottom:9px}p{color:#9AA3B5;font-size:14
 .b{color:#F0C000;font-weight:800}.sep{height:1px;background:rgba(255,255,255,.12);width:120px;margin:22px auto}
 .bar{height:3px;width:90px;margin:18px auto 0;border-radius:3px;background:linear-gradient(90deg,#EC008C,#FF8F4D,#F0C000)}</style></head>
 <body><div class="box">
-<img src="${SLUG}/octomonic.png" alt="OctoMonic">
+<img src="${slug}/octomonic.png" alt="OctoMonic">
 <h1>ההצעה כבר אינה זמינה</h1>
 <p>תוקף ההצעה הזו פג. לקבלת הצעה מעודכנת, פנו אל <span class="b">OctoMonic</span>.</p>
 <div class="sep"></div>
@@ -44,15 +56,19 @@ h1{font-size:21px;font-weight:800;margin-bottom:9px}p{color:#9AA3B5;font-size:14
 export default function middleware(request, context) {
   const url = new URL(request.url);
   const path = url.pathname;
+  const slug = slugFor(path);
+  if (!slug) return;
+  const offer = OFFERS[slug];
+
   const isAsset = ASSET.test(path);
-  const isPage = !isAsset && (path === SLUG || path === SLUG + '/' || path.endsWith('/index.html'));
+  const isPage = !isAsset && (path === slug || path === slug + '/' || path.endsWith('/index.html'));
 
   const forceExpired = url.searchParams.get('preview') === 'expired';
-  const expired = Date.now() > EXPIRES;
+  const expired = Date.now() > offer.expires;
 
   // 1) expiry gate — page only (assets still load so the expired page can show the logo)
   if (isPage && (expired || forceExpired)) {
-    return new Response(expiredPage(), {
+    return new Response(expiredPage(slug), {
       status: 410,
       headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' },
     });
@@ -75,7 +91,7 @@ export default function middleware(request, context) {
       const ref = request.headers.get('referer') || '—';
       const loc = decodeURIComponent([city, country].filter(Boolean).join(', ')) || '—';
       const text =
-        `The GoMobile offer page was just opened.\n\n` +
+        `${offer.label} was just opened.\n\n` +
         `When (IDT):  ${when}\n` +
         `Location:    ${loc}\n` +
         `IP:          ${ip}\n` +
@@ -85,7 +101,7 @@ export default function middleware(request, context) {
       const send = fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ from: FROM, to: [TO], subject: '📂 GoMobile offer was opened', text }),
+        body: JSON.stringify({ from: FROM, to: [TO], subject: `📂 ${offer.label} — opened`, text }),
       }).catch(() => {});
       if (context && context.waitUntil) context.waitUntil(send);
     }

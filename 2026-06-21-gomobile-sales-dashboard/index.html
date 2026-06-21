@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-lang="he">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>דאשבורד מכירות לצוות — GoMobile × OctoMonic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<script>(function(){try{var l=localStorage.getItem('gm_sd_lang')||'he';document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('dir',l==='he'?'rtl':'ltr');document.documentElement.setAttribute('lang',l)}catch(e){}})();</script>
+<style>
+  :root{
+    --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--coral:#FF8F4D;--gold:#F0C000;
+    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
+    --good:#0a8a5b;--pink-bg:#fdeaf5;--pink-bd:#f6c3e2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6}
+  [data-lang=he] .en{display:none} [data-lang=en] .he{display:none}
+  .num{font-feature-settings:"tnum";direction:ltr;unicode-bidi:embed;display:inline-block}
+  .langtoggle{position:fixed;top:14px;inset-inline-end:16px;z-index:20;display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(20,28,48,.12)}
+  .langtoggle button{border:0;background:#fff;color:var(--muted);font:700 12px Heebo;padding:6px 12px;cursor:pointer}
+  .langtoggle button[aria-pressed=true]{background:var(--cerise);color:#fff}
+
+  .page{max-width:860px;margin:20px auto;background:#fff;box-shadow:0 8px 40px rgba(20,28,48,.16);border-radius:6px;overflow:hidden}
+  .bar{background:linear-gradient(115deg,#16182a 0%,#23132b 55%,#3a0f2c 100%);color:#fff;padding:16px 30px;display:flex;align-items:center;gap:16px;position:relative}
+  .bar::after{content:"";position:absolute;bottom:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--cerise),var(--coral),var(--gold))}
+  .bar img{height:30px;width:auto}
+  .bar .x{color:var(--faint);font-weight:700;font-size:15px}
+  .bar .k{margin-inline-start:auto;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
+
+  .body{padding:26px 30px 18px}
+  .hero{text-align:center;padding:4px 0 16px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .hero .title{font-size:25px;font-weight:900;letter-spacing:-.3px;line-height:1.22}
+  .hero .meta{font-size:12px;color:var(--muted);margin-top:8px;font-weight:600}
+  .hero .meta b{color:var(--cerise-d)}
+
+  h2{font-size:15px;font-weight:900;letter-spacing:.01em;margin:0 0 10px;display:flex;align-items:center;gap:9px}
+  h2::before{content:"";width:5px;height:17px;border-radius:4px;background:linear-gradient(180deg,var(--cerise),var(--coral));flex:none}
+  section{margin:22px 0;break-inside:avoid;page-break-inside:avoid}
+  p{margin:0 0 9px;color:#2f3545}
+  .lead{color:#2f3545}
+  ul{list-style:none;margin:6px 0 0}
+  li{position:relative;padding-inline-start:17px;margin:5px 0;color:#2f3545}
+  li::before{content:"";position:absolute;inset-inline-start:1px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--coral)}
+  li.x::before{background:var(--faint)}
+  b{font-weight:700}
+  .hl{color:var(--cerise-d);font-weight:800}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+  th,td{padding:9px 11px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);font-weight:800;background:var(--soft)}
+  tbody td:first-child{font-weight:700;color:#2b3245}
+  .amt{font-weight:900;color:var(--cerise-d);white-space:nowrap}
+  .tot td{border-top:2px solid var(--line);font-weight:900;font-size:14px}
+
+  .pricecard{border:1px solid var(--line);border-radius:13px;padding:16px 18px;background:linear-gradient(180deg,#fff,#fcfdff);margin:10px 0}
+  .pr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 0}
+  .pr+.pr{border-top:1px dashed var(--line)}
+  .pr .lbl{font-weight:800}
+  .pr .val{font-weight:900;color:var(--cerise-d);font-size:16px;white-space:nowrap}
+  .pr .sub{display:block;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .split{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{flex:1;min-width:150px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:#fff;display:flex;align-items:baseline;gap:8px}
+  .chip .pc{font-size:17px;font-weight:900;color:var(--cerise-d)}
+  .chip .cl{font-size:10.5px;color:var(--muted);font-weight:700;line-height:1.3}
+  .note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:10px}
+  .note b{color:var(--ink)}
+  .ai{background:var(--pink-bg);border:1px solid var(--pink-bd);border-radius:10px;padding:10px 13px;font-size:12.5px;color:var(--cerise-d);font-weight:700;margin-top:10px;display:flex;gap:8px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .scopebox{border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .scopebox h3{font-size:12.5px;font-weight:900;margin-bottom:6px;display:flex;align-items:center;gap:7px}
+  .scopebox.in h3{color:var(--good)} .scopebox.out h3{color:var(--muted)}
+  .scopebox ul{margin:0} .scopebox li{font-size:12.5px;margin:4px 0}
+
+  ol.flow{counter-reset:s;list-style:none;margin-top:6px}
+  ol.flow li{counter-increment:s;padding-inline-start:34px;margin:8px 0;min-height:24px}
+  ol.flow li::before{content:counter(s);background:var(--cerise);color:#fff;width:23px;height:23px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;top:0}
+
+  .sigwrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+  .sig{border-top:2px solid var(--ink);padding-top:8px}
+  .sig img{height:26px;margin-bottom:8px}
+  .sig .nm{font-weight:800;font-size:12.5px}
+  .sig .ln{margin-top:18px;font-size:11.5px;color:var(--muted)}
+  .sig .ln span{display:inline-block;border-bottom:1px solid var(--line);min-width:130px;margin-inline-start:4px}
+
+  footer{padding:14px 30px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:11.5px;color:var(--muted);flex-wrap:wrap}
+  footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:13px;white-space:nowrap}
+  footer .brand img{height:18px;width:auto}
+  footer .terms{font-weight:600;text-align:end}
+  footer .terms b{color:var(--ink);font-weight:800}
+
+  @media(max-width:680px){.two,.sigwrap{grid-template-columns:1fr}}
+  @media print{
+    @page{size:A4;margin:12mm}
+    html,body{background:#fff}
+    .langtoggle{display:none}
+    .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
+  }
+</style>
+</head>
+<body>
+<div class="langtoggle"><button data-lb="he">עב</button><button data-lb="en">EN</button></div>
+
+<div class="page">
+  <div class="bar">
+    <img src="octomonic.png" alt="OctoMonic" />
+    <span class="x">×</span>
+    <img src="gomobile.png" alt="GoMobile" />
+    <div class="k"><span class="he">הצעת מחיר · יוני 2026</span><span class="en">Proposal · June 2026</span></div>
+  </div>
+
+  <div class="body">
+    <div class="hero">
+      <h1 class="title"><span class="he">דאשבורד מכירות לצוות</span><span class="en">Staff Sales Dashboard</span></h1>
+      <div class="meta"><span class="he">הצעת מחיר עבור <b>GoMobile</b> · הוכן 21.06.2026</span><span class="en">Proposal for <b>GoMobile</b> · Prepared 21.06.2026</span></div>
+    </div>
+
+    <!-- system -->
+    <section>
+      <h2><span class="he">המערכת</span><span class="en">The system</span></h2>
+      <p class="lead"><span class="he">מערכת מותאמת אישית לצוות המכירות של GoMobile, הנבנית סביב הקטלוג, הלקוחות ו-bGate שלכם, ונמסרת בבעלות מלאה. היא מורכבת משני חלקים:</span><span class="en">A custom system for GoMobile's sales floor, built around your catalog, customers and bGate, and delivered in full ownership. It has two parts:</span></p>
+      <ul>
+        <li><span class="he"><b>תחרות וביצועים:</b> לוח מובילים, מדדים ומשוב שמניעים את צוות המכירות ומאפשרים למנהל לעקוב אחר ביצועים בזמן אמת.</span><span class="en"><b>Competition & performance:</b> a leaderboard, metrics and feedback that drive the sales floor and let the manager track performance in real time.</span></li>
+        <li><span class="he"><b>עוזר מכירות חכם (AI):</b> הנציג מקליד מספר טלפון; המערכת מזהה לקוח קיים ומציגה הצעות לפי ההיסטוריה שלו, ועבור לקוח חדש — המלצות upsell המבוססות על היסטוריית לקוחות.</span><span class="en"><b>AI upsell assistant:</b> the rep enters a phone number; the system recognises a returning customer and surfaces suggestions from their history, and for a new customer — upsell suggestions based on customer history.</span></li>
+      </ul>
+      <p><span class="he">המערכת מחוברת ישירות ל-bGate ושומרת על מאגר נתונים ייעודי שמשקף אותו, כך שהכלים מהירים ואינם מעמיסים על ה-ERP. הנתונים נשארים פנימיים ואינם עוברים לצד שלישי.</span><span class="en">The system connects directly to bGate and keeps a dedicated data store that mirrors it, so the tools stay fast and put no load on the ERP. Your data stays in-house and is never shared with a third party.</span></p>
+    </section>
+
+    <!-- pricing -->
+    <section>
+      <h2><span class="he">תמחור</span><span class="en">Pricing</span></h2>
+      <div class="pricecard">
+        <div class="pr"><div><span class="lbl"><span class="he">דמי פיתוח (חד-פעמי)</span><span class="en">Development (one-time)</span></span></div><div class="val"><span class="num">₪12,000</span></div></div>
+        <div class="split">
+          <div class="chip"><span class="pc"><span class="num">30%</span></span><span class="cl"><span class="he">עם החתימה · <span class="num">₪3,600</span></span><span class="en">On signing · <span class="num">₪3,600</span></span></span></div>
+          <div class="chip"><span class="pc"><span class="num">40%</span></span><span class="cl"><span class="he">במסירת גרסת הבדיקות · <span class="num">₪4,800</span></span><span class="en">On testing delivery · <span class="num">₪4,800</span></span></span></div>
+          <div class="chip"><span class="pc"><span class="num">30%</span></span><span class="cl"><span class="he">במסירה הסופית · <span class="num">₪3,600</span></span><span class="en">On final delivery · <span class="num">₪3,600</span></span></span></div>
+        </div>
+        <div class="pr"><div><span class="lbl"><span class="he">דמי תחזוקה חודשיים</span><span class="en">Monthly maintenance</span></span><span class="sub"><span class="he">מתחילים מחודש 1 · מחויבות מינימלית 12 חודשים</span><span class="en">Starting from month 1 · 12-month minimum commitment</span></span></div><div class="val"><span class="num">₪500</span><span class="he">/חודש</span><span class="en">/mo</span></div></div>
+      </div>
+      <p><b><span class="he">שירות התחזוקה כולל:</span><span class="en">Maintenance covers:</span></b></p>
+      <ul>
+        <li><span class="he">ניטור מערכת שוטף — זיהוי תקלות ומענה יזום</span><span class="en">Ongoing system monitoring — proactive issue detection and response</span></li>
+        <li><span class="he">תחזוקת דשבורד ושמירה על זמינות</span><span class="en">Dashboard upkeep and uptime</span></li>
+        <li><span class="he">תמיכה ב-API של bGate</span><span class="en">bGate API support</span></li>
+        <li><span class="he">עלויות תשתית שוטפות — אירוח, מאגר הנתונים ושימוש ב-AI</span><span class="en">Ongoing infrastructure — hosting, the data store and AI usage</span></li>
+        <li><span class="he">תיקוני באגים והתאמות קטנות ב-UI</span><span class="en">Bug fixes and minor UI adjustments</span></li>
+      </ul>
+      <div class="ai"><span>🤖</span><span><span class="he"><b>שימוש ב-AI כלול</b> (מבוסס Gemini 3 Flash) עד כ-<span class="num">50</span> שאילתות לכל מסך ביום; מעבר לכך — <span class="num">₪25</span> לחודש לכל <span class="num">1,000</span> שאילתות נוספות.</span><span class="en"><b>AI usage included</b> (Gemini 3 Flash) up to ≈<span class="num">50</span> queries per screen per day; beyond that — <span class="num">₪25</span>/month per extra <span class="num">1,000</span> queries.</span></span></div>
+    </section>
+
+    <!-- scope -->
+    <section>
+      <h2><span class="he">היקף העבודה</span><span class="en">Scope of work</span></h2>
+      <div class="two">
+        <div class="scopebox in">
+          <h3>✓ <span class="he">כלול</span><span class="en">Included</span></h3>
+          <ul>
+            <li><span class="he">מודול תחרות וביצועים — לוח מובילים, מדדים ומשוב</span><span class="en">Competition & performance module — leaderboard, metrics, feedback</span></li>
+            <li><span class="he">עוזר מכירות חכם (AI) — זיהוי לקוח לפי טלפון והמלצות upsell מבוססות היסטוריית לקוחות</span><span class="en">AI upsell assistant — phone-based customer recognition + customer-history upsell suggestions</span></li>
+            <li><span class="he">אינטגרציה עם bGate ומאגר נתונים ייעודי (טעינה ראשונית של היסטוריה + עדכון שוטף)</span><span class="en">bGate integration + dedicated data store (initial history backfill + ongoing sync)</span></li>
+            <li><span class="he">דשבורד לכל הצוות · מסכים ומשתמשים ללא הגבלה</span><span class="en">Dashboard for the whole team · unlimited screens & users</span></li>
+            <li><span class="he">שימוש ב-AI (במסגרת ההוגנת לעיל)</span><span class="en">AI usage (within the fair-use above)</span></li>
+            <li><span class="he">שירות תחזוקה חודשי</span><span class="en">Monthly maintenance service</span></li>
+          </ul>
+        </div>
+        <div class="scopebox out">
+          <h3>— <span class="he">מחוץ לתחום (פיתוח נפרד)</span><span class="en">Out of scope (separate dev)</span></h3>
+          <ul>
+            <li class="x"><span class="he">דאשבורד לוגיסטיקה — זמין כפרויקט נפרד בעתיד</span><span class="en">Logistics dashboard — available as a separate future project</span></li>
+            <li class="x"><span class="he">מודולים או יכולות חדשות מעבר להיקף המוגדר</span><span class="en">New modules or capabilities beyond the defined scope</span></li>
+            <li class="x"><span class="he">אינטגרציות נוספות מעבר ל-bGate</span><span class="en">Additional integrations beyond bGate</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="note"><span class="he"><b>הערה לגבי גידול:</b> הוספת מסכים, סניפים ומשתמשים אינה מעלה את דמי התחזוקה. המערכת בנויה להתרחבות — אפשר להוסיף יכולות בהמשך על אותה תשתית.</span><span class="en"><b>On growth:</b> adding screens, branches and users does not raise the maintenance fee. The system is built to extend — new capabilities can be added later on the same foundation.</span></div>
+    </section>
+
+    <!-- timeline -->
+    <section>
+      <h2><span class="he">לוח זמנים</span><span class="en">Timeline</span></h2>
+      <p><span class="he">היקף משוער: כ-<b><span class="num">90</span> שעות עבודה</b>, אספקה תוך <b><span class="num">1</span>–<span class="num">1.5</span> חודשים</b> ממועד החתימה ותשלום המקדמה.</span><span class="en">Estimated effort: ≈<b><span class="num">90</span> hours</b>, delivered within <b><span class="num">1</span>–<span class="num">1.5</span> months</b> of signing and the deposit.</span></p>
+      <table>
+        <thead><tr><th><span class="he">אבן דרך</span><span class="en">Milestone</span></th><th><span class="he">הערות</span><span class="en">Notes</span></th></tr></thead>
+        <tbody>
+          <tr><td><span class="he">חתימה ופתיחה</span><span class="en">Signing & kickoff</span></td><td><span class="he">תשלום מקדמה <span class="num">30%</span> (<span class="num">₪3,600</span>)</span><span class="en">Deposit <span class="num">30%</span> (<span class="num">₪3,600</span>)</span></td></tr>
+          <tr><td><span class="he">גישת bGate + טעינת היסטוריה</span><span class="en">bGate access + history backfill</span></td><td><span class="he">push של נתוני לקוחות ומכירות (תלות ב-GoMobile/bGate)</span><span class="en">push of customer & sales data (GoMobile/bGate dependency)</span></td></tr>
+          <tr><td><span class="he">בניית התשתית והמודולים</span><span class="en">Build foundation & modules</span></td><td><span class="he">מאגר נתונים, לוח מובילים, עוזר ה-AI</span><span class="en">data store, leaderboard, AI assistant</span></td></tr>
+          <tr><td><span class="he">מסירת גרסת בדיקות</span><span class="en">Testing version delivery</span></td><td><span class="he">תשלום <span class="num">40%</span> (<span class="num">₪4,800</span>) · בדיקות חי עם הצוות</span><span class="en"><span class="num">40%</span> (<span class="num">₪4,800</span>) · live testing with the team</span></td></tr>
+          <tr><td><span class="he">מסירה סופית</span><span class="en">Final delivery</span></td><td><span class="he">תשלום <span class="num">30%</span> (<span class="num">₪3,600</span>)</span><span class="en"><span class="num">30%</span> (<span class="num">₪3,600</span>)</span></td></tr>
+          <tr><td><span class="he">תחילת דמי תחזוקה</span><span class="en">Maintenance begins</span></td><td><span class="he"><span class="num">₪500</span>/חודש — מחודש 1</span><span class="en"><span class="num">₪500</span>/mo — from month 1</span></td></tr>
+        </tbody>
+      </table>
+      <div class="note"><span class="he"><b>חסמים קריטיים</b> (עיכוב מצד GoMobile/bGate ידחה את לוח הזמנים יחסית): גישה ל-bGate ו-push של היסטוריית הלקוחות; הגדרת מסכים/עמדות בחנויות; הגדרת משתמשי הצוות.</span><span class="en"><b>Critical blockers</b> (delays on GoMobile/bGate push the schedule proportionally): bGate access and the customer-history push; in-store screen/station setup; staff-user setup.</span></div>
+    </section>
+
+    <!-- how it works -->
+    <section>
+      <h2><span class="he">איך זה עובד (יום-יום)</span><span class="en">How it works (day to day)</span></h2>
+      <ol class="flow">
+        <li><span class="he">לקוח ניגש לעמדה — הנציג מקליד את מספר הטלפון שלו.</span><span class="en">A customer walks up — the rep types in their phone number.</span></li>
+        <li><span class="he">לקוח קיים → המערכת מזההת אותו ומציגה הצעות לפי ההיסטוריה שלו; לקוח חדש → המלצות upsell מבוססות היסטוריית לקוחות.</span><span class="en">Returning customer → the system recognises them and shows suggestions from their history; new customer → upsell suggestions based on customer history.</span></li>
+        <li><span class="he">הנציג סוגר מכירה — הביצועים מתעדכנים בלוח המובילים.</span><span class="en">The rep closes the sale — performance updates on the leaderboard.</span></li>
+        <li><span class="he">המנהל רואה ביצועים ומשוב בזמן אמת, ומניע תחרות בריאה בצוות.</span><span class="en">The manager sees performance and feedback in real time, driving healthy competition.</span></li>
+      </ol>
+    </section>
+
+    <!-- what you get -->
+    <section>
+      <h2><span class="he">מה מקבלים</span><span class="en">What you get</span></h2>
+      <ul>
+        <li><span class="he">לוח מובילים, מדדים ומשוב לצוות המכירות</span><span class="en">A leaderboard, metrics and feedback for the sales team</span></li>
+        <li><span class="he">עוזר מכירות חכם (AI) עם זיהוי לקוחות והמלצות upsell בזמן אמת</span><span class="en">An AI upsell assistant with real-time customer recognition and suggestions</span></li>
+        <li><span class="he">דשבורד לכל הצוות · מסכים ומשתמשים ללא הגבלה</span><span class="en">A dashboard for the whole team · unlimited screens & users</span></li>
+        <li><span class="he">שימוש ב-AI כלול במחיר החודשי</span><span class="en">AI usage included in the monthly fee</span></li>
+        <li><span class="he">שירות תחזוקה חודשי — ניטור, תחזוקה ומענה ישיר</span><span class="en">Monthly maintenance — monitoring, upkeep and direct support</span></li>
+        <li><span class="he">בעלות מלאה על המערכת</span><span class="en">Full ownership of the system</span></li>
+      </ul>
+    </section>
+
+    <!-- IP -->
+    <section>
+      <h2><span class="he">זכויות יוצרים וקניין רוחני</span><span class="en">Ownership & IP</span></h2>
+      <p><span class="he"><b>הבעלות על המערכת:</b> המערכת נבנית במיוחד סביב הקטלוג, הלקוחות ו-bGate של GoMobile, ולכן ייחודית לה. עם המסירה הסופית והשלמת התשלומים, קוד המקור והתיעוד הם קניינה הבלעדי של GoMobile.</span><span class="en"><b>System ownership:</b> the system is built specifically around GoMobile's catalog, customers and bGate, and is therefore unique to it. On final delivery and completion of payments, the source code and documentation are GoMobile's sole property.</span></p>
+      <p><span class="he"><b>שימוש חוזר ברכיבים גנריים:</b> OctoMonic שומרת לעצמה את הזכות להשתמש ברכיבים, מודולים ותבניות גנריים שאינם ייחודיים לעסק של GoMobile (תבניות אינטגרציה, רכיבי תשתית וכו') בפרויקטים אחרים.</span><span class="en"><b>Generic component reuse:</b> OctoMonic retains the right to reuse generic components, modules and patterns not unique to GoMobile's business (integration templates, infrastructure components, etc.) in other projects.</span></p>
+      <p><span class="he"><b>אי-תחרות:</b> לאורך תקופת ההסכם הפעיל, OctoMonic מתחייבת שלא לפתח, לספק או למכור כלי בעל מטרה זהה במהותה (דשבורד תחרות-מכירות לצוות בשילוב עוזר upsell חכם בעמדת המכירה) עבור קמעונאי מוצרי אלקטרוניקה צריכה הפועלים בשוק הישראלי. מגבלה זו אינה חלה על ענפים אחרים, שווקים אחרים, או שימוש חוזר ברכיבים גנריים.</span><span class="en"><b>Non-compete:</b> for the term of the active agreement, OctoMonic will not build, supply or sell a substantially-identical tool (a staff sales-competition dashboard combined with an on-floor AI upsell assistant) for consumer-electronics retailers operating in the Israeli market. This does not apply to other industries, other markets, or reuse of generic components.</span></p>
+    </section>
+
+    <!-- continuity -->
+    <section>
+      <h2><span class="he">המשכיות התחזוקה</span><span class="en">Maintenance continuity</span></h2>
+      <p><span class="he">במקרה ש-OctoMonic תפסיק את שירות התחזוקה מכל סיבה שהיא, GoMobile תקבל את קוד המקור המלא, את כל התיעוד הטכני, וכן ליווי סביר במעבר לספק תחזוקה אחר.</span><span class="en">Should OctoMonic discontinue the maintenance service for any reason, GoMobile receives the full source code, all technical documentation, and reasonable support in transitioning to another maintenance provider.</span></p>
+    </section>
+
+    <!-- cost summary -->
+    <section>
+      <h2><span class="he">סיכום עלויות</span><span class="en">Cost summary</span></h2>
+      <table>
+        <thead><tr><th><span class="he">פריט</span><span class="en">Item</span></th><th><span class="he">סכום</span><span class="en">Amount</span></th><th><span class="he">מתי</span><span class="en">When</span></th></tr></thead>
+        <tbody>
+          <tr><td><span class="he">דמי פיתוח — מקדמה</span><span class="en">Development — deposit</span></td><td class="amt"><span class="num">₪3,600</span></td><td><span class="he">עם החתימה</span><span class="en">On signing</span></td></tr>
+          <tr><td><span class="he">דמי פיתוח — גרסת בדיקות</span><span class="en">Development — testing delivery</span></td><td class="amt"><span class="num">₪4,800</span></td><td><span class="he">במסירת גרסת הבדיקות</span><span class="en">On testing delivery</span></td></tr>
+          <tr><td><span class="he">דמי פיתוח — מסירה סופית</span><span class="en">Development — final delivery</span></td><td class="amt"><span class="num">₪3,600</span></td><td><span class="he">במסירה הסופית</span><span class="en">On final delivery</span></td></tr>
+          <tr><td><span class="he">דמי תחזוקה</span><span class="en">Maintenance</span></td><td class="amt"><span class="num">₪500</span>/<span class="he">חו׳</span><span class="en">mo</span></td><td><span class="he">מחודש 1</span><span class="en">From month 1</span></td></tr>
+          <tr class="tot"><td><span class="he">סה״כ פיתוח</span><span class="en">Total development</span></td><td class="amt"><span class="num">₪12,000</span></td><td><span class="he">חד-פעמי</span><span class="en">One-time</span></td></tr>
+        </tbody>
+      </table>
+      <div class="note"><span class="he"><b>אופציונלי / משתנה:</b> שימוש ב-AI מעבר למכסה — <span class="num">₪25</span> לחודש לכל <span class="num">1,000</span> שאילתות נוספות. מודולים עתידיים (כגון דאשבורד לוגיסטיקה) — פיתוח נפרד.</span><span class="en"><b>Optional / variable:</b> AI usage beyond the cap — <span class="num">₪25</span>/month per extra <span class="num">1,000</span> queries. Future modules (e.g. a logistics dashboard) — separate development.</span></div>
+    </section>
+
+    <!-- signatures -->
+    <section>
+      <h2><span class="he">אישור וחתימה</span><span class="en">Approval & signature</span></h2>
+      <div class="sigwrap">
+        <div class="sig">
+          <img src="octomonic.png" alt="OctoMonic" />
+          <div class="nm"><span class="he">חתימה מורשית — OctoMonic (תום לוי)</span><span class="en">Authorised signature — OctoMonic (Tom Levi)</span></div>
+          <div class="ln"><span class="he">חתימה:</span><span class="en">Signature:</span> <span></span></div>
+          <div class="ln"><span class="he">תאריך:</span><span class="en">Date:</span> <span></span></div>
+        </div>
+        <div class="sig">
+          <img src="gomobile.png" alt="GoMobile" />
+          <div class="nm"><span class="he">חתימה מורשית — GoMobile</span><span class="en">Authorised signature — GoMobile</span></div>
+          <div class="ln"><span class="he">חתימה:</span><span class="en">Signature:</span> <span></span></div>
+          <div class="ln"><span class="he">תאריך:</span><span class="en">Date:</span> <span></span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic · tom@octomonic.com · 054-2077279</span>
+    <span class="terms"><b><span class="he">כל המחירים אינם כוללים מע״מ</span><span class="en">All prices exclude VAT</span></b> · <span class="he">הצעה זו תקפה ל-7 ימים · יוני 2026</span><span class="en">This offer is valid for 7 days · June 2026</span></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function set(l){var d=document.documentElement;d.setAttribute('data-lang',l);d.setAttribute('dir',l==='he'?'rtl':'ltr');d.setAttribute('lang',l);try{localStorage.setItem('gm_sd_lang',l)}catch(e){}document.querySelectorAll('[data-lb]').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-lb')===l))})}
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-lb]');if(b)set(b.getAttribute('data-lb'))});
+  var s='he';try{s=localStorage.getItem('gm_sd_lang')||'he'}catch(e){}set(s);
+})();
+</script>
+</body>
+</html>
