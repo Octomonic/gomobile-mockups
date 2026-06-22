@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Project: GoMobile · Sales dashboard demo · employee vs manager views -->
+<!-- GoMobile · Sales dashboard demo · chooser → staff (arena + assistant) / manager -->
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -9,345 +9,570 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{--cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--coral-d:#b8590a;--gold:#f0c000;
+  :root{--cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--coral-d:#b8590a;--gold:#f0c000;--gold-d:#9a7b00;
     --bg:#f8fafc;--soft:#f0f4f8;--surface:#fff;--line:#eaecf0;--ink:#0a0f23;--muted:#667085;
-    --shadow:0 4px 24px rgba(10,15,35,.06);--shadow-sm:0 2px 8px rgba(10,15,35,.05)}
+    --shadow:0 8px 30px rgba(10,15,35,.07);--shadow-sm:0 2px 10px rgba(10,15,35,.05);--shadow-lg:0 16px 48px rgba(10,15,35,.13)}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
-  .shell{max-width:1320px;margin:0 auto;padding:18px 24px 48px}
-  .phead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 24px;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);margin-bottom:14px}
-  .brand{display:flex;align-items:center;gap:16px}
-  .logo{width:62px;height:62px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:grid;place-items:center}
-  .logo img{max-width:44px;max-height:44px}
-  .phead h1{font-size:23px;font-weight:900;letter-spacing:-.4px}
-  .phead p{color:var(--muted);font-size:13px;margin-top:3px}
-  .live{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;background:rgba(255,143,77,.08);border:1px solid rgba(255,143,77,.22);color:#b8590a;font-weight:700;font-size:13px}
-  .live .dot{width:8px;height:8px;border-radius:50%;background:#FF8F4D;box-shadow:0 0 10px rgba(255,143,77,.6)}
+  .n{font-feature-settings:"tnum";direction:ltr;unicode-bidi:isolate;display:inline-block}
+  [hidden]{display:none!important}
+  .shell{max-width:1280px;margin:0 auto;padding:16px 22px 54px}
+  /* reusable glyph-ring avatar (NO initials) */
+  .av{display:inline-grid;place-items:center;border-radius:50%;background:linear-gradient(160deg,#fff,#eef2f7);border:2.5px solid #d7dce4;color:#9aa3b2;position:relative;flex:none}
+  .av svg{width:56%;height:56%;fill:currentColor;opacity:.9}
+  .av.gold{border-color:var(--gold);color:#c9a200;background:linear-gradient(160deg,#fffdf2,#fdf3cf)}
+  .av.silver{border-color:#c4cad4;color:#9aa3b2}
+  .av.bronze{border-color:var(--coral);color:var(--coral-d);background:linear-gradient(160deg,#fff7f1,#ffe9da)}
+  .av.you{border-color:var(--cerise);color:var(--cerise-d);background:linear-gradient(160deg,#fff2f9,#fde0ef)}
+  .av.skyr{border-color:var(--sky);color:var(--sky-d);background:linear-gradient(160deg,#f1faff,#dcf1fb)}
+  .av .crown{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:17px}
+  .av .pip{position:absolute;bottom:-3px;left:-3px;font-size:13px}
+  /* topbar */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 22px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);margin-bottom:14px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .blogo{width:50px;height:50px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+  .blogo img{max-width:34px;max-height:34px}
+  .brand h1{font-size:18px;font-weight:900;letter-spacing:-.3px}
+  .brand p{color:var(--muted);font-size:12px;margin-top:1px}
+  .switchview{display:inline-flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--line);color:#475467;font-weight:800;font-size:12.5px;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
+  .switchview:hover{background:#fff;color:var(--cerise);box-shadow:var(--shadow-sm)}
+  .roletag{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:12.5px;padding:7px 13px;border-radius:999px}
+  .roletag.staff{background:rgba(41,171,226,.1);color:var(--sky-d)}
+  .roletag.mgr{background:rgba(236,0,140,.08);color:var(--cerise-d)}
+  .live{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12.5px;color:var(--coral-d)}
+  .live .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 9px rgba(255,143,77,.7);animation:pulse 1.6s infinite}
+  @keyframes pulse{50%{opacity:.45}}
+  .foot{color:#9aa3b2;font-size:11.5px;text-align:center;padding:20px}
 
-  /* view toggle bar */
-  .viewbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 16px;box-shadow:var(--shadow-sm)}
-  .vlabel{font-weight:800;font-size:13px;color:var(--ink)}
-  .viewtoggle{display:inline-flex;background:var(--soft);border-radius:10px;padding:3px}
-  .vt{border:0;background:none;font:inherit;font-weight:800;font-size:13px;color:var(--muted);padding:7px 15px;border-radius:8px;cursor:pointer}
-  .vt.active{background:#fff;color:var(--cerise);box-shadow:var(--shadow-sm)}
-  .vnote{font-size:12.5px;color:var(--muted);font-weight:600}
-  .vnote b{color:var(--ink)}
+  /* ─────────── CHOOSER ─────────── */
+  #chooser{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 22px;position:relative;overflow:hidden}
+  #chooser::before{content:"";position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:900px;height:520px;background:radial-gradient(ellipse at center,rgba(236,0,140,.07),rgba(41,171,226,.05) 45%,transparent 70%);z-index:0}
+  .ch-logo{display:flex;align-items:center;gap:10px;margin-bottom:22px;position:relative}
+  .ch-logo img{height:34px}.ch-logo .x{color:#c4cad4;font-size:18px}
+  .ch-h{position:relative;text-align:center;margin-bottom:8px;font-size:34px;font-weight:900;letter-spacing:-.6px}
+  .ch-sub{position:relative;text-align:center;color:var(--muted);font-size:14.5px;max-width:56ch;margin-bottom:30px}
+  .ch-cards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:900px}
+  @media(max-width:760px){.ch-cards{grid-template-columns:1fr}.ch-h{font-size:27px}}
+  .ch-card{position:relative;background:var(--surface);border:1px solid rgba(10,15,35,.06);border-radius:22px;padding:24px 24px 20px;box-shadow:0 10px 40px rgba(10,15,35,.08);cursor:pointer;transition:.16s;overflow:hidden}
+  .ch-card::before{content:"";position:absolute;top:0;right:0;left:0;height:4px;border-radius:22px 22px 0 0}
+  .ch-card.admin::before{background:linear-gradient(90deg,var(--cerise),var(--cerise-d))}
+  .ch-card.staff::before{background:linear-gradient(90deg,var(--coral),var(--gold))}
+  .ch-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .ch-card.admin:hover{border-color:rgba(236,0,140,.4)} .ch-card.staff:hover{border-color:rgba(41,171,226,.45)}
+  .ch-tile{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;color:#fff;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+  .ch-tile svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .ch-card.admin .ch-tile{background:linear-gradient(135deg,var(--cerise),var(--cerise-d))}
+  .ch-card.staff .ch-tile{background:linear-gradient(135deg,var(--coral),var(--gold))}
+  .ch-card h2{font-size:21px;font-weight:900;letter-spacing:-.3px}
+  .ch-role{font-weight:800;font-size:13px;margin:2px 0 12px}
+  .ch-card.admin .ch-role{color:var(--cerise-d)} .ch-card.staff .ch-role{color:var(--sky-d)}
+  .ch-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+  .ch-list li{position:relative;padding-inline-start:16px;font-size:12.8px;color:#475467;font-weight:600}
+  .ch-list li::before{content:"";position:absolute;inset-inline-start:1px;top:7px;width:6px;height:6px;border-radius:50%}
+  .ch-card.admin .ch-list li::before{background:var(--cerise)} .ch-card.staff .ch-list li::before{background:var(--sky)}
+  .ch-strip{border-radius:12px;padding:10px 13px;font-size:12px;font-weight:700;display:flex;gap:9px;align-items:flex-start;margin-bottom:14px}
+  .ch-strip svg{width:16px;height:16px;flex:none;margin-top:1px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .ch-card.admin .ch-strip{background:rgba(236,0,140,.06);color:var(--cerise-d)}.ch-card.admin .ch-strip svg{stroke:var(--cerise-d)}
+  .ch-card.staff .ch-strip{background:rgba(255,143,77,.09);color:var(--coral-d)}.ch-card.staff .ch-strip svg{stroke:var(--coral-d)}
+  .ch-strip .sub{display:block;color:var(--muted);font-weight:600;margin-top:2px}
+  .ch-cta{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:13.5px;padding:10px 16px;border-radius:11px;color:#fff;border:0}
+  .ch-card.admin .ch-cta{background:var(--cerise)} .ch-card.staff .ch-cta{background:var(--sky)}
+  .ch-corner{position:absolute;top:14px;inset-inline-start:14px;background:rgba(236,0,140,.1);color:var(--cerise-d);font-weight:800;font-size:10.5px;padding:4px 9px;border-radius:999px;display:inline-flex;gap:5px;align-items:center}
+  .ch-corner svg{width:11px;height:11px;fill:none;stroke:var(--cerise-d);stroke-width:2}
+  .ch-ribbon{position:relative;margin-top:20px;max-width:900px;width:100%;background:rgba(41,171,226,.045);border:1px solid var(--line);border-radius:16px;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
+  .ch-pt{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:#3a4456}
+  .ch-pt svg{width:17px;height:17px;fill:none;stroke:var(--sky-d);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .ch-pt+.ch-pt{border-inline-start:1px solid var(--line);padding-inline-start:22px}
+  .ch-ribbon .more{flex-basis:100%;color:var(--muted);font-size:12.5px;font-weight:600;margin-top:2px}
+  .ch-ribbon .kf{flex-basis:100%;color:#8a93a6;font-size:12.5px;font-style:italic;margin-top:3px}
 
-  .tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:20px}
-  .tab{padding:11px 16px;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;border:none;background:none;font-family:inherit;position:relative}
-  .tab:hover{color:var(--ink)}
-  .tab.active{color:var(--cerise)}
-  .tab.active::after{content:"";position:absolute;right:8px;left:8px;bottom:-1px;height:3px;border-radius:3px;background:var(--cerise)}
-  .screen{display:none}.screen.on{display:block;animation:fade .25s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
-  .stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:15px 16px;text-align:center;box-shadow:var(--shadow-sm)}
-  .stat .v{font-size:25px;font-weight:900;letter-spacing:-.5px;color:var(--cerise)}
-  .stat.sky .v{color:var(--sky-d)}.stat.coral .v{color:var(--coral-d)}.stat.gold .v{color:#9a7b00}
-  .stat .l{font-size:11.5px;color:var(--muted);margin-top:3px;font-weight:600}
-  .stat .up{font-size:11px;color:#10b981;font-weight:800}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}
-  .card .h{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .seg{display:flex;background:var(--soft);border-radius:9px;padding:3px;font-size:12.5px}
-  .seg span{padding:5px 13px;border-radius:7px;cursor:pointer;color:var(--muted);font-weight:700}
+  /* ─────────── shared cards / stats ─────────── */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+  .card .h{font-size:15.5px;font-weight:800;margin-bottom:13px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .card .h .sm{font-weight:600;color:var(--muted);font-size:12px}
+  .stat .v{font-size:24px;font-weight:900;letter-spacing:-.5px}
+  .seg{display:flex;background:var(--soft);border-radius:9px;padding:3px;font-size:12px}
+  .seg span{padding:5px 12px;border-radius:7px;cursor:pointer;color:var(--muted);font-weight:700}
   .seg span.on{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
-  table{width:100%;border-collapse:collapse;font-size:14px}
-  th{text-align:right;padding:11px 14px;background:var(--soft);color:#475467;font-size:12.5px;font-weight:700;border-bottom:1px solid var(--line)}
-  td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--line)}
-  tr:last-child td{border-bottom:none}tbody tr:hover td{background:var(--soft)}
-  .rk{font-weight:900;color:#c2c8d2;text-align:center}.rk.g{color:var(--gold)}
-  .up{color:#10b981;font-weight:800}.down{color:var(--cerise);font-weight:800}.flat{color:var(--muted);font-weight:800}
-  .b{font-weight:800}
-  .bars{display:flex;align-items:flex-end;gap:18px;height:175px;padding-top:10px}
-  .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;justify-content:flex-end}
-  .bar .col{width:100%;border-radius:9px 9px 0 0;background:linear-gradient(180deg,var(--cerise),#ff7ec0)}
-  .bar small{font-size:12px;color:var(--muted);font-weight:700}.bar .amt{font-size:12px;font-weight:800}
-  .prog{height:9px;background:var(--soft);border-radius:999px;overflow:hidden;min-width:80px}
-  .prog .f{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cerise),#ff7ec0)}
-  .badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
-  .badge.gold{background:rgba(240,192,0,.14);color:#9a7b00}.badge.ok{background:rgba(41,171,226,.1);color:var(--sky-d)}.badge.cer{background:rgba(236,0,140,.08);color:var(--cerise-d)}
-  .grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}@media(max-width:900px){.grid2{grid-template-columns:1fr}}
-  .split{display:flex;flex-direction:column;gap:10px}
-  .splitrow{display:grid;grid-template-columns:90px 1fr 44px;gap:10px;align-items:center;font-size:13.5px;font-weight:600}
-  .foot{color:var(--muted);font-size:12px;text-align:center;padding:18px}
-  .empcard{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#EC008C,#FF5FAE);color:#fff;border-radius:16px;padding:18px 20px;margin-bottom:18px}
-  .empcard .big{font-size:24px;font-weight:900}.empcard .sub{opacity:.9;font-size:13px}
-  .empcard .r{margin-inline-start:auto;display:flex;gap:10px}
-  .pillw{background:rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;text-align:center}
-  .pillw .n{font-size:19px;font-weight:900}.pillw .t{font-size:11px;opacity:.9}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:right;padding:10px 12px;background:var(--soft);color:#475467;font-size:12px;font-weight:700;border-bottom:1px solid var(--line)}
+  td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}
+  .prog{height:8px;background:var(--soft);border-radius:999px;overflow:hidden}
+  .prog .f{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cerise),var(--coral))}
+  .badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:800}
+  .badge.gold{background:rgba(240,192,0,.15);color:var(--gold-d)}.badge.sky{background:rgba(41,171,226,.1);color:var(--sky-d)}.badge.cer{background:rgba(236,0,140,.08);color:var(--cerise-d)}.badge.coral{background:rgba(255,143,77,.12);color:var(--coral-d)}
 
-  /* podium hero */
-  .hero{background:linear-gradient(135deg,#EC008C 0%,#b8006e 58%,#6e1448 100%);border-radius:22px;padding:20px 24px 24px;color:#fff;margin-bottom:18px;box-shadow:0 12px 44px rgba(236,0,140,.28);position:relative;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% -25%,rgba(240,192,0,.3),transparent 52%)}
-  .herohead{display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative;margin-bottom:14px}
-  .herohead .t{font-size:15px;font-weight:900;display:flex;align-items:center;gap:8px}
-  .bigwin{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 15px;font-weight:800;font-size:13px}
-  .podium{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;align-items:end;position:relative;max-width:660px;margin:0 auto}
-  .pod{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:18px 18px 0 0;padding:14px 12px 18px;text-align:center}
-  .pod.first{background:linear-gradient(180deg,rgba(240,192,0,.4),rgba(255,255,255,.12));border-color:rgba(240,192,0,.65);padding:20px 12px 24px;box-shadow:0 -8px 34px rgba(240,192,0,.32)}
-  .pod .medal{font-size:30px;line-height:1}.pod.first .medal{font-size:40px}
-  .pod .av{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.5);display:grid;place-items:center;font-weight:900;font-size:18px;margin:8px auto 6px}
-  .pod.first .av{width:62px;height:62px;font-size:22px;border-color:var(--gold)}
-  .pod .nm{font-weight:900;font-size:15px}.pod.first .nm{font-size:17px}
+  /* ─────────── STAFF: mode switcher ─────────── */
+  .modesw{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:var(--shadow-sm);margin-bottom:16px}
+  .ms{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;cursor:pointer;border:0;background:none;font-family:inherit;text-align:start}
+  .ms .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--soft);font-size:19px;flex:none}
+  .ms .t{font-weight:900;font-size:14.5px;color:var(--ink)}.ms .s{font-size:11.5px;color:var(--muted);font-weight:600}
+  .ms.on.arena{background:linear-gradient(135deg,rgba(255,143,77,.12),rgba(240,192,0,.12))}
+  .ms.on.arena .ic{background:linear-gradient(135deg,var(--coral),var(--gold));color:#fff}
+  .ms.on.asst{background:rgba(236,0,140,.06)}
+  .ms.on.asst .ic{background:linear-gradient(135deg,var(--cerise),var(--cerise-d));color:#fff}
+  .mode{display:none}.mode.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+  /* team thermometer */
+  .thermo{background:linear-gradient(135deg,#0a0f23,#231331);color:#fff;border-radius:18px;padding:16px 20px;margin-bottom:16px;position:relative;overflow:hidden}
+  .thermo .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+  .thermo .tt{font-weight:900;font-size:15px}
+  .thermo .reward{background:rgba(240,192,0,.18);color:#ffe169;font-weight:800;font-size:12px;padding:6px 12px;border-radius:999px;display:inline-flex;gap:6px;align-items:center}
+  .tbar{height:16px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
+  .tbar .tf{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cerise),var(--sky),var(--coral),var(--gold))}
+  .thermo .nums{display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-top:7px;opacity:.92}
+
+  /* podium */
+  .arena-hero{background:linear-gradient(150deg,#EC008C 0%,#b8006e 55%,#5e1140 100%);border-radius:22px;padding:18px 22px 22px;color:#fff;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:0 14px 44px rgba(236,0,140,.26)}
+  .arena-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% -20%,rgba(240,192,0,.32),transparent 55%)}
+  .ah-head{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .ah-head .t{font-weight:900;font-size:15px}
+  .honor{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 14px;font-weight:800;font-size:12.5px}
+  .podium{position:relative;display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:14px;align-items:end;max-width:600px;margin:0 auto}
+  .pod{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:18px 18px 0 0;padding:14px 10px 18px;text-align:center}
+  .pod.first{background:linear-gradient(180deg,rgba(240,192,0,.38),rgba(255,255,255,.1));border-color:rgba(240,192,0,.6);padding:20px 10px 24px;box-shadow:0 -8px 32px rgba(240,192,0,.3)}
+  .pod .av{width:50px;height:50px;margin:0 auto 7px}.pod.first .av{width:62px;height:62px}
+  .pod .nm{font-weight:900;font-size:18px}.pod.first .nm{font-size:22px}
   .pod .br{font-size:11px;opacity:.85;font-weight:600}
-  .pod .amt{font-weight:900;font-size:16px;margin-top:6px}.pod.first .amt{font-size:20px;color:#ffe169}
-  .pod .tg{display:inline-block;margin-top:6px;background:rgba(0,0,0,.2);border-radius:999px;padding:2px 11px;font-size:11px;font-weight:800}
-  .feed{margin-top:16px;display:flex;gap:9px;flex-wrap:wrap;justify-content:center;position:relative}
-  .feeditem{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px}
-  .feeditem .g{width:7px;height:7px;border-radius:50%;background:#3ddc97;box-shadow:0 0 8px #3ddc97}
+  .pod .u{font-weight:900;font-size:17px;margin-top:6px}.pod.first .u{font-size:20px;color:#ffe169}
+  .pod .u small{font-size:11px;font-weight:700;opacity:.85}
+  .pod .tg{display:inline-block;margin-top:5px;background:rgba(0,0,0,.2);border-radius:999px;padding:2px 10px;font-size:11px;font-weight:800}
 
-  /* AI assistant */
-  .phonebar{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 18px;box-shadow:var(--shadow-sm);margin-bottom:16px}
-  .phonebar .icon{font-size:20px}
-  .phonebar input{flex:1;border:none;font:inherit;font-size:16px;font-weight:800;color:var(--ink);background:none;letter-spacing:1.5px}
-  .phonebar .ok{background:rgba(16,185,129,.12);color:#0a8a5b;font-weight:800;font-size:13px;padding:6px 13px;border-radius:999px;white-space:nowrap}
-  .custcard{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#29ABE2,#1479a8);color:#fff;border-radius:16px;padding:15px 20px;margin-bottom:16px}
-  .custcard .av{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-weight:900;font-size:18px;flex:none}
-  .custcard .nm{font-size:18px;font-weight:900}.custcard .sub{font-size:12.5px;opacity:.92}
-  .custcard .hist{margin-inline-start:auto;font-size:12.5px;opacity:.95;text-align:start;line-height:1.5}
-  .sug{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:760px){.sug{grid-template-columns:1fr}}
-  .sugcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:var(--shadow-sm);border-top:3px solid var(--cerise)}
-  .sugcard .p{font-weight:900;font-size:15px}.sugcard .why{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.5}
-  .sugcard .tag{margin-top:9px;display:inline-block;background:rgba(236,0,140,.08);color:var(--cerise-d);font-weight:800;font-size:11.5px;padding:3px 11px;border-radius:999px}
-  .lbl{font-weight:800;font-size:14px;margin:2px 0 11px}
-  .askbox{background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;border-radius:16px;padding:16px 20px;margin-bottom:18px}
-  .askbox .ql{font-size:12px;opacity:.7;font-weight:700;margin-bottom:8px;letter-spacing:.04em}
-  .askbox .q{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:11px 14px;font-weight:700;font-size:14px}
-  .askbox .a{margin-top:11px;font-size:13.5px;opacity:.95;line-height:1.65}
-  .askbox .a b{color:var(--gold)}
-  .note{color:var(--muted);font-size:13.5px;margin-bottom:11px}
+  /* my-day strip */
+  .myday{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+  @media(max-width:900px){.myday{grid-template-columns:repeat(2,1fr)}.podium{max-width:none}}
+  .w{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow-sm);position:relative}
+  .w .wt{font-size:11.5px;color:var(--muted);font-weight:700;margin-bottom:9px}
+  .ring{width:96px;height:96px;display:block;margin:0 auto}
+  .ring circle{fill:none;stroke-width:10;stroke-linecap:round}
+  .ring .tk{stroke:#eef1f6}
+  .ringwrap{position:relative;width:96px;margin:0 auto}
+  .ringc{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+  .ringc b{font-size:22px;font-weight:900;letter-spacing:-.5px;line-height:1}.ringc span{font-size:10px;color:var(--muted);font-weight:700}
+  .wbig{font-size:26px;font-weight:900;letter-spacing:-.5px}
+  .spark{display:flex;align-items:flex-end;gap:3px;height:34px;margin:6px 0}
+  .spark i{flex:1;background:#dCe7f0;border-radius:2px}.spark i.hot{background:var(--coral)}
+  .lanes{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+  .lane{height:13px;border-radius:999px;position:relative;font-size:0}
+  .lane.me{background:linear-gradient(90deg,var(--sky),var(--coral))}
+  .lane.gh{background:repeating-linear-gradient(90deg,#dce2ea 0 6px,transparent 6px 11px);border:1px dashed #cbd3dd}
+  .wchip{display:inline-block;font-size:11px;font-weight:800;padding:2px 9px;border-radius:999px;margin-top:7px}
+  .flame{font-size:24px}.streakn{font-size:24px;font-weight:900;letter-spacing:-.5px}
 
-  /* employee vs manager visibility */
-  body.emp .mgr-note{display:none} body.mgr .emp-note{display:none}
-  body.emp .mgr-only{display:none!important}
-  body.emp .col-money{display:none}
-  body.emp .money{display:none}
-  body.mgr .emponly{display:none}
+  /* next milestone */
+  .milestone{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-inline-start:4px solid var(--sky);border-radius:16px;padding:14px 18px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+  .milestone .mi{font-size:24px}
+  .milestone .mt{font-weight:800;font-size:14.5px}.milestone .mt b{color:var(--cerise)}
+  .milestone .ms2{font-size:12px;color:var(--muted);font-weight:600}
+
+  .arena-2col{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}@media(max-width:900px){.arena-2col{grid-template-columns:1fr}}
+  .lrow{display:flex;align-items:center;gap:12px;padding:9px 6px;border-bottom:1px solid var(--line)}
+  .lrow:last-child{border-bottom:none}
+  .lrow.you{background:rgba(236,0,140,.04);border-inline-start:3px solid var(--cerise);border-radius:8px;margin:0 -6px;padding:9px 9px}
+  .lrow .rk{font-weight:900;color:#aab1bd;width:20px;text-align:center}
+  .lrow .av{width:34px;height:34px}
+  .lrow .nm{font-weight:800;font-size:13.5px}.lrow .br{font-size:11px;color:var(--muted)}
+  .lrow .ub{flex:1;min-width:50px}
+  .lrow .tg{font-weight:800;font-size:12.5px;color:#475467;width:42px;text-align:center}
+  .feed{display:flex;flex-direction:column;gap:9px}
+  .fitem{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;padding:8px 11px;background:var(--soft);border-radius:11px}
+  .fitem .g{width:7px;height:7px;border-radius:50%;background:#3ddc97;box-shadow:0 0 7px #3ddc97;flex:none}
+  .fitem.big{background:rgba(240,192,0,.12);font-weight:800;color:var(--gold-d)}
+
+  /* head to head */
+  .h2h{background:linear-gradient(135deg,#fff,#fff8fb);border:1px solid rgba(236,0,140,.18);border-radius:18px;padding:16px 18px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+  .h2h-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .h2h .duel{display:flex;align-items:center;justify-content:center;gap:18px}
+  .h2h .side{text-align:center}.h2h .side .av{width:52px;height:52px;margin:0 auto 5px}
+  .h2h .side .nm{font-weight:800;font-size:13.5px}.h2h .side .sc{font-size:22px;font-weight:900;letter-spacing:-.5px}
+  .h2h .vs{font-weight:900;color:var(--coral);font-size:15px;background:rgba(255,143,77,.12);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+  .rope{height:12px;border-radius:999px;background:var(--soft);margin-top:13px;position:relative}
+  .rope .knot{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--cerise);transform:translate(-50%,-50%);box-shadow:0 2px 8px rgba(236,0,140,.4)}
+
+  /* achievements + dials */
+  .badgewall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}@media(max-width:760px){.badgewall{grid-template-columns:repeat(4,1fr)}}
+  .bdg{text-align:center;font-size:11px;font-weight:700;color:#475467}
+  .bdg .disc{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:22px;margin:0 auto 5px;background:linear-gradient(160deg,#fff,#f0f4f8);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  .bdg.on .disc{background:linear-gradient(160deg,#fffdf2,#fdf0c8);border-color:var(--gold);box-shadow:0 4px 14px rgba(240,192,0,.3)}
+  .bdg.off{opacity:.42;filter:grayscale(.7)}.bdg.off .disc{position:relative}
+  .bdg.off .disc::after{content:"🔒";position:absolute;bottom:-3px;left:-3px;font-size:11px;filter:none}
+  .dials{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .dial{text-align:center}.dial .dn{font-size:22px;font-weight:900;letter-spacing:-.5px}.dial .dl{font-size:11.5px;color:var(--muted);font-weight:700}
+
+  /* shift recap */
+  .recap{background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .recap .ri{text-align:center}.recap .ri b{font-size:20px;font-weight:900;display:block;letter-spacing:-.5px}.recap .ri span{font-size:11px;opacity:.82}
+  .recap .head{margin-inline-start:auto;text-align:start}.recap .head .pb{color:var(--gold);font-weight:900;font-size:15px}.recap .head .mom{font-size:12.5px;opacity:.9}
+
+  /* ─────────── AI ASSISTANT (calm) ─────────── */
+  .asstwrap{max-width:680px;margin:0 auto}
+  .asst-head{text-align:center;margin-bottom:18px}
+  .asst-head .ttl{font-size:21px;font-weight:900;letter-spacing:-.3px;display:inline-flex;align-items:center;gap:9px}
+  .asst-head .sub{color:var(--muted);font-size:13px;margin-top:4px}
+  .crumb{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0 18px;font-size:12px;font-weight:700;color:#aab1bd}
+  .crumb b{color:var(--cerise)}.crumb .sep{color:#cfd6df}
+  .phone-hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);text-align:center}
+  .phone-in{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:16px;padding:0 18px;height:62px;max-width:420px;margin:0 auto 14px;transition:.15s}
+  .phone-in:focus-within{border-color:var(--cerise);box-shadow:0 0 0 4px rgba(236,0,140,.1)}
+  .phone-in svg{width:22px;height:22px;fill:none;stroke:var(--muted);stroke-width:1.8;flex:none}
+  .phone-in input{flex:1;border:0;font:inherit;font-size:18px;font-weight:800;background:none;letter-spacing:1.5px;color:var(--ink);text-align:center}
+  .phone-in input:focus{outline:none}
+  .pbtn{background:var(--cerise);color:#fff;border:0;font:inherit;font-weight:800;font-size:14px;padding:12px 26px;border-radius:13px;cursor:pointer}
+  .pbtn:hover{background:var(--cerise-d)}
+  .pghost{display:block;margin-top:11px;color:var(--sky-d);font-weight:700;font-size:13px;background:none;border:0;cursor:pointer;font-family:inherit}
+  .psecure{color:#aab1bd;font-size:11.5px;margin-top:13px}
+  .ctxchip{display:none;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:11px 16px;box-shadow:var(--shadow-sm);margin-bottom:14px;font-weight:700;font-size:13px}
+  .ctxchip.on{display:flex}
+  .ctxchip .reset{margin-inline-start:auto;color:var(--cerise);font-weight:800;font-size:12.5px;cursor:pointer}
+  .custcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+  .cc-top{display:flex;align-items:center;gap:14px;margin-bottom:13px}
+  .cc-top .av{width:52px;height:52px}
+  .cc-top .nm{font-size:18px;font-weight:900}
+  .cc-top .meta{font-size:12px;color:var(--muted);font-weight:600}
+  .cc-badges{margin-inline-start:auto;display:flex;gap:7px;flex-wrap:wrap}
+  .hist-strip{background:var(--soft);border-radius:13px;padding:12px 14px}
+  .hist-strip .hl{font-size:12px;font-weight:800;color:#475467;margin-bottom:8px}
+  .hist-items{display:flex;gap:9px;flex-wrap:wrap}
+  .hchip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 11px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:7px}
+  .hchip .pi{font-size:15px}.hchip small{color:var(--muted);font-weight:600}
+  .insight{display:flex;align-items:center;gap:9px;background:rgba(41,171,226,.07);border:1px solid rgba(41,171,226,.18);border-radius:13px;padding:11px 14px;margin-top:12px;font-size:13px;font-weight:700;color:var(--sky-d)}
+  .insight .i{font-size:16px}
+  .sug-h{font-weight:800;font-size:14px;margin:4px 2px 11px}
+  .sug{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:700px){.sug{grid-template-columns:1fr}}
+  .sugcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:var(--shadow-sm);position:relative}
+  .sugcard.lead{border:1.5px solid var(--cerise);box-shadow:0 8px 24px rgba(236,0,140,.13)}
+  .sugcard.lead .pick{position:absolute;top:-10px;inset-inline-end:14px;background:var(--cerise);color:#fff;font-weight:800;font-size:10.5px;padding:3px 10px;border-radius:999px}
+  .sugcard .thumb{width:100%;height:74px;border-radius:11px;background:linear-gradient(160deg,#f2f5f9,#e7edf4);display:grid;place-items:center;font-size:28px;margin-bottom:10px}
+  .sugcard .pn{font-weight:900;font-size:14.5px}
+  .sugcard .rs{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.5;min-height:34px}
+  .sugcard .why{font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-top:8px;display:inline-block}
+  .sugcard.s-cer .why{background:rgba(236,0,140,.08);color:var(--cerise-d)}.sugcard.s-sky .why{background:rgba(41,171,226,.1);color:var(--sky-d)}
+  .dots{display:inline-flex;gap:3px;margin-inline-start:8px;vertical-align:middle}
+  .dots i{width:6px;height:6px;border-radius:50%;background:#d7dce4}.dots i.on{background:var(--sky)}
+  .sug-act{display:flex;gap:8px;margin-top:11px}
+  .sa-primary{flex:1;background:var(--cerise);color:#fff;border:0;font:inherit;font-weight:800;font-size:12.5px;padding:9px;border-radius:10px;cursor:pointer}
+  .sa-sec{background:var(--soft);color:#475467;border:0;font:inherit;font-weight:800;font-size:12.5px;padding:9px 13px;border-radius:10px;cursor:pointer}
+  .chips-seed{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+  .seedchip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer}
+  .seedchip:hover{border-color:var(--sky)}
+
+  /* manager extras */
+  .askbox{background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;border-radius:16px;padding:16px 20px;margin-bottom:16px}
+  .askbox .ql{font-size:11.5px;opacity:.65;font-weight:700;margin-bottom:8px;letter-spacing:.04em}
+  .askbox .q{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:11px 14px;font-weight:700;font-size:13.5px}
+  .askbox .a{margin-top:11px;font-size:13px;opacity:.95;line-height:1.65}.askbox .a b{color:var(--gold)}
+  .mstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+  .mstat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-align:center;box-shadow:var(--shadow-sm)}
+  .mstat .v{font-size:23px;font-weight:900;color:var(--cerise);letter-spacing:-.5px}
+  .mstat.sky .v{color:var(--sky-d)}.mstat.coral .v{color:var(--coral-d)}.mstat.gold .v{color:var(--gold-d)}
+  .mstat .l{font-size:11px;color:var(--muted);margin-top:3px;font-weight:600}.mstat .up{font-size:10.5px;color:#10b981;font-weight:800}
+  .up{color:#10b981;font-weight:800}.down{color:var(--cerise);font-weight:800}.flat{color:var(--muted);font-weight:800}.b{font-weight:800}
 </style>
 </head>
-<body class="emp">
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="person" viewBox="0 0 24 24"><path d="M12 12.4a4.1 4.1 0 100-8.2 4.1 4.1 0 000 8.2zM4.6 19.6c0-3.2 3.3-5.3 7.4-5.3s7.4 2.1 7.4 5.3v.4H4.6z"/></symbol></svg>
+
+<!-- ════════ CHOOSER ════════ -->
+<div id="chooser">
+  <div class="ch-logo"><img src="gomobile.png" alt="GoMobile"><span class="x">·</span><span style="font-weight:900;font-size:18px">דאשבורד מכירות</span></div>
+  <div class="ch-h">בחרו תצוגה</div>
+  <div class="ch-sub">שתי תצוגות נפרדות — אחת לצוות הרצפה, אחת לניהול. מאגר אחד, והנתונים נשארים אצלכם.</div>
+  <div class="ch-cards">
+    <!-- STAFF (left) -->
+    <div class="ch-card staff" onclick="choose('staff')" tabindex="0">
+      <div class="ch-tile"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 01-12 0V4zM6 6H3v2a3 3 0 003 3M18 6h3v2a3 3 0 01-3 3"/></svg></div>
+      <h2>צוות הרצפה</h2>
+      <div class="ch-role">נציגי מכירות</div>
+      <ul class="ch-list">
+        <li>לוח דירוג עם שמות בגדול ומדליות</li>
+        <li>יעד אישי, רצפים והישגים</li>
+        <li>אתגרי ראש-בראש ופיד מכירות חי</li>
+        <li>עוזר מכירה חכם (זיהוי לקוח + המלצות)</li>
+      </ul>
+      <div class="ch-strip"><svg viewBox="0 0 24 24" stroke="currentColor"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg><div>מה שהצוות רואה: דירוג, כמויות ויעדים — לעולם לא ₪<span class="sub">בלי חשיפת סכומי מכירה — תחרות בלבד</span></div></div>
+      <button class="ch-cta">כניסת צוות ←</button>
+    </div>
+    <!-- ADMIN (right, RTL-first) -->
+    <div class="ch-card admin" onclick="choose('manager')" tabindex="0">
+      <div class="ch-corner"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>נדרשת הזדהות</div>
+      <div class="ch-tile"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+      <h2>ניהול / הנהלה</h2>
+      <div class="ch-role">מנהל / מנכ״ל</div>
+      <ul class="ch-list">
+        <li>מחזורי ₪ בזמן אמת</li>
+        <li>יעדים מ-bGate והשוואה ליום קודם באותה שעה</li>
+        <li>פיד עסקאות חי + הקפצת עסקה גדולה</li>
+        <li>שאל-את-המערכת בשפה חופשית</li>
+        <li>בונוסים ותגמול צוות</li>
+      </ul>
+      <div class="ch-strip"><svg viewBox="0 0 24 24" stroke="currentColor"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><div>גישה מוגבלת — רק למשה ולמי שיוגדר על ידו<span class="sub">הצוות בחנות לא רואה מסך זה ואת נתוני ה-₪</span></div></div>
+      <button class="ch-cta">כניסת מנהל ←</button>
+    </div>
+  </div>
+  <div class="ch-ribbon">
+    <div class="ch-pt"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>תצוגת ההנהלה נעולה — גישה רק למי שתבחר</div>
+    <div class="ch-pt"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>הצוות אף פעם לא רואה ₪ או מחזורים</div>
+    <div class="ch-pt"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v9a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><rect x="9" y="13" width="6" height="7"/></svg>הנתונים נשארים אצלכם, בבית — לא אצל גורם חיצוני</div>
+    <div class="more">אפשר לפתוח כל תצוגה מכל מסך או טלפון דרך קישור — בלי התקנה.</div>
+    <div class="kf">אותה מערכת, שתי דלתות. אתה מחזיק את המפתח להנהלה.</div>
+  </div>
+  <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד</div>
+</div>
+
+<!-- ════════ APP (a view is chosen) ════════ -->
+<div id="app" hidden>
 <div class="shell">
-  <div class="phead">
-    <div class="brand"><div class="logo"><img src="gomobile.png" alt="GoMobile"></div>
-      <div><h1>דאשבורד מכירות לצוות</h1><p>GoMobile · תחרות, עוזר מכירות חכם ומבט מנהל · תצוגה מקדימה</p></div></div>
-    <div class="live"><span class="dot"></span>חי · עודכן לפני דקה</div>
+  <div class="topbar">
+    <div class="brand"><div class="blogo"><img src="gomobile.png" alt="GoMobile"></div>
+      <div><h1>דאשבורד מכירות</h1><p>GoMobile · תצוגה מקדימה</p></div></div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="live"><span class="dot"></span>חי</span>
+      <span class="roletag staff" id="roleStaff" hidden>👤 תצוגת צוות</span>
+      <span class="roletag mgr" id="roleMgr" hidden>🔒 תצוגת מנהל</span>
+      <button class="switchview" onclick="backToChooser()">↔ החלפת תצוגה</button>
+    </div>
   </div>
 
-  <div class="viewbar">
-    <span class="vlabel">תצוגה:</span>
-    <div class="viewtoggle">
-      <button class="vt active" data-v="emp">👤 תצוגת עובד</button>
-      <button class="vt" data-v="mgr">👔 תצוגת מנכ״ל / מנהל</button>
+  <!-- ───── STAFF ───── -->
+  <div id="staff" hidden>
+    <div class="modesw">
+      <button class="ms arena on" data-m="arena"><span class="ic">🏆</span><span><span class="t">הזירה · התחרות</span><span class="s">דירוג, יעדים, אתגרים</span></span></button>
+      <button class="ms asst" data-m="asst"><span class="ic">💬</span><span><span class="t">העוזר החכם</span><span class="s">זיהוי לקוח והמלצות מכירה</span></span></button>
     </div>
-    <span class="vnote emp-note"><b>הצוות בחנות</b> רואה דירוג, יחידות, יעדים ומדליות — <b>ללא נתוני מכירות (₪)</b>, כדי שלא ניתן לחשב מחזורים או רווחיות.</span>
-    <span class="vnote mgr-note"><b>תצוגת מנכ״ל</b> — נתונים מלאים: מכירות (₪), מבט מנהל, סניפים ובונוסים.</span>
+
+    <!-- ARENA -->
+    <div class="mode arena on" data-mode="arena">
+      <div class="thermo">
+        <div class="top"><div class="tt">🎯 יעד החנות היום · <span class="n">41</span>/<span class="n">60</span> מכירות</div><div class="reward">🎁 ב-100%: ארוחת צהריים על הבית</div></div>
+        <div class="tbar"><div class="tf" style="width:68%"></div></div>
+        <div class="nums"><span>נותרו <span class="n">19</span> מכירות</span><span><span class="n">68%</span></span></div>
+      </div>
+
+      <div class="arena-hero">
+        <div class="ah-head"><div class="t">🏆 לוח התוצאות · השבוע</div><div class="honor">⭐ העסקה הגדולה היום · בן לוי · גלקסי S26 אולטרה</div></div>
+        <div class="podium">
+          <div class="pod second"><span class="av silver"><svg><use href="#person"/></svg><span class="crown">🥈</span></span><div class="nm">דנה אבני</div><div class="br">ת״א</div><div class="u"><span class="n">38</span> <small>מכירות</small></div><div class="tg"><span class="n">92%</span> מהיעד</div></div>
+          <div class="pod first"><span class="av gold"><svg><use href="#person"/></svg><span class="crown">👑</span></span><div class="nm">בן לוי</div><div class="br">ר״ג</div><div class="u"><span class="n">42</span> <small>מכירות</small></div><div class="tg"><span class="n">128%</span> מהיעד</div></div>
+          <div class="pod third"><span class="av bronze"><svg><use href="#person"/></svg><span class="crown">🥉</span></span><div class="nm">אורי כהן</div><div class="br">חיפה</div><div class="u"><span class="n">35</span> <small>מכירות</small></div><div class="tg"><span class="n">86%</span> מהיעד</div></div>
+        </div>
+      </div>
+
+      <div class="myday">
+        <div class="w"><div class="wt">היעד שלי היום</div>
+          <div class="ringwrap"><svg class="ring" viewBox="0 0 96 96"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC008C"/><stop offset="1" stop-color="#FF8F4D"/></linearGradient></defs><circle class="tk" cx="48" cy="48" r="41"/><circle cx="48" cy="48" r="41" stroke="url(#rg)" stroke-dasharray="258" stroke-dashoffset="85" transform="rotate(-90 48 48)"/></svg><div class="ringc"><b class="n">67%</b><span>8 / 12 יח׳</span></div></div>
+          <div style="text-align:center;margin-top:6px;font-size:11.5px;color:var(--muted);font-weight:700">נשארו <span class="n">4</span> לסגירת היעד</div>
+        </div>
+        <div class="w"><div class="wt">קצב שעתי</div><div class="wbig"><span class="n">2.4</span><small style="font-size:13px;color:var(--muted)">/שעה</small></div>
+          <div class="spark"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:60%"></i><i class="hot" style="height:95%"></i></div>
+          <span class="wchip" style="background:rgba(240,192,0,.15);color:var(--gold-d)">מעל הקצב · תסיים על <span class="n">14</span></span>
+        </div>
+        <div class="w"><div class="wt">נצח את האתמול</div>
+          <div style="font-size:13px;font-weight:800;margin-bottom:3px">אתה <span class="n">8</span> · אתמול <span class="n">6</span></div>
+          <div class="lanes"><div class="lane me" style="width:80%"></div><div class="lane gh" style="width:60%"></div></div>
+          <span class="wchip" style="background:rgba(255,143,77,.14);color:var(--coral-d)">🔥 +<span class="n">2</span> · אתה מוביל</span>
+        </div>
+        <div class="w" style="text-align:center"><div class="wt">רצף חם</div><div class="flame">🔥</div><div class="streakn"><span class="n">4</span></div><div style="font-size:11.5px;color:var(--muted);font-weight:700">ימים ברצף</div><span class="wchip" style="background:rgba(240,192,0,.15);color:var(--gold-d)">שיא השבוע</span></div>
+      </div>
+
+      <div class="milestone"><span class="mi">🎯</span><div><div class="mt">האבן הבאה: עוד <b><span class="n">1</span> מכירה</b> כדי לעקוף את דנה בדירוג</div><div class="ms2">ואז עוד <span class="n">2</span> לתג «שובר שיאים»</div></div></div>
+
+      <div class="arena-2col">
+        <div class="card"><div class="h">דירוג · המשך<div class="seg"><span>היום</span><span class="on">השבוע</span><span>החודש</span></div></div>
+          <div class="lrow"><span class="rk">4</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">אבי מזרחי</div><div class="br">ב״ש</div></div><div class="ub"><div class="prog"><div class="f" style="width:74%"></div></div></div><span class="tg"><span class="n">31</span></span><span class="up">▲</span></div>
+          <div class="lrow you"><span class="rk">5</span><span class="av you"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">נטע שגב <span class="badge cer" style="font-size:9.5px;padding:1px 7px">זה אתה</span></div><div class="br">נתניה</div></div><div class="ub"><div class="prog"><div class="f" style="width:69%"></div></div></div><span class="tg"><span class="n">29</span></span><span class="down">▼</span></div>
+          <div class="lrow"><span class="rk">6</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">איתי ברק</div><div class="br">ר״ג</div></div><div class="ub"><div class="prog"><div class="f" style="width:62%"></div></div></div><span class="tg"><span class="n">26</span></span><span class="up">▲</span></div>
+          <div class="lrow"><span class="rk">7</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">שירה פרץ</div><div class="br">חיפה</div></div><div class="ub"><div class="prog"><div class="f" style="width:57%"></div></div></div><span class="tg"><span class="n">24</span></span><span class="flat">▬</span></div>
+        </div>
+        <div class="card"><div class="h">פיד מכירות חי</div>
+          <div class="feed">
+            <div class="fitem big"><span class="g"></span>🎉 עסקה גדולה · בן לוי · גלקסי S26 אולטרה</div>
+            <div class="fitem"><span class="g"></span>מכירה חדשה · ת״א · אייפון 17</div>
+            <div class="fitem"><span class="g"></span>+ אביזר · חיפה · מגן מסך</div>
+            <div class="fitem"><span class="g"></span>מכירה חדשה · נתניה · Apple Watch</div>
+            <div class="fitem"><span class="g"></span>+ ביטוח מסך · ר״ג</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h2h">
+        <div class="h2h-top"><div style="font-weight:800;font-size:14px">⚔️ אתגר ראש-בראש · המשמרת</div><span class="badge coral">נותרו <span class="n">2:15</span> שעות</span></div>
+        <div class="duel">
+          <div class="side"><span class="av you"><svg><use href="#person"/></svg></span><div class="nm">נטע (את)</div><div class="sc"><span class="n">9</span></div></div>
+          <div class="vs">VS</div>
+          <div class="side"><span class="av skyr"><svg><use href="#person"/></svg></span><div class="nm">דני</div><div class="sc"><span class="n">8</span></div></div>
+        </div>
+        <div class="rope"><div class="knot" style="right:54%"></div></div>
+        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)">👑 את מובילה ב-<span class="n">1</span> — עוד מכירה אחת ננעלת!</div>
+      </div>
+
+      <div class="arena-2col">
+        <div class="card"><div class="h">אתגר היום · איכות מכירה</div>
+          <div class="dials">
+            <div class="dial"><div class="dn" style="color:var(--coral-d)"><span class="n">0.8</span></div><div class="dl">אביזר לכל טלפון · יעד <span class="n">1.0</span></div></div>
+            <div class="dial"><div class="dn" style="color:var(--sky-d)"><span class="n">5</span>/<span class="n">7</span></div><div class="dl">לקוחות שסגרו היום</div></div>
+            <div class="dial"><div class="dn" style="color:var(--gold-d)"><span class="n">71%</span></div><div class="dl">צירוף ביטוח · שיא אישי</div></div>
+          </div>
+        </div>
+        <div class="card"><div class="h">קיר ההישגים<span class="sm">נפתחו <span class="n">6</span>/<span class="n">12</span></span></div>
+          <div class="badgewall">
+            <div class="bdg on"><div class="disc">👑</div>מלך אביזרים</div>
+            <div class="bdg on"><div class="disc">🌅</div>בוקר מנצח</div>
+            <div class="bdg on"><div class="disc">🔥</div>5 ברצף</div>
+            <div class="bdg off"><div class="disc">⚡</div>שובר שיאים</div>
+            <div class="bdg off"><div class="disc">💪</div>הקאמבק</div>
+            <div class="bdg off"><div class="disc">⭐</div>טופ 3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recap">
+        <div class="ri"><b class="n">8</b><span>מכירות היום</span></div>
+        <div class="ri"><b class="n">67%</b><span>מהיעד</span></div>
+        <div class="ri"><b>#<span class="n">5</span></b><span>דירוג</span></div>
+        <div class="ri"><b class="n">🔥4</b><span>רצף</span></div>
+        <div class="head"><div class="pb">🏅 שיא אישי חדש בדרך!</div><div class="mom">מומנטום: עולה ↑ · הרצף הכי חם 15:00–16:00</div></div>
+      </div>
+    </div>
+
+    <!-- ASSISTANT -->
+    <div class="mode asst" data-mode="asst">
+      <div class="asstwrap">
+        <div class="asst-head"><div class="ttl">✨ העוזר החכם למכירה</div><div class="sub">הקלידו מספר טלפון כדי לזהות לקוח ולקבל המלצות</div></div>
+        <div class="crumb" id="crumb"><b>מספר</b><span class="sep">←</span><span>לקוח</span><span class="sep">←</span><span>המלצות</span></div>
+
+        <!-- stage A: phone -->
+        <div id="stageA" class="phone-hero">
+          <div class="phone-in"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a14 14 0 006 6l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2z"/></svg><input value="052-•••-4187" readonly></div>
+          <button class="pbtn" onclick="recognize()">זהה לקוח ←</button>
+          <button class="pghost" onclick="newCustomer()">או המשך כלקוח חדש</button>
+          <div class="psecure">🔒 הזיהוי מאובטח — הנתונים נשארים אצלכם בלבד</div>
+        </div>
+
+        <!-- stage B/C: recognized -->
+        <div id="stageB" hidden>
+          <div class="ctxchip on"><span>☎ <span class="n">…4187</span></span><span style="color:var(--muted)">·</span><span id="ctxName">רותם · לקוח חוזר</span><span class="reset" onclick="resetAsst()">איפוס ↺</span></div>
+          <div class="custcard">
+            <div class="cc-top">
+              <span class="av you" id="custAv"><svg><use href="#person"/></svg><span class="pip" id="custPip">⭐</span></span>
+              <div><div class="nm" id="custName">רותם אברהם</div><div class="meta" id="custMeta">8 ביקורים · רכישה אחרונה לפני 11 חודשים</div></div>
+              <div class="cc-badges" id="custBadges"><span class="badge cer">לקוח חוזר</span><span class="badge gold">לקוח מאז 2023</span></div>
+            </div>
+            <div class="hist-strip" id="histStrip">
+              <div class="hl">מה הוא קנה אצלנו</div>
+              <div class="hist-items">
+                <div class="hchip"><span class="pi">📱</span>אייפון 15 <small>· לפני 11 ח׳</small></div>
+                <div class="hchip"><span class="pi">🎧</span>AirPods Pro <small>· לפני 11 ח׳</small></div>
+                <div class="hchip"><span class="pi">🛡️</span>ביטוח מסך <small>· פג החודש</small></div>
+              </div>
+            </div>
+            <div class="insight" id="insight"><span class="i">💡</span>קנה אייפון לפני 11 חודשים — בשל לשדרוג, והביטוח שלו פג החודש.</div>
+          </div>
+          <div class="sug-h" id="sugH">המלצות upsell — לפי ההיסטוריה שלו</div>
+          <div class="sug" id="sugCards">
+            <div class="sugcard lead s-cer"><span class="pick">הכי מתאים</span><div class="thumb">📱</div><div class="pn">אייפון 17 Pro</div><div class="rs">משדרג מאייפון 15 — דור וחצי קדימה, אותו מותג שהוא אוהב.</div><span class="why">שדרוג טבעי <span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span></span><div class="sug-act"><button class="sa-primary">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>
+            <div class="sugcard s-cer"><div class="thumb">🛡️</div><div class="pn">חידוש ביטוח מסך</div><div class="rs">הביטוח הנוכחי פג החודש — חידוש מיידי מונע פער כיסוי.</div><span class="why">מבוסס היסטוריה <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>
+            <div class="sugcard s-cer"><div class="thumb">⌚</div><div class="pn">Apple Watch SE</div><div class="rs">לקוחות בפרופיל דומה הוסיפו שעון תוך 60 יום מרכישת אייפון.</div><span class="why">לקוחות דומים <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="tabs">
-    <button class="tab active" data-s="lead">🏆 לוח תוצאות</button>
-    <button class="tab" data-s="asst">🤖 עוזר מכירות AI</button>
-    <button class="tab mgr-only" data-s="branches">🏬 מבט מנהל וסניפים</button>
-    <button class="tab mgr-only" data-s="emp">👤 פרופיל עובד</button>
-    <button class="tab mgr-only" data-s="targets">🎯 יעדים ובונוסים</button>
-  </div>
-
-  <!-- LEADERBOARD + PODIUM HERO (both views; ₪ hidden for staff) -->
-  <section class="screen on" data-screen="lead">
-    <div class="hero">
-      <div class="herohead">
-        <div class="t">🏆 לוח התוצאות החי · השבוע</div>
-        <div class="bigwin money">🔥 המכירה הגדולה היום · בן לוי · ₪14,200</div>
-        <div class="bigwin emponly">🔥 הכי הרבה מכירות היום · בן לוי</div>
-      </div>
-      <div class="podium">
-        <div class="pod second"><div class="medal">🥈</div><div class="av">ד״א</div><div class="nm">דנה אבני</div><div class="br">ת״א</div><div class="amt money">₪88,150</div><div class="amt emponly">38 מכירות</div><div class="tg">92% מהיעד</div></div>
-        <div class="pod first"><div class="medal">🥇</div><div class="av">ב״ל</div><div class="nm">בן לוי</div><div class="br">ר״ג</div><div class="amt money">₪96,400</div><div class="amt emponly">42 מכירות</div><div class="tg">128% מהיעד</div></div>
-        <div class="pod third"><div class="medal">🥉</div><div class="av">א״כ</div><div class="nm">אורי כהן</div><div class="br">חיפה</div><div class="amt money">₪81,900</div><div class="amt emponly">35 מכירות</div><div class="tg">86% מהיעד</div></div>
-      </div>
-      <div class="feed">
-        <div class="feeditem"><span class="g"></span>מכירה חדשה · ת״א</div>
-        <div class="feeditem"><span class="g"></span>+ ביטוח מסך · חיפה</div>
-        <div class="feeditem"><span class="g"></span>iPhone 17 · ר״ג</div>
-        <div class="feeditem"><span class="g"></span>Apple Watch · נתניה</div>
-      </div>
-    </div>
-    <div class="stats">
-      <div class="stat mgr-only"><div class="v">₪412K</div><div class="l">מכירות היום</div><div class="up">▲ 12%</div></div>
-      <div class="stat sky"><div class="v">186</div><div class="l">יחידות</div><div class="up">▲ 8%</div></div>
-      <div class="stat coral"><div class="v">31%</div><div class="l">אחוז המרה</div><div class="up">▲ 4%</div></div>
-      <div class="stat mgr-only"><div class="v">₪2,214</div><div class="l">סל ממוצע</div></div>
-      <div class="stat gold"><div class="v">24</div><div class="l">עובדים פעילים</div></div>
-    </div>
-    <div class="card">
-      <div class="h">דירוג עובדים<div class="seg"><span>היום</span><span class="on">השבוע</span><span>החודש</span></div></div>
-      <table>
-        <thead><tr><th>#</th><th>עובד</th><th>סניף</th><th class="col-money">מכירות</th><th>יחידות</th><th>יעד</th><th>מגמה</th></tr></thead>
-        <tbody>
-          <tr><td class="rk g">1</td><td class="b">בן לוי</td><td>ר"ג</td><td class="b col-money">₪96,400</td><td>42</td><td><span class="badge gold">128%</span></td><td class="up">▲</td></tr>
-          <tr><td class="rk">2</td><td class="b">דנה אבני</td><td>ת"א</td><td class="b col-money">₪88,150</td><td>38</td><td>92%</td><td class="up">▲</td></tr>
-          <tr><td class="rk">3</td><td class="b">אורי כהן</td><td>חיפה</td><td class="b col-money">₪81,900</td><td>35</td><td>86%</td><td class="flat">▬</td></tr>
-          <tr><td class="rk">4</td><td class="b">אבי מזרחי</td><td>ב"ש</td><td class="b col-money">₪74,300</td><td>31</td><td>79%</td><td class="up">▲</td></tr>
-          <tr><td class="rk">5</td><td class="b">נטע שגב</td><td>נתניה</td><td class="b col-money">₪69,050</td><td>29</td><td>74%</td><td class="down">▼</td></tr>
-          <tr><td class="rk">6</td><td class="b">איתי ברק</td><td>ר"ג</td><td class="b col-money">₪61,200</td><td>26</td><td>68%</td><td class="up">▲</td></tr>
-          <tr><td class="rk">7</td><td class="b">שירה פרץ</td><td>חיפה</td><td class="b col-money">₪57,800</td><td>24</td><td>64%</td><td class="flat">▬</td></tr>
-          <tr><td class="rk">8</td><td class="b">עומר דהן</td><td>ת"א</td><td class="b col-money">₪52,400</td><td>22</td><td>58%</td><td class="up">▲</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- AI ASSISTANT (both views — no company revenue shown) -->
-  <section class="screen" data-screen="asst">
-    <div class="card">
-      <div class="h">עוזר מכירות חכם · הקלדת מספר טלפון</div>
-      <div class="phonebar"><span class="icon">📞</span><input value="052-•••-4187" readonly><span class="ok">✓ לקוח זוהה</span></div>
-      <div class="custcard">
-        <div class="av">ר״א</div>
-        <div><div class="nm">רונית אברהם</div><div class="sub">לקוחה חוזרת · 3 רכישות · מאז 2023</div></div>
-        <div class="hist">רכישה אחרונה:<br>iPhone 15 · AirPods Pro</div>
-      </div>
-      <div class="lbl">המלצות upsell — לפי ההיסטוריה של הלקוחה ולקוחות דומים</div>
-      <div class="sug">
-        <div class="sugcard"><div class="p">מארז מגן + מסך מוקשח</div><div class="why">תואם ל-iPhone שרכשה; 74% מהרוכשים הוסיפו</div><span class="tag">התאמה גבוהה</span></div>
-        <div class="sugcard"><div class="p">Apple Watch SE</div><div class="why">לקוחות בפרופיל דומה הוסיפו שעון תוך 60 יום</div><span class="tag">לקוחות דומים</span></div>
-        <div class="sugcard"><div class="p">ביטוח מסך · 24 ח׳</div><div class="why">לא ביטחה את המכשיר הקודם — הזדמנות</div><span class="tag">מבוסס היסטוריה</span></div>
-      </div>
-    </div>
-    <div class="card" style="border-top:3px solid var(--sky)">
-      <div class="h">לקוח חדש · ללא היסטוריה</div>
-      <p class="note">כשאין היסטוריית לקוח, ההמלצות מבוססות על מה שלקוחות אחרים שרכשו את אותו מוצר הוסיפו.</p>
-      <div class="sug">
-        <div class="sugcard" style="border-top-color:var(--sky)"><div class="p">Galaxy Buds</div><div class="why">63% מרוכשי Galaxy S25 הוסיפו אוזניות</div><span class="tag">נרכש יחד</span></div>
-        <div class="sugcard" style="border-top-color:var(--sky)"><div class="p">מטען מהיר 45W</div><div class="why">פריט נלווה נפוץ ברכישת סמארטפון</div><span class="tag">נרכש יחד</span></div>
-        <div class="sugcard" style="border-top-color:var(--sky)"><div class="p">ביטוח מסך</div><div class="why">שיעור צירוף גבוה בקטגוריה</div><span class="tag">מומלץ</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MANAGER VIEW + BRANCHES (manager only) -->
-  <section class="screen" data-screen="branches">
+  <!-- ───── MANAGER ───── -->
+  <div id="manager" hidden>
     <div class="askbox">
-      <div class="ql">שאל את המערכת</div>
+      <div class="ql">שאל את המערכת · שפה חופשית</div>
       <div class="q">💬 "מה היה המחזור בר״ג ב-14:00 לעומת אתמול?"</div>
-      <div class="a">בר״ג נכון ל-<b>14:00</b> נרשמו <b>₪96,400</b> — גבוה ב-<b>12%</b> מאותה שעה אתמול (₪86,050). הסניף בקצב לעבור את היעד היומי.</div>
+      <div class="a">בר״ג נכון ל-<b><span class="n">14:00</span></b> נרשמו <b><span class="n">₪96,400</span></b> — גבוה ב-<b><span class="n">12%</span></b> מאותה שעה אתמול (<span class="n">₪86,050</span>). הסניף בקצב לעבור את היעד היומי.</div>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="v">₪1.07M</div><div class="l">מכירות השבוע</div><div class="up">▲ 9%</div></div>
-      <div class="stat sky"><div class="v">5</div><div class="l">סניפים</div></div>
-      <div class="stat coral"><div class="v">ר"ג</div><div class="l">סניף מוביל</div></div>
-      <div class="stat"><div class="v">₪58K</div><div class="l">ממוצע לעובד</div></div>
-      <div class="stat gold"><div class="v">29%</div><div class="l">המרה ממוצעת</div></div>
+    <div class="mstats">
+      <div class="mstat"><div class="v"><span class="n">₪412K</span></div><div class="l">מכירות היום</div><div class="up">▲ <span class="n">12%</span></div></div>
+      <div class="mstat sky"><div class="v"><span class="n">₪1.07M</span></div><div class="l">מכירות השבוע</div><div class="up">▲ <span class="n">9%</span></div></div>
+      <div class="mstat coral"><div class="v"><span class="n">31%</span></div><div class="l">אחוז המרה</div></div>
+      <div class="mstat"><div class="v"><span class="n">₪2,214</span></div><div class="l">סל ממוצע</div></div>
+      <div class="mstat gold"><div class="v"><span class="n">82%</span></div><div class="l">מהיעד החודשי</div></div>
     </div>
-    <div class="grid2">
-      <div class="card"><div class="h">מכירות לפי סניף · השבוע</div>
-        <div class="bars">
-          <div class="bar"><span class="amt">₪288K</span><div class="col" style="height:92%"></div><small>ר"ג</small></div>
-          <div class="bar"><span class="amt">₪244K</span><div class="col" style="height:78%"></div><small>ת"א</small></div>
-          <div class="bar"><span class="amt">₪216K</span><div class="col" style="height:69%"></div><small>חיפה</small></div>
-          <div class="bar"><span class="amt">₪172K</span><div class="col" style="height:55%"></div><small>ב"ש</small></div>
-          <div class="bar"><span class="amt">₪151K</span><div class="col" style="height:48%"></div><small>נתניה</small></div>
-        </div>
-      </div>
-      <div class="card"><div class="h">פילוח קטגוריות</div>
-        <div class="split">
-          <div class="splitrow"><span>סמארטפונים</span><div class="prog"><div class="f" style="width:54%"></div></div><span class="b">54%</span></div>
-          <div class="splitrow"><span>אביזרים</span><div class="prog"><div class="f" style="width:18%"></div></div><span class="b">18%</span></div>
-          <div class="splitrow"><span>שעונים</span><div class="prog"><div class="f" style="width:12%"></div></div><span class="b">12%</span></div>
-          <div class="splitrow"><span>טאבלטים</span><div class="prog"><div class="f" style="width:9%"></div></div><span class="b">9%</span></div>
-          <div class="splitrow"><span>שמע</span><div class="prog"><div class="f" style="width:7%"></div></div><span class="b">7%</span></div>
-        </div>
+    <div class="card"><div class="h">פיד עסקאות חי</div>
+      <div class="feed">
+        <div class="fitem big"><span class="g"></span>🎉 עסקה גדולה · ר״ג · גלקסי S26 אולטרה · <span class="n">₪14,200</span> · 14:38</div>
+        <div class="fitem"><span class="g"></span>ת״א · אייפון 17 · <span class="n">₪5,200</span> · 14:35</div>
+        <div class="fitem"><span class="g"></span>חיפה · מגן מסך · <span class="n">₪890</span> · 14:33</div>
+        <div class="fitem"><span class="g"></span>נתניה · Apple Watch · <span class="n">₪1,750</span> · 14:31</div>
       </div>
     </div>
-    <div class="card"><div class="h">טבלת סניפים · מחזור מול יעד</div>
-      <table><thead><tr><th>סניף</th><th>מכירות</th><th>יעד שבועי</th><th>התקדמות</th><th>יחידות</th><th>המרה</th></tr></thead>
-        <tbody>
-          <tr><td class="b">ר"ג</td><td class="b">₪288,400</td><td>₪270K</td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td>124</td><td>33%</td></tr>
-          <tr><td class="b">ת"א</td><td class="b">₪244,100</td><td>₪260K</td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td>108</td><td>30%</td></tr>
-          <tr><td class="b">חיפה</td><td class="b">₪216,800</td><td>₪230K</td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td>96</td><td>28%</td></tr>
-          <tr><td class="b">ב"ש</td><td class="b">₪172,300</td><td>₪200K</td><td><div class="prog"><div class="f" style="width:86%"></div></div></td><td>78</td><td>26%</td></tr>
-          <tr><td class="b">נתניה</td><td class="b">₪151,900</td><td>₪190K</td><td><div class="prog"><div class="f" style="width:80%"></div></div></td><td>69</td><td>25%</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- EMPLOYEE PROFILE (manager only) -->
-  <section class="screen" data-screen="emp">
-    <div class="empcard">
-      <div><div class="big">בן לוי</div><div class="sub">סניף ר"ג · יועץ מכירות בכיר · 🥇 מוביל החודש</div></div>
-      <div class="r">
-        <div class="pillw"><div class="n">#1</div><div class="t">דירוג</div></div>
-        <div class="pillw"><div class="n">₪382K</div><div class="t">מכירות החודש</div></div>
-        <div class="pillw"><div class="n">168</div><div class="t">יחידות</div></div>
-        <div class="pillw"><div class="n">34%</div><div class="t">המרה</div></div>
-      </div>
-    </div>
-    <div class="grid2">
-      <div class="card"><div class="h">מכירות · 7 ימים אחרונים</div>
-        <div class="bars">
-          <div class="bar"><div class="col" style="height:60%"></div><small>א</small></div>
-          <div class="bar"><div class="col" style="height:75%"></div><small>ב</small></div>
-          <div class="bar"><div class="col" style="height:55%"></div><small>ג</small></div>
-          <div class="bar"><div class="col" style="height:88%"></div><small>ד</small></div>
-          <div class="bar"><div class="col" style="height:70%"></div><small>ה</small></div>
-          <div class="bar"><div class="col" style="height:100%"></div><small>ו</small></div>
-          <div class="bar"><div class="col" style="height:40%"></div><small>ש</small></div>
-        </div>
-      </div>
-      <div class="card"><div class="h">התקדמות ליעד החודשי</div>
-        <div style="font-size:34px;font-weight:900;color:var(--cerise)">128%</div>
-        <div class="prog" style="margin:10px 0 6px"><div class="f" style="width:100%"></div></div>
-        <p style="color:var(--muted);font-size:13px">₪382,000 מתוך יעד ₪300,000 — היעד הושג ב-21 בחודש</p>
-        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-          <span class="badge gold">🥇 מוביל החודש</span><span class="badge cer">🔥 רצף 6 ימים</span><span class="badge ok">🎯 יעד הושג</span>
-        </div>
-      </div>
-    </div>
-    <div class="card"><div class="h">מוצרים מובילים שמכר</div>
-      <table><thead><tr><th>מוצר</th><th>יחידות</th><th>הכנסה</th><th>צירוף ביטוח</th></tr></thead><tbody>
-        <tr><td class="b">iPhone 17 Pro Max</td><td>28</td><td class="b">₪131,320</td><td>71%</td></tr>
-        <tr><td class="b">Galaxy S25 Ultra</td><td>19</td><td class="b">₪83,600</td><td>58%</td></tr>
-        <tr><td class="b">AirPods Pro 3</td><td>34</td><td class="b">₪33,660</td><td>—</td></tr>
-        <tr><td class="b">iPad Air M3</td><td>12</td><td class="b">₪38,280</td><td>42%</td></tr>
+    <div class="card"><div class="h">סניפים · מחזור מול יעד <span class="sm">· יעדים מ-bGate</span></div>
+      <table><thead><tr><th>סניף</th><th>מכירות</th><th>יעד שבועי</th><th>התקדמות</th><th>אתמול · אותה שעה</th></tr></thead><tbody>
+        <tr><td class="b">ר״ג</td><td class="b"><span class="n">₪288,400</span></td><td><span class="n">₪270K</span></td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td class="up">+<span class="n">12%</span></td></tr>
+        <tr><td class="b">ת״א</td><td class="b"><span class="n">₪244,100</span></td><td><span class="n">₪260K</span></td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td class="up">+<span class="n">6%</span></td></tr>
+        <tr><td class="b">חיפה</td><td class="b"><span class="n">₪216,800</span></td><td><span class="n">₪230K</span></td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td class="down">−<span class="n">3%</span></td></tr>
+        <tr><td class="b">ב״ש</td><td class="b"><span class="n">₪172,300</span></td><td><span class="n">₪200K</span></td><td><div class="prog"><div class="f" style="width:86%"></div></div></td><td class="up">+<span class="n">4%</span></td></tr>
+        <tr><td class="b">נתניה</td><td class="b"><span class="n">₪151,900</span></td><td><span class="n">₪190K</span></td><td><div class="prog"><div class="f" style="width:80%"></div></div></td><td class="up">+<span class="n">2%</span></td></tr>
       </tbody></table>
     </div>
-  </section>
-
-  <!-- TARGETS (manager only) -->
-  <section class="screen" data-screen="targets">
-    <div class="stats">
-      <div class="stat"><div class="v">₪1.5M</div><div class="l">יעד חודשי · רשת</div></div>
-      <div class="stat sky"><div class="v">82%</div><div class="l">התקדמות</div></div>
-      <div class="stat coral"><div class="v">7</div><div class="l">עברו את היעד</div></div>
-      <div class="stat"><div class="v">₪41K</div><div class="l">בונוסים החודש</div></div>
-      <div class="stat gold"><div class="v">21</div><div class="l">ימים שחלפו</div></div>
-    </div>
-    <div class="card"><div class="h">יעדים ובונוסים · עובדים <span style="font-weight:600;color:var(--muted);font-size:12px">· היעדים מסונכרנים מ-bGate</span></div>
-      <table><thead><tr><th>עובד</th><th>סניף</th><th>יעד</th><th>בפועל</th><th>התקדמות</th><th>שכבת בונוס</th></tr></thead><tbody>
-        <tr><td class="b">בן לוי</td><td>ר"ג</td><td>₪300K</td><td class="b">₪382K</td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td><span class="badge gold">פלטינום</span></td></tr>
-        <tr><td class="b">דנה אבני</td><td>ת"א</td><td>₪300K</td><td class="b">₪276K</td><td><div class="prog"><div class="f" style="width:92%"></div></div></td><td><span class="badge ok">זהב</span></td></tr>
-        <tr><td class="b">אורי כהן</td><td>חיפה</td><td>₪280K</td><td class="b">₪241K</td><td><div class="prog"><div class="f" style="width:86%"></div></div></td><td><span class="badge ok">זהב</span></td></tr>
-        <tr><td class="b">אבי מזרחי</td><td>ב"ש</td><td>₪260K</td><td class="b">₪205K</td><td><div class="prog"><div class="f" style="width:79%"></div></div></td><td><span class="badge cer">כסף</span></td></tr>
-        <tr><td class="b">נטע שגב</td><td>נתניה</td><td>₪240K</td><td class="b">₪178K</td><td><div class="prog"><div class="f" style="width:74%"></div></div></td><td><span class="badge cer">כסף</span></td></tr>
+    <div class="card"><div class="h">דירוג עובדים · עם מכירות (₪) ובונוס</div>
+      <table><thead><tr><th>#</th><th>עובד</th><th>סניף</th><th>מכירות</th><th>יחידות</th><th>בונוס</th></tr></thead><tbody>
+        <tr><td class="b" style="color:var(--gold-d)">1</td><td class="b">בן לוי</td><td>ר״ג</td><td class="b"><span class="n">₪96,400</span></td><td><span class="n">42</span></td><td><span class="badge gold">פלטינום</span></td></tr>
+        <tr><td class="b">2</td><td class="b">דנה אבני</td><td>ת״א</td><td class="b"><span class="n">₪88,150</span></td><td><span class="n">38</span></td><td><span class="badge gold">זהב</span></td></tr>
+        <tr><td class="b">3</td><td class="b">אורי כהן</td><td>חיפה</td><td class="b"><span class="n">₪81,900</span></td><td><span class="n">35</span></td><td><span class="badge sky">זהב</span></td></tr>
+        <tr><td class="b">4</td><td class="b">אבי מזרחי</td><td>ב״ש</td><td class="b"><span class="n">₪74,300</span></td><td><span class="n">31</span></td><td><span class="badge cer">כסף</span></td></tr>
+        <tr><td class="b">5</td><td class="b">נטע שגב</td><td>נתניה</td><td class="b"><span class="n">₪69,050</span></td><td><span class="n">29</span></td><td><span class="badge cer">כסף</span></td></tr>
       </tbody></table>
     </div>
-  </section>
+  </div>
 
   <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד · התצוגות בפועל מוגבלות למה ש-bGate מספק</div>
 </div>
+</div>
+
 <script>
-  function setView(v){
-    document.body.className=v;
-    document.querySelectorAll('.vt').forEach(x=>x.classList.toggle('active',x.dataset.v===v));
-    if(v==='emp'){const at=document.querySelector('.tab.active');if(at&&at.classList.contains('mgr-only')){document.querySelector('.tab[data-s="lead"]').click();}}
+  function choose(v){
+    document.getElementById('chooser').hidden=true;
+    document.getElementById('app').hidden=false;
+    document.getElementById('staff').hidden=(v!=='staff');
+    document.getElementById('manager').hidden=(v!=='manager');
+    document.getElementById('roleStaff').hidden=(v!=='staff');
+    document.getElementById('roleMgr').hidden=(v!=='manager');
+    window.scrollTo(0,0);
   }
-  document.querySelectorAll('.vt').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.v)));
-  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');
-    const s=t.dataset.s;document.querySelectorAll('.screen').forEach(sc=>sc.classList.toggle('on',sc.dataset.screen===s));
+  function backToChooser(){document.getElementById('app').hidden=true;document.getElementById('chooser').hidden=false;window.scrollTo(0,0);}
+  // staff mode switch
+  document.querySelectorAll('.ms').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.ms').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    const m=b.dataset.m;document.querySelectorAll('.mode').forEach(s=>s.classList.toggle('on',s.dataset.mode===m));
     window.scrollTo({top:0,behavior:'smooth'});
   }));
   document.querySelectorAll('.seg').forEach(seg=>seg.querySelectorAll('span').forEach(sp=>sp.addEventListener('click',()=>{seg.querySelectorAll('span').forEach(x=>x.classList.remove('on'));sp.classList.add('on');})));
+  // assistant
+  function recognize(){document.getElementById('stageA').hidden=true;document.getElementById('stageB').hidden=false;setReturning();window.scrollTo({top:0,behavior:'smooth'});}
+  function newCustomer(){document.getElementById('stageA').hidden=true;document.getElementById('stageB').hidden=false;setNew();window.scrollTo({top:0,behavior:'smooth'});}
+  function resetAsst(){document.getElementById('stageB').hidden=true;document.getElementById('stageA').hidden=false;}
+  function setReturning(){
+    var av=document.getElementById('custAv');av.className='av you';document.getElementById('custPip').textContent='⭐';
+    document.getElementById('custName').textContent='רותם אברהם';
+    document.getElementById('ctxName').textContent='רותם · לקוח חוזר';
+    document.getElementById('custMeta').textContent='8 ביקורים · רכישה אחרונה לפני 11 חודשים';
+    document.getElementById('custBadges').innerHTML='<span class="badge cer">לקוח חוזר</span><span class="badge gold">לקוח מאז 2023</span>';
+    document.getElementById('histStrip').hidden=false;
+    document.getElementById('insight').hidden=false;
+    document.getElementById('sugH').textContent='המלצות upsell — לפי ההיסטוריה שלו';
+    document.getElementById('sugCards').innerHTML=RET;
+  }
+  function setNew(){
+    var av=document.getElementById('custAv');av.className='av skyr';document.getElementById('custPip').textContent='';
+    document.getElementById('custName').textContent='לקוח חדש';
+    document.getElementById('ctxName').textContent='לקוח חדש';
+    document.getElementById('custMeta').textContent='לא נמצא במאגר — נבנה המלצה מלקוחות דומים';
+    document.getElementById('custBadges').innerHTML='<span class="badge sky">לקוח חדש</span>';
+    document.getElementById('histStrip').hidden=true;
+    document.getElementById('insight').hidden=true;
+    document.getElementById('sugH').innerHTML='בחרו תחום עניין · ההמלצות לפי לקוחות דומים';
+    document.getElementById('sugCards').innerHTML=NEW;
+  }
+  var RET=document.getElementById('sugCards').innerHTML;
+  var NEW='<div class="sugcard lead s-sky"><span class="pick" style="background:var(--sky)">הנמכר ביותר</span><div class="thumb">🎧</div><div class="pn">Galaxy Buds</div><div class="rs">63% מרוכשי גלקסי S25 הוסיפו אוזניות באותה רכישה.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">נרכש יחד <span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div><div class="sugcard s-sky"><div class="thumb">🔌</div><div class="pn">מטען מהיר 45W</div><div class="rs">פריט נלווה נפוץ ברכישת סמארטפון חדש.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">נרכש יחד <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div><div class="sugcard s-sky"><div class="thumb">🛡️</div><div class="pn">מגן מסך + כיסוי</div><div class="rs">80% מקוני הדגם הזה הוסיפו הגנה.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">מומלץ <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>';
 </script>
 </body>
 </html>
