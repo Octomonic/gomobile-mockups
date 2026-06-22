@@ -258,11 +258,33 @@
   .mstat.sky .v{color:var(--sky-d)}.mstat.coral .v{color:var(--coral-d)}.mstat.gold .v{color:var(--gold-d)}
   .mstat .l{font-size:11px;color:var(--muted);margin-top:3px;font-weight:600}.mstat .up{font-size:10.5px;color:#10b981;font-weight:800}
   .up{color:#10b981;font-weight:800}.down{color:var(--cerise);font-weight:800}.flat{color:var(--muted);font-weight:800}.b{font-weight:800}
+
+  /* branch-challenge tiles (square = building) + symmetric sides */
+  .bav{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:15px;background:linear-gradient(160deg,#fff,#eef2f7);border:2px solid #d7dce4;color:#9aa3b2;margin:0 auto 5px;flex:none}
+  .bav svg{width:54%;height:54%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .bav.you{border-color:var(--cerise);color:var(--cerise-d);background:linear-gradient(160deg,#fff2f9,#fde0ef)}
+  .bav.rival{border-color:var(--sky);color:var(--sky-d);background:linear-gradient(160deg,#f1faff,#dcf1fb)}
+  .h2h .side{width:132px}
+  .h2h .side .who{font-size:10.5px;font-weight:700;color:var(--muted);margin:1px 0 3px}
+  .h2h .side .who.you{color:var(--cerise-d)}
+
+  /* interactive suggestion cards (propose / details) */
+  .sugcard.proposed{border-color:#10b981!important;box-shadow:0 8px 24px rgba(16,185,129,.18)}
+  .sa-primary.done{background:#10b981!important;cursor:default}
+  .sug-detail{margin-top:11px;border-top:1px dashed var(--line);padding-top:10px;display:grid;gap:6px;font-size:11.5px;font-weight:700;color:#475467;animation:fade .2s ease}
+  .sug-detail .sd{display:flex;align-items:center;gap:7px}
+  .sug-detail .sd svg{width:14px;height:14px;flex:none;fill:none;stroke:#10b981;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .toast{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-22px);background:#0a0f23;color:#fff;font-weight:800;font-size:13px;padding:12px 20px;border-radius:13px;box-shadow:var(--shadow-lg);z-index:60;opacity:0;pointer-events:none;transition:.25s;display:flex;align-items:center;gap:9px;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast .tk{color:#3ddc97;font-size:15px}
+
+  /* disclaimer footer */
+  .foot b{color:#7a8396;font-weight:800}
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="person" viewBox="0 0 24 24"><path d="M12 12.4a4.1 4.1 0 100-8.2 4.1 4.1 0 000 8.2zM4.6 19.6c0-3.2 3.3-5.3 7.4-5.3s7.4 2.1 7.4 5.3v.4H4.6z"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="person" viewBox="0 0 24 24"><path d="M12 12.4a4.1 4.1 0 100-8.2 4.1 4.1 0 000 8.2zM4.6 19.6c0-3.2 3.3-5.3 7.4-5.3s7.4 2.1 7.4 5.3v.4H4.6z"/></symbol><symbol id="store" viewBox="0 0 24 24"><path d="M4 9.5 5.2 5h13.6L20 9.5M4 9.5V19h16V9.5M4 9.5h16M9.5 19v-4.5h5V19"/></symbol></svg>
 
 <!-- ════════ CHOOSER ════════ -->
 <div id="chooser">
@@ -290,7 +312,7 @@
     <span class="ch-pt"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>הצוות לא רואה ₪</span>
     <span class="ch-pt"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v9a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><rect x="9" y="13" width="6" height="7"/></svg>הנתונים נשארים אצלכם</span>
   </div>
-  <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד</div>
+  <div class="foot"><b>תצוגה להמחשה בלבד</b> — אינה התחייבות לעיצוב, לפיצ׳ר או למראה סופי; המסכים בפועל עשויים להיראות ולתפקד אחרת, וכל יכולת ונתון מוגבלים למה שניתן לקבל מהמערכות הקיימות (bGate / WooCommerce).<br>OctoMonic עבור GoMobile · הנתונים בתצוגה בדויים</div>
 </div>
 
 <!-- ════════ APP (a view is chosen) ════════ -->
@@ -352,10 +374,10 @@
 
       <div class="arena-2col">
         <div class="card"><div class="h">דירוג · המשך<div class="seg"><span>היום</span><span class="on">השבוע</span><span>החודש</span></div></div>
-          <div class="lrow"><span class="rk">4</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">אבי מזרחי</div><div class="br">ב״ש</div></div><div class="ub"><div class="prog"><div class="f" style="width:74%"></div></div></div><span class="tg"><span class="n">31</span></span><span class="up">▲</span></div>
-          <div class="lrow you"><span class="rk">5</span><span class="av you"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">נטע שגב <span class="badge cer" style="font-size:9.5px;padding:1px 7px">זה אתה</span></div><div class="br">נתניה</div></div><div class="ub"><div class="prog"><div class="f" style="width:69%"></div></div></div><span class="tg"><span class="n">29</span></span><span class="down">▼</span></div>
-          <div class="lrow"><span class="rk">6</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">איתי ברק</div><div class="br">ר״ג</div></div><div class="ub"><div class="prog"><div class="f" style="width:62%"></div></div></div><span class="tg"><span class="n">26</span></span><span class="up">▲</span></div>
-          <div class="lrow"><span class="rk">7</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">שירה פרץ</div><div class="br">חיפה</div></div><div class="ub"><div class="prog"><div class="f" style="width:57%"></div></div></div><span class="tg"><span class="n">24</span></span><span class="flat">▬</span></div>
+          <div class="lrow" data-d="9" data-w="31" data-m="142" data-dp="70" data-wp="74" data-mp="88"><span class="rk">4</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">אבי מזרחי</div><div class="br">ב״ש</div></div><div class="ub"><div class="prog"><div class="f" style="width:74%"></div></div></div><span class="tg"><span class="n">31</span></span><span class="up">▲</span></div>
+          <div class="lrow you" data-d="8" data-w="29" data-m="131" data-dp="67" data-wp="69" data-mp="80"><span class="rk">5</span><span class="av you"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">נטע שגב <span class="badge cer" style="font-size:9.5px;padding:1px 7px">זה אתה</span></div><div class="br">נתניה</div></div><div class="ub"><div class="prog"><div class="f" style="width:69%"></div></div></div><span class="tg"><span class="n">29</span></span><span class="down">▼</span></div>
+          <div class="lrow" data-d="7" data-w="26" data-m="120" data-dp="60" data-wp="62" data-mp="74"><span class="rk">6</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">איתי ברק</div><div class="br">ר״ג</div></div><div class="ub"><div class="prog"><div class="f" style="width:62%"></div></div></div><span class="tg"><span class="n">26</span></span><span class="up">▲</span></div>
+          <div class="lrow" data-d="6" data-w="24" data-m="112" data-dp="55" data-wp="57" data-mp="69"><span class="rk">7</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">שירה פרץ</div><div class="br">חיפה</div></div><div class="ub"><div class="prog"><div class="f" style="width:57%"></div></div></div><span class="tg"><span class="n">24</span></span><span class="flat">▬</span></div>
         </div>
         <div class="card"><div class="h">פיד מכירות חי</div>
           <div class="feed">
@@ -369,14 +391,14 @@
       </div>
 
       <div class="h2h">
-        <div class="h2h-top"><div style="font-weight:800;font-size:14px">⚔️ אתגר ראש-בראש · המשמרת</div><span class="badge coral">נותרו <span class="n">2:15</span> שעות</span></div>
+        <div class="h2h-top"><div style="font-weight:800;font-size:14px">🏬 אתגר בין סניפים · המשמרת</div><span class="badge coral">נותרו <span class="n">2:15</span> שעות</span></div>
         <div class="duel">
-          <div class="side"><span class="av you"><svg><use href="#person"/></svg></span><div class="nm">נטע (את)</div><div class="sc"><span class="n">9</span></div></div>
+          <div class="side"><span class="bav you"><svg><use href="#store"/></svg></span><div class="nm">נתניה</div><div class="who you">הסניף שלך</div><div class="sc"><span class="n">44</span></div></div>
           <div class="vs">VS</div>
-          <div class="side"><span class="av skyr"><svg><use href="#person"/></svg></span><div class="nm">דני</div><div class="sc"><span class="n">8</span></div></div>
+          <div class="side"><span class="bav rival"><svg><use href="#store"/></svg></span><div class="nm">ר״ג</div><div class="who">סניף מתחרה</div><div class="sc"><span class="n">47</span></div></div>
         </div>
-        <div class="rope"><div class="knot" style="right:54%"></div></div>
-        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)">👑 את מובילה ב-<span class="n">1</span> — עוד מכירה אחת ננעלת!</div>
+        <div class="rope"><div class="knot" style="right:53%"></div></div>
+        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)">🔥 צמצמתם את הפער ל-<span class="n">3</span> — כל מכירה מקרבת את נתניה לראש!</div>
       </div>
 
       <div class="arena-2col">
@@ -494,9 +516,11 @@
     </div>
   </div>
 
-  <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד · התצוגות בפועל מוגבלות למה ש-bGate מספק</div>
+  <div class="foot"><b>תצוגה להמחשה בלבד</b> — אינה התחייבות לעיצוב, לפיצ׳ר או למראה סופי; המסכים בפועל עשויים להיראות ולתפקד אחרת, וכל יכולת ונתון מוגבלים למה שניתן לקבל מהמערכות הקיימות (bGate / WooCommerce).<br>OctoMonic עבור GoMobile · הנתונים בתצוגה בדויים</div>
 </div>
 </div>
+
+<div class="toast" id="toast"></div>
 
 <script>
   function choose(v){
@@ -515,7 +539,41 @@
     const m=b.dataset.m;document.querySelectorAll('.mode').forEach(s=>s.classList.toggle('on',s.dataset.mode===m));
     window.scrollTo({top:0,behavior:'smooth'});
   }));
-  document.querySelectorAll('.seg').forEach(seg=>seg.querySelectorAll('span').forEach(sp=>sp.addEventListener('click',()=>{seg.querySelectorAll('span').forEach(x=>x.classList.remove('on'));sp.classList.add('on');})));
+  // period toggle → swaps leaderboard tallies + bars so it feels live
+  document.querySelectorAll('.seg').forEach(seg=>{
+    const spans=[...seg.querySelectorAll('span')];
+    spans.forEach((sp,i)=>sp.addEventListener('click',()=>{
+      spans.forEach(x=>x.classList.remove('on'));sp.classList.add('on');
+      const card=seg.closest('.card');if(!card)return;
+      const k=['d','w','m'][i];
+      card.querySelectorAll('.lrow').forEach(row=>{
+        const tg=row.querySelector('.tg .n'),bar=row.querySelector('.prog .f');
+        if(tg&&row.dataset[k])tg.textContent=row.dataset[k];
+        if(bar&&row.dataset[k+'p'])bar.style.width=row.dataset[k+'p']+'%';
+      });
+    }));
+  });
+  // toast + interactive suggestion cards (propose to customer / show details)
+  function toast(msg){var t=document.getElementById('toast');t.innerHTML='<span class="tk">✓</span><span>'+msg+'</span>';t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2600);}
+  document.addEventListener('click',function(e){
+    var prim=e.target.closest('.sa-primary');
+    if(prim&&!prim.classList.contains('done')){
+      var c=prim.closest('.sugcard'),pn=c?c.querySelector('.pn').textContent:'';
+      prim.classList.add('done');prim.textContent='✓ הוצע ללקוח';if(c)c.classList.add('proposed');
+      toast('«'+pn+'» הוצע ללקוח · נשלח למסך הלקוח');return;
+    }
+    var sec=e.target.closest('.sa-sec');
+    if(sec){
+      var c2=sec.closest('.sugcard');if(!c2)return;
+      var d=c2.querySelector('.sug-detail');
+      if(d){d.remove();sec.textContent='פרטים';return;}
+      var el=document.createElement('div');el.className='sug-detail';
+      el.innerHTML='<div class="sd"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>זמין במלאי הסניף</div>'+
+        '<div class="sd"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>אחריות יבואן רשמי · GoMobile</div>'+
+        '<div class="sd"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>מתאים למכשיר ולהיסטוריה של הלקוח</div>';
+      c2.appendChild(el);sec.textContent='פחות';
+    }
+  });
   // assistant
   function recognize(){document.getElementById('stageA').hidden=true;document.getElementById('stageB').hidden=false;setReturning();window.scrollTo({top:0,behavior:'smooth'});}
   function newCustomer(){document.getElementById('stageA').hidden=true;document.getElementById('stageB').hidden=false;setNew();window.scrollTo({top:0,behavior:'smooth'});}
