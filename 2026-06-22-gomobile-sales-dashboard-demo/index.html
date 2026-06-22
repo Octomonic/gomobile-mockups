@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!-- Project: GoMobile · Sales system full walkthrough (GPI design language) -->
+<!-- Project: GoMobile · Sales dashboard demo (reflects the agreement) -->
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoMobile · מערכת מכירות</title>
+<meta name="robots" content="noindex,nofollow">
+<title>GoMobile · דאשבורד מכירות — תצוגה מקדימה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -14,8 +15,6 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
   .shell{max-width:1320px;margin:0 auto;padding:18px 24px 48px}
-  .back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-weight:700;font-size:13px;margin-bottom:12px}
-  .back:hover{color:var(--cerise)}
   .phead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 24px;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);margin-bottom:14px}
   .brand{display:flex;align-items:center;gap:16px}
   .logo{width:62px;height:62px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:grid;place-items:center}
@@ -67,25 +66,85 @@
   .empcard .r{margin-inline-start:auto;display:flex;gap:10px}
   .pillw{background:rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;text-align:center}
   .pillw .n{font-size:19px;font-weight:900}.pillw .t{font-size:11px;opacity:.9}
+
+  /* ── motivational podium hero ── */
+  .hero{background:linear-gradient(135deg,#EC008C 0%,#b8006e 58%,#6e1448 100%);border-radius:22px;padding:20px 24px 24px;color:#fff;margin-bottom:18px;box-shadow:0 12px 44px rgba(236,0,140,.28);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% -25%,rgba(240,192,0,.3),transparent 52%)}
+  .herohead{display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative;margin-bottom:14px}
+  .herohead .t{font-size:15px;font-weight:900;display:flex;align-items:center;gap:8px}
+  .bigwin{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 15px;font-weight:800;font-size:13px}
+  .podium{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;align-items:end;position:relative;max-width:660px;margin:0 auto}
+  .pod{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:18px 18px 0 0;padding:14px 12px 18px;text-align:center}
+  .pod.first{background:linear-gradient(180deg,rgba(240,192,0,.4),rgba(255,255,255,.12));border-color:rgba(240,192,0,.65);padding:20px 12px 24px;box-shadow:0 -8px 34px rgba(240,192,0,.32)}
+  .pod .medal{font-size:30px;line-height:1}.pod.first .medal{font-size:40px}
+  .pod .av{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.5);display:grid;place-items:center;font-weight:900;font-size:18px;margin:8px auto 6px}
+  .pod.first .av{width:62px;height:62px;font-size:22px;border-color:var(--gold)}
+  .pod .nm{font-weight:900;font-size:15px}.pod.first .nm{font-size:17px}
+  .pod .br{font-size:11px;opacity:.85;font-weight:600}
+  .pod .amt{font-weight:900;font-size:16px;margin-top:6px}.pod.first .amt{font-size:20px;color:#ffe169}
+  .pod .tg{display:inline-block;margin-top:6px;background:rgba(0,0,0,.2);border-radius:999px;padding:2px 11px;font-size:11px;font-weight:800}
+  .feed{margin-top:16px;display:flex;gap:9px;flex-wrap:wrap;justify-content:center;position:relative}
+  .feeditem{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:7px}
+  .feeditem .g{width:7px;height:7px;border-radius:50%;background:#3ddc97;box-shadow:0 0 8px #3ddc97}
+
+  /* ── AI assistant ── */
+  .phonebar{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 18px;box-shadow:var(--shadow-sm);margin-bottom:16px}
+  .phonebar .icon{font-size:20px}
+  .phonebar input{flex:1;border:none;font:inherit;font-size:16px;font-weight:800;color:var(--ink);background:none;letter-spacing:1.5px}
+  .phonebar .ok{background:rgba(16,185,129,.12);color:#0a8a5b;font-weight:800;font-size:13px;padding:6px 13px;border-radius:999px;white-space:nowrap}
+  .custcard{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#29ABE2,#1479a8);color:#fff;border-radius:16px;padding:15px 20px;margin-bottom:16px}
+  .custcard .av{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-weight:900;font-size:18px;flex:none}
+  .custcard .nm{font-size:18px;font-weight:900}.custcard .sub{font-size:12.5px;opacity:.92}
+  .custcard .hist{margin-inline-start:auto;font-size:12.5px;opacity:.95;text-align:start;line-height:1.5}
+  .sug{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:760px){.sug{grid-template-columns:1fr}}
+  .sugcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:var(--shadow-sm);border-top:3px solid var(--cerise)}
+  .sugcard .p{font-weight:900;font-size:15px}.sugcard .why{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+  .sugcard .tag{margin-top:9px;display:inline-block;background:rgba(236,0,140,.08);color:var(--cerise-d);font-weight:800;font-size:11.5px;padding:3px 11px;border-radius:999px}
+  .lbl{font-weight:800;font-size:14px;margin:2px 0 11px}
+
+  /* ── ask the system ── */
+  .askbox{background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;border-radius:16px;padding:16px 20px;margin-bottom:18px}
+  .askbox .ql{font-size:12px;opacity:.7;font-weight:700;margin-bottom:8px;letter-spacing:.04em}
+  .askbox .q{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:11px 14px;font-weight:700;font-size:14px}
+  .askbox .a{margin-top:11px;font-size:13.5px;opacity:.95;line-height:1.65}
+  .askbox .a b{color:var(--gold)}
+  .note{color:var(--muted);font-size:13.5px;margin-bottom:11px}
 </style>
 </head>
 <body>
 <div class="shell">
   <div class="phead">
     <div class="brand"><div class="logo"><img src="gomobile.png" alt="GoMobile"></div>
-      <div><h1>מעקב ביצועי מכירות ולוח תוצאות</h1><p>GoMobile · ניהול מכירות וביצועי צוות · תצוגה מקדימה</p></div></div>
+      <div><h1>דאשבורד מכירות לצוות</h1><p>GoMobile · תחרות, עוזר מכירות חכם ומבט מנהל · תצוגה מקדימה</p></div></div>
     <div class="live"><span class="dot"></span>חי · עודכן לפני דקה</div>
   </div>
   <div class="tabs">
     <button class="tab active" data-s="lead">🏆 לוח תוצאות</button>
-    <button class="tab" data-s="branches">🏬 ביצועי סניפים</button>
+    <button class="tab" data-s="asst">🤖 עוזר מכירות AI</button>
+    <button class="tab" data-s="branches">🏬 מבט מנהל וסניפים</button>
     <button class="tab" data-s="emp">👤 פרופיל עובד</button>
-    <button class="tab" data-s="prod">📱 מוצרים</button>
     <button class="tab" data-s="targets">🎯 יעדים ובונוסים</button>
   </div>
 
-  <!-- LEADERBOARD -->
+  <!-- LEADERBOARD + PODIUM HERO -->
   <section class="screen on" data-screen="lead">
+    <div class="hero">
+      <div class="herohead">
+        <div class="t">🏆 לוח התוצאות החי · השבוע</div>
+        <div class="bigwin">🔥 המכירה הגדולה היום · יוסי כהן · ₪14,200</div>
+      </div>
+      <div class="podium">
+        <div class="pod second"><div class="medal">🥈</div><div class="av">ד״ל</div><div class="nm">דנה לוי</div><div class="br">ת״א</div><div class="amt">₪88,150</div><div class="tg">92% מהיעד</div></div>
+        <div class="pod first"><div class="medal">🥇</div><div class="av">י״כ</div><div class="nm">יוסי כהן</div><div class="br">ר״ג</div><div class="amt">₪96,400</div><div class="tg">128% מהיעד</div></div>
+        <div class="pod third"><div class="medal">🥉</div><div class="av">מ״ב</div><div class="nm">מורן ביטון</div><div class="br">חיפה</div><div class="amt">₪81,900</div><div class="tg">86% מהיעד</div></div>
+      </div>
+      <div class="feed">
+        <div class="feeditem"><span class="g"></span>מכירה חדשה · ת״א · ₪3,400</div>
+        <div class="feeditem"><span class="g"></span>+ ביטוח מסך · חיפה · ₪890</div>
+        <div class="feeditem"><span class="g"></span>iPhone 17 · ר״ג · ₪5,200</div>
+        <div class="feeditem"><span class="g"></span>Apple Watch · נתניה · ₪1,750</div>
+      </div>
+    </div>
     <div class="stats">
       <div class="stat"><div class="v">₪412K</div><div class="l">מכירות היום</div><div class="up">▲ 12%</div></div>
       <div class="stat sky"><div class="v">186</div><div class="l">יחידות</div><div class="up">▲ 8%</div></div>
@@ -111,8 +170,41 @@
     </div>
   </section>
 
-  <!-- BRANCHES -->
+  <!-- AI ASSISTANT -->
+  <section class="screen" data-screen="asst">
+    <div class="card">
+      <div class="h">עוזר מכירות חכם · הקלדת מספר טלפון</div>
+      <div class="phonebar"><span class="icon">📞</span><input value="052-•••-4187" readonly><span class="ok">✓ לקוח זוהה</span></div>
+      <div class="custcard">
+        <div class="av">ר״א</div>
+        <div><div class="nm">רונית אברהם</div><div class="sub">לקוחה חוזרת · 3 רכישות · מאז 2023</div></div>
+        <div class="hist">רכישה אחרונה:<br>iPhone 15 · AirPods Pro</div>
+      </div>
+      <div class="lbl">המלצות upsell — לפי ההיסטוריה של הלקוחה ולקוחות דומים</div>
+      <div class="sug">
+        <div class="sugcard"><div class="p">מארז מגן + מסך מוקשח</div><div class="why">תואם ל-iPhone שרכשה; 74% מהרוכשים הוסיפו</div><span class="tag">התאמה גבוהה</span></div>
+        <div class="sugcard"><div class="p">Apple Watch SE</div><div class="why">לקוחות בפרופיל דומה הוסיפו שעון תוך 60 יום</div><span class="tag">לקוחות דומים</span></div>
+        <div class="sugcard"><div class="p">ביטוח מסך · 24 ח׳</div><div class="why">לא ביטחה את המכשיר הקודם — הזדמנות</div><span class="tag">מבוסס היסטוריה</span></div>
+      </div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--sky)">
+      <div class="h">לקוח חדש · ללא היסטוריה</div>
+      <p class="note">כשאין היסטוריית לקוח, ההמלצות מבוססות על מה שלקוחות אחרים שרכשו את אותו מוצר הוסיפו.</p>
+      <div class="sug">
+        <div class="sugcard" style="border-top-color:var(--sky)"><div class="p">Galaxy Buds</div><div class="why">63% מרוכשי Galaxy S25 הוסיפו אוזניות</div><span class="tag">נרכש יחד</span></div>
+        <div class="sugcard" style="border-top-color:var(--sky)"><div class="p">מטען מהיר 45W</div><div class="why">פריט נלווה נפוץ ברכישת סמארטפון</div><span class="tag">נרכש יחד</span></div>
+        <div class="sugcard" style="border-top-color:var(--sky)"><div class="p">ביטוח מסך</div><div class="why">שיעור צירוף גבוה בקטגוריה</div><span class="tag">מומלץ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGER VIEW + BRANCHES -->
   <section class="screen" data-screen="branches">
+    <div class="askbox">
+      <div class="ql">שאל את המערכת</div>
+      <div class="q">💬 "מה היה המחזור בר״ג ב-14:00 לעומת אתמול?"</div>
+      <div class="a">בר״ג נכון ל-<b>14:00</b> נרשמו <b>₪96,400</b> — גבוה ב-<b>12%</b> מאותה שעה אתמול (₪86,050). הסניף בקצב לעבור את היעד היומי.</div>
+    </div>
     <div class="stats">
       <div class="stat"><div class="v">₪1.07M</div><div class="l">מכירות השבוע</div><div class="up">▲ 9%</div></div>
       <div class="stat sky"><div class="v">5</div><div class="l">סניפים</div></div>
@@ -140,14 +232,14 @@
         </div>
       </div>
     </div>
-    <div class="card"><div class="h">טבלת סניפים</div>
-      <table><thead><tr><th>סניף</th><th>מכירות</th><th>יחידות</th><th>עובדים</th><th>ממוצע לעובד</th><th>המרה</th></tr></thead>
+    <div class="card"><div class="h">טבלת סניפים · מחזור מול יעד</div>
+      <table><thead><tr><th>סניף</th><th>מכירות</th><th>יעד שבועי</th><th>התקדמות</th><th>יחידות</th><th>המרה</th></tr></thead>
         <tbody>
-          <tr><td class="b">ר"ג</td><td class="b">₪288,400</td><td>124</td><td>6</td><td>₪48,067</td><td>33%</td></tr>
-          <tr><td class="b">ת"א</td><td class="b">₪244,100</td><td>108</td><td>5</td><td>₪48,820</td><td>30%</td></tr>
-          <tr><td class="b">חיפה</td><td class="b">₪216,800</td><td>96</td><td>5</td><td>₪43,360</td><td>28%</td></tr>
-          <tr><td class="b">ב"ש</td><td class="b">₪172,300</td><td>78</td><td>4</td><td>₪43,075</td><td>26%</td></tr>
-          <tr><td class="b">נתניה</td><td class="b">₪151,900</td><td>69</td><td>4</td><td>₪37,975</td><td>25%</td></tr>
+          <tr><td class="b">ר"ג</td><td class="b">₪288,400</td><td>₪270K</td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td>124</td><td>33%</td></tr>
+          <tr><td class="b">ת"א</td><td class="b">₪244,100</td><td>₪260K</td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td>108</td><td>30%</td></tr>
+          <tr><td class="b">חיפה</td><td class="b">₪216,800</td><td>₪230K</td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td>96</td><td>28%</td></tr>
+          <tr><td class="b">ב"ש</td><td class="b">₪172,300</td><td>₪200K</td><td><div class="prog"><div class="f" style="width:86%"></div></div></td><td>78</td><td>26%</td></tr>
+          <tr><td class="b">נתניה</td><td class="b">₪151,900</td><td>₪190K</td><td><div class="prog"><div class="f" style="width:80%"></div></div></td><td>69</td><td>25%</td></tr>
         </tbody>
       </table>
     </div>
@@ -195,27 +287,6 @@
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section class="screen" data-screen="prod">
-    <div class="stats">
-      <div class="stat"><div class="v">₪1.07M</div><div class="l">הכנסה שבועית</div></div>
-      <div class="stat sky"><div class="v">475</div><div class="l">יחידות נמכרו</div></div>
-      <div class="stat coral"><div class="v">iPhone 17 PM</div><div class="l">מוצר מוביל</div></div>
-      <div class="stat"><div class="v">38%</div><div class="l">צירוף ביטוח</div></div>
-      <div class="stat gold"><div class="v">₪2,254</div><div class="l">מחיר ממוצע</div></div>
-    </div>
-    <div class="card"><div class="h">מוצרים נמכרים ביותר · השבוע</div>
-      <table><thead><tr><th>מוצר</th><th>קטגוריה</th><th>יחידות</th><th>הכנסה</th><th>מגמה</th></tr></thead><tbody>
-        <tr><td class="b">iPhone 17 Pro Max 256GB</td><td>סמארטפון</td><td>64</td><td class="b">₪300,160</td><td class="up">▲ 14%</td></tr>
-        <tr><td class="b">Galaxy S25 Ultra 512GB</td><td>סמארטפון</td><td>41</td><td class="b">₪180,400</td><td class="up">▲ 6%</td></tr>
-        <tr><td class="b">AirPods Pro 3</td><td>שמע</td><td>88</td><td class="b">₪87,120</td><td class="flat">▬</td></tr>
-        <tr><td class="b">Apple Watch S11</td><td>שעונים</td><td>37</td><td class="b">₪70,300</td><td class="up">▲ 9%</td></tr>
-        <tr><td class="b">iPad Air M3 128GB</td><td>טאבלט</td><td>22</td><td class="b">₪70,180</td><td class="down">▼ 3%</td></tr>
-        <tr><td class="b">Roborock Qrevo S</td><td>שואבים</td><td>15</td><td class="b">₪44,850</td><td class="up">▲ 21%</td></tr>
-      </tbody></table>
-    </div>
-  </section>
-
   <!-- TARGETS -->
   <section class="screen" data-screen="targets">
     <div class="stats">
@@ -225,7 +296,7 @@
       <div class="stat"><div class="v">₪41K</div><div class="l">בונוסים החודש</div></div>
       <div class="stat gold"><div class="v">21</div><div class="l">ימים שחלפו</div></div>
     </div>
-    <div class="card"><div class="h">יעדים ובונוסים · עובדים</div>
+    <div class="card"><div class="h">יעדים ובונוסים · עובדים <span style="font-weight:600;color:var(--muted);font-size:12px">· היעדים מסונכרנים מ-bGate</span></div>
       <table><thead><tr><th>עובד</th><th>סניף</th><th>יעד</th><th>בפועל</th><th>התקדמות</th><th>שכבת בונוס</th></tr></thead><tbody>
         <tr><td class="b">יוסי כהן</td><td>ר"ג</td><td>₪300K</td><td class="b">₪382K</td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td><span class="badge gold">פלטינום</span></td></tr>
         <tr><td class="b">דנה לוי</td><td>ת"א</td><td>₪300K</td><td class="b">₪276K</td><td><div class="prog"><div class="f" style="width:92%"></div></div></td><td><span class="badge ok">זהב</span></td></tr>
@@ -236,7 +307,7 @@
     </div>
   </section>
 
-  <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד</div>
+  <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד · התצוגות בפועל מוגבלות למה ש-bGate מספק</div>
 </div>
 <script>
   document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
