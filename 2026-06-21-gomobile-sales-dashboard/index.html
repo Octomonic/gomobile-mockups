@@ -63,8 +63,9 @@
   .signbar button{border:0;font:inherit;font-weight:800;font-size:13px;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
   .sb-print{background:#fff;color:#0a0f23}.sb-print:hover{filter:brightness(.93)}
   .sb-clear{background:rgba(255,255,255,.14);color:#fff}.sb-clear:hover{background:rgba(255,255,255,.24)}
-  .sig-line.signable{cursor:pointer;border-bottom-color:var(--cerise)}
-  .sig-line.signable:hover{background:rgba(236,0,140,.06)}
+  .sig-line.signable,.sig-line.dateable{cursor:pointer;border-bottom-color:var(--cerise)}
+  .sig-line.signable:hover,.sig-line.dateable:hover{background:rgba(236,0,140,.06)}
+  .sig-line .dateinp{border:0;background:none;font:inherit;font-weight:700;font-size:12px;color:#111;width:100%;text-align:center;outline:none;padding:0;direction:ltr;cursor:pointer}
   .sig-line .tap{position:absolute;inset-inline-start:6px;bottom:2px;color:var(--cerise-d);font-weight:800;font-size:11px;pointer-events:none}
   .sigmodal{position:fixed;inset:0;z-index:40;background:rgba(10,15,35,.5);display:none;align-items:center;justify-content:center;padding:20px}
   .sigmodal.on{display:flex}
@@ -83,7 +84,7 @@
   .sigmodal .mcancel{background:#fff;color:#667085;border:1px solid #e6e6e6;flex:none;padding:12px 18px}
   .sigmodal .mok{background:linear-gradient(135deg,var(--cerise),var(--cerise-d));color:#fff;flex:1}
   .sigmodal .mok:disabled{opacity:.5;cursor:default}
-  @media print{ .signbar,.sigmodal{display:none!important} body{padding-bottom:0!important} .sig-line .tap{display:none!important} .sig-line.signable{border-bottom-color:#444!important;background:none!important} }
+  @media print{ .signbar,.sigmodal{display:none!important} body{padding-bottom:0!important} .sig-line .tap,.sig-line input{display:none!important} .sig-line.signable,.sig-line.dateable{border-bottom-color:#444!important;background:none!important} }
   .center{text-align:center}
   .foot{margin-top:14px;border-top:1px solid #ddd;padding-top:8px;font-size:10px;color:#666}
   .foot b{color:#111}
@@ -201,7 +202,7 @@
       <div class="signame"><b><span class="he">חתימה מורשית — GoMobile</span><span class="en">Authorised signature — GoMobile</span></b></div>
       <div class="sigrow">
         <div class="sigf"><span class="sigl"><span class="he">חתימה:</span><span class="en">Signature:</span></span><span class="sig-line signable" id="gmSig" data-date="gmDate"><span class="tap"><span class="he">לחצו לחתימה</span><span class="en">tap to sign</span></span></span></div>
-        <div class="sigf"><span class="sigl"><span class="he">תאריך:</span><span class="en">Date:</span></span><span class="sig-line" id="gmDate"></span></div>
+        <div class="sigf"><span class="sigl"><span class="he">תאריך:</span><span class="en">Date:</span></span><span class="sig-line dateable" id="gmDate"><span class="tap"><span class="he">לחצו לתאריך</span><span class="en">tap to set date</span></span></span></div>
       </div>
     </div>
   </div>
@@ -213,7 +214,7 @@
 </div>
 
 <div class="signbar" id="signbar">
-  <span class="msg"><span class="he">חתמו דיגיטלית למטה — לחצו על שורת החתימה של GoMobile. <b>או</b> הדפיסו · חתמו ידנית · סרקו — ושילחו ל-<b>tom@octomonic.com</b></span><span class="en">Sign digitally below — tap the GoMobile signature line. <b>Or</b> print · sign by hand · scan — and send to <b>tom@octomonic.com</b></span></span>
+  <span class="msg"><span class="he">מלאו חתימה ותאריך למטה — לחצו על שורות החתימה והתאריך של GoMobile. <b>או</b> הדפיסו · חתמו ידנית · סרקו — ושילחו ל-<b>tom@octomonic.com</b></span><span class="en">Add your signature and date below — tap the GoMobile signature and date lines. <b>Or</b> print · sign by hand · scan — and send to <b>tom@octomonic.com</b></span></span>
   <span class="sp">
     <button class="sb-clear" id="sbClear" hidden><span class="he">ניקוי חתימה</span><span class="en">Clear signature</span></button>
     <button class="sb-print" id="sbPrint"><span class="he">🖨️ שמירה כ-PDF / הדפסה</span><span class="en">🖨️ Save as PDF / Print</span></button>
@@ -248,7 +249,7 @@
   window.addEventListener('pointerup',function(){drawing=false;});
   function openPad(t){target=t;modal.classList.add('on');setTimeout(function(){size();reset();},30);}
   function closePad(){modal.classList.remove('on');target=null;}
-  document.addEventListener('click',function(e){var s=e.target.closest&&e.target.closest('.sig-line.signable');if(s)openPad(s);});
+  document.addEventListener('click',function(e){if(!e.target.closest)return;var s=e.target.closest('.sig-line.signable');if(s){openPad(s);return;}var d=e.target.closest('.sig-line.dateable');if(d){openDate(d);return;}});
   modal.addEventListener('mousedown',function(e){if(e.target===modal)closePad();});
   document.getElementById('mCancel').onclick=closePad;
   document.getElementById('mClear').onclick=reset;
@@ -259,29 +260,44 @@
     t.getContext('2d').drawImage(c,Math.round(bx*dpr),Math.round(by*dpr),Math.round(bw*dpr),Math.round(bh*dpr),0,0,Math.round(bw*dpr),Math.round(bh*dpr));
     var url=t.toDataURL('image/png');place(target,url);
     try{localStorage.setItem('gm_sd_sig_'+target.id,url)}catch(e){}
+    var dl=target.getAttribute('data-date');if(dl){var dd=document.getElementById(dl);if(dd&&!dd.querySelector('.sig-date'))setDate(dd,TODAY);}
     closePad();
   };
   function place(line,url){
     line.innerHTML='<img class="sig-ink" src="'+url+'" alt="signature">';
     line.classList.add('signed');line.classList.remove('signable');
-    var dl=line.getAttribute('data-date');if(dl){var d=document.getElementById(dl);if(d)d.innerHTML='<span class="num sig-date">'+TODAY+'</span>';}
     document.getElementById('sbClear').hidden=false;
   }
+  function setDate(line,txt){line.innerHTML='<span class="num sig-date">'+txt+'</span>';try{localStorage.setItem('gm_sd_date_'+line.id,txt)}catch(e){}document.getElementById('sbClear').hidden=false;}
+  function dateTap(line){line.innerHTML='<span class="tap"><span class="he">לחצו לתאריך</span><span class="en">tap to set date</span></span>';}
+  function openDate(line){
+    if(line.querySelector('input'))return;
+    var cur='',t=line.querySelector('.sig-date');if(t){var m=t.textContent.match(/(\d{2})\.(\d{2})\.(\d{4})/);if(m)cur=m[3]+'-'+m[2]+'-'+m[1];}
+    line.innerHTML='<input type="date" class="dateinp" value="'+cur+'">';
+    var inp=line.querySelector('input');inp.focus();try{inp.showPicker&&inp.showPicker()}catch(e){}
+    var done=false;function commit(){if(done)return;done=true;var v=inp.value;if(v){var p=v.split('-');setDate(line,p[2]+'.'+p[1]+'.'+p[0]);}else{dateTap(line);}}
+    inp.addEventListener('change',commit);inp.addEventListener('blur',commit);
+  }
   document.getElementById('sbClear').onclick=function(){
-    var self=this;
     document.querySelectorAll('.sig-line.signed[data-date]').forEach(function(line){
       line.classList.remove('signed');line.classList.add('signable');
       line.innerHTML='<span class="tap"><span class="he">לחצו לחתימה</span><span class="en">tap to sign</span></span>';
-      var dl=line.getAttribute('data-date');if(dl){var d=document.getElementById(dl);if(d)d.innerHTML='';}
       try{localStorage.removeItem('gm_sd_sig_'+line.id)}catch(e){}
     });
-    self.hidden=true;
+    document.querySelectorAll('.sig-line.dateable').forEach(function(line){
+      dateTap(line);try{localStorage.removeItem('gm_sd_date_'+line.id)}catch(e){}
+    });
+    this.hidden=true;
   };
   document.getElementById('sbPrint').onclick=function(){window.print();};
   // restore any saved signature on load
   document.querySelectorAll('.sig-line.signable[data-date]').forEach(function(line){
     var url=null;try{url=localStorage.getItem('gm_sd_sig_'+line.id)}catch(e){}
     if(url)place(line,url);
+  });
+  document.querySelectorAll('.sig-line.dateable').forEach(function(line){
+    var dt=null;try{dt=localStorage.getItem('gm_sd_date_'+line.id)}catch(e){}
+    if(dt)setDate(line,dt);
   });
 })();
 </script>
