@@ -640,22 +640,32 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  function choose(v){
-    document.getElementById('chooser').hidden=true;
-    document.getElementById('app').hidden=false;
+  // ── browser-history navigation: the Back button returns to the previous view (no on-screen button) ──
+  var _navLock=false;
+  function _pushNav(state,hash){if(_navLock)return;try{history.pushState(state,'',hash);}catch(e){}}
+  function setMode(m){document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('on',x.dataset.m===m));document.querySelectorAll('.mode').forEach(s=>s.classList.toggle('on',s.dataset.mode===m));}
+  function showView(v){
+    document.getElementById('chooser').hidden=(v!=='chooser');
+    document.getElementById('app').hidden=(v==='chooser');
     document.getElementById('staff').hidden=(v!=='staff');
     document.getElementById('manager').hidden=(v!=='manager');
     document.getElementById('roleStaff').hidden=(v!=='staff');
     document.getElementById('roleMgr').hidden=(v!=='manager');
+    if(v==='staff')setMode('arena');
     window.scrollTo(0,0);
   }
-  function backToChooser(){document.getElementById('app').hidden=true;document.getElementById('chooser').hidden=false;window.scrollTo(0,0);}
+  function choose(v){showView(v);_pushNav({v:v,m:(v==='staff'?'arena':null)},'#'+v);}
+  function backToChooser(){showView('chooser');_pushNav({v:'chooser',m:null},'#');}
   // staff mode switch
   document.querySelectorAll('.ms').forEach(b=>b.addEventListener('click',()=>{
-    document.querySelectorAll('.ms').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-    const m=b.dataset.m;document.querySelectorAll('.mode').forEach(s=>s.classList.toggle('on',s.dataset.mode===m));
+    setMode(b.dataset.m);
     window.scrollTo({top:0,behavior:'smooth'});
+    _pushNav({v:'staff',m:b.dataset.m},'#staff-'+b.dataset.m);
   }));
+  // browser Back / Forward → restore the view the user was on
+  function _applyNav(s){_navLock=true;if(!s||s.v==='chooser'){showView('chooser');}else{window.choose(s.v);if(s.v==='staff')setMode(s.m||'arena');}_navLock=false;}
+  window.addEventListener('popstate',function(e){_applyNav(e.state);});
+  history.replaceState({v:'chooser',m:null},'',location.pathname+location.search);
   // period toggle → swaps leaderboard tallies + bars so it feels live
   document.querySelectorAll('.seg').forEach(seg=>{
     const spans=[...seg.querySelectorAll('span')];
