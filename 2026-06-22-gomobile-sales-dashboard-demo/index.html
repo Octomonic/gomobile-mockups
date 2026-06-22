@@ -411,6 +411,49 @@
   .bdg-tip.on{opacity:1}
   @media(prefers-reduced-motion:reduce){.page.on{animation:none}.ring circle,.tbar .tf,.knot{transition:none}.bump{animation:none}}
 
+  /* ═════════ FLOATING AI ASSISTANT ═════════ */
+  .asst-fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:45;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--cerise),var(--cerise-d));color:#fff;border:0;font:inherit;font-weight:900;font-size:14.5px;padding:14px 24px;border-radius:999px;box-shadow:0 12px 32px rgba(236,0,140,.42);cursor:pointer;animation:fabpulse 2.6s infinite}
+  .asst-fab .fab-ic{font-size:19px}
+  .asst-fab:hover{filter:brightness(1.07)}.asst-fab:active{transform:translateX(-50%) scale(.97)}
+  @keyframes fabpulse{0%,100%{box-shadow:0 12px 32px rgba(236,0,140,.38)}50%{box-shadow:0 14px 42px rgba(41,171,226,.5)}}
+  .asst-back{position:fixed;inset:0;background:rgba(10,15,35,.5);opacity:0;pointer-events:none;transition:.25s;z-index:46}
+  .asst-back.on{opacity:1;pointer-events:auto}
+  .asst-panel{position:fixed;left:0;right:0;bottom:0;z-index:47;background:#fff;border-radius:24px 24px 0 0;box-shadow:0 -16px 50px rgba(10,15,35,.25);transform:translateY(105%);transition:transform .34s cubic-bezier(.4,0,.2,1);max-height:93vh;overflow:auto;max-width:720px;margin:0 auto}
+  .asst-panel.on{transform:none}
+  .ap-grip{width:42px;height:4px;border-radius:999px;background:#d7dce4;margin:10px auto 0}
+  .ap-head{display:flex;align-items:center;justify-content:space-between;padding:10px 22px 6px}
+  .ap-ttl{font-size:18px;font-weight:900}
+  .ap-x{background:var(--soft);border:0;width:30px;height:30px;border-radius:50%;cursor:pointer;font-weight:800;color:#475467;font-size:13px}
+  .ap-body{padding:6px 22px 26px}
+  .ap-sub{color:var(--muted);font-size:13px;font-weight:600;margin-bottom:15px;text-align:center;line-height:1.5}
+  .ap-stage{animation:fade .25s ease}
+  .ap-quick{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:13px;font-size:12px;color:var(--muted);font-weight:700}
+  .qn{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;color:#475467}
+  .qn:hover{border-color:var(--cerise);color:var(--cerise-d)}
+  .ap-load{padding:38px 0;text-align:center}
+  .ld-ring{width:54px;height:54px;border:4px solid var(--soft);border-top-color:var(--cerise);border-radius:50%;margin:0 auto 22px;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .ld-steps{display:flex;flex-direction:column;gap:9px;align-items:center}
+  .ld-s{font-size:13.5px;font-weight:700;color:#cbd2dd;transition:.25s}
+  .ld-s.on{color:var(--ink)}
+  .cc-intent{background:rgba(255,143,77,.1);color:var(--coral-d);font-weight:800;font-size:12.5px;padding:9px 13px;border-radius:11px;margin-top:12px}
+  .cc-intent b{color:var(--coral-d)}
+  .asst-panel .sug{grid-template-columns:1fr;gap:11px;margin-top:4px}
+  .sc-row{display:flex;gap:12px;align-items:flex-start}
+  .sc-row .thumb{width:52px;height:52px;flex:none;margin:0}
+  .sc-info{flex:1;min-width:0}
+  .conf{display:flex;align-items:center;gap:9px;margin-top:10px}
+  .conf-bar{flex:1;height:7px;background:var(--soft);border-radius:999px;overflow:hidden}
+  .conf-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cerise),var(--coral))}
+  .conf-n{font-size:11.5px;font-weight:800;color:var(--cerise-d);white-space:nowrap}
+  .sa-pitch{background:var(--soft);color:#475467;border:0;font:inherit;font-weight:800;font-size:12.5px;padding:9px 14px;border-radius:10px;cursor:pointer}
+  .sa-pitch:hover{background:#e4e9f0}
+  .pitch{margin-top:10px;background:rgba(41,171,226,.06);border:1px solid rgba(41,171,226,.16);border-radius:11px;padding:11px 13px;font-size:12.5px;font-weight:600;color:var(--sky-d);line-height:1.65;animation:fade .2s ease}
+  .bundle{margin-top:14px;background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;border-radius:16px;padding:14px 17px}
+  .bundle .bl{font-size:10.5px;font-weight:800;color:var(--gold);letter-spacing:.05em;margin-bottom:5px}
+  .bundle .bt{font-weight:800;font-size:14.5px;line-height:1.4}
+  .bundle .bs{font-size:11.5px;opacity:.82;margin-top:3px}
+
   /* ═════════ MOBILE ═════════ */
   @media(max-width:560px){
     .shell{padding:12px 11px 40px}
@@ -496,15 +539,14 @@
       <span class="sid-rank">#<span class="n">5</span> בסניף</span>
     </div>
     <nav class="topnav" data-side="staff">
-      <button class="navtab on" data-page="myday">🎯 היום שלי</button>
-      <button class="navtab" data-page="arena">🏆 הזירה</button>
+      <button class="navtab on" data-page="arena">🏆 הזירה</button>
+      <button class="navtab" data-page="myday">🎯 היום שלי</button>
       <button class="navtab" data-page="board">📊 דירוג</button>
       <button class="navtab" data-page="challenges">⚔️ אתגרים</button>
-      <button class="navtab" data-page="assistant">🤖 העוזר</button>
     </nav>
 
-    <!-- ───── MY DAY (default) ───── -->
-    <div class="page on" id="staff-myday">
+    <!-- ───── MY DAY ───── -->
+    <div class="page" id="staff-myday">
       <div class="salecta"><div><div class="sct-t">🎬 סימולציית הדגמה</div><div class="sct-s">לחצו לראות איך מכירה אחת מזיזה את כל המסכים בזמן אמת</div></div><button class="sct-btn" id="fireSale">סגרתי מכירה! 🎉</button><button class="sct-reset" id="resetSim">אפס</button></div>
 
       <div class="myday">
@@ -536,8 +578,8 @@
       </div>
     </div>
 
-    <!-- ───── ARENA (team goal + podium) ───── -->
-    <div class="page" id="staff-arena">
+    <!-- ───── ARENA (team goal + podium) · default ───── -->
+    <div class="page on" id="staff-arena">
       <div class="thermo">
         <div class="top"><div class="tt">🎯 יעד החנות היום · <span class="n" id="thermoNum">41/60</span> מכירות</div><div class="reward">🎁 ב-100%: ארוחת צהריים על הבית</div></div>
         <div class="tbar"><div class="tf" id="thermoFill" style="width:68%"></div></div>
@@ -609,45 +651,42 @@
       </div>
     </div>
 
-    <!-- ───── ASSISTANT ───── -->
-    <div class="page" id="staff-assistant">
-      <div class="asstwrap">
-        <div class="asst-head"><div class="ttl">✨ העוזר החכם למכירה</div><div class="sub">הקלידו מספר טלפון כדי לזהות לקוח ולקבל המלצות</div></div>
-        <div class="crumb" id="crumb"><b>מספר</b><span class="sep">←</span><span>לקוח</span><span class="sep">←</span><span>המלצות</span></div>
-
+    <!-- ───── FLOATING AI ASSISTANT (copilot on every staff screen) ───── -->
+    <button class="asst-fab" id="asstFab"><span class="fab-ic">🤖</span><span class="fab-tx">עוזר מכירה חכם</span></button>
+    <div class="asst-back" id="asstBack"></div>
+    <div class="asst-panel" id="asstPanel">
+      <div class="ap-grip"></div>
+      <div class="ap-head"><div class="ap-ttl">✨ עוזר המכירה החכם</div><button class="ap-x" id="asstClose">✕</button></div>
+      <div class="ap-body">
         <!-- stage A: phone -->
-        <div id="stageA" class="phone-hero">
-          <div class="phone-in"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a14 14 0 006 6l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2z"/></svg><input value="052-•••-4187" readonly></div>
-          <button class="pbtn" onclick="recognize()">זהה לקוח ←</button>
-          <button class="pghost" onclick="newCustomer()">או המשך כלקוח חדש</button>
+        <div id="stageA" class="ap-stage">
+          <div class="ap-sub">הקלידו מספר טלפון — והמערכת מזהה את הלקוח ובונה הצעת מכירה אישית תוך שניות.</div>
+          <div class="phone-in"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a14 14 0 006 6l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2z"/></svg><input id="phoneInp" value="052-•••-4187"></div>
+          <button class="pbtn" id="recogBtn">זהה לקוח וקבל המלצות ←</button>
+          <button class="pghost" id="newCustBtn">המשך כלקוח חדש (ללא היסטוריה)</button>
+          <div class="ap-quick"><span>נסו:</span><button class="qn" data-p="rotem">רותם · חוזר</button><button class="qn" data-p="dani">דניאל · VIP</button><button class="qn" data-p="new">לקוח חדש</button></div>
           <div class="psecure">🔒 הזיהוי מאובטח — הנתונים נשארים אצלכם בלבד</div>
         </div>
-
-        <!-- stage B/C: recognized -->
-        <div id="stageB" hidden>
-          <div class="ctxchip on"><span>☎ <span class="n">…4187</span></span><span style="color:var(--muted)">·</span><span id="ctxName">רותם · לקוח חוזר</span><span class="reset" onclick="resetAsst()">איפוס ↺</span></div>
+        <!-- stage: identifying -->
+        <div id="stageLoad" class="ap-stage" hidden>
+          <div class="ap-load"><div class="ld-ring"></div><div class="ld-steps"><div class="ld-s">📞 מאתר מספר…</div><div class="ld-s">🗂️ שולף היסטוריה מ-bGate…</div><div class="ld-s">🧠 בונה המלצות מותאמות…</div></div></div>
+        </div>
+        <!-- stage: result -->
+        <div id="stageB" class="ap-stage" hidden>
           <div class="custcard">
             <div class="cc-top">
               <span class="av you" id="custAv"><svg><use href="#person"/></svg><span class="pip" id="custPip">⭐</span></span>
-              <div><div class="nm" id="custName">רותם אברהם</div><div class="meta" id="custMeta">8 ביקורים · רכישה אחרונה לפני 11 חודשים</div></div>
-              <div class="cc-badges" id="custBadges"><span class="badge cer">לקוח חוזר</span><span class="badge gold">לקוח מאז 2023</span></div>
+              <div style="min-width:0"><div class="nm" id="custName">רותם אברהם</div><div class="meta" id="custMeta">8 ביקורים · רכישה אחרונה לפני 11 חודשים</div></div>
+              <div class="cc-badges" id="custBadges"></div>
             </div>
-            <div class="hist-strip" id="histStrip">
-              <div class="hl">מה הוא קנה אצלנו</div>
-              <div class="hist-items">
-                <div class="hchip"><span class="pi">📱</span>אייפון 15 <small>· לפני 11 ח׳</small></div>
-                <div class="hchip"><span class="pi">🎧</span>AirPods Pro <small>· לפני 11 ח׳</small></div>
-                <div class="hchip"><span class="pi">🛡️</span>ביטוח מסך <small>· פג החודש</small></div>
-              </div>
-            </div>
-            <div class="insight" id="insight"><span class="i">💡</span>קנה אייפון לפני 11 חודשים — בשל לשדרוג, והביטוח שלו פג החודש.</div>
+            <div class="cc-intent" id="custIntent"></div>
+            <div class="hist-strip"><div class="hl">מה הוא קנה אצלנו</div><div class="hist-items" id="histItems"></div></div>
+            <div class="insight"><span class="i">💡</span><span id="insightTx"></span></div>
           </div>
-          <div class="sug-h" id="sugH">המלצות upsell — לפי ההיסטוריה שלו</div>
-          <div class="sug" id="sugCards">
-            <div class="sugcard lead s-cer"><span class="pick">הכי מתאים</span><div class="thumb">📱</div><div class="pn">אייפון 17 Pro</div><div class="rs">משדרג מאייפון 15 — דור וחצי קדימה, אותו מותג שהוא אוהב.</div><span class="why">שדרוג טבעי <span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span></span><div class="sug-act"><button class="sa-primary">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>
-            <div class="sugcard s-cer"><div class="thumb">🛡️</div><div class="pn">חידוש ביטוח מסך</div><div class="rs">הביטוח הנוכחי פג החודש — חידוש מיידי מונע פער כיסוי.</div><span class="why">מבוסס היסטוריה <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>
-            <div class="sugcard s-cer"><div class="thumb">⌚</div><div class="pn">Apple Watch SE</div><div class="rs">לקוחות בפרופיל דומה הוסיפו שעון תוך 60 יום מרכישת אייפון.</div><span class="why">לקוחות דומים <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>
-          </div>
+          <div class="sug-h">🎯 ההמלצות החכמות שלי</div>
+          <div class="sug" id="sugCards"></div>
+          <div class="bundle" id="bundle"></div>
+          <button class="pghost" id="resetBtn" style="margin-top:8px">↺ זיהוי לקוח אחר</button>
         </div>
       </div>
     </div>
@@ -739,7 +778,7 @@
   // ── browser-history navigation: the Back button returns to the previous view (no on-screen button) ──
   // ── page router: chooser ⇄ side ⇄ nav-page, integrated with browser Back ──
   var _navLock=false;
-  var DEFP={staff:'myday',manager:'overview'};
+  var DEFP={staff:'arena',manager:'overview'};
   function _push(st,hash){if(_navLock)return;try{history.pushState(st,'',hash);}catch(e){}}
   function showSide(v){
     document.getElementById('chooser').hidden=(v!=='chooser');
@@ -806,33 +845,82 @@
     }
   });
   // assistant
-  function recognize(){document.getElementById('stageA').hidden=true;document.getElementById('stageB').hidden=false;setReturning();window.scrollTo({top:0,behavior:'smooth'});}
-  function newCustomer(){document.getElementById('stageA').hidden=true;document.getElementById('stageB').hidden=false;setNew();window.scrollTo({top:0,behavior:'smooth'});}
-  function resetAsst(){document.getElementById('stageB').hidden=true;document.getElementById('stageA').hidden=false;}
-  function setReturning(){
-    var av=document.getElementById('custAv');av.className='av you';document.getElementById('custPip').textContent='⭐';
-    document.getElementById('custName').textContent='רותם אברהם';
-    document.getElementById('ctxName').textContent='רותם · לקוח חוזר';
-    document.getElementById('custMeta').textContent='8 ביקורים · רכישה אחרונה לפני 11 חודשים';
-    document.getElementById('custBadges').innerHTML='<span class="badge cer">לקוח חוזר</span><span class="badge gold">לקוח מאז 2023</span>';
-    document.getElementById('histStrip').hidden=false;
-    document.getElementById('insight').hidden=false;
-    document.getElementById('sugH').textContent='המלצות upsell — לפי ההיסטוריה שלו';
-    document.getElementById('sugCards').innerHTML=RET;
-  }
-  function setNew(){
-    var av=document.getElementById('custAv');av.className='av skyr';document.getElementById('custPip').textContent='';
-    document.getElementById('custName').textContent='לקוח חדש';
-    document.getElementById('ctxName').textContent='לקוח חדש';
-    document.getElementById('custMeta').textContent='לא נמצא במאגר — נבנה המלצה מלקוחות דומים';
-    document.getElementById('custBadges').innerHTML='<span class="badge sky">לקוח חדש</span>';
-    document.getElementById('histStrip').hidden=true;
-    document.getElementById('insight').hidden=true;
-    document.getElementById('sugH').innerHTML='בחרו תחום עניין · ההמלצות לפי לקוחות דומים';
-    document.getElementById('sugCards').innerHTML=NEW;
-  }
-  var RET=document.getElementById('sugCards').innerHTML;
-  var NEW='<div class="sugcard lead s-sky"><span class="pick" style="background:var(--sky)">הנמכר ביותר</span><div class="thumb">🎧</div><div class="pn">Galaxy Buds</div><div class="rs">63% מרוכשי גלקסי S25 הוסיפו אוזניות באותה רכישה.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">נרכש יחד <span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div><div class="sugcard s-sky"><div class="thumb">🔌</div><div class="pn">מטען מהיר 45W</div><div class="rs">פריט נלווה נפוץ ברכישת סמארטפון חדש.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">נרכש יחד <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div><div class="sugcard s-sky"><div class="thumb">🛡️</div><div class="pn">מגן מסך + כיסוי</div><div class="rs">80% מקוני הדגם הזה הוסיפו הגנה.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">מומלץ <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>';
+  // ── floating AI sales assistant (copilot) ──
+  (function(){
+    var panel=document.getElementById('asstPanel'),back=document.getElementById('asstBack');
+    if(!panel)return;
+    function sugCard(p){
+      return '<div class="sugcard '+(p.lead?'lead ':'')+(p.sky?'s-sky':'s-cer')+'">'+
+        (p.lead?'<span class="pick"'+(p.sky?' style="background:var(--sky)"':'')+'>'+(p.pickLabel||'הכי מתאים')+'</span>':'')+
+        '<div class="sc-row"><div class="thumb">'+p.icon+'</div><div class="sc-info"><div class="pn">'+p.name+'</div><div class="rs">'+p.rs+'</div></div></div>'+
+        '<div class="conf"><div class="conf-bar"><i style="width:'+p.conf+'%"></i></div><span class="conf-n">'+p.conf+'% התאמה</span></div>'+
+        '<div class="sug-act"><button class="sa-primary"'+(p.sky?' style="background:var(--sky)"':'')+'>הצע ללקוח</button><button class="sa-pitch">תסריט שיחה</button></div>'+
+        '<div class="pitch" hidden>💬 '+p.pitch+'</div></div>';
+    }
+    var PEOPLE={
+      rotem:{name:'רותם אברהם',pip:'⭐',av:'you',meta:'8 ביקורים · רכישה אחרונה לפני 11 חודשים',
+        badges:'<span class="badge cer">לקוח חוזר</span><span class="badge gold">לקוח מאז 2023</span>',
+        intent:'🔥 כוונת קנייה: <b>גבוהה</b> · בשל לשדרוג',
+        hist:'<div class="hchip"><span class="pi">📱</span>אייפון 15 <small>· לפני 11 ח׳</small></div><div class="hchip"><span class="pi">🎧</span>AirPods Pro <small>· לפני 11 ח׳</small></div><div class="hchip"><span class="pi">🛡️</span>ביטוח מסך <small>· פג החודש</small></div>',
+        insight:'רותם קנה אייפון 15 לפני 11 חודשים — בדיוק בנקודת השדרוג. הביטוח שלו פג החודש, אז זה הרגע המושלם לחדש. סבירות הסגירה גבוהה.',
+        sug:[{lead:1,icon:'📱',name:'אייפון 17 Pro',conf:94,rs:'שדרוג טבעי מאייפון 15 — דור וחצי קדימה, אותו מותג שהוא אוהב.',pitch:'"רותם, האייפון שלך כבר כמעט שנה — ה-17 Pro קופץ דור וחצי במצלמה ובסוללה, ואני מעביר לך את כל הגיבוי תוך דקות. רוצה להרגיש אותו ביד?"'},
+             {icon:'🛡️',name:'חידוש ביטוח מסך',conf:88,rs:'הביטוח הנוכחי פג החודש — חידוש מיידי מונע פער כיסוי.',pitch:'"שמתי לב שהביטוח שלך פג החודש — חבל להישאר בלי כיסוי. אפשר לחדש עכשיו בכמה לחיצות, רציף וללא בדיקות."'},
+             {icon:'⌚',name:'Apple Watch SE',conf:76,rs:'לקוחות בפרופיל דומה הוסיפו שעון תוך 60 יום מרכישת אייפון.',pitch:'"מי שמשדרג אייפון בדרך כלל מתחבר גם לשעון — שילוב מנצח להתראות ולבריאות. רוצה לראות איך זה עובד יחד?"'}],
+        bundle:{t:'אייפון 17 Pro · חידוש ביטוח · Apple Watch SE',s:'החבילה שתתאים לרותם בצורה הטובה ביותר — שדרוג מלא ברכישה אחת.'}},
+      dani:{name:'דניאל מזרחי',pip:'💎',av:'gold',meta:'14 ביקורים · VIP · לקוח מאז 2021',
+        badges:'<span class="badge gold">VIP</span><span class="badge cer">לקוח חוזר</span>',
+        intent:'💎 לקוח <b>VIP</b> · הולך תמיד על הדור האחרון',
+        hist:'<div class="hchip"><span class="pi">📱</span>גלקסי S24 <small>· לפני 8 ח׳</small></div><div class="hchip"><span class="pi">⌚</span>גלקסי Watch 6 <small>· לפני 8 ח׳</small></div><div class="hchip"><span class="pi">🎧</span>גלקסי Buds <small>· לפני שנה</small></div>',
+        insight:'דניאל לקוח VIP שתמיד עובר לדגם החדש. קנה גלקסי S24 — ה-S26 אולטרה ידבר אליו ישירות, ושווה להציע גם שדרוג שעון תואם.',
+        sug:[{lead:1,icon:'📱',name:'גלקסי S26 אולטרה',conf:96,rs:'הדגם המוביל — דניאל תמיד עובר לדור החדש. קפיצה משמעותית מ-S24.',pitch:'"דניאל, ה-S26 אולטרה כאן — מצלמה ו-AI שלא ראית, בדיוק ברמה שאתה אוהב. אביא לך אותו להתנסות?"'},
+             {icon:'⌚',name:'Galaxy Watch 7',conf:83,rs:'תואם לטלפון החדש ומשדרג את ה-Watch 6 שלו.',pitch:'"השעון שלך כבר דור אחורה — ה-Watch 7 מתחבר מושלם ל-S26 ומוסיף מדדי בריאות חדשים."'},
+             {icon:'🛡️',name:'הגנת פרימיום',conf:79,rs:'מכשיר דגל מצדיק כיסוי מלא — שקט נפשי ללקוח VIP.',pitch:'"על מכשיר ברמה הזו אני ממליץ על הגנת פרימיום — כיסוי מלא כולל נזקי נוזלים, בלי דאגות."'}],
+        bundle:{t:'גלקסי S26 אולטרה · Galaxy Watch 7 · הגנת פרימיום',s:'חבילת הדגל המלאה — בדיוק בסטנדרט שדניאל מצפה לו.'}},
+      'new':{name:'לקוח חדש',pip:'',av:'skyr',meta:'לא נמצא במאגר — המלצות לפי הנמכרים והפרופילים הדומים',
+        badges:'<span class="badge sky">לקוח חדש</span>',
+        intent:'🆕 לקוח חדש · המלצות מבוססות הנמכרים ביותר',
+        hist:'',sky:1,
+        insight:'אין היסטוריה עדיין — אז בניתי המלצות מהפריטים הנמכרים ביותר והנלווים הנפוצים, כדי לפתוח שיחה ולהגדיל את הסל.',
+        sug:[{lead:1,sky:1,pickLabel:'הנמכר ביותר',icon:'🎧',name:'Galaxy Buds',conf:91,rs:'63% מרוכשי גלקסי S25 הוסיפו אוזניות באותה רכישה.',pitch:'"רוב הלקוחות שלוקחים את הדגם הזה מוסיפים אוזניות — צליל מעולה וזיווג מיידי. שווה לצרף?"'},
+             {sky:1,icon:'🔌',name:'מטען מהיר 45W',conf:84,rs:'פריט נלווה נפוץ ברכישת סמארטפון חדש.',pitch:'"כדאי מטען מהיר תואם — טעינה מלאה בחצי מהזמן, פריט שכמעט כולם לוקחים."'},
+             {sky:1,icon:'🛡️',name:'מגן מסך + כיסוי',conf:80,rs:'80% מקוני הדגם הזה הוסיפו הגנה.',pitch:'"בוא נשמור על המכשיר מהיום הראשון — מגן מסך וכיסוי, 80% מהלקוחות לוקחים."'}],
+        bundle:{t:'Galaxy Buds · מטען 45W · מגן + כיסוי',s:'חבילת פתיחה פופולרית — דרך מצוינת להגדיל סל אצל לקוח חדש.'}}
+    };
+    function openAsst(){panel.classList.add('on');back.classList.add('on');}
+    function closeAsst(){panel.classList.remove('on');back.classList.remove('on');}
+    function showStage(id){['stageA','stageLoad','stageB'].forEach(function(s){var e=document.getElementById(s);if(e)e.hidden=(s!==id);});panel.scrollTop=0;}
+    function typeInto(el,txt){el.textContent='';var i=0;(function step(){if(i<=txt.length){el.textContent=txt.slice(0,i++);setTimeout(step,12);}})();}
+    function runLoad(done){var steps=document.querySelectorAll('#stageLoad .ld-s');steps.forEach(function(s){s.classList.remove('on');});steps.forEach(function(s,i){setTimeout(function(){s.classList.add('on');},120+i*430);});setTimeout(done,120+steps.length*430+220);}
+    function showPerson(key){
+      var p=PEOPLE[key]||PEOPLE.rotem;
+      document.getElementById('custAv').className='av '+p.av;
+      document.getElementById('custPip').textContent=p.pip||'';
+      document.getElementById('custName').textContent=p.name;
+      document.getElementById('custMeta').textContent=p.meta;
+      document.getElementById('custBadges').innerHTML=p.badges;
+      document.getElementById('custIntent').innerHTML=p.intent;
+      var hi=document.getElementById('histItems');hi.innerHTML=p.hist;hi.parentNode.style.display=p.hist?'block':'none';
+      document.getElementById('sugCards').innerHTML=p.sug.map(sugCard).join('');
+      document.getElementById('bundle').innerHTML='<div class="bl">🎁 הצעת חבילה מומלצת</div><div class="bt">'+p.bundle.t+'</div><div class="bs">'+p.bundle.s+'</div>';
+      showStage('stageB');
+      typeInto(document.getElementById('insightTx'),p.insight);
+    }
+    function recognize(){var v=document.getElementById('phoneInp').value||'';var key=(v.indexOf('9012')>=0?'dani':'rotem');showStage('stageLoad');runLoad(function(){showPerson(key);});}
+    function newCustomer(){showStage('stageLoad');runLoad(function(){showPerson('new');});}
+    document.getElementById('asstFab').addEventListener('click',openAsst);
+    document.getElementById('asstClose').addEventListener('click',closeAsst);
+    back.addEventListener('click',closeAsst);
+    document.getElementById('recogBtn').addEventListener('click',recognize);
+    document.getElementById('newCustBtn').addEventListener('click',newCustomer);
+    document.getElementById('resetBtn').addEventListener('click',function(){showStage('stageA');});
+    document.querySelectorAll('.qn').forEach(function(b){b.addEventListener('click',function(){
+      var p=b.dataset.p;
+      if(p==='new'){newCustomer();return;}
+      document.getElementById('phoneInp').value=(p==='dani'?'054-•••-9012':'052-•••-4187');
+      showStage('stageLoad');runLoad(function(){showPerson(p);});
+    });});
+    document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.sa-pitch');if(!b)return;var c=b.closest('.sugcard');if(!c)return;var pt=c.querySelector('.pitch');if(pt){pt.hidden=!pt.hidden;b.textContent=pt.hidden?'תסריט שיחה':'הסתר תסריט';}});
+  })();
 /* ═════════ MANAGER COCKPIT ENGINE — one seeded dataset, one F state, one render() ═════════ */
 (function(){
   const $=id=>document.getElementById(id);
