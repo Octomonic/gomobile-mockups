@@ -285,6 +285,103 @@
 
   /* disclaimer footer */
   .foot b{color:#7a8396;font-weight:800}
+
+  /* ═════════ MANAGER COCKPIT ═════════ */
+  .seclabel{font-size:13px;font-weight:900;color:var(--cerise-d);letter-spacing:.02em;margin:6px 2px 11px;text-align:center}
+  .mgr-omni{display:flex;align-items:center;gap:11px;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:0 16px;height:52px;box-shadow:var(--shadow-sm);margin-bottom:12px;transition:.15s}
+  .mgr-omni:focus-within{border-color:var(--cerise);box-shadow:0 0 0 4px rgba(236,0,140,.08)}
+  .mgr-omni .mi-search{width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;flex:none}
+  .mgr-omni input{flex:1;border:0;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--ink);outline:none}
+  .mgr-omni .qcount{font-size:12px;font-weight:800;color:var(--cerise-d);background:rgba(236,0,140,.08);padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .mgr-omni .qclear{border:0;background:var(--soft);color:#667085;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:11px;font-weight:800;flex:none}
+  .fbar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-sm);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:15px 24px;align-items:flex-start}
+  .fgrp{display:flex;flex-direction:column;gap:7px}
+  .fgrp.ftime{min-width:236px}
+  .flbl{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.02em}
+  .segd{display:inline-flex;background:var(--soft);border-radius:9px;padding:3px}
+  .segd span{padding:6px 12px;border-radius:7px;cursor:pointer;color:var(--muted);font-weight:700;font-size:12px;transition:.12s}
+  .segd span.on{background:var(--cerise);color:#fff;box-shadow:0 2px 8px rgba(236,0,140,.3)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:999px;background:var(--soft);color:#475467;border:1px solid transparent;cursor:pointer;transition:.13s;user-select:none}
+  .chip:hover{border-color:#d7dce4}
+  .chip.on{color:#fff}
+  .chips.branch .chip.on{background:var(--cerise);box-shadow:0 4px 12px rgba(236,0,140,.25)}
+  .chips.cat .chip.on{background:var(--sky);box-shadow:0 4px 12px rgba(41,171,226,.25)}
+  .tslide{position:relative;height:22px;width:216px;display:flex;align-items:center}
+  .trange{position:absolute;left:0;right:0;height:6px;background:var(--soft);border-radius:999px}
+  .tfill{position:absolute;height:6px;background:linear-gradient(90deg,var(--cerise),var(--coral));border-radius:999px}
+  .tslide input[type=range]{position:absolute;left:0;right:0;width:100%;margin:0;background:none;pointer-events:none;-webkit-appearance:none;appearance:none;height:22px}
+  .tslide input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:2.5px solid var(--cerise);box-shadow:var(--shadow-sm);cursor:pointer;pointer-events:auto}
+  .tslide input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:2.5px solid var(--cerise);cursor:pointer;pointer-events:auto}
+  .tlabel{font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap}
+  .tchips{display:flex;gap:5px}
+  .tchips span{font-size:11px;font-weight:700;color:var(--sky-d);background:rgba(41,171,226,.08);padding:3px 9px;border-radius:999px;cursor:pointer}
+  .tchips span:hover{background:rgba(41,171,226,.18)}
+  .combo{position:relative}
+  .combo>input{border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:7px 15px;font:inherit;font-size:12.5px;font-weight:700;color:#475467;outline:none;width:160px}
+  .combo>input:focus{border-color:var(--sky);background:#fff}
+  .combo-list{position:absolute;top:calc(100% + 5px);right:0;left:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);z-index:25;max-height:240px;overflow:auto;padding:5px}
+  .combo-opt{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:9px;cursor:pointer;font-size:12.5px;font-weight:700}
+  .combo-opt:hover{background:var(--soft)}
+  .combo-opt .ca{width:24px;height:24px;border-radius:50%;background:linear-gradient(160deg,#fff,#eef2f7);border:1.5px solid #d7dce4;display:grid;place-items:center;flex:none}
+  .combo-opt .ca svg{width:55%;height:55%;fill:#9aa3b2}
+  .combo-opt small{color:var(--muted);font-weight:600;margin-inline-start:auto}
+  .combo-opt.sel{background:rgba(41,171,226,.1)}
+  .combo-opt.sel::after{content:"✓";color:var(--sky-d);font-weight:900;margin-inline-start:6px}
+  .pillrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px}
+  .fpill{display:inline-flex;align-items:center;gap:7px;background:rgba(236,0,140,.07);color:var(--cerise-d);border:1px solid rgba(236,0,140,.18);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;cursor:pointer}
+  .fpill .x{opacity:.65;font-weight:900}.fpill:hover{background:rgba(236,0,140,.13)}
+  .pillrow .clr{background:none;border:0;color:#667085;font:inherit;font-size:12px;font-weight:800;cursor:pointer;text-decoration:underline}
+  .pillrow .echo{margin-inline-start:auto;font-size:12.5px;font-weight:800;color:#475467}
+  .pillrow .echo b{color:var(--cerise-d)}
+  .mstat{cursor:default;position:relative}
+  .mstat .dl{font-size:10.5px;font-weight:800;margin-top:2px}
+  .chartbox{width:100%}
+  .chartbox svg{width:100%;display:block;overflow:visible}
+  .mgr2{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-bottom:16px}@media(max-width:820px){.mgr2{grid-template-columns:1fr}}
+  .donutbox{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+  .donut-leg{display:flex;flex-direction:column;gap:7px}
+  .donut-leg .dl{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;cursor:pointer;color:#475467}
+  .donut-leg .dl:hover{color:var(--ink)}
+  .donut-leg .sw{width:11px;height:11px;border-radius:3px;flex:none}
+  .donut-leg .dl small{color:var(--muted);font-weight:700;margin-inline-start:5px}
+  .emptybox{text-align:center;color:var(--muted);font-weight:700;font-size:13px;padding:32px 10px}
+  .emptybox .x{display:inline-block;margin-top:10px;background:var(--soft);border-radius:999px;padding:7px 15px;color:var(--sky-d);cursor:pointer;font-size:12px}
+  .cbar,.hbar,.slice{cursor:pointer;transition:opacity .15s}
+  .cbar:hover,.hbar:hover,.slice:hover{opacity:.78}
+  #branchT table,#empT table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .rowclick{cursor:pointer;transition:background .12s}
+  .rowclick:hover{background:rgba(41,171,226,.06)}
+  tr.selrow{background:rgba(236,0,140,.05)}
+  .mini{height:7px;border-radius:999px;background:var(--soft);overflow:hidden;min-width:64px}
+  .mini i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cerise),var(--coral))}
+  mark{background:rgba(240,192,0,.45);color:inherit;border-radius:3px;padding:0 2px}
+  .askbox.ai2{background:linear-gradient(135deg,#0a0f23,#231331);border:1px solid rgba(255,255,255,.06)}
+  .askin{display:flex;gap:8px;margin-top:5px}
+  .askin input{flex:1;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);border-radius:10px;padding:10px 14px;font:inherit;font-size:13px;color:#fff;outline:none}
+  .askin input::placeholder{color:rgba(255,255,255,.5)}
+  .askin button{background:linear-gradient(135deg,var(--cerise),var(--sky));border:0;color:#fff;font:inherit;font-weight:800;font-size:13px;padding:0 20px;border-radius:10px;cursor:pointer}
+  .aichips{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+  .aichips span{font-size:11.5px;font-weight:700;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);padding:5px 12px;border-radius:999px;cursor:pointer}
+  .aichips span:hover{background:rgba(255,255,255,.18)}
+  .aians{margin-top:13px;font-size:13px;color:#fff;opacity:.96;line-height:1.65;background:rgba(255,255,255,.06);border-radius:10px;padding:12px 15px}
+  .aians b{color:var(--gold)}
+  .drawer-back{position:fixed;inset:0;background:rgba(10,15,35,.45);opacity:0;pointer-events:none;transition:.2s;z-index:70}
+  .drawer-back.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;bottom:0;left:0;width:392px;max-width:92vw;background:#fff;box-shadow:0 0 60px rgba(10,15,35,.3);transform:translateX(-100%);transition:transform .26s cubic-bezier(.4,0,.2,1);z-index:71;overflow:auto;padding:24px 22px}
+  .drawer.on{transform:none}
+  .dwr-x{position:absolute;top:16px;left:16px;background:var(--soft);border:0;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:13px;font-weight:800;color:#475467}
+  .dwr-tag{font-size:11px;font-weight:800;color:var(--cerise-d);letter-spacing:.04em}
+  .dwr-h{font-size:21px;font-weight:900;margin:3px 0 2px}
+  .dwr-sub{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:17px}
+  .dwr-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .dwr-st{background:var(--soft);border-radius:13px;padding:13px;text-align:center}
+  .dwr-st b{font-size:19px;font-weight:900;display:block;color:var(--cerise-d);letter-spacing:-.4px}.dwr-st span{font-size:11px;color:var(--muted);font-weight:700}
+  .dwr-btn{display:block;width:100%;background:var(--cerise);color:#fff;border:0;font:inherit;font-weight:800;font-size:13.5px;padding:12px;border-radius:12px;cursor:pointer;margin-top:6px}
+  .dwr-btn:hover{background:var(--cerise-d)}
+  .dwr-list{display:flex;flex-direction:column;gap:7px;margin-top:14px}
+  .dwr-li{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;background:var(--soft);border-radius:10px;padding:9px 12px}
+  .dwr-li .amt{margin-inline-start:auto;font-weight:800}
 </style>
 </head>
 <body>
@@ -353,7 +450,7 @@
         <div class="ah-head"><div class="t">🏆 לוח התוצאות · השבוע</div><div class="honor">⭐ העסקה הגדולה היום · בן לוי · גלקסי S26 אולטרה</div></div>
         <div class="podium">
           <div class="pod second"><span class="medal">🥈</span><div class="nm">דנה אבני</div><div class="br">ת״א</div><div class="u"><span class="n">38</span> <small>מכירות</small></div><div class="tg"><span class="n">92%</span> מהיעד</div></div>
-          <div class="pod first"><span class="medal">👑</span><div class="nm">בן לוי</div><div class="br">ר״ג</div><div class="u"><span class="n">42</span> <small>מכירות</small></div><div class="tg"><span class="n">128%</span> מהיעד</div></div>
+          <div class="pod first"><span class="medal">👑</span><div class="nm">בן לוי</div><div class="br">פ״ת</div><div class="u"><span class="n">42</span> <small>מכירות</small></div><div class="tg"><span class="n">128%</span> מהיעד</div></div>
           <div class="pod third"><span class="medal">🥉</span><div class="nm">אורי כהן</div><div class="br">חיפה</div><div class="u"><span class="n">35</span> <small>מכירות</small></div><div class="tg"><span class="n">86%</span> מהיעד</div></div>
         </div>
       </div>
@@ -380,7 +477,7 @@
       <div class="arena-2col">
         <div class="card"><div class="h">דירוג · המשך<div class="seg"><span>היום</span><span class="on">השבוע</span><span>החודש</span></div></div>
           <div class="lrow" data-d="9" data-w="31" data-m="142" data-dp="70" data-wp="74" data-mp="88"><span class="rk">4</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">אבי מזרחי</div><div class="br">ב״ש</div></div><div class="ub"><div class="prog"><div class="f" style="width:74%"></div></div></div><span class="tg"><span class="n">31</span></span><span class="up">▲</span></div>
-          <div class="lrow you" data-d="8" data-w="29" data-m="131" data-dp="67" data-wp="69" data-mp="80"><span class="rk">5</span><span class="av you"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">נטע שגב <span class="badge cer" style="font-size:9.5px;padding:1px 7px">זה אתה</span></div><div class="br">פתח תקווה</div></div><div class="ub"><div class="prog"><div class="f" style="width:69%"></div></div></div><span class="tg"><span class="n">29</span></span><span class="down">▼</span></div>
+          <div class="lrow you" data-d="8" data-w="29" data-m="131" data-dp="67" data-wp="69" data-mp="80"><span class="rk">5</span><span class="av you"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">נטע שגב <span class="badge cer" style="font-size:9.5px;padding:1px 7px">זה אתה</span></div><div class="br">פ״ת</div></div><div class="ub"><div class="prog"><div class="f" style="width:69%"></div></div></div><span class="tg"><span class="n">29</span></span><span class="down">▼</span></div>
           <div class="lrow" data-d="7" data-w="26" data-m="120" data-dp="60" data-wp="62" data-mp="74"><span class="rk">6</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">איתי ברק</div><div class="br">ר״ג</div></div><div class="ub"><div class="prog"><div class="f" style="width:62%"></div></div></div><span class="tg"><span class="n">26</span></span><span class="up">▲</span></div>
           <div class="lrow" data-d="6" data-w="24" data-m="112" data-dp="55" data-wp="57" data-mp="69"><span class="rk">7</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">שירה פרץ</div><div class="br">חיפה</div></div><div class="ub"><div class="prog"><div class="f" style="width:57%"></div></div></div><span class="tg"><span class="n">24</span></span><span class="flat">▬</span></div>
         </div>
@@ -389,7 +486,7 @@
             <div class="fitem big"><span class="g"></span>🎉 עסקה גדולה · בן לוי · גלקסי S26 אולטרה</div>
             <div class="fitem"><span class="g"></span>מכירה חדשה · ת״א · אייפון 17</div>
             <div class="fitem"><span class="g"></span>+ אביזר · חיפה · מגן מסך</div>
-            <div class="fitem"><span class="g"></span>מכירה חדשה · פתח תקווה · Apple Watch</div>
+            <div class="fitem"><span class="g"></span>מכירה חדשה · פ״ת · Apple Watch</div>
             <div class="fitem"><span class="g"></span>+ ביטוח מסך · ר״ג</div>
           </div>
         </div>
@@ -398,12 +495,12 @@
       <div class="h2h">
         <div class="h2h-top"><div style="font-weight:800;font-size:14px">🏬 אתגר בין סניפים · המשמרת</div><span class="badge coral">נותרו <span class="n">2:15</span> שעות</span></div>
         <div class="duel">
-          <div class="side"><span class="bav you"><svg><use href="#store"/></svg></span><div class="nm">פתח תקווה</div><div class="who you">הסניף שלך</div><div class="sc"><span class="n">44</span></div></div>
+          <div class="side"><span class="bav you"><svg><use href="#store"/></svg></span><div class="nm">פ״ת</div><div class="who you">הסניף שלך</div><div class="sc"><span class="n">44</span></div></div>
           <div class="vs">VS</div>
           <div class="side"><span class="bav rival"><svg><use href="#store"/></svg></span><div class="nm">ר״ג</div><div class="who">סניף מתחרה</div><div class="sc"><span class="n">47</span></div></div>
         </div>
         <div class="rope"><div class="knot" style="right:53%"></div></div>
-        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)">🔥 צמצמתם את הפער ל-<span class="n">3</span> — כל מכירה מקרבת את פתח תקווה לראש!</div>
+        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)">🔥 צמצמתם את הפער ל-<span class="n">3</span> — כל מכירה מקרבת את פ״ת לראש!</div>
       </div>
 
       <div class="arena-2col">
@@ -479,46 +576,61 @@
     </div>
   </div>
 
-  <!-- ───── MANAGER ───── -->
+  <!-- ───── MANAGER COCKPIT ───── -->
   <div id="manager" hidden>
-    <div class="askbox">
-      <div class="ql">שאל את המערכת · שפה חופשית</div>
-      <div class="q">💬 "מה היה המחזור בר״ג ב-14:00 לעומת אתמול?"</div>
-      <div class="a">בר״ג נכון ל-<b><span class="n">14:00</span></b> נרשמו <b><span class="n">₪96,400</span></b> — גבוה ב-<b><span class="n">12%</span></b> מאותה שעה אתמול (<span class="n">₪86,050</span>). הסניף בקצב לעבור את היעד היומי.</div>
+    <!-- global omni-search -->
+    <div class="mgr-omni">
+      <svg class="mi-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="mq" placeholder="חפש עובד, מוצר או סניף…" autocomplete="off">
+      <span class="qcount" id="qcount" hidden></span>
+      <button class="qclear" id="qclear" hidden>✕</button>
     </div>
-    <div class="mstats">
-      <div class="mstat"><div class="v"><span class="n">₪412K</span></div><div class="l">מכירות היום</div><div class="up">▲ <span class="n">12%</span></div></div>
-      <div class="mstat sky"><div class="v"><span class="n">₪1.07M</span></div><div class="l">מכירות השבוע</div><div class="up">▲ <span class="n">9%</span></div></div>
-      <div class="mstat coral"><div class="v"><span class="n">31%</span></div><div class="l">אחוז המרה</div></div>
-      <div class="mstat"><div class="v"><span class="n">₪2,214</span></div><div class="l">סל ממוצע</div></div>
-      <div class="mstat gold"><div class="v"><span class="n">82%</span></div><div class="l">מהיעד החודשי</div></div>
-    </div>
-    <div class="card"><div class="h">פיד עסקאות חי</div>
-      <div class="feed">
-        <div class="fitem big"><span class="g"></span>🎉 עסקה גדולה · ר״ג · גלקסי S26 אולטרה · <span class="n">₪14,200</span> · 14:38</div>
-        <div class="fitem"><span class="g"></span>ת״א · אייפון 17 · <span class="n">₪5,200</span> · 14:35</div>
-        <div class="fitem"><span class="g"></span>חיפה · מגן מסך · <span class="n">₪890</span> · 14:33</div>
-        <div class="fitem"><span class="g"></span>פתח תקווה · Apple Watch · <span class="n">₪1,750</span> · 14:31</div>
+
+    <!-- filter bar -->
+    <div class="fbar" id="fbar">
+      <div class="fgrp"><span class="flbl">טווח תאריכים</span>
+        <div class="segd" id="fdate"><span data-r="today" class="on">היום</span><span data-r="yday">אתמול</span><span data-r="7d">7 ימים</span><span data-r="30d">30 ימים</span><span data-r="month">החודש</span></div>
       </div>
+      <div class="fgrp ftime"><span class="flbl">שעה ביום <span style="opacity:.7">(עד הדקה)</span></span>
+        <div class="tslide"><div class="trange"><div class="tfill" id="tfill"></div></div><input type="range" id="t0" min="0" max="1439" step="5" value="0"><input type="range" id="t1" min="0" max="1439" step="5" value="1439"></div>
+        <div style="display:flex;align-items:center;gap:9px;margin-top:1px"><span class="tlabel" id="tlabel">כל היום</span><div class="tchips"><span data-a="360" data-b="719">בוקר</span><span data-a="720" data-b="1019">צהריים</span><span data-a="1020" data-b="1319">ערב</span><span data-a="960" data-b="1139">שיא</span></div></div>
+      </div>
+      <div class="fgrp"><span class="flbl">סניף</span><div class="chips branch" id="fbranch"></div></div>
+      <div class="fgrp"><span class="flbl">עובד</span><div class="combo" id="fempWrap"><input id="femp" placeholder="כל העובדים" autocomplete="off"><div class="combo-list" id="fempList" hidden></div></div></div>
+      <div class="fgrp"><span class="flbl">קטגוריית מוצר</span><div class="chips cat" id="fcat"></div></div>
     </div>
-    <div class="card"><div class="h">סניפים · מחזור מול יעד <span class="sm">· יעדים מ-bGate</span></div>
-      <table><thead><tr><th>סניף</th><th>מכירות</th><th>יעד שבועי</th><th>התקדמות</th><th>אתמול · אותה שעה</th></tr></thead><tbody>
-        <tr><td class="b">ר״ג</td><td class="b"><span class="n">₪288,400</span></td><td><span class="n">₪270K</span></td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td class="up">+<span class="n">12%</span></td></tr>
-        <tr><td class="b">ת״א</td><td class="b"><span class="n">₪244,100</span></td><td><span class="n">₪260K</span></td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td class="up">+<span class="n">6%</span></td></tr>
-        <tr><td class="b">חיפה</td><td class="b"><span class="n">₪216,800</span></td><td><span class="n">₪230K</span></td><td><div class="prog"><div class="f" style="width:94%"></div></div></td><td class="down">−<span class="n">3%</span></td></tr>
-        <tr><td class="b">ב״ש</td><td class="b"><span class="n">₪172,300</span></td><td><span class="n">₪200K</span></td><td><div class="prog"><div class="f" style="width:86%"></div></div></td><td class="up">+<span class="n">4%</span></td></tr>
-        <tr><td class="b">פתח תקווה</td><td class="b"><span class="n">₪151,900</span></td><td><span class="n">₪190K</span></td><td><div class="prog"><div class="f" style="width:80%"></div></div></td><td class="up">+<span class="n">2%</span></td></tr>
-      </tbody></table>
+
+    <!-- active filter pills + live echo -->
+    <div class="pillrow" id="pillrow" hidden></div>
+
+    <!-- SALES DASHBOARD (leads) -->
+    <div class="seclabel">לוח מכירות</div>
+    <div class="mstats" id="kpis"></div>
+
+    <div class="card chartcard"><div class="h">מגמת מכירות<span class="sm" id="trendSub"></span></div><div id="trend" class="chartbox"></div></div>
+
+    <div class="mgr2">
+      <div class="card"><div class="h">מכירות לפי שעה<span class="sm">לחצו לסינון</span></div><div id="hourc" class="chartbox"></div></div>
+      <div class="card"><div class="h">תמהיל קטגוריות<span class="sm">לחצו לסינון</span></div><div id="catc" class="chartbox donutbox"></div></div>
     </div>
-    <div class="card"><div class="h">דירוג עובדים · עם מכירות (₪) ובונוס</div>
-      <table><thead><tr><th>#</th><th>עובד</th><th>סניף</th><th>מכירות</th><th>יחידות</th><th>בונוס</th></tr></thead><tbody>
-        <tr><td class="b" style="color:var(--gold-d)">1</td><td class="b">בן לוי</td><td>ר״ג</td><td class="b"><span class="n">₪96,400</span></td><td><span class="n">42</span></td><td><span class="badge gold">פלטינום</span></td></tr>
-        <tr><td class="b">2</td><td class="b">דנה אבני</td><td>ת״א</td><td class="b"><span class="n">₪88,150</span></td><td><span class="n">38</span></td><td><span class="badge gold">זהב</span></td></tr>
-        <tr><td class="b">3</td><td class="b">אורי כהן</td><td>חיפה</td><td class="b"><span class="n">₪81,900</span></td><td><span class="n">35</span></td><td><span class="badge sky">זהב</span></td></tr>
-        <tr><td class="b">4</td><td class="b">אבי מזרחי</td><td>ב״ש</td><td class="b"><span class="n">₪74,300</span></td><td><span class="n">31</span></td><td><span class="badge cer">כסף</span></td></tr>
-        <tr><td class="b">5</td><td class="b">נטע שגב</td><td>פתח תקווה</td><td class="b"><span class="n">₪69,050</span></td><td><span class="n">29</span></td><td><span class="badge cer">כסף</span></td></tr>
-      </tbody></table>
+
+    <div class="card"><div class="h">פיד עסקאות חי<span class="sm" id="feedSub"></span></div><div class="feed" id="mfeed"></div></div>
+
+    <div class="card"><div class="h">סניפים · מחזור מול יעד<span class="sm">לחצו לסינון סניף</span></div><div id="branchT"></div></div>
+
+    <div class="card"><div class="h">דירוג עובדים · מכירות ₪ · יחידות · בונוס<span class="sm">לחצו לפירוט</span></div><div id="empT"></div></div>
+
+    <!-- AI demoted to secondary shortcut -->
+    <div class="askbox ai2">
+      <div class="ql">או פשוט שאלו בשפה חופשית — והמסננים יזוזו בהתאם ↑</div>
+      <div class="askin"><input id="aiq" placeholder="למשל: כמה מכרה חיפה אתמול בערב?" autocomplete="off"><button id="aiBtn">שאל</button></div>
+      <div class="aichips"><span data-q="הסניף הכי חזק היום">הסניף הכי חזק היום</span><span data-q="חיפה אתמול בערב">חיפה · אתמול · ערב</span><span data-q="העובד המוביל השבוע">העובד המוביל השבוע</span><span data-q="סמארטפונים השבוע">סמארטפונים · השבוע</span></div>
+      <div class="aians" id="aians" hidden></div>
     </div>
+
+    <!-- drill drawer -->
+    <div class="drawer-back" id="drawerBack"></div>
+    <aside class="drawer" id="drawer"></aside>
   </div>
 
   <div class="foot"><b>תצוגה להמחשה בלבד</b> — אינה התחייבות לעיצוב, לפיצ׳ר או למראה סופי; המסכים בפועל עשויים להיראות ולתפקד אחרת, וכל יכולת ונתון מוגבלים למה שניתן לקבל מהמערכות הקיימות (bGate / WooCommerce).<br>OctoMonic עבור GoMobile · הנתונים בתצוגה בדויים</div>
@@ -607,6 +719,301 @@
   }
   var RET=document.getElementById('sugCards').innerHTML;
   var NEW='<div class="sugcard lead s-sky"><span class="pick" style="background:var(--sky)">הנמכר ביותר</span><div class="thumb">🎧</div><div class="pn">Galaxy Buds</div><div class="rs">63% מרוכשי גלקסי S25 הוסיפו אוזניות באותה רכישה.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">נרכש יחד <span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div><div class="sugcard s-sky"><div class="thumb">🔌</div><div class="pn">מטען מהיר 45W</div><div class="rs">פריט נלווה נפוץ ברכישת סמארטפון חדש.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">נרכש יחד <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div><div class="sugcard s-sky"><div class="thumb">🛡️</div><div class="pn">מגן מסך + כיסוי</div><div class="rs">80% מקוני הדגם הזה הוסיפו הגנה.</div><span class="why" style="background:rgba(41,171,226,.1);color:var(--sky-d)">מומלץ <span class="dots"><i class="on"></i><i class="on"></i><i></i></span></span><div class="sug-act"><button class="sa-primary" style="background:var(--sky)">הצע ללקוח</button><button class="sa-sec">פרטים</button></div></div>';
+/* ═════════ MANAGER COCKPIT ENGINE — one seeded dataset, one F state, one render() ═════════ */
+(function(){
+  const $=id=>document.getElementById(id);
+  const BR=['ר״ג','ת״א','חיפה','ב״ש','פ״ת'];
+  const BRW={'ר״ג':1.25,'ת״א':1.15,'חיפה':1.0,'ב״ש':.82,'פ״ת':.8};
+  const BRCOL={'ר״ג':'#EC008C','ת״א':'#29ABE2','חיפה':'#FF8F4D','ב״ש':'#f0c000','פ״ת':'#1479a8'};
+  const EMP=[
+    {n:'בן לוי',b:'פ״ת'},{n:'נטע שגב',b:'פ״ת'},
+    {n:'דנה אבני',b:'ת״א'},{n:'מאיה לוי',b:'ת״א'},
+    {n:'אורי כהן',b:'חיפה'},{n:'שירה פרץ',b:'חיפה'},{n:'ליאת בר',b:'חיפה'},
+    {n:'אבי מזרחי',b:'ב״ש'},{n:'יוסי דהן',b:'ב״ש'},
+    {n:'עידן גל',b:'ר״ג'},{n:'איתי ברק',b:'ר״ג'},{n:'רון כץ',b:'ר״ג'}
+  ];
+  const CATS=[
+    {c:'סמארטפונים',w:.30,min:2400,max:7200,col:'#EC008C',prods:['אייפון 17 Pro','אייפון 17','גלקסי S26 אולטרה','גלקסי S26','פיקסל 10','שיאומי 15']},
+    {c:'טאבלטים',w:.08,min:1700,max:4600,col:'#29ABE2',prods:['אייפד Air','אייפד Pro','גלקסי Tab S10','שיאומי Pad 7']},
+    {c:'שעונים חכמים',w:.11,min:850,max:2900,col:'#FF8F4D',prods:['Apple Watch S10','Apple Watch SE','גלקסי Watch 7','Pixel Watch 3']},
+    {c:'אוזניות',w:.14,min:300,max:1600,col:'#f0c000',prods:['AirPods Pro','AirPods 4','גלקסי Buds','Pixel Buds']},
+    {c:'אביזרים',w:.27,min:70,max:620,col:'#1479a8',prods:['מגן מסך','כיסוי','מטען 45W','כבל USB-C','PowerBank']},
+    {c:'ביטוח ושירות',w:.10,min:200,max:1300,col:'#b8006e',prods:['ביטוח מסך','ביטוח מורחב','שירות+ שנה','הגנת גניבה']}
+  ];
+  const CATCOL={};CATS.forEach(c=>CATCOL[c.c]=c.col);
+  const CATW=CATS.map(c=>c.w),CATN=CATS.map(c=>c.c);
+  const HOURW=[0,0,0,0,0,0,0,.2,.5,.9,1.3,1.5,1.6,1.5,1.6,1.8,2.1,2.4,2.5,2.2,1.6,.9,.3,.05];
+  function mul(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};}
+  const rnd=mul(20260622);
+  function wpick(w){let s=0;for(let i=0;i<w.length;i++)s+=w[i];let r=rnd()*s;for(let i=0;i<w.length;i++){r-=w[i];if(r<=0)return i;}return w.length-1;}
+  const ANCHOR=new Date(2026,5,22);
+  function dkey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function addDays(b,n){const d=new Date(b);d.setDate(d.getDate()+n);return d;}
+  function parseDk(s){const p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+  function daysIncl(a,b){return Math.round((parseDk(b)-parseDk(a))/864e5)+1;}
+  function hm(m){return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');}
+  const nf=x=>x.toLocaleString('en-US');
+  function ms(n){n=Math.round(n);const a=Math.abs(n);if(a>=1e6)return '₪'+(n/1e6).toFixed(2)+'M';if(a>=1000)return '₪'+Math.round(n/1000)+'K';return '₪'+nf(n);}
+  function mf(n){return '₪'+nf(Math.round(n));}
+  const N=s=>'<span class="n">'+s+'</span>';
+
+  // ── build the seeded transaction log ──
+  const TXN=[];let _id=1;
+  for(let off=29;off>=0;off--){
+    const day=addDays(ANCHOR,-off),dk=dkey(day),dow=day.getDay();
+    if(dow===6) continue; // Saturday closed
+    const dayFactor=0.85+rnd()*0.32;
+    BR.forEach(b=>{
+      const cnt=Math.round(34*BRW[b]*dayFactor);
+      const emps=EMP.filter(e=>e.b===b);
+      for(let k=0;k<cnt;k++){
+        const cat=CATS[wpick(CATW)];
+        const amount=Math.round((cat.min+rnd()*(cat.max-cat.min))/10)*10;
+        const hr=wpick(HOURW),mn=Math.floor(rnd()*60);
+        const emp=emps[Math.floor(rnd()*emps.length)];
+        const prod=cat.prods[Math.floor(rnd()*cat.prods.length)];
+        const sku=String(7670000+Math.floor(rnd()*9999));
+        const units=rnd()<0.15?2:1;
+        const attach=(cat.c==='אביזרים'||cat.c==='ביטוח ושירות')?true:(rnd()<0.45);
+        const vpd=(hr>=16&&hr<=20?2.0:2.9)+rnd();
+        const mod=hr*60+mn;
+        TXN.push({id:_id++,dk,dow,off,b,emp:emp.n,cat:cat.c,prod,sku,amount,units,attach,hr,mn,mod,vpd,
+          epoch:(30-off)*1440+mod,hay:(emp.n+' '+b+' '+prod+' '+cat.c+' '+sku).toLowerCase()});
+      }
+    });
+  }
+  // ── targets derived from the data (internally consistent) ──
+  const monthStart=dkey(new Date(2026,5,1));
+  const juneRows=TXN.filter(x=>x.dk>=monthStart);
+  const workElapsed=new Set(juneRows.map(x=>x.dk)).size;
+  const WORKMO=26;
+  const avgDaily={},MTARGET={};
+  BR.forEach(b=>{const s=juneRows.filter(x=>x.b===b).reduce((a,x)=>a+x.amount,0);avgDaily[b]=s/Math.max(1,workElapsed);MTARGET[b]=Math.round(avgDaily[b]*WORKMO*1.05);});
+
+  // ── state ──
+  const F={range:'today',from:dkey(ANCHOR),to:dkey(ANCHOR),t0:0,t1:1439,br:new Set(),emp:new Set(),cat:new Set(),q:''};
+  function setRange(r){F.range=r;const t=ANCHOR;
+    if(r==='today')F.from=F.to=dkey(t);
+    else if(r==='yday'){const y=addDays(t,-1);F.from=F.to=dkey(y);}
+    else if(r==='7d'){F.from=dkey(addDays(t,-6));F.to=dkey(t);}
+    else if(r==='30d'){F.from=dkey(addDays(t,-29));F.to=dkey(t);}
+    else if(r==='month'){F.from=monthStart;F.to=dkey(t);}
+  }
+  function within(o){return TXN.filter(x=>x.dk>=o.from&&x.dk<=o.to&&x.mod>=o.t0&&x.mod<=o.t1&&(o.br.size===0||o.br.has(x.b))&&(o.emp.size===0||o.emp.has(x.emp))&&(o.cat.size===0||o.cat.has(x.cat))&&(!o.q||x.hay.indexOf(o.q)>=0));}
+  const sum=rows=>rows.reduce((a,x)=>a+x.amount,0);
+  const E=new Set();
+
+  // ── chart builders ──
+  function svgTrend(d){
+    const W=640,H=180,L=46,R=14,T=16,B=26,n=d.vals.length,max=Math.max(1,...d.vals),base=H-B;
+    const X=i=>L+(W-L-R)*(n<=1?0.5:i/(n-1)),Y=v=>T+(H-T-B)*(1-v/max);
+    let line='';d.vals.forEach((v,i)=>{line+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)+' ';});
+    const area='M'+X(0).toFixed(1)+' '+base+' '+d.vals.map((v,i)=>'L'+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ')+' L'+X(n-1).toFixed(1)+' '+base+' Z';
+    const pos=d.vals.filter(v=>v>0),avg=pos.length?pos.reduce((a,b)=>a+b,0)/pos.length:0,ay=Y(avg).toFixed(1);
+    const step=Math.ceil(n/8);let xl='';d.labels.forEach((lb,i)=>{if(i%step===0||i===n-1)xl+='<text x="'+X(i).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9" fill="#9aa3b2">'+lb+'</text>';});
+    const dots=d.vals.map((v,i)=>v>0?'<circle class="cbar" data-i="'+i+'" cx="'+X(i).toFixed(1)+'" cy="'+Y(v).toFixed(1)+'" r="3.4" fill="#EC008C"/>':'').join('');
+    return '<svg viewBox="0 0 '+W+' '+H+'"><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EC008C" stop-opacity=".22"/><stop offset="1" stop-color="#EC008C" stop-opacity="0"/></linearGradient></defs>'+
+      (avg>0?'<line x1="'+L+'" y1="'+ay+'" x2="'+(W-R)+'" y2="'+ay+'" stroke="#f0c000" stroke-width="1.5" stroke-dasharray="5 4"/><text x="'+(W-R)+'" y="'+(ay-4)+'" text-anchor="end" font-size="9" font-weight="700" fill="#9a7b00">ממוצע '+ms(avg)+'</text>':'')+
+      '<path d="'+area+'" fill="url(#tg)"/><path d="'+line+'" fill="none" stroke="#EC008C" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>'+dots+
+      '<text x="'+(L-6)+'" y="'+base+'" text-anchor="end" font-size="9" fill="#9aa3b2">0</text><text x="'+(L-6)+'" y="'+(T+6)+'" text-anchor="end" font-size="9" fill="#9aa3b2">'+ms(max)+'</text>'+xl+'</svg>';
+  }
+  function svgHour(h24){
+    const W=640,H=150,L=28,R=10,T=12,B=22,max=Math.max(1,...h24),bw=(W-L-R)/24;let s='';
+    for(let h=0;h<24;h++){const v=h24[h],bh=(H-T-B)*(v/max),x=L+bw*h+2,y=H-B-bh,peak=v===max&&v>0;
+      s+='<rect class="hbar" data-h="'+h+'" x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+(bw-4).toFixed(1)+'" height="'+Math.max(0,bh).toFixed(1)+'" rx="2.5" fill="'+(peak?'#f0c000':'rgba(236,0,140,'+(0.22+0.62*(v/max)).toFixed(2)+')')+'"/>';
+      if(h%3===0)s+='<text x="'+(x+bw/2-2).toFixed(1)+'" y="'+(H-7)+'" text-anchor="middle" font-size="8.5" fill="#9aa3b2">'+String(h).padStart(2,'0')+'</text>';}
+    return '<svg viewBox="0 0 '+W+' '+H+'">'+s+'</svg>';
+  }
+  function donut(parts){
+    const cx=75,cy=75,r=62,ri=37,tot=parts.reduce((a,p)=>a+p.val,0)||1;let a0=-Math.PI/2,sl='';
+    parts.forEach(p=>{const a1=a0+2*Math.PI*(p.val/tot),x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1),lg=(a1-a0)>Math.PI?1:0;
+      sl+='<path class="slice" data-cat="'+p.cat+'" d="M '+cx+' '+cy+' L '+x0.toFixed(1)+' '+y0.toFixed(1)+' A '+r+' '+r+' 0 '+lg+' 1 '+x1.toFixed(1)+' '+y1.toFixed(1)+' Z" fill="'+p.col+'"/>';a0=a1;});
+    return '<svg viewBox="0 0 150 150" style="width:148px;flex:none">'+sl+'<circle cx="'+cx+'" cy="'+cy+'" r="'+ri+'" fill="#fff"/><text x="75" y="72" text-anchor="middle" font-size="15" font-weight="900" fill="#0a0f23">'+ms(tot)+'</text><text x="75" y="87" text-anchor="middle" font-size="9" fill="#667085">סה״כ</text></svg>';
+  }
+
+  // ── render ──
+  let curTrend=null;
+  function deltaHtml(cur,prev,suffix){if(!prev)return '<div class="dl flat">— ל. השוואה</div>';const d=Math.round((cur-prev)/prev*100);if(d>0)return '<div class="up dl">▲ '+N('+'+d+'%')+'</div>';if(d<0)return '<div class="down dl">▼ '+N(d+'%')+'</div>';return '<div class="dl flat">ללא שינוי</div>';}
+  function render(){
+    const rows=within(F),cnt=rows.length,tot=sum(rows);
+    const nd=daysIncl(F.from,F.to),pTo=dkey(addDays(parseDk(F.from),-1)),pFrom=dkey(addDays(parseDk(F.from),-nd));
+    const prior=within(Object.assign({},F,{from:pFrom,to:pTo})),pTot=sum(prior);
+    const avg=cnt?tot/cnt:0;
+    const visits=rows.reduce((a,x)=>a+x.vpd,0),conv=visits?Math.round(100*cnt/visits):0;
+    const pVisits=prior.reduce((a,x)=>a+x.vpd,0),pConv=pVisits?Math.round(100*prior.length/pVisits):0;
+    // monthly target (branch scope only)
+    const mtdRows=within({from:monthStart,to:dkey(ANCHOR),t0:0,t1:1439,br:F.br,emp:E,cat:E,q:''}),mtd=sum(mtdRows);
+    const scope=F.br.size?[...F.br]:BR,mTarget=scope.reduce((a,b)=>a+MTARGET[b],0),expd=mTarget*(workElapsed/WORKMO),attain=expd?Math.round(100*mtd/expd):0;
+    // KPIs
+    $('kpis').innerHTML=
+      kpi(ms(tot),'מכירות בטווח',deltaHtml(tot,pTot),'')+
+      kpi(N(nf(cnt)),'עסקאות',deltaHtml(cnt,prior.length),'sky')+
+      kpi(mf(avg),'סל ממוצע','<div class="dl flat">'+N(rows.reduce((a,x)=>a+x.units,0))+' יח׳</div>','coral')+
+      kpi(N(conv+'%'),'אחוז המרה',deltaHtml(conv,pConv),'')+
+      kpi(N(attain+'%'),'מהיעד החודשי','<div class="dl '+(attain>=100?'up':'down')+'">'+(attain>=100?'בקצב ▲':'מאחור ▼')+'</div>','gold');
+    // trend
+    const single=F.from===F.to;let td;
+    if(single){const a=new Array(24).fill(0);rows.forEach(x=>a[x.hr]+=x.amount);td={vals:a,labels:[...Array(24).keys()].map(h=>String(h).padStart(2,'0')),kind:'hour'};}
+    else{const days=[];let d=parseDk(F.from);const end=parseDk(F.to);while(d<=end){days.push(dkey(d));d=addDays(d,1);}const m={};days.forEach(k=>m[k]=0);rows.forEach(x=>{if(m[x.dk]!==undefined)m[x.dk]+=x.amount;});td={vals:days.map(k=>m[k]),labels:days.map(k=>k.slice(8)+'.'+k.slice(5,7)),keys:days,kind:'day'};}
+    curTrend=td;
+    $('trendSub').textContent=single?'לפי שעה · '+rangeLbl():'לפי יום · '+rangeLbl();
+    $('trend').innerHTML=cnt?svgTrend(td):emptyBox();
+    // hour profile (ignores own time filter)
+    const hr=within(Object.assign({},F,{t0:0,t1:1439})),h24=new Array(24).fill(0);hr.forEach(x=>h24[x.hr]+=x.amount);
+    $('hourc').innerHTML=hr.length?svgHour(h24):emptyBox();
+    // category mix (ignores own cat filter)
+    const cr=within(Object.assign({},F,{cat:E})),cm={};CATN.forEach(c=>cm[c]=0);cr.forEach(x=>cm[x.cat]+=x.amount);
+    const parts=CATN.map(c=>({cat:c,val:cm[c],col:CATCOL[c]})).filter(p=>p.val>0).sort((a,b)=>b.val-a.val);
+    const ctot=parts.reduce((a,p)=>a+p.val,0)||1;
+    $('catc').innerHTML=cr.length?donut(parts)+'<div class="donut-leg">'+parts.map(p=>'<div class="dl" data-cat="'+p.cat+'"><span class="sw" style="background:'+p.col+'"></span>'+p.cat+'<small>'+Math.round(100*p.val/ctot)+'%</small></div>').join('')+'</div>':emptyBox();
+    // feed
+    const fr=rows.slice().sort((a,b)=>b.epoch-a.epoch);
+    $('feedSub').textContent='מציג '+Math.min(12,fr.length)+' מתוך '+nf(fr.length);
+    $('mfeed').innerHTML=fr.length?fr.slice(0,12).map(x=>'<div class="fitem mfeed-row frow'+(x.amount>=5000?' big':'')+'" data-id="'+x.id+'"><span class="g"></span>'+(x.amount>=5000?'🎉 ':'')+hl(x.b+' · '+x.emp+' · '+x.prod)+' · '+N(mf(x.amount))+' · '+N(hm(x.mod))+'</div>').join(''):'<div class="emptybox">אין עסקאות בטווח שנבחר</div>';
+    // branch table
+    const rwd=new Set(within({from:F.from,to:F.to,t0:0,t1:1439,br:E,emp:E,cat:E,q:''}).map(x=>x.dk)).size||1;
+    const bAgg={};BR.forEach(b=>bAgg[b]={s:0,u:0});rows.forEach(x=>{bAgg[x.b].s+=x.amount;bAgg[x.b].u+=x.units;});
+    const bPrior={};BR.forEach(b=>bPrior[b]=0);prior.forEach(x=>bPrior[x.b]+=x.amount);
+    const bList=BR.map(b=>({b,s:bAgg[b].s,u:bAgg[b].u,p:bPrior[b]})).sort((a,b)=>b.s-a.s);
+    const bMax=Math.max(1,...bList.map(x=>x.s));
+    $('branchT').innerHTML='<table><thead><tr><th>סניף</th><th>מכירות</th><th>יחידות</th><th>קצב מול יעד</th><th>מול תקופה קודמת</th></tr></thead><tbody>'+bList.map(r=>{
+      const pace=Math.round(100*r.s/Math.max(1,avgDaily[r.b]*rwd)),dl=r.p?Math.round((r.s-r.p)/r.p*100):0,sel=F.br.has(r.b);
+      return '<tr class="rowclick'+(sel?' selrow':'')+'" data-b="'+r.b+'"><td class="b">'+r.b+(sel?' ✓':'')+'</td><td class="b">'+N(mf(r.s))+'</td><td>'+N(r.u)+'</td><td><div style="display:flex;align-items:center;gap:8px"><div class="mini" style="flex:1"><i style="width:'+Math.min(100,pace)+'%"></i></div><span class="b" style="font-size:12px;color:#475467">'+N(pace+'%')+'</span></div></td><td class="'+(dl>=0?'up':'down')+'">'+(dl>=0?'+':'')+N(dl+'%')+'</td></tr>';}).join('')+'</tbody></table>';
+    // employee leaderboard
+    const eAgg={};rows.forEach(x=>{(eAgg[x.emp]=eAgg[x.emp]||{s:0,u:0,c:0,a:0,b:x.b}).s+=x.amount;eAgg[x.emp].u+=x.units;eAgg[x.emp].c++;if(x.attach)eAgg[x.emp].a++;});
+    const eList=Object.keys(eAgg).map(n=>({n,...eAgg[n]})).sort((a,b)=>b.s-a.s);
+    const tiers=['פלטינום','זהב','כסף','ארד'],tierCls=['gold','gold','sky','cer'];
+    $('empT').innerHTML=eList.length?'<table><thead><tr><th>#</th><th>עובד</th><th>סניף</th><th>מכירות</th><th>יח׳</th><th>צירוף</th><th>בונוס</th></tr></thead><tbody>'+eList.map((r,i)=>{
+      const ti=i===0?0:i<=2?1:i<=5?2:3,sel=F.emp.has(r.n);
+      return '<tr class="rowclick'+(sel?' selrow':'')+'" data-emp="'+r.n+'"><td class="b"'+(i===0?' style="color:var(--gold-d)"':'')+'>'+(i+1)+'</td><td class="b">'+hl(r.n)+(sel?' ✓':'')+'</td><td>'+r.b+'</td><td class="b">'+N(mf(r.s))+'</td><td>'+N(r.u)+'</td><td>'+N(Math.round(100*r.a/Math.max(1,r.c))+'%')+'</td><td><span class="badge '+tierCls[ti]+'">'+tiers[ti]+'</span></td></tr>';}).join('')+'</tbody></table>':'<div class="emptybox">אין עובדים בטווח שנבחר</div>';
+    renderPills(cnt,tot);
+  }
+  function kpi(v,l,delta,cls){return '<div class="mstat'+(cls?' '+cls:'')+'"><div class="v">'+v+'</div><div class="l">'+l+'</div>'+delta+'</div>';}
+  function emptyBox(){return '<div class="emptybox">אין עסקאות בטווח שנבחר<br><span class="x relax">הרחב טווח</span></div>';}
+  function rangeLbl(){return ({today:'היום',yday:'אתמול','7d':'7 הימים','30d':'30 יום',month:'החודש'})[F.range]||'מותאם';}
+  function hl(t){if(!F.q)return t;try{return t.replace(new RegExp('('+F.q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}catch(e){return t;}}
+
+  // ── pills ──
+  function renderPills(cnt,tot){
+    const p=[];
+    if(F.range!=='today')p.push(['range','',rangeLbl()]);
+    if(F.t0>0||F.t1<1439)p.push(['time','',hm(F.t0)+'–'+hm(F.t1)]);
+    F.br.forEach(b=>p.push(['br',b,b]));
+    F.emp.forEach(e=>p.push(['emp',e,e]));
+    F.cat.forEach(c=>p.push(['cat',c,c]));
+    if(F.q)p.push(['q','','חיפוש: '+F.q]);
+    const pr=$('pillrow');
+    if(!p.length){pr.hidden=true;pr.innerHTML='';return;}
+    pr.hidden=false;
+    pr.innerHTML=p.map(x=>'<span class="fpill" data-k="'+x[0]+'" data-v="'+x[1]+'">'+x[2]+' <span class="x">✕</span></span>').join('')+'<button class="clr">נקה הכל</button><span class="echo">'+N(nf(cnt))+' עסקאות · <b>'+N(ms(tot))+'</b> בטווח</span>';
+  }
+
+  // ── sync controls to F ──
+  function syncDate(){[...$('fdate').children].forEach(s=>s.classList.toggle('on',s.dataset.r===F.range));}
+  function syncBranch(){[...$('fbranch').children].forEach(c=>c.classList.toggle('on',F.br.has(c.dataset.b)));}
+  function syncCat(){[...$('fcat').children].forEach(c=>c.classList.toggle('on',F.cat.has(c.dataset.c)));}
+  function syncTime(){const a=F.t0/1439*100,w=(F.t1-F.t0)/1439*100;$('tfill').style.left=a+'%';$('tfill').style.width=w+'%';$('t0').value=F.t0;$('t1').value=F.t1;$('tlabel').textContent=(F.t0===0&&F.t1===1439)?'כל היום':hm(F.t0)+'–'+hm(F.t1);}
+  function setTime(a,b){F.t0=Math.max(0,Math.min(a,b));F.t1=Math.min(1439,Math.max(a,b));syncTime();render();}
+  function toggle(set,v){set.has(v)?set.delete(v):set.add(v);}
+
+  // ── employee combo ──
+  function renderEmpList(){
+    const q=$('femp').value.trim().toLowerCase();
+    const list=EMP.filter(e=>(F.br.size===0||F.br.has(e.b))&&(!q||e.n.toLowerCase().indexOf(q)>=0));
+    $('fempList').innerHTML=list.map(e=>'<div class="combo-opt'+(F.emp.has(e.n)?' sel':'')+'" data-emp="'+e.n+'"><span class="ca"><svg viewBox="0 0 24 24"><use href="#person"/></svg></span>'+e.n+'<small>'+e.b+'</small></div>').join('')||'<div class="combo-opt" style="cursor:default;color:#9aa3b2">אין תוצאות</div>';
+  }
+
+  // ── drawer ──
+  function openDrawer(type,key){
+    let html='';
+    if(type==='deal'){const x=TXN.find(t=>t.id==key);if(!x)return;
+      html='<button class="dwr-x">✕</button><div class="dwr-tag">'+(x.amount>=5000?'עסקה גדולה 🏆':'פירוט עסקה')+'</div><div class="dwr-h">'+x.prod+'</div><div class="dwr-sub">'+x.cat+' · מק״ט '+x.sku+'</div>'+
+        '<div class="dwr-stats"><div class="dwr-st"><b>'+mf(x.amount)+'</b><span>סכום</span></div><div class="dwr-st"><b>'+x.units+'</b><span>יחידות</span></div><div class="dwr-st"><b>'+x.b+'</b><span>סניף</span></div><div class="dwr-st"><b>'+hm(x.mod)+'</b><span>שעה</span></div></div>'+
+        '<div class="dwr-li"><span>👤</span>'+x.emp+'<span class="amt">'+(x.attach?'כולל אביזר ✓':'ללא אביזר')+'</span></div>'+
+        '<button class="dwr-btn" data-act="emp" data-v="'+x.emp+'">סנן ללוח לפי '+x.emp+' ←</button>';
+    } else if(type==='emp'){
+      const rows=within(Object.assign({},F,{emp:new Set([key])})),s=sum(rows),u=rows.reduce((a,x)=>a+x.units,0),c=rows.length,at=rows.filter(x=>x.attach).length,vis=rows.reduce((a,x)=>a+x.vpd,0),cv=vis?Math.round(100*c/vis):0;
+      const e=EMP.find(x=>x.n===key)||{b:''};const recent=rows.slice().sort((a,b)=>b.epoch-a.epoch).slice(0,5);
+      html='<button class="dwr-x">✕</button><div class="dwr-tag">פרופיל עובד</div><div class="dwr-h">'+key+'</div><div class="dwr-sub">סניף '+e.b+' · בטווח המסונן הנוכחי</div>'+
+        '<div class="dwr-stats"><div class="dwr-st"><b>'+ms(s)+'</b><span>מכירות</span></div><div class="dwr-st"><b>'+u+'</b><span>יחידות</span></div><div class="dwr-st"><b>'+cv+'%</b><span>המרה</span></div><div class="dwr-st"><b>'+Math.round(100*at/Math.max(1,c))+'%</b><span>צירוף אביזר</span></div></div>'+
+        '<div class="dwr-tag">עסקאות אחרונות</div><div class="dwr-list">'+(recent.length?recent.map(x=>'<div class="dwr-li"><span>🧾</span>'+x.prod+'<span class="amt">'+mf(x.amount)+'</span></div>').join(''):'<div class="dwr-li">אין עסקאות בטווח</div>')+'</div>'+
+        '<button class="dwr-btn" data-act="emp" data-v="'+key+'">סנן את הלוח לעובד זה ←</button>';
+    }
+    $('drawer').innerHTML=html;$('drawer').classList.add('on');$('drawerBack').classList.add('on');
+  }
+  function closeDrawer(){$('drawer').classList.remove('on');$('drawerBack').classList.remove('on');}
+
+  // ── AI ask-box → parses to filters ──
+  function askAI(q){
+    q=(q||$('aiq').value||'').trim();if(!q)return;$('aiq').value=q;
+    // reset to a clean base then parse
+    F.br=new Set();F.emp=new Set();F.cat=new Set();F.t0=0;F.t1=1439;F.q='';
+    BR.forEach(b=>{if(q.indexOf(b)>=0||(b==='פ״ת'&&/פתח/.test(q)))F.br.add(b);});
+    EMP.forEach(e=>{if(q.indexOf(e.n)>=0)F.emp.add(e.n);});
+    CATN.forEach(c=>{if(q.indexOf(c)>=0||(c==='סמארטפונים'&&/סמארטפון|טלפון/.test(q)))F.cat.add(c);});
+    if(/אתמול/.test(q))setRange('yday');else if(/שבוע/.test(q))setRange('7d');else if(/חודש/.test(q))setRange('month');else setRange('today');
+    if(/בוקר/.test(q)){F.t0=360;F.t1=719;}else if(/צהרי/.test(q)){F.t0=720;F.t1=1019;}else if(/ערב|לילה/.test(q)){F.t0=1020;F.t1=1319;}
+    syncAll();render();
+    const rows=within(F),s=sum(rows);let ans;
+    if(/הכי חזק|המוביל|הכי טוב/.test(q)&&!F.emp.size){
+      if(/עובד/.test(q)){const ag={};rows.forEach(x=>ag[x.emp]=(ag[x.emp]||0)+x.amount);const top=Object.keys(ag).sort((a,b)=>ag[b]-ag[a])[0];ans='העובד המוביל בטווח: <b>'+(top||'—')+'</b> עם '+(top?mf(ag[top]):'₪0')+'.';}
+      else{const ag={};rows.forEach(x=>ag[x.b]=(ag[x.b]||0)+x.amount);const top=Object.keys(ag).sort((a,b)=>ag[b]-ag[a])[0];ans='הסניף המוביל בטווח: <b>'+(top||'—')+'</b> עם '+(top?mf(ag[top]):'₪0')+'.';}
+    } else {
+      ans='בטווח שביקשת: <b>'+mf(s)+'</b> · '+nf(rows.length)+' עסקאות.';
+    }
+    const a=$('aians');a.hidden=false;a.innerHTML=ans+'<br><span style="opacity:.7;font-size:11.5px">הצגתי את זה גם במסננים למעלה ↑</span>';
+  }
+  function syncAll(){syncDate();syncBranch();syncCat();syncTime();$('femp').value='';$('mq').value=F.q;$('qcount').hidden=true;$('qclear').hidden=true;}
+
+  // ── reset / relax ──
+  function clearAll(){F.range='today';setRange('today');F.t0=0;F.t1=1439;F.br.clear();F.emp.clear();F.cat.clear();F.q='';$('aians').hidden=true;syncAll();render();}
+  function relax(){if(F.t0>0||F.t1<1439){F.t0=0;F.t1=1439;syncTime();}else if(F.q){F.q='';$('mq').value='';}else if(F.emp.size){F.emp.clear();}else if(F.cat.size){F.cat.clear();syncCat();}else if(F.br.size){F.br.clear();syncBranch();}else{setRange('30d');syncDate();}render();}
+
+  // ── init ──
+  function init(){
+    $('fbranch').innerHTML=BR.map(b=>'<span class="chip" data-b="'+b+'">'+b+'</span>').join('');
+    $('fcat').innerHTML=CATN.map(c=>'<span class="chip" data-c="'+c+'">'+c+'</span>').join('');
+    syncTime();
+    $('fdate').addEventListener('click',e=>{const s=e.target.closest('span[data-r]');if(!s)return;setRange(s.dataset.r);syncDate();render();});
+    $('fbranch').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;toggle(F.br,c.dataset.b);syncBranch();render();});
+    $('fcat').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;toggle(F.cat,c.dataset.c);syncCat();render();});
+    let raf;function tinput(){const a=Math.min(+$('t0').value,+$('t1').value),b=Math.max(+$('t0').value,+$('t1').value);F.t0=a;F.t1=b;const la=a/1439*100,w=(b-a)/1439*100;$('tfill').style.left=la+'%';$('tfill').style.width=w+'%';$('tlabel').textContent=(a===0&&b===1439)?'כל היום':hm(a)+'–'+hm(b);if(!raf)raf=requestAnimationFrame(()=>{raf=0;render();});}
+    $('t0').addEventListener('input',tinput);$('t1').addEventListener('input',tinput);
+    document.querySelectorAll('#manager .tchips span').forEach(s=>s.addEventListener('click',()=>setTime(+s.dataset.a,+s.dataset.b)));
+    const femp=$('femp');
+    femp.addEventListener('focus',()=>{renderEmpList();$('fempList').hidden=false;});
+    femp.addEventListener('input',()=>{renderEmpList();$('fempList').hidden=false;});
+    document.addEventListener('click',e=>{if(!e.target.closest('#fempWrap'))$('fempList').hidden=true;});
+    let qd;const mq=$('mq');
+    mq.addEventListener('input',()=>{clearTimeout(qd);qd=setTimeout(()=>{F.q=mq.value.trim().toLowerCase();const c=within(F).length;$('qcount').textContent=N(c)+' תוצאות';$('qcount').hidden=!F.q;$('qclear').hidden=!F.q;render();},120);});
+    $('qclear').addEventListener('click',()=>{mq.value='';F.q='';$('qcount').hidden=true;$('qclear').hidden=true;render();});
+    $('aiBtn').addEventListener('click',()=>askAI());
+    $('aiq').addEventListener('keydown',e=>{if(e.key==='Enter')askAI();});
+    document.querySelectorAll('#manager .aichips span').forEach(s=>s.addEventListener('click',()=>askAI(s.dataset.q)));
+    $('drawerBack').addEventListener('click',closeDrawer);
+    // single delegated click for charts / tables / pills / drawer actions
+    $('manager').addEventListener('click',e=>{
+      let el;
+      if(el=e.target.closest('.dwr-x')){closeDrawer();return;}
+      if(el=e.target.closest('.dwr-btn')){if(el.dataset.act==='emp'){F.emp=new Set([el.dataset.v]);syncAll();render();closeDrawer();}return;}
+      if(el=e.target.closest('.combo-opt')){if(el.dataset.emp){toggle(F.emp,el.dataset.emp);renderEmpList();render();}return;}
+      if(el=e.target.closest('.cbar')){const i=+el.dataset.i;if(curTrend.kind==='hour')setTime(i*60,i*60+59);else{const k=curTrend.keys[i];F.range='custom';F.from=F.to=k;syncDate();render();}return;}
+      if(el=e.target.closest('.hbar')){const h=+el.dataset.h;setTime(h*60,h*60+59);return;}
+      if(el=e.target.closest('[data-cat]')){toggle(F.cat,el.dataset.cat);syncCat();render();return;}
+      if(el=e.target.closest('#branchT tr[data-b]')){toggle(F.br,el.dataset.b);syncBranch();render();return;}
+      if(el=e.target.closest('#empT tr[data-emp]')){openDrawer('emp',el.dataset.emp);return;}
+      if(el=e.target.closest('.frow')){openDrawer('deal',el.dataset.id);return;}
+      if(el=e.target.closest('.fpill')){const k=el.dataset.k,v=el.dataset.v;if(k==='range'){setRange('today');syncDate();}else if(k==='time'){F.t0=0;F.t1=1439;syncTime();}else if(k==='br'){F.br.delete(v);syncBranch();}else if(k==='emp'){F.emp.delete(v);}else if(k==='cat'){F.cat.delete(v);syncCat();}else if(k==='q'){F.q='';$('mq').value='';$('qcount').hidden=true;$('qclear').hidden=true;}render();return;}
+      if(el=e.target.closest('.clr')){clearAll();return;}
+      if(el=e.target.closest('.relax')){relax();return;}
+    });
+    render();
+  }
+  // patch choose() so manager repaints when shown
+  const _choose=window.choose;
+  window.choose=function(v){_choose(v);if(v==='manager')render();};
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
 </script>
 </body>
 </html>
