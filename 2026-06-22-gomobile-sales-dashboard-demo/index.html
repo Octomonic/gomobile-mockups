@@ -384,6 +384,33 @@
   .dwr-li{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;background:var(--soft);border-radius:10px;padding:9px 12px}
   .dwr-li .amt{margin-inline-start:auto;font-weight:800}
 
+  /* ═════════ MULTI-PAGE NAV ═════════ */
+  .topnav{display:flex;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:7px;box-shadow:var(--shadow-sm);margin-bottom:16px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .topnav::-webkit-scrollbar{display:none}
+  .navtab{flex:0 0 auto;border:0;background:none;font:inherit;font-weight:800;font-size:13px;color:var(--muted);padding:10px 15px;border-radius:11px;cursor:pointer;white-space:nowrap;transition:.15s;scroll-snap-align:center}
+  .navtab:hover{color:var(--ink);background:var(--soft)}
+  .navtab.on{color:#fff;background:var(--cerise);box-shadow:0 4px 12px rgba(236,0,140,.28)}
+  .page{display:none}.page.on{display:block;animation:fade .28s ease}
+  .staffid{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:11px 16px;box-shadow:var(--shadow-sm);margin-bottom:12px}
+  .sid-av{width:42px;height:42px;flex:none}
+  .sid-name{font-weight:900;font-size:15px}.sid-sub{font-size:11.5px;color:var(--muted);font-weight:600}
+  .sid-rank{margin-inline-start:auto;background:rgba(236,0,140,.08);color:var(--cerise-d);font-weight:800;font-size:12.5px;padding:6px 13px;border-radius:999px;white-space:nowrap}
+  .salecta{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;border-radius:18px;padding:15px 20px;margin-bottom:16px}
+  .salecta>div:first-child{min-width:0}
+  .sct-t{font-weight:900;font-size:14px}.sct-s{font-size:11.5px;opacity:.85;font-weight:600}
+  .sct-btn{margin-inline-start:auto;flex:none;background:linear-gradient(135deg,var(--coral),var(--gold));color:#0a0f23;border:0;font:inherit;font-weight:900;font-size:14px;padding:13px 20px;border-radius:13px;cursor:pointer;box-shadow:0 8px 22px rgba(255,143,77,.35);transition:.12s}
+  .sct-btn:hover{filter:brightness(1.05)}.sct-btn:active{transform:scale(.95)}
+  .sct-reset{flex:none;background:none;border:0;color:rgba(255,255,255,.55);font:inherit;font-weight:700;font-size:11px;cursor:pointer;text-decoration:underline}
+  .ring circle{transition:stroke-dashoffset .6s cubic-bezier(.4,0,.2,1)}
+  .tbar .tf{transition:width .6s cubic-bezier(.4,0,.2,1)}
+  .knot{transition:right .5s cubic-bezier(.4,0,.2,1)}
+  .bump{animation:bump .55s ease}
+  @keyframes bump{0%{transform:scale(1)}38%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .bdg{cursor:pointer}
+  .bdg-tip{position:fixed;background:#0a0f23;color:#fff;font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:9px;z-index:55;max-width:230px;text-align:center;box-shadow:var(--shadow-lg);pointer-events:none;transform:translate(-50%,-115%);opacity:0;transition:opacity .12s}
+  .bdg-tip.on{opacity:1}
+  @media(prefers-reduced-motion:reduce){.page.on{animation:none}.ring circle,.tbar .tf,.knot{transition:none}.bump{animation:none}}
+
   /* ═════════ MOBILE ═════════ */
   @media(max-width:560px){
     .shell{padding:12px 11px 40px}
@@ -463,17 +490,57 @@
 
   <!-- ───── STAFF ───── -->
   <div id="staff" hidden>
-    <div class="modesw">
-      <button class="ms arena on" data-m="arena"><span class="ic">🏆</span><span><span class="t">הזירה · התחרות</span><span class="s">דירוג, יעדים, אתגרים</span></span></button>
-      <button class="ms asst" data-m="asst"><span class="ic">💬</span><span><span class="t">העוזר החכם</span><span class="s">זיהוי לקוח והמלצות מכירה</span></span></button>
+    <div class="staffid">
+      <span class="av you sid-av"><svg><use href="#person"/></svg></span>
+      <div><div class="sid-name">נטע שגב</div><div class="sid-sub">סניף פ״ת · משמרת אחה״צ</div></div>
+      <span class="sid-rank">#<span class="n">5</span> בסניף</span>
+    </div>
+    <nav class="topnav" data-side="staff">
+      <button class="navtab on" data-page="myday">🎯 היום שלי</button>
+      <button class="navtab" data-page="arena">🏆 הזירה</button>
+      <button class="navtab" data-page="board">📊 דירוג</button>
+      <button class="navtab" data-page="challenges">⚔️ אתגרים</button>
+      <button class="navtab" data-page="assistant">🤖 העוזר</button>
+    </nav>
+
+    <!-- ───── MY DAY (default) ───── -->
+    <div class="page on" id="staff-myday">
+      <div class="salecta"><div><div class="sct-t">🎬 סימולציית הדגמה</div><div class="sct-s">לחצו לראות איך מכירה אחת מזיזה את כל המסכים בזמן אמת</div></div><button class="sct-btn" id="fireSale">סגרתי מכירה! 🎉</button><button class="sct-reset" id="resetSim">אפס</button></div>
+
+      <div class="myday">
+        <div class="w"><div class="wt">היעד שלי היום</div>
+          <div class="ringwrap"><svg class="ring" viewBox="0 0 96 96"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC008C"/><stop offset="1" stop-color="#FF8F4D"/></linearGradient></defs><circle class="tk" cx="48" cy="48" r="41"/><circle id="ringArc" cx="48" cy="48" r="41" stroke="url(#rg)" stroke-dasharray="258" stroke-dashoffset="85" transform="rotate(-90 48 48)"/></svg><div class="ringc"><b class="n" id="ringPct">67%</b><span><span class="n" id="ringUnits">8 / 12</span> יח׳</span></div></div>
+          <div style="text-align:center;margin-top:6px;font-size:11.5px;color:var(--muted);font-weight:700">נשארו <span class="n" id="ringLeft">4</span> לסגירת היעד</div>
+        </div>
+        <div class="w"><div class="wt">קצב שעתי</div><div class="wbig"><span class="n">2.4</span><small style="font-size:13px;color:var(--muted)">/שעה</small></div>
+          <div class="spark" id="spark"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:60%"></i><i class="hot" style="height:95%"></i></div>
+          <span class="wchip" style="background:rgba(240,192,0,.15);color:var(--gold-d)">מעל הקצב · תסיים על <span class="n">14</span></span>
+        </div>
+        <div class="w"><div class="wt">נצח את האתמול</div>
+          <div style="font-size:13px;font-weight:800;margin-bottom:3px">אתה <span class="n" id="beatMe">8</span> · אתמול <span class="n">6</span></div>
+          <div class="lanes"><div class="lane me" style="width:80%"></div><div class="lane gh" style="width:60%"></div></div>
+          <span class="wchip" style="background:rgba(255,143,77,.14);color:var(--coral-d)">🔥 +<span class="n">2</span> · אתה מוביל</span>
+        </div>
+        <div class="w" style="text-align:center"><div class="wt">רצף חם</div><div class="flame">🔥</div><div class="streakn"><span class="n">4</span></div><div style="font-size:11.5px;color:var(--muted);font-weight:700">ימים ברצף</div><span class="wchip" style="background:rgba(240,192,0,.15);color:var(--gold-d)">שיא השבוע</span></div>
+      </div>
+
+      <div class="milestone"><span class="mi">🎯</span><div><div class="mt">היעד הבא: עוד <b><span class="n">1</span> מכירה</b> כדי לעקוף את דנה בדירוג</div><div class="ms2">ואז עוד <span class="n">2</span> לתג «שובר שיאים»</div></div></div>
+
+      <div class="recap">
+        <div class="ri"><b class="n" id="recapSales">8</b><span>מכירות היום</span></div>
+        <div class="ri"><b class="n" id="recapPct">67%</b><span>מהיעד</span></div>
+        <div class="ri"><b>#<span class="n">5</span></b><span>דירוג</span></div>
+        <div class="ri"><b class="n">🔥4</b><span>רצף</span></div>
+        <div class="head"><div class="pb">🏅 שיא אישי חדש בדרך!</div><div class="mom">מומנטום: עולה ↑ · הרצף הכי חם 15:00–16:00</div></div>
+      </div>
     </div>
 
-    <!-- ARENA -->
-    <div class="mode arena on" data-mode="arena">
+    <!-- ───── ARENA (team goal + podium) ───── -->
+    <div class="page" id="staff-arena">
       <div class="thermo">
-        <div class="top"><div class="tt">🎯 יעד החנות היום · <span class="n">41/60</span> מכירות</div><div class="reward">🎁 ב-100%: ארוחת צהריים על הבית</div></div>
-        <div class="tbar"><div class="tf" style="width:68%"></div></div>
-        <div class="nums"><span>נותרו <span class="n">19</span> מכירות</span><span><span class="n">68%</span></span></div>
+        <div class="top"><div class="tt">🎯 יעד החנות היום · <span class="n" id="thermoNum">41/60</span> מכירות</div><div class="reward">🎁 ב-100%: ארוחת צהריים על הבית</div></div>
+        <div class="tbar"><div class="tf" id="thermoFill" style="width:68%"></div></div>
+        <div class="nums"><span>נותרו <span class="n" id="thermoLeft">19</span> מכירות</span><span><span class="n" id="thermoPct">68%</span></span></div>
       </div>
 
       <div class="arena-hero">
@@ -484,26 +551,10 @@
           <div class="pod third"><span class="medal">🥉</span><div class="nm">אורי כהן</div><div class="br">חיפה</div><div class="u"><span class="n">35</span> <small>מכירות</small></div><div class="tg"><span class="n">86%</span> מהיעד</div></div>
         </div>
       </div>
+    </div>
 
-      <div class="myday">
-        <div class="w"><div class="wt">היעד שלי היום</div>
-          <div class="ringwrap"><svg class="ring" viewBox="0 0 96 96"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC008C"/><stop offset="1" stop-color="#FF8F4D"/></linearGradient></defs><circle class="tk" cx="48" cy="48" r="41"/><circle cx="48" cy="48" r="41" stroke="url(#rg)" stroke-dasharray="258" stroke-dashoffset="85" transform="rotate(-90 48 48)"/></svg><div class="ringc"><b class="n">67%</b><span><span class="n">8 / 12</span> יח׳</span></div></div>
-          <div style="text-align:center;margin-top:6px;font-size:11.5px;color:var(--muted);font-weight:700">נשארו <span class="n">4</span> לסגירת היעד</div>
-        </div>
-        <div class="w"><div class="wt">קצב שעתי</div><div class="wbig"><span class="n">2.4</span><small style="font-size:13px;color:var(--muted)">/שעה</small></div>
-          <div class="spark"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:60%"></i><i class="hot" style="height:95%"></i></div>
-          <span class="wchip" style="background:rgba(240,192,0,.15);color:var(--gold-d)">מעל הקצב · תסיים על <span class="n">14</span></span>
-        </div>
-        <div class="w"><div class="wt">נצח את האתמול</div>
-          <div style="font-size:13px;font-weight:800;margin-bottom:3px">אתה <span class="n">8</span> · אתמול <span class="n">6</span></div>
-          <div class="lanes"><div class="lane me" style="width:80%"></div><div class="lane gh" style="width:60%"></div></div>
-          <span class="wchip" style="background:rgba(255,143,77,.14);color:var(--coral-d)">🔥 +<span class="n">2</span> · אתה מוביל</span>
-        </div>
-        <div class="w" style="text-align:center"><div class="wt">רצף חם</div><div class="flame">🔥</div><div class="streakn"><span class="n">4</span></div><div style="font-size:11.5px;color:var(--muted);font-weight:700">ימים ברצף</div><span class="wchip" style="background:rgba(240,192,0,.15);color:var(--gold-d)">שיא השבוע</span></div>
-      </div>
-
-      <div class="milestone"><span class="mi">🎯</span><div><div class="mt">היעד הבא: עוד <b><span class="n">1</span> מכירה</b> כדי לעקוף את דנה בדירוג</div><div class="ms2">ואז עוד <span class="n">2</span> לתג «שובר שיאים»</div></div></div>
-
+    <!-- ───── BOARD (leaderboard + feed) ───── -->
+    <div class="page" id="staff-board">
       <div class="arena-2col">
         <div class="card"><div class="h">דירוג · המשך<div class="seg"><span>היום</span><span class="on">השבוע</span><span>החודש</span></div></div>
           <div class="lrow" data-d="9" data-w="31" data-m="142" data-dp="70" data-wp="74" data-mp="88"><span class="rk">4</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">אבי מזרחי</div><div class="br">ב״ש</div></div><div class="ub"><div class="prog"><div class="f" style="width:74%"></div></div></div><span class="tg"><span class="n">31</span></span><span class="up">▲</span></div>
@@ -512,7 +563,7 @@
           <div class="lrow" data-d="6" data-w="24" data-m="112" data-dp="55" data-wp="57" data-mp="69"><span class="rk">7</span><span class="av skyr"><svg><use href="#person"/></svg></span><div style="flex:none;width:96px"><div class="nm">שירה פרץ</div><div class="br">חיפה</div></div><div class="ub"><div class="prog"><div class="f" style="width:57%"></div></div></div><span class="tg"><span class="n">24</span></span><span class="flat">▬</span></div>
         </div>
         <div class="card"><div class="h">פיד מכירות חי</div>
-          <div class="feed">
+          <div class="feed" id="staffFeed">
             <div class="fitem big"><span class="g"></span>🎉 עסקה גדולה · בן לוי · גלקסי S26 אולטרה</div>
             <div class="fitem"><span class="g"></span>מכירה חדשה · ת״א · אייפון 17</div>
             <div class="fitem"><span class="g"></span>+ אביזר · חיפה · מגן מסך</div>
@@ -521,16 +572,19 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- ───── CHALLENGES (h2h + quality + achievements) ───── -->
+    <div class="page" id="staff-challenges">
       <div class="h2h">
         <div class="h2h-top"><div style="font-weight:800;font-size:14px">🏬 אתגר בין סניפים · המשמרת</div><span class="badge coral">נותרו <span class="n">2:15</span> שעות</span></div>
         <div class="duel">
-          <div class="side"><span class="bav you"><svg><use href="#store"/></svg></span><div class="nm">פ״ת</div><div class="who you">הסניף שלך</div><div class="sc"><span class="n">44</span></div></div>
+          <div class="side"><span class="bav you"><svg><use href="#store"/></svg></span><div class="nm">פ״ת</div><div class="who you">הסניף שלך</div><div class="sc"><span class="n" id="duelMe">44</span></div></div>
           <div class="vs">VS</div>
           <div class="side"><span class="bav rival"><svg><use href="#store"/></svg></span><div class="nm">ר״ג</div><div class="who">סניף מתחרה</div><div class="sc"><span class="n">47</span></div></div>
         </div>
-        <div class="rope"><div class="knot" style="right:53%"></div></div>
-        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)">🔥 צמצמתם את הפער ל-<span class="n">3</span> — כל מכירה מקרבת את פ״ת לראש!</div>
+        <div class="rope"><div class="knot" id="duelKnot" style="right:53%"></div></div>
+        <div style="text-align:center;margin-top:9px;font-size:12.5px;font-weight:800;color:var(--cerise-d)" id="duelMsg">🔥 צמצמתם את הפער ל-<span class="n">3</span> — כל מכירה מקרבת את פ״ת לראש!</div>
       </div>
 
       <div class="arena-2col">
@@ -543,27 +597,19 @@
         </div>
         <div class="card"><div class="h">קיר ההישגים<span class="sm">נפתחו <span class="n">6/12</span></span></div>
           <div class="badgewall">
-            <div class="bdg on"><div class="disc">👑</div>מלך אביזרים</div>
-            <div class="bdg on"><div class="disc">🌅</div>בוקר מנצח</div>
-            <div class="bdg on"><div class="disc">🔥</div>5 ברצף</div>
-            <div class="bdg off"><div class="disc">⚡</div>שובר שיאים</div>
-            <div class="bdg off"><div class="disc">💪</div>הקאמבק</div>
-            <div class="bdg off"><div class="disc">⭐</div>טופ 3</div>
+            <div class="bdg on" data-info="נמכרו 30+ אביזרים השבוע ✓"><div class="disc">👑</div>מלך אביזרים</div>
+            <div class="bdg on" data-info="3 מכירות לפני 10:00 ✓"><div class="disc">🌅</div>בוקר מנצח</div>
+            <div class="bdg on" data-info="5 ימי עבודה רצופים עם מכירה ✓"><div class="disc">🔥</div>5 ברצף</div>
+            <div class="bdg off" data-info="עברו את השיא היומי האישי · 8/12"><div class="disc">⚡</div>שובר שיאים</div>
+            <div class="bdg off" data-info="חזרו מ-#7 ל-#3 בשבוע · בדרך"><div class="disc">💪</div>הקאמבק</div>
+            <div class="bdg off" data-info="הגיעו לטופ 3 בסניף · #5 כעת"><div class="disc">⭐</div>טופ 3</div>
           </div>
         </div>
       </div>
-
-      <div class="recap">
-        <div class="ri"><b class="n">8</b><span>מכירות היום</span></div>
-        <div class="ri"><b class="n">67%</b><span>מהיעד</span></div>
-        <div class="ri"><b>#<span class="n">5</span></b><span>דירוג</span></div>
-        <div class="ri"><b class="n">🔥4</b><span>רצף</span></div>
-        <div class="head"><div class="pb">🏅 שיא אישי חדש בדרך!</div><div class="mom">מומנטום: עולה ↑ · הרצף הכי חם 15:00–16:00</div></div>
-      </div>
     </div>
 
-    <!-- ASSISTANT -->
-    <div class="mode asst" data-mode="asst">
+    <!-- ───── ASSISTANT ───── -->
+    <div class="page" id="staff-assistant">
       <div class="asstwrap">
         <div class="asst-head"><div class="ttl">✨ העוזר החכם למכירה</div><div class="sub">הקלידו מספר טלפון כדי לזהות לקוח ולקבל המלצות</div></div>
         <div class="crumb" id="crumb"><b>מספר</b><span class="sep">←</span><span>לקוח</span><span class="sep">←</span><span>המלצות</span></div>
@@ -633,29 +679,48 @@
     <!-- active filter pills + live echo -->
     <div class="pillrow" id="pillrow" hidden></div>
 
-    <!-- SALES DASHBOARD (leads) -->
-    <div class="seclabel">לוח מכירות</div>
-    <div class="mstats" id="kpis"></div>
+    <nav class="topnav" data-side="manager">
+      <button class="navtab on" data-page="overview">📊 סקירה</button>
+      <button class="navtab" data-page="trends">📈 מגמות</button>
+      <button class="navtab" data-page="branches">🏬 סניפים</button>
+      <button class="navtab" data-page="team">👤 צוות</button>
+      <button class="navtab" data-page="ai">🤖 עוזר AI</button>
+    </nav>
 
-    <div class="card chartcard"><div class="h">מגמת מכירות<span class="sm" id="trendSub"></span></div><div id="trend" class="chartbox"></div></div>
-
-    <div class="mgr2">
-      <div class="card"><div class="h">מכירות לפי שעה<span class="sm">לחצו לסינון</span></div><div id="hourc" class="chartbox"></div></div>
-      <div class="card"><div class="h">תמהיל קטגוריות<span class="sm">לחצו לסינון</span></div><div id="catc" class="chartbox donutbox"></div></div>
+    <!-- ───── OVERVIEW (default) ───── -->
+    <div class="page on" id="manager-overview">
+      <div class="seclabel">לוח מכירות</div>
+      <div class="mstats" id="kpis"></div>
+      <div class="card chartcard"><div class="h">מגמת מכירות<span class="sm" id="trendSub"></span></div><div id="trend" class="chartbox"></div></div>
+      <div class="card"><div class="h">פיד עסקאות חי<span class="sm" id="feedSub"></span></div><div class="feed" id="mfeed"></div></div>
     </div>
 
-    <div class="card"><div class="h">פיד עסקאות חי<span class="sm" id="feedSub"></span></div><div class="feed" id="mfeed"></div></div>
+    <!-- ───── TRENDS ───── -->
+    <div class="page" id="manager-trends">
+      <div class="mgr2">
+        <div class="card"><div class="h">מכירות לפי שעה<span class="sm">לחצו לסינון</span></div><div id="hourc" class="chartbox"></div></div>
+        <div class="card"><div class="h">תמהיל קטגוריות<span class="sm">לחצו לסינון</span></div><div id="catc" class="chartbox donutbox"></div></div>
+      </div>
+    </div>
 
-    <div class="card"><div class="h">סניפים · מחזור מול יעד<span class="sm">לחצו לסינון סניף</span></div><div id="branchT"></div></div>
+    <!-- ───── BRANCHES ───── -->
+    <div class="page" id="manager-branches">
+      <div class="card"><div class="h">סניפים · מחזור מול יעד<span class="sm">לחצו לסינון סניף</span></div><div id="branchT"></div></div>
+    </div>
 
-    <div class="card"><div class="h">דירוג עובדים · מכירות ₪ · יחידות · בונוס<span class="sm">לחצו לפירוט</span></div><div id="empT"></div></div>
+    <!-- ───── TEAM ───── -->
+    <div class="page" id="manager-team">
+      <div class="card"><div class="h">דירוג עובדים · מכירות ₪ · יחידות · בונוס<span class="sm">לחצו לפירוט</span></div><div id="empT"></div></div>
+    </div>
 
-    <!-- AI demoted to secondary shortcut -->
-    <div class="askbox ai2">
-      <div class="ql">או פשוט שאלו בשפה חופשית — והמסננים יזוזו בהתאם ↑</div>
-      <div class="askin"><input id="aiq" placeholder="למשל: כמה מכרה חיפה אתמול בערב?" autocomplete="off"><button id="aiBtn">שאל</button></div>
-      <div class="aichips"><span data-q="הסניף הכי חזק היום">הסניף הכי חזק היום</span><span data-q="חיפה אתמול בערב">חיפה · אתמול · ערב</span><span data-q="העובד המוביל השבוע">העובד המוביל השבוע</span><span data-q="סמארטפונים השבוע">סמארטפונים · השבוע</span></div>
-      <div class="aians" id="aians" hidden></div>
+    <!-- ───── AI ───── -->
+    <div class="page" id="manager-ai">
+      <div class="askbox ai2">
+        <div class="ql">שאלו בשפה חופשית — והמסננים יזוזו בהתאם ↑</div>
+        <div class="askin"><input id="aiq" placeholder="למשל: כמה מכרה חיפה אתמול בערב?" autocomplete="off"><button id="aiBtn">שאל</button></div>
+        <div class="aichips"><span data-q="הסניף הכי חזק היום">הסניף הכי חזק היום</span><span data-q="חיפה אתמול בערב">חיפה · אתמול · ערב</span><span data-q="העובד המוביל השבוע">העובד המוביל השבוע</span><span data-q="סמארטפונים השבוע">סמארטפונים · השבוע</span></div>
+        <div class="aians" id="aians" hidden></div>
+      </div>
     </div>
 
     <!-- drill drawer -->
@@ -671,31 +736,39 @@
 
 <script>
   // ── browser-history navigation: the Back button returns to the previous view (no on-screen button) ──
+  // ── page router: chooser ⇄ side ⇄ nav-page, integrated with browser Back ──
   var _navLock=false;
-  function _pushNav(state,hash){if(_navLock)return;try{history.pushState(state,'',hash);}catch(e){}}
-  function setMode(m){document.querySelectorAll('.ms').forEach(x=>x.classList.toggle('on',x.dataset.m===m));document.querySelectorAll('.mode').forEach(s=>s.classList.toggle('on',s.dataset.mode===m));}
-  function showView(v){
+  var DEFP={staff:'myday',manager:'overview'};
+  function _push(st,hash){if(_navLock)return;try{history.pushState(st,'',hash);}catch(e){}}
+  function showSide(v){
     document.getElementById('chooser').hidden=(v!=='chooser');
     document.getElementById('app').hidden=(v==='chooser');
     document.getElementById('staff').hidden=(v!=='staff');
     document.getElementById('manager').hidden=(v!=='manager');
     document.getElementById('roleStaff').hidden=(v!=='staff');
     document.getElementById('roleMgr').hidden=(v!=='manager');
-    if(v==='staff')setMode('arena');
-    window.scrollTo(0,0);
   }
-  function choose(v){showView(v);_pushNav({v:v,m:(v==='staff'?'arena':null)},'#'+v);}
-  function backToChooser(){showView('chooser');_pushNav({v:'chooser',m:null},'#');}
-  // staff mode switch
-  document.querySelectorAll('.ms').forEach(b=>b.addEventListener('click',()=>{
-    setMode(b.dataset.m);
-    window.scrollTo({top:0,behavior:'smooth'});
-    _pushNav({v:'staff',m:b.dataset.m},'#staff-'+b.dataset.m);
-  }));
-  // browser Back / Forward → restore the view the user was on
-  function _applyNav(s){_navLock=true;if(!s||s.v==='chooser'){showView('chooser');}else{window.choose(s.v);if(s.v==='staff')setMode(s.m||'arena');}_navLock=false;}
+  function mountPage(side,page){
+    var root=document.getElementById(side);if(!root)return;
+    root.querySelectorAll('.page').forEach(function(p){p.classList.toggle('on',p.id===side+'-'+page);});
+    document.querySelectorAll('.topnav[data-side="'+side+'"] .navtab').forEach(function(t){t.classList.toggle('on',t.dataset.page===page);});
+    if(side==='manager'&&window.__mgrRender)window.__mgrRender();
+  }
+  function go(side,page){
+    if(side==='chooser'){showSide('chooser');window.scrollTo(0,0);_push({v:'chooser'},'#');return;}
+    page=page||DEFP[side];
+    showSide(side);mountPage(side,page);window.scrollTo(0,0);
+    _push({v:side,p:page},'#'+side+'/'+page);
+  }
+  function choose(v){go(v,DEFP[v]);}
+  function backToChooser(){go('chooser');}
+  document.querySelectorAll('.topnav .navtab').forEach(function(b){b.addEventListener('click',function(){go(b.closest('.topnav').dataset.side,b.dataset.page);});});
+  function _applyNav(s){_navLock=true;if(!s||s.v==='chooser'){showSide('chooser');}else{showSide(s.v);mountPage(s.v,s.p||DEFP[s.v]);}window.scrollTo(0,0);_navLock=false;}
   window.addEventListener('popstate',function(e){_applyNav(e.state);});
-  history.replaceState({v:'chooser',m:null},'',location.pathname+location.search);
+  (function(){var h=(location.hash||'').replace(/^#/,''),parts=h.split('/');
+    history.replaceState({v:'chooser'},'',location.pathname+location.search);
+    if(parts[0]==='staff'||parts[0]==='manager'){go(parts[0],parts[1]||DEFP[parts[0]]);}
+  })();
   // period toggle → swaps leaderboard tallies + bars so it feels live
   document.querySelectorAll('.seg').forEach(seg=>{
     const spans=[...seg.querySelectorAll('span')];
@@ -1050,9 +1123,52 @@
     render();
   }
   // patch choose() so manager repaints when shown
-  const _choose=window.choose;
-  window.choose=function(v){_choose(v);if(v==='manager')render();};
+  window.__mgrRender=render;
   if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+
+<script>
+/* STAFF sale-ripple: one click updates goal-ring, thermometer, beat-yesterday, branch duel, pace, feed + toast across tabs. NO ₪ on staff. */
+(function(){
+  var btn=document.getElementById('fireSale');if(!btn)return;
+  var base={units:8,thermo:41,beat:8,duel:44},st=Object.assign({},base),n=0;
+  var items=['גלקסי S26 אולטרה','אייפון 17 Pro','Apple Watch SE','AirPods Pro','מגן מסך + כיסוי','ביטוח מסך','מטען 45W'];
+  function setT(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+  function setRing(){var p=Math.min(100,Math.round(st.units/12*100));
+    setT('ringPct',p+'%');setT('ringUnits',st.units+' / 12');setT('ringLeft',Math.max(0,12-st.units));
+    var a=document.getElementById('ringArc');if(a)a.setAttribute('stroke-dashoffset',258*(1-p/100));
+    setT('recapPct',p+'%');setT('recapSales',st.units);setT('beatMe',st.beat);}
+  function setThermo(){var p=Math.round(st.thermo/60*100);
+    var f=document.getElementById('thermoFill');if(f)f.style.width=p+'%';
+    setT('thermoNum',st.thermo+'/60');setT('thermoLeft',Math.max(0,60-st.thermo));setT('thermoPct',p+'%');}
+  function setDuel(){setT('duelMe',st.duel);
+    var k=document.getElementById('duelKnot');if(k)k.style.right=(50+(47-st.duel)*2)+'%';
+    var m=document.getElementById('duelMsg');if(m){var g=47-st.duel;
+      m.innerHTML=g<=0?'🏆 פ״ת עברה לראש — נעלתם את המקום הראשון!':'🔥 צמצמתם את הפער ל-<span class="n">'+g+'</span> — כל מכירה מקרבת את פ״ת לראש!';}}
+  function pulse(id){var el=document.getElementById(id);if(el){el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');}}
+  function fire(){
+    n++;if(st.units<12)st.units++;st.thermo=Math.min(60,st.thermo+1);st.beat=Math.min(12,st.beat+1);if(st.duel<50)st.duel++;
+    setRing();setThermo();setDuel();pulse('ringPct');pulse('duelMe');
+    var sp=document.getElementById('spark');if(sp){var i=document.createElement('i');i.className='hot';i.style.height='100%';sp.appendChild(i);while(sp.children.length>8)sp.removeChild(sp.firstChild);}
+    var fd=document.getElementById('staffFeed');if(fd){var f=document.createElement('div');f.className='fitem';f.innerHTML='<span class="g"></span>🎉 המכירה שלך · '+items[n%items.length];fd.insertBefore(f,fd.firstChild);while(fd.children.length>6)fd.removeChild(fd.lastChild);}
+    if(typeof toast==='function')toast(st.units>=12?'יעד יומי הושלם! 🏆':'כל הכבוד! עוד '+(12-st.units)+' ליעד שלך 🎯');
+  }
+  btn.addEventListener('click',fire);
+  var rb=document.getElementById('resetSim');
+  if(rb)rb.addEventListener('click',function(){st=Object.assign({},base);n=0;setRing();setThermo();setDuel();
+    var sp=document.getElementById('spark');if(sp)sp.innerHTML='<i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:60%"></i><i class="hot" style="height:95%"></i>';
+    var fd=document.getElementById('staffFeed');if(fd)fd.innerHTML='<div class="fitem big"><span class="g"></span>🎉 עסקה גדולה · בן לוי · גלקסי S26 אולטרה</div><div class="fitem"><span class="g"></span>מכירה חדשה · ת״א · אייפון 17</div><div class="fitem"><span class="g"></span>+ אביזר · חיפה · מגן מסך</div><div class="fitem"><span class="g"></span>מכירה חדשה · פ״ת · Apple Watch</div><div class="fitem"><span class="g"></span>+ ביטוח מסך · ר״ג</div>';
+    if(typeof toast==='function')toast('הדגמה אופסה ↺');});
+  // tappable achievement badges → unlock condition tooltip
+  var tip=document.createElement('div');tip.className='bdg-tip';document.body.appendChild(tip);var tt;
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.bdg[data-info]');
+    if(!b){tip.classList.remove('on');return;}
+    var r=b.getBoundingClientRect();tip.textContent=b.getAttribute('data-info');
+    tip.style.left=(r.left+r.width/2)+'px';tip.style.top=r.top+'px';tip.classList.add('on');
+    clearTimeout(tt);tt=setTimeout(function(){tip.classList.remove('on');},2800);
+  });
 })();
 </script>
 </body>
