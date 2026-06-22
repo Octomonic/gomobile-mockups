@@ -46,45 +46,34 @@
 
   /* ─────────── CHOOSER ─────────── */
   #chooser{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 22px;position:relative;overflow:hidden}
-  #chooser::before{content:"";position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:900px;height:520px;background:radial-gradient(ellipse at center,rgba(236,0,140,.07),rgba(41,171,226,.05) 45%,transparent 70%);z-index:0}
-  .ch-logo{display:flex;align-items:center;gap:10px;margin-bottom:22px;position:relative}
+  #chooser::before{content:"";position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:980px;height:560px;background:radial-gradient(ellipse at center,rgba(236,0,140,.08),rgba(41,171,226,.05) 45%,transparent 70%);z-index:0}
+  .ch-logo{display:flex;align-items:center;gap:10px;margin-bottom:24px;position:relative}
   .ch-logo img{height:34px}.ch-logo .x{color:#c4cad4;font-size:18px}
-  .ch-h{position:relative;text-align:center;margin-bottom:8px;font-size:34px;font-weight:900;letter-spacing:-.6px}
-  .ch-sub{position:relative;text-align:center;color:var(--muted);font-size:14.5px;max-width:56ch;margin-bottom:30px}
-  .ch-cards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:900px}
-  @media(max-width:760px){.ch-cards{grid-template-columns:1fr}.ch-h{font-size:27px}}
-  .ch-card{position:relative;background:var(--surface);border:1px solid rgba(10,15,35,.06);border-radius:22px;padding:24px 24px 20px;box-shadow:0 10px 40px rgba(10,15,35,.08);cursor:pointer;transition:.16s;overflow:hidden}
-  .ch-card::before{content:"";position:absolute;top:0;right:0;left:0;height:4px;border-radius:22px 22px 0 0}
+  .ch-h{position:relative;text-align:center;margin-bottom:9px;font-size:36px;font-weight:900;letter-spacing:-.7px}
+  .ch-sub{position:relative;text-align:center;color:var(--muted);font-size:14.5px;max-width:48ch;margin-bottom:34px}
+  .ch-cards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:22px;width:100%;max-width:820px}
+  @media(max-width:760px){.ch-cards{grid-template-columns:1fr}.ch-h{font-size:28px}}
+  .ch-card{position:relative;background:var(--surface);border:1.5px solid rgba(10,15,35,.07);border-radius:24px;padding:34px 28px 26px;box-shadow:0 10px 40px rgba(10,15,35,.07);cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;text-align:center;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+  .ch-card::before{content:"";position:absolute;top:0;right:0;left:0;height:5px}
   .ch-card.admin::before{background:linear-gradient(90deg,var(--cerise),var(--cerise-d))}
   .ch-card.staff::before{background:linear-gradient(90deg,var(--coral),var(--gold))}
-  .ch-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-  .ch-card.admin:hover{border-color:rgba(236,0,140,.4)} .ch-card.staff:hover{border-color:rgba(41,171,226,.45)}
-  .ch-tile{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;color:#fff;margin-bottom:14px;box-shadow:var(--shadow-sm)}
-  .ch-tile svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .ch-card.admin .ch-tile{background:linear-gradient(135deg,var(--cerise),var(--cerise-d))}
-  .ch-card.staff .ch-tile{background:linear-gradient(135deg,var(--coral),var(--gold))}
-  .ch-card h2{font-size:21px;font-weight:900;letter-spacing:-.3px}
-  .ch-role{font-weight:800;font-size:13px;margin:2px 0 12px}
-  .ch-card.admin .ch-role{color:var(--cerise-d)} .ch-card.staff .ch-role{color:var(--sky-d)}
-  .ch-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
-  .ch-list li{position:relative;padding-inline-start:16px;font-size:12.8px;color:#475467;font-weight:600}
-  .ch-list li::before{content:"";position:absolute;inset-inline-start:1px;top:7px;width:6px;height:6px;border-radius:50%}
-  .ch-card.admin .ch-list li::before{background:var(--cerise)} .ch-card.staff .ch-list li::before{background:var(--sky)}
-  .ch-strip{border-radius:12px;padding:10px 13px;font-size:12px;font-weight:700;display:flex;gap:9px;align-items:flex-start;margin-bottom:14px}
-  .ch-strip svg{width:16px;height:16px;flex:none;margin-top:1px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .ch-card.admin .ch-strip{background:rgba(236,0,140,.06);color:var(--cerise-d)}.ch-card.admin .ch-strip svg{stroke:var(--cerise-d)}
-  .ch-card.staff .ch-strip{background:rgba(255,143,77,.09);color:var(--coral-d)}.ch-card.staff .ch-strip svg{stroke:var(--coral-d)}
-  .ch-strip .sub{display:block;color:var(--muted);font-weight:600;margin-top:2px}
-  .ch-cta{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:13.5px;padding:10px 16px;border-radius:11px;color:#fff;border:0}
-  .ch-card.admin .ch-cta{background:var(--cerise)} .ch-card.staff .ch-cta{background:var(--sky)}
-  .ch-corner{position:absolute;top:14px;inset-inline-start:14px;background:rgba(236,0,140,.1);color:var(--cerise-d);font-weight:800;font-size:10.5px;padding:4px 9px;border-radius:999px;display:inline-flex;gap:5px;align-items:center}
-  .ch-corner svg{width:11px;height:11px;fill:none;stroke:var(--cerise-d);stroke-width:2}
-  .ch-ribbon{position:relative;margin-top:20px;max-width:900px;width:100%;background:rgba(41,171,226,.045);border:1px solid var(--line);border-radius:16px;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
-  .ch-pt{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:#3a4456}
-  .ch-pt svg{width:17px;height:17px;fill:none;stroke:var(--sky-d);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .ch-pt+.ch-pt{border-inline-start:1px solid var(--line);padding-inline-start:22px}
-  .ch-ribbon .more{flex-basis:100%;color:var(--muted);font-size:12.5px;font-weight:600;margin-top:2px}
-  .ch-ribbon .kf{flex-basis:100%;color:#8a93a6;font-size:12.5px;font-style:italic;margin-top:3px}
+  .ch-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+  .ch-card.admin:hover{border-color:rgba(236,0,140,.5)} .ch-card.staff:hover{border-color:rgba(41,171,226,.55)}
+  .ch-card:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(41,171,226,.25),var(--shadow-lg)}
+  .ch-tile{width:68px;height:68px;border-radius:20px;display:grid;place-items:center;color:#fff;margin-bottom:18px}
+  .ch-tile svg{width:33px;height:33px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .ch-card.admin .ch-tile{background:linear-gradient(135deg,var(--cerise),var(--cerise-d));box-shadow:0 10px 26px rgba(236,0,140,.32)}
+  .ch-card.staff .ch-tile{background:linear-gradient(135deg,var(--coral),var(--gold));box-shadow:0 10px 26px rgba(255,143,77,.32)}
+  .ch-card h2{font-size:24px;font-weight:900;letter-spacing:-.4px}
+  .ch-desc{color:var(--muted);font-size:13.5px;margin:8px 0 22px;max-width:30ch;line-height:1.55}
+  .ch-desc b{color:#3a4456;font-weight:800}
+  .ch-enter{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:14.5px;padding:13px 28px;border-radius:13px;color:#fff;box-shadow:var(--shadow-sm);transition:.16s}
+  .ch-card.admin .ch-enter{background:var(--cerise)} .ch-card.staff .ch-enter{background:var(--sky)}
+  .ch-enter .arr{transition:transform .18s;font-size:16px}
+  .ch-card:hover .ch-enter{filter:brightness(1.06)} .ch-card:hover .arr{transform:translateX(-6px)}
+  .ch-ribbon{position:relative;margin-top:28px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 26px;color:#8a93a6;font-size:12.5px;font-weight:600}
+  .ch-pt{display:inline-flex;align-items:center;gap:8px}
+  .ch-pt svg{width:15px;height:15px;fill:none;stroke:#aab1bd;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
   /* ─────────── shared cards / stats ─────────── */
   .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
@@ -282,42 +271,24 @@
   <div class="ch-sub">שתי תצוגות נפרדות — אחת לצוות הרצפה, אחת לניהול. מאגר אחד, והנתונים נשארים אצלכם.</div>
   <div class="ch-cards">
     <!-- STAFF (left) -->
-    <div class="ch-card staff" onclick="choose('staff')" tabindex="0">
+    <div class="ch-card staff" onclick="choose('staff')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();choose('staff')}">
       <div class="ch-tile"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 01-12 0V4zM6 6H3v2a3 3 0 003 3M18 6h3v2a3 3 0 01-3 3"/></svg></div>
       <h2>צוות הרצפה</h2>
-      <div class="ch-role">נציגי מכירות</div>
-      <ul class="ch-list">
-        <li>לוח דירוג עם שמות בגדול ומדליות</li>
-        <li>יעד אישי, רצפים והישגים</li>
-        <li>אתגרי ראש-בראש ופיד מכירות חי</li>
-        <li>עוזר מכירה חכם (זיהוי לקוח + המלצות)</li>
-      </ul>
-      <div class="ch-strip"><svg viewBox="0 0 24 24" stroke="currentColor"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg><div>מה שהצוות רואה: דירוג, כמויות ויעדים — לעולם לא ₪<span class="sub">בלי חשיפת סכומי מכירה — תחרות בלבד</span></div></div>
-      <button class="ch-cta">כניסת צוות ←</button>
+      <p class="ch-desc">לוח תחרות, יעדים ומדליות — <b>בלי נתוני מכירות (₪)</b>.</p>
+      <span class="ch-enter">כניסת צוות <span class="arr">←</span></span>
     </div>
     <!-- ADMIN (right, RTL-first) -->
-    <div class="ch-card admin" onclick="choose('manager')" tabindex="0">
-      <div class="ch-corner"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>נדרשת הזדהות</div>
+    <div class="ch-card admin" onclick="choose('manager')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();choose('manager')}">
       <div class="ch-tile"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
       <h2>ניהול / הנהלה</h2>
-      <div class="ch-role">מנהל / מנכ״ל</div>
-      <ul class="ch-list">
-        <li>מחזורי ₪ בזמן אמת</li>
-        <li>יעדים מ-bGate והשוואה ליום קודם באותה שעה</li>
-        <li>פיד עסקאות חי + הקפצת עסקה גדולה</li>
-        <li>שאל-את-המערכת בשפה חופשית</li>
-        <li>בונוסים ותגמול צוות</li>
-      </ul>
-      <div class="ch-strip"><svg viewBox="0 0 24 24" stroke="currentColor"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg><div>גישה מוגבלת — רק למשה ולמי שיוגדר על ידו<span class="sub">הצוות בחנות לא רואה מסך זה ואת נתוני ה-₪</span></div></div>
-      <button class="ch-cta">כניסת מנהל ←</button>
+      <p class="ch-desc">תמונת מכירות מלאה — <b>מחזורים, יעדים ובונוסים (₪)</b>.</p>
+      <span class="ch-enter">כניסת מנהל <span class="arr">←</span></span>
     </div>
   </div>
   <div class="ch-ribbon">
-    <div class="ch-pt"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>תצוגת ההנהלה נעולה — גישה רק למי שתבחר</div>
-    <div class="ch-pt"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>הצוות אף פעם לא רואה ₪ או מחזורים</div>
-    <div class="ch-pt"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v9a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><rect x="9" y="13" width="6" height="7"/></svg>הנתונים נשארים אצלכם, בבית — לא אצל גורם חיצוני</div>
-    <div class="more">אפשר לפתוח כל תצוגה מכל מסך או טלפון דרך קישור — בלי התקנה.</div>
-    <div class="kf">אותה מערכת, שתי דלתות. אתה מחזיק את המפתח להנהלה.</div>
+    <span class="ch-pt"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>כל תצוגה מאחורי התחברות</span>
+    <span class="ch-pt"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>הצוות לא רואה ₪</span>
+    <span class="ch-pt"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v9a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><rect x="9" y="13" width="6" height="7"/></svg>הנתונים נשארים אצלכם</span>
   </div>
   <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד</div>
 </div>
