@@ -13,7 +13,8 @@
     --bg:#f8fafc;--soft:#f0f4f8;--surface:#fff;--line:#eaecf0;--ink:#0a0f23;--muted:#667085;
     --shadow:0 8px 30px rgba(10,15,35,.07);--shadow-sm:0 2px 10px rgba(10,15,35,.05);--shadow-lg:0 16px 48px rgba(10,15,35,.13)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  html{overflow-x:hidden}
+  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;width:100%}
   .n{font-feature-settings:"tnum";direction:ltr;unicode-bidi:isolate;display:inline-block}
   [hidden]{display:none!important}
   .shell{max-width:1280px;margin:0 auto;padding:16px 22px 54px}
@@ -382,6 +383,35 @@
   .dwr-list{display:flex;flex-direction:column;gap:7px;margin-top:14px}
   .dwr-li{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;background:var(--soft);border-radius:10px;padding:9px 12px}
   .dwr-li .amt{margin-inline-start:auto;font-weight:800}
+
+  /* ═════════ MOBILE ═════════ */
+  @media(max-width:560px){
+    .shell{padding:12px 11px 40px}
+    /* topbar: wrap controls under the brand instead of overflowing */
+    .topbar{flex-wrap:wrap;gap:10px;padding:12px 14px;border-radius:16px}
+    .topbar>div:last-child{flex-wrap:wrap;justify-content:flex-end}
+    .blogo{width:46px;height:46px;border-radius:12px}.blogo img{max-width:34px;max-height:34px}
+    .brand{gap:10px}.brand h1{font-size:15.5px}.brand p{font-size:11px}
+    .switchview{padding:9px 15px;font-size:12.5px}.switchview svg{width:16px;height:16px}
+    .roletag{font-size:11px;padding:6px 10px}
+    /* card titles: stack title over hint/control so they never overlap */
+    .card .h{flex-direction:column;align-items:center;gap:5px;min-height:0;text-align:center}
+    .card .h .sm,.card .h .seg{position:static;transform:none;inset:auto}
+    /* chooser */
+    .ch-h{font-size:26px}.ch-sub{font-size:13.5px;margin-bottom:26px}
+    .ch-card{padding:28px 20px 22px}.ch-card h2{font-size:22px}
+    /* manager */
+    .mgr-omni{height:48px}.mgr-omni input{font-size:14px}
+    .seclabel{margin-top:4px}
+    /* podium fits 3-up cleanly */
+    .pod .nm{font-size:14px;line-height:1.15}.pod.first .nm{font-size:16.5px}
+    .pod .medal{font-size:40px}.pod.first .medal{font-size:52px}
+    .pod .u{font-size:15px}.pod.first .u{font-size:17px}
+    .pod .br{font-size:10px}.pod .tg{font-size:10px;padding:2px 7px}
+    .h2h .side{width:116px}
+    /* drawer near full width */
+    .drawer{width:100%;max-width:100%;padding:22px 16px}
+  }
 </style>
 </head>
 <body>
