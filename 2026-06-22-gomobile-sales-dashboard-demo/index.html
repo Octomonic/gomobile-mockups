@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile · Sales system full walkthrough (GPI design language) -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoMobile · מערכת מכירות</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--coral-d:#b8590a;--gold:#f0c000;
+    --bg:#f8fafc;--soft:#f0f4f8;--surface:#fff;--line:#eaecf0;--ink:#0a0f23;--muted:#667085;
+    --shadow:0 4px 24px rgba(10,15,35,.06);--shadow-sm:0 2px 8px rgba(10,15,35,.05)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .shell{max-width:1320px;margin:0 auto;padding:18px 24px 48px}
+  .back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-weight:700;font-size:13px;margin-bottom:12px}
+  .back:hover{color:var(--cerise)}
+  .phead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 24px;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);margin-bottom:14px}
+  .brand{display:flex;align-items:center;gap:16px}
+  .logo{width:62px;height:62px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);display:grid;place-items:center}
+  .logo img{max-width:44px;max-height:44px}
+  .phead h1{font-size:23px;font-weight:900;letter-spacing:-.4px}
+  .phead p{color:var(--muted);font-size:13px;margin-top:3px}
+  .live{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;background:rgba(255,143,77,.08);border:1px solid rgba(255,143,77,.22);color:#b8590a;font-weight:700;font-size:13px}
+  .live .dot{width:8px;height:8px;border-radius:50%;background:#FF8F4D;box-shadow:0 0 10px rgba(255,143,77,.6)}
+  .tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:20px}
+  .tab{padding:11px 16px;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;border:none;background:none;font-family:inherit;position:relative}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--cerise)}
+  .tab.active::after{content:"";position:absolute;right:8px;left:8px;bottom:-1px;height:3px;border-radius:3px;background:var(--cerise)}
+  .screen{display:none}.screen.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+  @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:15px 16px;text-align:center;box-shadow:var(--shadow-sm)}
+  .stat .v{font-size:25px;font-weight:900;letter-spacing:-.5px;color:var(--cerise)}
+  .stat.sky .v{color:var(--sky-d)}.stat.coral .v{color:var(--coral-d)}.stat.gold .v{color:#9a7b00}
+  .stat .l{font-size:11.5px;color:var(--muted);margin-top:3px;font-weight:600}
+  .stat .up{font-size:11px;color:#10b981;font-weight:800}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);margin-bottom:18px}
+  .card .h{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .seg{display:flex;background:var(--soft);border-radius:9px;padding:3px;font-size:12.5px}
+  .seg span{padding:5px 13px;border-radius:7px;cursor:pointer;color:var(--muted);font-weight:700}
+  .seg span.on{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:right;padding:11px 14px;background:var(--soft);color:#475467;font-size:12.5px;font-weight:700;border-bottom:1px solid var(--line)}
+  td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--line)}
+  tr:last-child td{border-bottom:none}tbody tr:hover td{background:var(--soft)}
+  .rk{font-weight:900;color:#c2c8d2;text-align:center}.rk.g{color:var(--gold)}
+  .up{color:#10b981;font-weight:800}.down{color:var(--cerise);font-weight:800}.flat{color:var(--muted);font-weight:800}
+  .b{font-weight:800}
+  .bars{display:flex;align-items:flex-end;gap:18px;height:175px;padding-top:10px}
+  .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;justify-content:flex-end}
+  .bar .col{width:100%;border-radius:9px 9px 0 0;background:linear-gradient(180deg,var(--cerise),#ff7ec0)}
+  .bar small{font-size:12px;color:var(--muted);font-weight:700}.bar .amt{font-size:12px;font-weight:800}
+  .prog{height:9px;background:var(--soft);border-radius:999px;overflow:hidden;min-width:80px}
+  .prog .f{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cerise),#ff7ec0)}
+  .badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+  .badge.gold{background:rgba(240,192,0,.14);color:#9a7b00}.badge.ok{background:rgba(41,171,226,.1);color:var(--sky-d)}.badge.cer{background:rgba(236,0,140,.08);color:var(--cerise-d)}
+  .grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .split{display:flex;flex-direction:column;gap:10px}
+  .splitrow{display:grid;grid-template-columns:90px 1fr 44px;gap:10px;align-items:center;font-size:13.5px;font-weight:600}
+  .foot{color:var(--muted);font-size:12px;text-align:center;padding:18px}
+  .empcard{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#EC008C,#FF5FAE);color:#fff;border-radius:16px;padding:18px 20px;margin-bottom:18px}
+  .empcard .big{font-size:24px;font-weight:900}.empcard .sub{opacity:.9;font-size:13px}
+  .empcard .r{margin-inline-start:auto;display:flex;gap:10px}
+  .pillw{background:rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;text-align:center}
+  .pillw .n{font-size:19px;font-weight:900}.pillw .t{font-size:11px;opacity:.9}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="phead">
+    <div class="brand"><div class="logo"><img src="gomobile.png" alt="GoMobile"></div>
+      <div><h1>מעקב ביצועי מכירות ולוח תוצאות</h1><p>GoMobile · ניהול מכירות וביצועי צוות · תצוגה מקדימה</p></div></div>
+    <div class="live"><span class="dot"></span>חי · עודכן לפני דקה</div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-s="lead">🏆 לוח תוצאות</button>
+    <button class="tab" data-s="branches">🏬 ביצועי סניפים</button>
+    <button class="tab" data-s="emp">👤 פרופיל עובד</button>
+    <button class="tab" data-s="prod">📱 מוצרים</button>
+    <button class="tab" data-s="targets">🎯 יעדים ובונוסים</button>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <section class="screen on" data-screen="lead">
+    <div class="stats">
+      <div class="stat"><div class="v">₪412K</div><div class="l">מכירות היום</div><div class="up">▲ 12%</div></div>
+      <div class="stat sky"><div class="v">186</div><div class="l">יחידות</div><div class="up">▲ 8%</div></div>
+      <div class="stat coral"><div class="v">31%</div><div class="l">אחוז המרה</div><div class="up">▲ 4%</div></div>
+      <div class="stat"><div class="v">₪2,214</div><div class="l">סל ממוצע</div></div>
+      <div class="stat gold"><div class="v">24</div><div class="l">עובדים פעילים</div></div>
+    </div>
+    <div class="card">
+      <div class="h">דירוג עובדים<div class="seg"><span>היום</span><span class="on">השבוע</span><span>החודש</span></div></div>
+      <table>
+        <thead><tr><th>#</th><th>עובד</th><th>סניף</th><th>מכירות</th><th>יחידות</th><th>יעד</th><th>מגמה</th></tr></thead>
+        <tbody>
+          <tr><td class="rk g">1</td><td class="b">יוסי כהן</td><td>ר"ג</td><td class="b">₪96,400</td><td>42</td><td><span class="badge gold">128%</span></td><td class="up">▲</td></tr>
+          <tr><td class="rk">2</td><td class="b">דנה לוי</td><td>ת"א</td><td class="b">₪88,150</td><td>38</td><td>92%</td><td class="up">▲</td></tr>
+          <tr><td class="rk">3</td><td class="b">מורן ביטון</td><td>חיפה</td><td class="b">₪81,900</td><td>35</td><td>86%</td><td class="flat">▬</td></tr>
+          <tr><td class="rk">4</td><td class="b">אבי מזרחי</td><td>ב"ש</td><td class="b">₪74,300</td><td>31</td><td>79%</td><td class="up">▲</td></tr>
+          <tr><td class="rk">5</td><td class="b">נטע שגב</td><td>נתניה</td><td class="b">₪69,050</td><td>29</td><td>74%</td><td class="down">▼</td></tr>
+          <tr><td class="rk">6</td><td class="b">איתי ברק</td><td>ר"ג</td><td class="b">₪61,200</td><td>26</td><td>68%</td><td class="up">▲</td></tr>
+          <tr><td class="rk">7</td><td class="b">שירה פרץ</td><td>חיפה</td><td class="b">₪57,800</td><td>24</td><td>64%</td><td class="flat">▬</td></tr>
+          <tr><td class="rk">8</td><td class="b">עומר דהן</td><td>ת"א</td><td class="b">₪52,400</td><td>22</td><td>58%</td><td class="up">▲</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BRANCHES -->
+  <section class="screen" data-screen="branches">
+    <div class="stats">
+      <div class="stat"><div class="v">₪1.07M</div><div class="l">מכירות השבוע</div><div class="up">▲ 9%</div></div>
+      <div class="stat sky"><div class="v">5</div><div class="l">סניפים</div></div>
+      <div class="stat coral"><div class="v">ר"ג</div><div class="l">סניף מוביל</div></div>
+      <div class="stat"><div class="v">₪58K</div><div class="l">ממוצע לעובד</div></div>
+      <div class="stat gold"><div class="v">29%</div><div class="l">המרה ממוצעת</div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><div class="h">מכירות לפי סניף · השבוע</div>
+        <div class="bars">
+          <div class="bar"><span class="amt">₪288K</span><div class="col" style="height:92%"></div><small>ר"ג</small></div>
+          <div class="bar"><span class="amt">₪244K</span><div class="col" style="height:78%"></div><small>ת"א</small></div>
+          <div class="bar"><span class="amt">₪216K</span><div class="col" style="height:69%"></div><small>חיפה</small></div>
+          <div class="bar"><span class="amt">₪172K</span><div class="col" style="height:55%"></div><small>ב"ש</small></div>
+          <div class="bar"><span class="amt">₪151K</span><div class="col" style="height:48%"></div><small>נתניה</small></div>
+        </div>
+      </div>
+      <div class="card"><div class="h">פילוח קטגוריות</div>
+        <div class="split">
+          <div class="splitrow"><span>סמארטפונים</span><div class="prog"><div class="f" style="width:54%"></div></div><span class="b">54%</span></div>
+          <div class="splitrow"><span>אביזרים</span><div class="prog"><div class="f" style="width:18%"></div></div><span class="b">18%</span></div>
+          <div class="splitrow"><span>שעונים</span><div class="prog"><div class="f" style="width:12%"></div></div><span class="b">12%</span></div>
+          <div class="splitrow"><span>טאבלטים</span><div class="prog"><div class="f" style="width:9%"></div></div><span class="b">9%</span></div>
+          <div class="splitrow"><span>שמע</span><div class="prog"><div class="f" style="width:7%"></div></div><span class="b">7%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card"><div class="h">טבלת סניפים</div>
+      <table><thead><tr><th>סניף</th><th>מכירות</th><th>יחידות</th><th>עובדים</th><th>ממוצע לעובד</th><th>המרה</th></tr></thead>
+        <tbody>
+          <tr><td class="b">ר"ג</td><td class="b">₪288,400</td><td>124</td><td>6</td><td>₪48,067</td><td>33%</td></tr>
+          <tr><td class="b">ת"א</td><td class="b">₪244,100</td><td>108</td><td>5</td><td>₪48,820</td><td>30%</td></tr>
+          <tr><td class="b">חיפה</td><td class="b">₪216,800</td><td>96</td><td>5</td><td>₪43,360</td><td>28%</td></tr>
+          <tr><td class="b">ב"ש</td><td class="b">₪172,300</td><td>78</td><td>4</td><td>₪43,075</td><td>26%</td></tr>
+          <tr><td class="b">נתניה</td><td class="b">₪151,900</td><td>69</td><td>4</td><td>₪37,975</td><td>25%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- EMPLOYEE -->
+  <section class="screen" data-screen="emp">
+    <div class="empcard">
+      <div><div class="big">יוסי כהן</div><div class="sub">סניף ר"ג · יועץ מכירות בכיר · 🥇 מוביל החודש</div></div>
+      <div class="r">
+        <div class="pillw"><div class="n">#1</div><div class="t">דירוג</div></div>
+        <div class="pillw"><div class="n">₪382K</div><div class="t">מכירות החודש</div></div>
+        <div class="pillw"><div class="n">168</div><div class="t">יחידות</div></div>
+        <div class="pillw"><div class="n">34%</div><div class="t">המרה</div></div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card"><div class="h">מכירות · 7 ימים אחרונים</div>
+        <div class="bars">
+          <div class="bar"><div class="col" style="height:60%"></div><small>א</small></div>
+          <div class="bar"><div class="col" style="height:75%"></div><small>ב</small></div>
+          <div class="bar"><div class="col" style="height:55%"></div><small>ג</small></div>
+          <div class="bar"><div class="col" style="height:88%"></div><small>ד</small></div>
+          <div class="bar"><div class="col" style="height:70%"></div><small>ה</small></div>
+          <div class="bar"><div class="col" style="height:100%"></div><small>ו</small></div>
+          <div class="bar"><div class="col" style="height:40%"></div><small>ש</small></div>
+        </div>
+      </div>
+      <div class="card"><div class="h">התקדמות ליעד החודשי</div>
+        <div style="font-size:34px;font-weight:900;color:var(--cerise)">128%</div>
+        <div class="prog" style="margin:10px 0 6px"><div class="f" style="width:100%"></div></div>
+        <p style="color:var(--muted);font-size:13px">₪382,000 מתוך יעד ₪300,000 — היעד הושג ב-21 בחודש</p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge gold">🥇 מוביל החודש</span><span class="badge cer">🔥 רצף 6 ימים</span><span class="badge ok">🎯 יעד הושג</span>
+        </div>
+      </div>
+    </div>
+    <div class="card"><div class="h">מוצרים מובילים שמכר</div>
+      <table><thead><tr><th>מוצר</th><th>יחידות</th><th>הכנסה</th><th>צירוף ביטוח</th></tr></thead><tbody>
+        <tr><td class="b">iPhone 17 Pro Max</td><td>28</td><td class="b">₪131,320</td><td>71%</td></tr>
+        <tr><td class="b">Galaxy S25 Ultra</td><td>19</td><td class="b">₪83,600</td><td>58%</td></tr>
+        <tr><td class="b">AirPods Pro 3</td><td>34</td><td class="b">₪33,660</td><td>—</td></tr>
+        <tr><td class="b">iPad Air M3</td><td>12</td><td class="b">₪38,280</td><td>42%</td></tr>
+      </tbody></table>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="screen" data-screen="prod">
+    <div class="stats">
+      <div class="stat"><div class="v">₪1.07M</div><div class="l">הכנסה שבועית</div></div>
+      <div class="stat sky"><div class="v">475</div><div class="l">יחידות נמכרו</div></div>
+      <div class="stat coral"><div class="v">iPhone 17 PM</div><div class="l">מוצר מוביל</div></div>
+      <div class="stat"><div class="v">38%</div><div class="l">צירוף ביטוח</div></div>
+      <div class="stat gold"><div class="v">₪2,254</div><div class="l">מחיר ממוצע</div></div>
+    </div>
+    <div class="card"><div class="h">מוצרים נמכרים ביותר · השבוע</div>
+      <table><thead><tr><th>מוצר</th><th>קטגוריה</th><th>יחידות</th><th>הכנסה</th><th>מגמה</th></tr></thead><tbody>
+        <tr><td class="b">iPhone 17 Pro Max 256GB</td><td>סמארטפון</td><td>64</td><td class="b">₪300,160</td><td class="up">▲ 14%</td></tr>
+        <tr><td class="b">Galaxy S25 Ultra 512GB</td><td>סמארטפון</td><td>41</td><td class="b">₪180,400</td><td class="up">▲ 6%</td></tr>
+        <tr><td class="b">AirPods Pro 3</td><td>שמע</td><td>88</td><td class="b">₪87,120</td><td class="flat">▬</td></tr>
+        <tr><td class="b">Apple Watch S11</td><td>שעונים</td><td>37</td><td class="b">₪70,300</td><td class="up">▲ 9%</td></tr>
+        <tr><td class="b">iPad Air M3 128GB</td><td>טאבלט</td><td>22</td><td class="b">₪70,180</td><td class="down">▼ 3%</td></tr>
+        <tr><td class="b">Roborock Qrevo S</td><td>שואבים</td><td>15</td><td class="b">₪44,850</td><td class="up">▲ 21%</td></tr>
+      </tbody></table>
+    </div>
+  </section>
+
+  <!-- TARGETS -->
+  <section class="screen" data-screen="targets">
+    <div class="stats">
+      <div class="stat"><div class="v">₪1.5M</div><div class="l">יעד חודשי · רשת</div></div>
+      <div class="stat sky"><div class="v">82%</div><div class="l">התקדמות</div></div>
+      <div class="stat coral"><div class="v">7</div><div class="l">עברו את היעד</div></div>
+      <div class="stat"><div class="v">₪41K</div><div class="l">בונוסים החודש</div></div>
+      <div class="stat gold"><div class="v">21</div><div class="l">ימים שחלפו</div></div>
+    </div>
+    <div class="card"><div class="h">יעדים ובונוסים · עובדים</div>
+      <table><thead><tr><th>עובד</th><th>סניף</th><th>יעד</th><th>בפועל</th><th>התקדמות</th><th>שכבת בונוס</th></tr></thead><tbody>
+        <tr><td class="b">יוסי כהן</td><td>ר"ג</td><td>₪300K</td><td class="b">₪382K</td><td><div class="prog"><div class="f" style="width:100%"></div></div></td><td><span class="badge gold">פלטינום</span></td></tr>
+        <tr><td class="b">דנה לוי</td><td>ת"א</td><td>₪300K</td><td class="b">₪276K</td><td><div class="prog"><div class="f" style="width:92%"></div></div></td><td><span class="badge ok">זהב</span></td></tr>
+        <tr><td class="b">מורן ביטון</td><td>חיפה</td><td>₪280K</td><td class="b">₪241K</td><td><div class="prog"><div class="f" style="width:86%"></div></div></td><td><span class="badge ok">זהב</span></td></tr>
+        <tr><td class="b">אבי מזרחי</td><td>ב"ש</td><td>₪260K</td><td class="b">₪205K</td><td><div class="prog"><div class="f" style="width:79%"></div></div></td><td><span class="badge cer">כסף</span></td></tr>
+        <tr><td class="b">נטע שגב</td><td>נתניה</td><td>₪240K</td><td class="b">₪178K</td><td><div class="prog"><div class="f" style="width:74%"></div></div></td><td><span class="badge cer">כסף</span></td></tr>
+      </tbody></table>
+    </div>
+  </section>
+
+  <div class="foot">תצוגה מקדימה · OctoMonic עבור GoMobile · נתונים להמחשה בלבד</div>
+</div>
+<script>
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');
+    const s=t.dataset.s;document.querySelectorAll('.screen').forEach(sc=>sc.classList.toggle('on',sc.dataset.screen===s));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }));
+  document.querySelectorAll('.seg').forEach(seg=>seg.querySelectorAll('span').forEach(sp=>sp.addEventListener('click',()=>{seg.querySelectorAll('span').forEach(x=>x.classList.remove('on'));sp.classList.add('on');})));
+</script>
+</body>
+</html>
