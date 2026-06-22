@@ -34,8 +34,10 @@
   .blogo img{max-width:34px;max-height:34px}
   .brand h1{font-size:18px;font-weight:900;letter-spacing:-.3px}
   .brand p{color:var(--muted);font-size:12px;margin-top:1px}
-  .switchview{display:inline-flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--line);color:#475467;font-weight:800;font-size:12.5px;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:inherit}
-  .switchview:hover{background:#fff;color:var(--cerise);box-shadow:var(--shadow-sm)}
+  .switchview{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--cerise),var(--sky));border:0;color:#fff;font-weight:900;font-size:14px;padding:12px 22px;border-radius:999px;cursor:pointer;font-family:inherit;box-shadow:0 8px 22px rgba(236,0,140,.34);position:relative;animation:swpulse 2.1s infinite}
+  .switchview svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .switchview:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 12px 28px rgba(236,0,140,.46)}
+  @keyframes swpulse{0%,100%{box-shadow:0 8px 22px rgba(236,0,140,.3)}50%{box-shadow:0 10px 30px rgba(41,171,226,.5)}}
   .roletag{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:12.5px;padding:7px 13px;border-radius:999px}
   .roletag.staff{background:rgba(41,171,226,.1);color:var(--sky-d)}
   .roletag.mgr{background:rgba(236,0,140,.08);color:var(--cerise-d)}
@@ -325,7 +327,7 @@
       <span class="live"><span class="dot"></span>חי</span>
       <span class="roletag staff" id="roleStaff" hidden>👤 תצוגת צוות</span>
       <span class="roletag mgr" id="roleMgr" hidden>🔒 תצוגת מנהל</span>
-      <button class="switchview" onclick="backToChooser()">↔ החלפת תצוגה</button>
+      <button class="switchview" onclick="backToChooser()" title="מעבר בין תצוגת צוות לתצוגת מנהל"><svg viewBox="0 0 24 24"><path d="M3 8h14M13 4l4 4-4 4M21 16H7M11 12l-4 4 4 4"/></svg>החלפת תצוגה</button>
     </div>
   </div>
 
