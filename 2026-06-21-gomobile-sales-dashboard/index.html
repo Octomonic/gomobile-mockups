@@ -51,8 +51,8 @@
   .sigf{flex:1;display:flex;align-items:flex-end;gap:8px;min-width:0}
   .sigl{font-weight:700;white-space:nowrap}
   .sigf .sig-line{flex:1;min-width:0;border-bottom:1px solid #444;height:22px;text-align:center;position:relative}
-  .sig-ink{max-height:40px;max-width:150px;position:absolute;inset-inline-start:6px;bottom:1px}
-  .sig-date{font-weight:700;color:#111;font-size:12px}
+  .sig-ink{max-height:40px;max-width:160px;position:absolute;left:50%;transform:translateX(-50%);bottom:1px}
+  .sig-date{font-weight:700;color:#111;font-size:12px;position:absolute;left:50%;bottom:1px;transform:translateX(-50%);white-space:nowrap}
 
   /* ─── interactive e-signing (screen only; hidden in print) ─── */
   body{padding-bottom:78px}
@@ -76,6 +76,8 @@
   .sigmodal .s2{color:#667085;font-size:13px;font-weight:600;margin-bottom:14px}
   .sigmodal .canvwrap{position:relative;border:2px dashed #c9d2e0;border-radius:14px;background:#fcfdff;touch-action:none}
   .sigmodal canvas{display:block;width:100%;height:210px;border-radius:14px;cursor:crosshair}
+  .sigmodal .sigbase{position:absolute;left:30px;right:30px;bottom:46px;border-bottom:1.6px solid #cdd5e0;pointer-events:none}
+  .sigmodal .sigbase::after{content:"✕";position:absolute;inset-inline-start:-2px;bottom:-9px;color:#cdd5e0;font-size:13px;font-weight:800}
   .sigmodal .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#aab1bd;font-weight:700;font-size:13px;pointer-events:none}
   .sigmodal.drawn .ph{display:none}
   .sigmodal .acts{display:flex;gap:10px;margin-top:16px}
@@ -228,7 +230,7 @@
   <div class="box"><div class="bar2"></div><div class="in">
     <h3><span class="he">חתימה דיגיטלית</span><span class="en">Digital signature</span></h3>
     <div class="s2"><span class="he">ציירו את חתימתכם במסגרת (עכבר, טראקפד או מגע)</span><span class="en">Draw your signature (mouse, trackpad or touch)</span></div>
-    <div class="canvwrap" id="canvwrap"><canvas id="sigCanvas"></canvas><div class="ph"><span class="he">✍️ חתמו כאן</span><span class="en">✍️ sign here</span></div></div>
+    <div class="canvwrap" id="canvwrap"><canvas id="sigCanvas"></canvas><div class="sigbase"></div><div class="ph"><span class="he">✍️ חתמו על הקו</span><span class="en">✍️ sign on the line</span></div></div>
     <div class="acts">
       <button class="mcancel" id="mCancel"><span class="he">ביטול</span><span class="en">Cancel</span></button>
       <button class="mclear" id="mClear"><span class="he">נקה</span><span class="en">Clear</span></button>
