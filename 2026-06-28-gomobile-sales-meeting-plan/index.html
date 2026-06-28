@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>GoMobile · תוכנית פגישה — אפיון #1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--coral-d:#b8590a;--gold:#f0c000;
+    --ink:#0a0f23;--muted:#5b6577;--line:#e7ebf1;--bg:#f6f8fb;--surface:#fff}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Heebo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;padding-bottom:40px}
+  .wrap{max-width:720px;margin:0 auto;padding:0 14px}
+  a{color:var(--sky-d)}
+  .n{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+  header{background:linear-gradient(135deg,#0a0f23,#2a1530);color:#fff;padding:22px 16px 18px;text-align:center;position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -30%,rgba(236,0,140,.4),transparent 55%)}
+  header .t{position:relative;font-size:22px;font-weight:900;letter-spacing:-.4px}
+  header .s{position:relative;font-size:13px;opacity:.85;margin-top:4px;font-weight:600}
+  .internal{background:rgba(255,143,77,.16);color:#ffd9bd;border:1px solid rgba(255,143,77,.35);border-radius:999px;display:inline-block;padding:5px 14px;font-size:12px;font-weight:800;margin-top:12px;position:relative}
+
+  /* sticky jump nav */
+  nav.jump{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:9px 12px;scrollbar-width:none}
+  nav.jump::-webkit-scrollbar{display:none}
+  nav.jump a{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--muted);background:#eef2f7;border-radius:999px;padding:8px 14px;text-decoration:none;white-space:nowrap}
+  nav.jump a:active{background:var(--cerise);color:#fff}
+
+  section{margin-top:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:17px 16px;box-shadow:0 1px 2px rgba(10,15,35,.04),0 12px 26px -16px rgba(10,15,35,.16);margin-bottom:14px}
+  h2{font-size:18px;font-weight:900;letter-spacing:-.3px;margin:24px 2px 11px;display:flex;align-items:center;gap:9px;scroll-margin-top:60px}
+  h2 .num{background:linear-gradient(135deg,var(--cerise),var(--sky));color:#fff;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:14px;flex:none}
+  h3{font-size:15.5px;font-weight:900;margin:2px 0 8px;color:var(--cerise-d)}
+  p{margin:7px 0}
+  .lead{color:var(--muted);font-size:14px}
+  ul{margin:8px 0;padding-inline-start:20px}
+  li{margin:6px 0}
+  b{font-weight:800}
+  .say{background:rgba(41,171,226,.07);border:1px solid rgba(41,171,226,.18);border-radius:11px;padding:10px 13px;font-size:14px;color:var(--sky-d);font-weight:600;margin:9px 0}
+  .say::before{content:"🗣️ ";}
+  .warn{background:rgba(255,143,77,.1);border:1px solid rgba(255,143,77,.25);border-radius:11px;padding:10px 13px;font-size:13.5px;color:var(--coral-d);font-weight:700;margin:9px 0}
+
+  /* quick links */
+  .demo-btn{display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,var(--cerise),var(--cerise-d));color:#fff;font-weight:900;font-size:17px;padding:16px;border-radius:14px;text-decoration:none;box-shadow:0 10px 26px -8px rgba(236,0,140,.5);margin-bottom:6px}
+  .pw{text-align:center;font-size:13px;color:var(--muted);font-weight:700;margin:10px 0 12px}
+  .pw code{background:#eef2f7;border-radius:7px;padding:2px 9px;font-weight:800;color:var(--ink);direction:ltr;display:inline-block}
+  .login{display:flex;align-items:center;gap:10px;background:#f7f9fc;border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:8px 0}
+  .login .lr{font-weight:800;font-size:13.5px;flex:none}
+  .login .le{margin-inline-start:auto;direction:ltr;font-size:13px;font-weight:700;color:var(--sky-d);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pill{display:inline-block;font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;margin-inline-end:6px}
+  .pill.cer{background:rgba(236,0,140,.09);color:var(--cerise-d)}.pill.sky{background:rgba(41,171,226,.1);color:var(--sky-d)}.pill.coral{background:rgba(255,143,77,.13);color:var(--coral-d)}
+
+  .step{border-inline-start:4px solid var(--cerise);background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 15px;margin:11px 0}
+  .step.b{border-inline-start-color:var(--coral)}.step.c{border-inline-start-color:var(--sky)}
+
+  /* checklist */
+  .chk{display:flex;align-items:flex-start;gap:11px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin:9px 0;font-weight:600;font-size:14.5px}
+  .chk .box{width:22px;height:22px;border:2px solid var(--cerise);border-radius:7px;flex:none;margin-top:1px}
+  .act{display:inline-block;font-weight:900;font-size:13px;border-radius:8px;padding:2px 8px;margin-inline-end:6px}
+  .act.push{background:rgba(16,185,129,.12);color:#0a8f5b}.act.add{background:rgba(41,171,226,.1);color:var(--sky-d)}.act.split{background:rgba(236,0,140,.09);color:var(--cerise-d)}
+  footer{text-align:center;color:#aab1bd;font-size:12px;padding:24px 16px;font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <div class="t">GoMobile · תוכנית פגישה</div>
+  <div class="s">סשן אפיון #1 — דאשבורד מכירות · 28.06.2026</div>
+  <div class="internal">⚠️ מסמך פנימי — לעיניך בלבד · לא להצגה ללקוח</div>
+</header>
+
+<nav class="jump">
+  <a href="#links">קישורים</a>
+  <a href="#demo">הדגמה</a>
+  <a href="#wc">גישת WC</a>
+  <a href="#cost">עלויות</a>
+  <a href="#rec">הקלטה</a>
+  <a href="#tasks">משימות</a>
+</nav>
+
+<div class="wrap">
+
+  <h2 id="links"><span class="num">★</span> קישורים מהירים</h2>
+  <div class="card">
+    <a class="demo-btn" href="https://gomobile-sales.vercel.app" target="_blank">🔗 פתח את הדמו החי ←</a>
+    <div class="pw">סיסמה לכל החשבונות: <code>Gomobile2026</code></div>
+    <div class="login"><span class="pill cer">מנהל-על</span><span class="lr">CEO</span><span class="le">ceo@gomobile.co.il</span></div>
+    <div class="login"><span class="pill sky">מנהל סניף</span><span class="lr">פ״ת</span><span class="le">pt.manager@gomobile.co.il</span></div>
+    <div class="login"><span class="pill coral">איש מכירות</span><span class="lr">רצפה</span><span class="le">rotem@gomobile.co.il</span></div>
+    <p class="lead" style="margin-top:10px">מדגימים 3 נתיבי הרשאה. (נתיב מפתח = הגישה הפרטית שלך — מוסתר מהמסך, לא מדגימים.)</p>
+  </div>
+
+  <h2 id="demo"><span class="num">1</span> הדגמת המערכת — סדר מומלץ</h2>
+  <div class="card">
+    <p class="lead">מערכת ביצועי מכירות עם הרשאות מדורגות. הסיפור: <b>אותם נתונים, כמה עולמות לפי מי שמסתכל.</b> תתחיל מלמעלה (מנהל-על) ותרד.</p>
+
+    <div class="step">
+      <h3>א ׳· מנהל-על (CEO) — התמונה הגדולה</h3>
+      <p>כניסה: <b>ceo@gomobile.co.il</b></p>
+      <ul>
+        <li>נוחת ב<b>לוח הבקרה</b>. הצבע על פס הסינון: <b>טווח תאריכים</b>, <b>סניף</b> (כל הסניפים / בחר 1·2·3), <b>קטגוריה</b>.</li>
+        <li>ה-KPIs: מחזור ₪, יחידות, עסקאות, סל ממוצע, מוכרים פעילים.</li>
+        <li>טאבים: מגמה + תמהיל קטגוריות · <b>סניפים</b> (לחיצה על סניף = צלילה אליו) · <b>צוות</b> (דירוג + בונוס) · פיד עסקאות חי.</li>
+        <li><b>ניהול משתמשים</b>: הראה יצירת מנהל סניף / איש מכירות + שיוך לסניפים.</li>
+      </ul>
+      <div class="say">"הקטלוג, המחירים והקטגוריות — נתונים אמיתיים מ-GoMobile, 1,211 מוצרים. המכירות מדומות עד שמחברים את ה-bGate — וזה בדיוק מה שנגדיר היום."</div>
+    </div>
+
+    <div class="step b">
+      <h3>ב ׳· איש מכירות (תצוגת רצפה)</h3>
+      <p>דרך כפתור <b>'צוות'</b> למעלה, או כניסה: <b>rotem@gomobile.co.il</b></p>
+      <ul>
+        <li>ה<b>זירה</b>: תרמומטר חנות, פודיום, טבעת יעד יומי, לוח דירוג, דו-קרב סניפים, הישגים, התראות <b>מלאי נמוך</b>.</li>
+        <li><b>העוזר החכם</b> (הכפתור הצף 🤖): הקלד/בחר טלפון → זיהוי לקוח + היסטוריה + המלצות עם תמונות אמיתיות + <b>תסריטי שיחה</b>. זה הכלי לרצפה שביקשו.</li>
+      </ul>
+      <div class="say">"אנשי המכירות אף פעם לא רואים ₪ של ביצועים — רק יחידות, דירוגים ויעדים. מחירי מוצרים כן, כי צריך אותם כדי למכור."</div>
+    </div>
+
+    <div class="step c">
+      <h3>ג ׳· מנהל סניף — הרשאה מבוקרת</h3>
+      <p>כניסה: <b>pt.manager@gomobile.co.il</b></p>
+      <ul>
+        <li>לוח בקרה <b>מוגבל לסניף שלו בלבד</b> (פ״ת) — אותו עומק פירוט, רק לסניף שלו.</li>
+        <li>יכול ליצור <b>אנשי מכירות לסניף שלו בלבד</b>; לא רואה סניפים אחרים ולא פונקציות מנהל-על.</li>
+      </ul>
+      <div class="say">"כל מנהל סניף — שליטה מלאה על הסניף שלו בכל רמת פירוט, אבל כלום מעבר. ההפרדה אכופה בקוד, לא רק בתצוגה."</div>
+    </div>
+    <p class="lead" style="margin-top:6px">💡 הדגש שזה <b>שלד אמיתי</b> — בסיס נתונים, התחברות והרשאות עובדות — לא רק עיצוב.</p>
+  </div>
+
+  <h2 id="wc"><span class="num">2</span> גישת WooCommerce — לבקש בפגישה</h2>
+  <div class="card">
+    <p><b>מצב נוכחי:</b> יש לנו קריאה ל<b>מוצרים</b>. אין לנו גישה ל<b>הזמנות / עסקאות</b> (ה-endpoint מחזיר 404 — לא הורשה).</p>
+    <p><b>הבקשה:</b> מפתח <b>WooCommerce REST לקריאה בלבד (Read)</b> עם הרשאת קריאה מלאה — הזמנות, לקוחות, דוחות, מוצרים. ככה נראה את כל העסקאות והמכירות.</p>
+    <div class="warn">⛔ שני תנאי ברזל: (א) חייב להיות מאובטח לחלוטין — אנחנו לא יכולים להיות מקור לפריצה. (ב) אנחנו לעולם לא כותבים ל-WC ישירות.</div>
+    <p><b>מסרי הביטחון (להגיד להם):</b></p>
+    <ul>
+      <li><b>קריאה בלבד</b> — למפתח אין שום הרשאת כתיבה. פיזית לא יכולים לשנות כלום באתר → אפס סיכון פריצה/כתיבה בטעות.</li>
+      <li>הארכיטקטורה שלנו <b>כותבת רק ל-bGate</b>, אף פעם לא ל-WooCommerce.</li>
+      <li>המפתח נשמר <b>מוצפן</b> בתשתית, בשימוש שרת-צד בלבד.</li>
+    </ul>
+    <p><b>אם מציעים אדמין:</b> עדיף מפתח Read-only. אדמין = כתיבה = סיכון מיותר. יצירה אצלם: <span class="n">WooCommerce → Settings → Advanced → REST API → Add key → Permissions: <b>Read</b></span>.</p>
+    <div class="say">"אנחנו רק צריכים לקרוא. מפתח קריאה-בלבד נותן לנו הכל — הזמנות, מכירות, לקוחות, דוחות — בלי יכולת לשנות שום דבר. הכי בטוח לשנינו."</div>
+  </div>
+
+  <h2 id="cost"><span class="num">3</span> דחיפת עלויות דרך ה-ERP (רכש)</h2>
+  <div class="card">
+    <p><b>הבעיה:</b> <span class="n">36</span> מוצרים חיים ומנוטרים <b>ללא עלות ספק</b> במערכת → אין מרווח בדאשבורד. רובם פשוט מעולם לא נדחפו.</p>
+    <p><b>3 פעולות (לפי המסמך המלא):</b></p>
+    <ul>
+      <li><span class="act push">✅ דחיפה</span> <b><span class="n">29</span></b> — פשוט לדחוף את העלות מה-ERP, מתאים אוטומטית לפי ברקוד.</li>
+      <li><span class="act add">➕ הוספת מס׳ פריט</span> <b><span class="n">4</span> לגו</b> — אין <span class="n">main_sku</span>; להוסיף את מספר הפריט מה-ERP, ואז לדחוף.</li>
+      <li><span class="act split">✂️ פיצול קוד</span> <b><span class="n">3</span> שואבים</b> — דגמים שונים חולקים מספר פריט אחד; לתת לכל דגם מספר ייחודי, ואז לדחוף.</li>
+    </ul>
+    <p><b>לבקש מרכש:</b> לדחוף את העלויות ל-<span class="n">36</span> ה-SKUs דרך ה-ERP. נאמת <span class="n">100%</span> כיסוי מיד אחרי.</p>
+    <p class="lead">📄 הרשימה המלאה (ברקוד + מספר פריט + ₪ לכל אחד): <b>GOMOBILE_COST_COVERAGE_ACTION_PLAN_2026-06-28.md</b>.</p>
+    <div class="say">"כדי שלא יחזור — שווה לדחוף עלות לפי-וריאנט לפי ברקוד ייחודי. אז כל עלות נקשרת לבד למוצר הנכון."</div>
+  </div>
+
+  <h2 id="rec"><span class="num">4</span> הקלטה</h2>
+  <div class="card">
+    <p>🎙️ <b>הקלט את כל הפגישה.</b> אחרי כן נתמלל את כל בקשות השינוי שלהם ונהפוך אותן לאפיון מסודר. (תשלח לי את התמלול ואני אפרק אותו למשימות.)</p>
+  </div>
+
+  <h2 id="tasks"><span class="num">✓</span> צ׳קליסט — מה לעשות במשרד</h2>
+  <div class="card" style="padding:13px 13px 6px">
+    <div class="chk"><span class="box"></span><span>להריץ את ההדגמה — <b>3 הנתיבים</b> (מנהל-על → איש מכירות → מנהל סניף).</span></div>
+    <div class="chk"><span class="box"></span><span>לבקש מפתח <b>WooCommerce Read-only</b> עם קריאה מלאה (הזמנות + לקוחות + דוחות) + למסור את מסרי הביטחון.</span></div>
+    <div class="chk"><span class="box"></span><span>למסור לרכש את <b>תוכנית דחיפת העלויות</b> (<span class="n">36</span> SKUs) → לבקש דחיפה דרך ה-ERP.</span></div>
+    <div class="chk"><span class="box"></span><span><b>להקליט</b> את הפגישה.</span></div>
+    <div class="chk"><span class="box"></span><span>לאסוף את כל <b>בקשות השינוי</b> (נאפיין מהתמלול).</span></div>
+    <div class="chk"><span class="box"></span><span>(אחרי) לאמת שמפתח ה-WC עובד + לאמת כיסוי עלויות.</span></div>
+  </div>
+
+</div>
+<footer>OctoMonic · עבור GoMobile · פנימי · 28.06.2026</footer>
+</body>
+</html>
