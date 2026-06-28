@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile -->
+<!-- Change: Cost-coverage action plan (tracked products) — client document -->
+<!-- Generated: 2026-06-28 -->
+<!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>GoMobile × OctoMonic — תוכנית כיסוי עלויות</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--coral:#FF8F4D;--gold:#F0C000;
+    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
+    --good:#0a8a5b;--good-bg:#e8f6ef;--warn-bg:#fff3e9;--warn-bd:#f6d4b6;--warn-d:#b8590a;
+    --stop-bg:#fdeaf0;--stop-bd:#f4c2d4;--stop-d:#b8006e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased}
+  .code{direction:ltr;unicode-bidi:embed;font-variant-numeric:tabular-nums;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;white-space:nowrap}
+  .ils{direction:ltr;unicode-bidi:embed;font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
+
+  .printbtn{position:fixed;top:14px;inset-inline-end:16px;z-index:30;display:inline-flex;align-items:center;gap:7px;border:0;border-radius:10px;background:var(--cerise);color:#fff;font:800 12.5px Heebo;padding:9px 15px;cursor:pointer;box-shadow:0 4px 14px rgba(236,0,140,.32)}
+  .printbtn:hover{background:var(--cerise-d)}
+
+  .page{max-width:880px;margin:20px auto;background:#fff;box-shadow:0 8px 40px rgba(20,28,48,.16);border-radius:6px;overflow:hidden}
+  .bar{background:linear-gradient(115deg,#16182a 0%,#23132b 55%,#3a0f2c 100%);color:#fff;padding:16px 26px;display:flex;align-items:center;gap:14px;position:relative}
+  .bar::after{content:"";position:absolute;bottom:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--cerise),var(--coral),var(--gold))}
+  .bar img.oc{height:30px;width:auto}
+  .bar img.gm{height:22px;width:auto;opacity:.96}
+  .bar .x{color:var(--faint);font-weight:700;font-size:15px}
+  .bar .ttl{margin-inline-start:auto;text-align:end}
+  .bar .ttl .k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .bar .ttl .d{font-size:10px;color:var(--faint);font-weight:700;margin-top:2px}
+
+  .body{padding:20px 26px 16px}
+  .hero{text-align:center;padding:2px 0 13px;border-bottom:1px solid var(--line);margin-bottom:16px}
+  .hero .title{font-size:23px;font-weight:900;letter-spacing:-.3px;line-height:1.2;margin-bottom:7px}
+  .hero .subtitle{font-size:12.5px;color:var(--muted);line-height:1.55;max-width:64ch;margin:0 auto}
+
+  h2{font-size:14px;font-weight:900;margin:0 0 9px;display:flex;align-items:center;gap:8px}
+  h2 .badge{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:13px;flex:none;color:#fff}
+  h2 .cnt{font-size:11px;font-weight:800;color:var(--faint)}
+  section{margin-bottom:17px;break-inside:avoid;page-break-inside:avoid}
+
+  .note{font-size:11.5px;color:var(--muted);line-height:1.55;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:10px 13px;margin-bottom:11px}
+  .note b{color:var(--ink)}
+  .note .pill{display:inline-block;font-weight:800;font-size:10.5px;padding:1px 7px;border-radius:999px;margin:0 1px}
+
+  .legend{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:4px}
+  .legend .l{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:linear-gradient(180deg,#fff,#fcfdff)}
+  .legend .l .h{font-weight:800;font-size:12.5px;display:flex;align-items:center;gap:7px;margin-bottom:3px}
+  .legend .l .t{font-size:11px;color:var(--muted);line-height:1.45}
+  .ic{width:21px;height:21px;border-radius:6px;display:grid;place-items:center;font-size:12px;flex:none;color:#fff}
+  .ic.push{background:var(--good)} .ic.add{background:var(--coral)} .ic.split{background:var(--sky)}
+
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{padding:7px 10px;text-align:start;border-bottom:1px solid var(--line);vertical-align:middle}
+  thead th{font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);font-weight:800;background:var(--soft);position:sticky}
+  tbody tr:hover{background:#fafbfe}
+  td.prod{font-weight:700;color:#2b3245}
+  td.cat{color:var(--muted);font-size:11px;white-space:nowrap}
+  td.num{text-align:start}
+  .miss{display:inline-block;background:var(--stop-bg);border:1px solid var(--stop-bd);color:var(--stop-d);font-weight:800;font-size:10.5px;padding:1px 8px;border-radius:999px;direction:rtl}
+  .shared{display:inline-block;background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-d);font-weight:700;font-size:10.5px;padding:1px 8px;border-radius:999px;direction:rtl}
+  td .byb{color:var(--faint);font-size:10.5px;font-weight:700}
+
+  .next{border:1px solid var(--line);border-inline-start:4px solid var(--cerise);border-radius:9px;padding:12px 15px;background:var(--soft)}
+  .next .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cerise-d);font-weight:800}
+  .next .t{font-size:12.5px;color:var(--ink);margin-top:4px;line-height:1.55}
+  .next .t b{color:var(--cerise-d)}
+
+  footer{padding:13px 26px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:11.5px;color:var(--muted)}
+  footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:13px;white-space:nowrap}
+  footer .brand img{height:18px;width:auto}
+  footer .terms{font-weight:600;text-align:end}
+
+  section,tr,.legend .l,.next{break-inside:avoid;page-break-inside:avoid}
+  @media(max-width:680px){.legend{grid-template-columns:1fr}}
+  @media print{
+    @page{size:A4;margin:10mm}
+    html,body{background:#fff}
+    .printbtn{display:none}
+    .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
+    thead th{background:var(--soft)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .ic,.miss,.shared,.bar{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .brk{break-before:page;page-break-before:always}
+  }
+</style>
+</head>
+<body>
+<button class="printbtn" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF</button>
+
+<div class="page">
+  <div class="bar">
+    <img class="oc" src="octomonic.png" alt="OctoMonic" />
+    <span class="x">×</span>
+    <img class="gm" src="gomobile.png" alt="GoMobile" />
+    <div class="ttl">
+      <div class="k">GOMOBILE · כיסוי עלויות</div>
+      <div class="d">28 ביוני 2026</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="hero">
+      <h1 class="title">כיסוי עלויות מלא — תוכנית פעולה</h1>
+      <p class="subtitle">כל מוצר חי ומנוטר צריך עלות ספק במערכת, כדי שלוח מודיעין התמחור יציג רווחיות. להלן <b>36 המוצרים המנוטרים</b> שחסרה להם עלות — וכל פעולה נדרשת, מוצר‑מוצר.</p>
+    </div>
+
+    <section>
+      <h2><span class="badge" style="background:var(--cerise)">🎯</span> המטרה</h2>
+      <div class="note">
+        <b>״מנוטר״</b> = <b>5 הקטגוריות</b> — סמארטפונים, טאבלטים, שואבי אבק, לגו, שעונים חכמים — <b>+ 6 אוזניות AirPods</b> המנוטרות. אביזרים, בית חכם, מוצרים מחודשים (מציאון) ושאר מוצרי שמע — מחוץ לתחום.<br>
+        <b>מצב נוכחי:</b> הזנת העלויות תקינה ומתעדכנת מדי יום. ל‑<b>36 מוצרים חיים ומנוטרים</b> עדיין אין עלות — כמעט תמיד פשוט מפני שהעלות לא נדחפה. כל <b>6</b> ה‑AirPods כבר מכוסים.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--sky)">🔗</span> איך עלות מתחברת למוצר</h2>
+      <div class="note">
+        כל עלות מגיעה עם מזהה ומתחברת לפי <b>אחד משניים</b>: <b>הברקוד / מק״ט</b> (הקוד הגלוי בעמוד המוצר ב‑WooCommerce), <b>או מספר הפריט</b> — שדה נסתר בשם <span class="code">main_sku</span> על המוצר (הקוד הפנימי של ה‑ERP). <b>זהו לא המק״ט הגלוי בעמוד.</b><br>
+        בפועל, לפי קטגוריה: <b>סמארטפונים / טאבלטים / שעונים</b> → מתחבר לפי <b>הברקוד</b> (אין צורך במספר פריט). <b>לגו / שואבי אבק</b> → מתחבר לפי <b>מספר הפריט</b> (<span class="code">main_sku</span>) — לכן הם זקוקים לשדה הזה, מלא וייחודי.
+      </div>
+      <div class="legend">
+        <div class="l"><div class="h"><span class="ic push">✓</span> דחיפה</div><div class="t">פשוט לדחוף את העלות מה‑ERP — היא תתחבר לבד. אין שינוי בקטלוג.</div></div>
+        <div class="l"><div class="h"><span class="ic add">+</span> הוספת מספר פריט</div><div class="t">למוצר אין <span class="code">main_sku</span>. להוסיף את מספר הפריט של ה‑ERP, ואז לדחוף.</div></div>
+        <div class="l"><div class="h"><span class="ic split">⨯</span> פיצול קוד משותף</div><div class="t">מספר פריט אחד משותף לכמה דגמים. לתת לכל דגם מספר משלו, ואז לדחוף.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--good)">✓</span> פעולה: דחיפת העלות <span class="cnt">· 29 מוצרים</span></h2>
+      <div class="note">מוכנים — דחיפת העלות מה‑ERP תחבר אותה אוטומטית.</div>
+      <table>
+        <thead><tr><th>קטגוריה</th><th>מוצר</th><th>ברקוד / מק״ט</th><th>מספר פריט</th><th>₪</th></tr></thead>
+        <tbody>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Narwal Flow 145205H</td><td class="num"><span class="code">6972075736235</span></td><td class="num"><span class="code">7676596</span></td><td><span class="ils">5,189</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Ecovacs Deebot X11 OmniCyclone</td><td class="num"><span class="code">6970135037742</span></td><td class="num"><span class="code">7676544</span></td><td><span class="ils">4,839</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Ecovacs Deebot X11 Pro Omni</td><td class="num"><span class="code">6970135037728</span></td><td class="num"><span class="code">7676548</span></td><td><span class="ils">3,929</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Narwal S30 Pro</td><td class="num"><span class="code">6972075736914</span></td><td class="num"><span class="code">7676594</span></td><td><span class="ils">2,899</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Narwal S30 145331H</td><td class="num"><span class="code">6972075736952</span></td><td class="num"><span class="code">7676595</span></td><td><span class="ils">2,599</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Dreame V30</td><td class="num"><span class="code">6978515255380</span></td><td class="num"><span class="code">7678380</span></td><td><span class="ils">2,190</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Dreame T16 AE</td><td class="num"><span class="code">6979181929131</span></td><td class="num"><span class="code">7678381</span></td><td><span class="ils">1,790</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Dreame N20 Steam</td><td class="num"><span class="code">6979181925850</span></td><td class="num"><span class="code">7677515</span></td><td><span class="ils">1,199</span></td></tr>
+          <tr><td class="cat">סמארטפון</td><td class="prod">Xiaomi Poco X8 Pro 5G 256/8</td><td class="num"><span class="code">7678342</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">1,289</span></td></tr>
+          <tr><td class="cat">סמארטפון</td><td class="prod">Xiaomi Poco X7 5G 512/12</td><td class="num"><span class="code">7675508</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">1,179</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle Colorsoft Signature 32GB</td><td class="num"><span class="code">7675827</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">1,079</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle Colorsoft 16GB</td><td class="num"><span class="code">840414639942</span></td><td class="num"><span class="code">7676778</span></td><td><span class="ils">859</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle Paperwhite Kids 16GB</td><td class="num"><span class="code">7675801</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">649</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle Paperwhite Gen 12 16GB</td><td class="num"><span class="code">840268998295</span></td><td class="num"><span class="code">7675533</span></td><td><span class="ils">649</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Xiaomi Redmi Pad SE 8.7 128/6</td><td class="num"><span class="code">7678387</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">569</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle 2024 6" 16GB</td><td class="num"><span class="code">840414619951</span></td><td class="num"><span class="code">7652161</span></td><td><span class="ils">539</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle Kids Gen 11 16GB</td><td class="num"><span class="code">7599406</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">469</span></td></tr>
+          <tr><td class="cat">טאבלט</td><td class="prod">Kindle 2024 6" 16GB</td><td class="num"><span class="code">840414601246</span></td><td class="num"><span class="code">7554741</span></td><td><span class="ils">419</span></td></tr>
+          <tr><td class="cat">שעון חכם</td><td class="prod">WHOOP MG Life</td><td class="num"><span class="code">810114363263</span></td><td class="num"><span class="code">7676755</span></td><td><span class="ils">1,599</span></td></tr>
+          <tr><td class="cat">שעון חכם</td><td class="prod">WHOOP Peak</td><td class="num"><span class="code">810114363270</span></td><td class="num"><span class="code">7676227</span></td><td><span class="ils">1,299</span></td></tr>
+          <tr><td class="cat">שעון חכם</td><td class="prod">Fitbit Charge 6</td><td class="num"><span class="code">7676520</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">579</span></td></tr>
+          <tr><td class="cat">שעון חכם</td><td class="prod">Google Fitbit Air</td><td class="num"><span class="code">7678259</span></td><td class="num"><span class="byb">לפי ברקוד</span></td><td><span class="ils">529</span></td></tr>
+          <tr><td class="cat">שעון חכם</td><td class="prod">Fitbit Inspire 3</td><td class="num"><span class="code">810073611597</span></td><td class="num"><span class="code">7678258</span></td><td><span class="ils">319</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Disney Young Simba 43247</td><td class="num"><span class="code">5702017591940</span></td><td class="num"><span class="code">7678304</span></td><td><span class="ils">559</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Ideas Family Tree 21346</td><td class="num"><span class="code">5702017599120</span></td><td class="num"><span class="code">7678306</span></td><td><span class="ils">415</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Sonic Shadow 77000</td><td class="num"><span class="code">5702017672298</span></td><td class="num"><span class="code">7678307</span></td><td><span class="ils">318</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Icons French Cafe 10362</td><td class="num"><span class="code">5702017815886</span></td><td class="num"><span class="code">7678305</span></td><td><span class="ils">289</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Super Mario Game Boy 72046</td><td class="num"><span class="code">5702017816616</span></td><td class="num"><span class="code">7677430</span></td><td><span class="ils">229</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Classic Medium Brick Box 10696</td><td class="num"><span class="code">5702015357180</span></td><td class="num"><span class="code">7678327</span></td><td><span class="ils">99</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="brk">
+      <h2><span class="badge" style="background:var(--coral)">+</span> פעולה: הוספת מספר פריט, ואז דחיפה <span class="cnt">· 4 מוצרי לגו</span></h2>
+      <div class="note">לעמודי הלגו האלה <b>אין <span class="code">main_sku</span></b>, ועלויות לגו מתחברות רק לפי מספר הפריט. יש להוסיף את מספר הפריט של ה‑ERP לכל מוצר (השדה הנסתר <span class="code">main_sku</span>), ואז לדחוף את העלות.</div>
+      <table>
+        <thead><tr><th>קטגוריה</th><th>מוצר</th><th>ברקוד / מק״ט</th><th>מספר פריט</th><th>₪</th></tr></thead>
+        <tbody>
+          <tr><td class="cat">לגו</td><td class="prod">Technic Volvo EC500 Excavator 42215</td><td class="num"><span class="code">5702017816388</span></td><td class="num"><span class="miss">⛔ חסר — להוסיף</span></td><td><span class="ils">1,569</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Architecture Great Pyramid 21058</td><td class="num"><span class="code">5702017152349</span></td><td class="num"><span class="miss">⛔ חסר — להוסיף</span></td><td><span class="ils">539</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Star Wars Executor 75356</td><td class="num"><span class="code">5702017433813</span></td><td class="num"><span class="miss">⛔ חסר — להוסיף</span></td><td><span class="ils">349</span></td></tr>
+          <tr><td class="cat">לגו</td><td class="prod">Art Fauna Collection Tiger 31217</td><td class="num"><span class="code">5702017814452</span></td><td class="num"><span class="miss">⛔ חסר — להוסיף</span></td><td><span class="ils">244</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--sky)">⨯</span> פעולה: פיצול קוד משותף, ואז דחיפה <span class="cnt">· 3 שואבי אבק</span></h2>
+      <div class="note">כל אחד חולק מספר פריט אחד עם <b>דגמים שונים במחירים שונים</b>, כך שעלות בודדת לא יכולה לדעת לאיזה דגם היא שייכת. יש לתת לכל דגם מספר פריט משלו, ואז לדחוף.</div>
+      <table>
+        <thead><tr><th>קטגוריה</th><th>מוצר</th><th>ברקוד / מק״ט</th><th>מספר פריט משותף</th><th>₪</th></tr></thead>
+        <tbody>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Roborock F25 ACE Pro</td><td class="num"><span class="code">6974653814304</span></td><td class="num"><span class="code">7675662</span> <span class="shared">משותף ל‑3 דגמי F25</span></td><td><span class="ils">1,769</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Roborock F25 Combo</td><td class="num"><span class="code">6974653812638</span></td><td class="num"><span class="code">7675662</span> <span class="shared">משותף ל‑3 דגמי F25</span></td><td><span class="ils">1,719</span></td></tr>
+          <tr><td class="cat">שואב אבק</td><td class="prod">Dreame Aqua 10 Ultra Roller</td><td class="num"><span class="code">6978515254666</span></td><td class="num"><span class="code">7676341</span> <span class="shared">משותף ל‑2 דגמי Aqua 10</span></td><td><span class="ils">3,359</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="next">
+      <div class="k">אימות 100%</div>
+      <div class="t">אחרי כל אצווה שנדחפת — <b>GoSolutions מריצה את ההתאמה ומדווחת מיד</b> אילו מק״טים כבר מציגים עלות ואילו לא, כך שכל עלות שנחתה ולא התחברה (מפתח שגוי, קוד שעדיין משותף, טעות הקלדה) נתפסת במקום. <b>סיום = כל מוצר ברשימה מציג עלות + רווחיות בלוח.</b></div>
+    </div>
+
+    <div class="next" style="margin-top:11px;border-inline-start-color:var(--sky)">
+      <div class="k" style="color:var(--sky)">המלצה למניעת הישנות (אופציונלי)</div>
+      <div class="t">שהזנת העלויות תדחוף <b>לכל וריאנט בנפרד, לפי הברקוד הייחודי</b>, עם מספר הפריט לצידו. מאחר שהברקוד ייחודי (מספר הפריט עלול להיות משותף או ריק), כל עלות תתחבר למוצר המדויק אוטומטית — ומבטל לתמיד גם ״מספר פריט חסר״ וגם ״קוד משותף״. תנאי אחד: שב‑ERP תהיה עלות נפרדת לכל דגם, היכן שכיום דגמים חולקים קוד.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic</span>
+    <span class="terms">36 מוצרים מנוטרים · 29 דחיפה · 4 הוספת מספר פריט · 3 פיצול קוד · 28 ביוני 2026</span>
+  </footer>
+</div>
+</body>
+</html>
