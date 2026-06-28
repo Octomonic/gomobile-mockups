@@ -67,6 +67,10 @@
   .miss{display:inline-block;background:var(--stop-bg);border:1px solid var(--stop-bd);color:var(--stop-d);font-weight:800;font-size:10.5px;padding:1px 8px;border-radius:999px;direction:rtl}
   .shared{display:inline-block;background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-d);font-weight:700;font-size:10.5px;padding:1px 8px;border-radius:999px;direction:rtl}
   td .byb{color:var(--faint);font-size:10.5px;font-weight:700}
+  .sh-h{font-size:12px;font-weight:800;margin:14px 2px 6px;color:var(--ink)}
+  .sh-do{font-size:11.5px;color:#1479a8;font-weight:700;margin:7px 2px 6px;padding-inline-start:4px}
+  .ok{display:inline-block;background:var(--good-bg);border:1px solid #bfe6d2;color:var(--good);font-weight:800;font-size:10px;padding:1px 8px;border-radius:999px;white-space:nowrap}
+  .no{display:inline-block;background:var(--stop-bg);border:1px solid var(--stop-bd);color:var(--stop-d);font-weight:700;font-size:10px;padding:1px 8px;border-radius:999px;white-space:nowrap}
 
   .next{border:1px solid var(--line);border-inline-start:4px solid var(--cerise);border-radius:9px;padding:12px 15px;background:var(--soft)}
   .next .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cerise-d);font-weight:800}
@@ -186,26 +190,34 @@
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--sky)">⨯</span> פעולה: פיצול קוד משותף, ואז דחיפה <span class="cnt">· 3 שואבי אבק</span></h2>
-      <div class="note">כל אחד חולק מספר פריט אחד עם <b>דגמים שונים במחירים שונים</b>, כך שעלות בודדת לא יכולה לדעת לאיזה דגם היא שייכת. יש לתת לכל דגם מספר פריט משלו, ואז לדחוף.</div>
+      <h2><span class="badge" style="background:var(--sky)">⨯</span> פעולה: מספר פריט ייחודי לכל דגם, ואז דחיפה <span class="cnt">· 2 קודים משותפים</span></h2>
+      <div class="note">שני מספרי פריט מוטבעים כיום על <b>יותר ממוצר אחד</b>. עלות שנשלחת למספר משותף אינה יכולה לדעת לאיזה דגם היא שייכת — לכן רק דגם אחד מכל קבוצה קיבל את העלות, והשאר תקועים בלי עלות. <b>הפתרון: לתת לכל דגם מספר פריט (parent SKU) ייחודי משלו, ואז לדחוף עלות לכל אחד.</b></div>
+
+      <div class="sh-h">מספר פריט <span class="code">7675662</span> — מוטבע על <b>3 דגמי Roborock F25 שונים</b> (3 מחירים שונים):</div>
       <table>
-        <thead><tr><th>קטגוריה</th><th>מוצר</th><th>ברקוד / מק״ט</th><th>מספר פריט משותף</th><th>₪</th></tr></thead>
+        <thead><tr><th>דגם</th><th>ברקוד</th><th>מחיר</th><th>מצב עלות</th></tr></thead>
         <tbody>
-          <tr><td class="cat">שואב אבק</td><td class="prod">Roborock F25 ACE Pro</td><td class="num"><span class="code">6974653814304</span></td><td class="num"><span class="code">7675662</span> <span class="shared">משותף ל‑3 דגמי F25</span></td><td><span class="ils">1,769</span></td></tr>
-          <tr><td class="cat">שואב אבק</td><td class="prod">Roborock F25 Combo</td><td class="num"><span class="code">6974653812638</span></td><td class="num"><span class="code">7675662</span> <span class="shared">משותף ל‑3 דגמי F25</span></td><td><span class="ils">1,719</span></td></tr>
-          <tr><td class="cat">שואב אבק</td><td class="prod">Dreame Aqua 10 Ultra Roller</td><td class="num"><span class="code">6978515254666</span></td><td class="num"><span class="code">7676341</span> <span class="shared">משותף ל‑2 דגמי Aqua 10</span></td><td><span class="ils">3,359</span></td></tr>
+          <tr><td class="prod">Roborock F25 ACE Pro</td><td class="num"><span class="code">6974653814304</span></td><td><span class="ils">1,769</span></td><td><span class="no">חסר</span></td></tr>
+          <tr><td class="prod">Roborock F25 Combo</td><td class="num"><span class="code">6974653812638</span></td><td><span class="ils">1,719</span></td><td><span class="no">חסר</span></td></tr>
+          <tr><td class="prod">Roborock F25 ACE</td><td class="num"><span class="code">6974653812256</span></td><td><span class="ils">1,315</span></td><td><span class="ok">✓ כבר קיבל את העלות</span></td></tr>
         </tbody>
       </table>
+      <div class="sh-do">↳ תנו ל‑<b>ACE Pro</b> ול‑<b>Combo</b> מספר פריט ייחודי משלהם, ואז דחפו עלות לכל אחד.</div>
+
+      <div class="sh-h">מספר פריט <span class="code">7676341</span> — מוטבע על <b>2 רישומי Dreame Aqua 10 Ultra Roller</b> (אותו מחיר):</div>
+      <table>
+        <thead><tr><th>דגם</th><th>ברקוד</th><th>מחיר</th><th>מצב עלות</th></tr></thead>
+        <tbody>
+          <tr><td class="prod">Dreame Aqua 10 Ultra Roller</td><td class="num"><span class="code">6978515254666</span></td><td><span class="ils">3,359</span></td><td><span class="no">חסר</span></td></tr>
+          <tr><td class="prod">Dreame Aqua 10 Ultra Roller</td><td class="num"><span class="code">6978515253768</span></td><td><span class="ils">3,359</span></td><td><span class="ok">✓ כבר קיבל את העלות</span></td></tr>
+        </tbody>
+      </table>
+      <div class="sh-do">↳ אותו מוצר ומחיר בשני רישומים. תנו לרישום ללא העלות מספר פריט ייחודי ודחפו — או, אם זו כפילות רישום, אחדו אותם.</div>
     </section>
 
     <div class="next">
-      <div class="k">אימות 100%</div>
-      <div class="t">אחרי כל אצווה שנדחפת — <b>GoSolutions מריצה את ההתאמה ומדווחת מיד</b> אילו מק״טים כבר מציגים עלות ואילו לא, כך שכל עלות שנחתה ולא התחברה (מפתח שגוי, קוד שעדיין משותף, טעות הקלדה) נתפסת במקום. <b>סיום = כל מוצר ברשימה מציג עלות + רווחיות בלוח.</b></div>
-    </div>
-
-    <div class="next" style="margin-top:11px;border-inline-start-color:var(--sky)">
-      <div class="k" style="color:var(--sky)">המלצה למניעת הישנות (אופציונלי)</div>
-      <div class="t">שהזנת העלויות תדחוף <b>לכל וריאנט בנפרד, לפי הברקוד הייחודי</b>, עם מספר הפריט לצידו. מאחר שהברקוד ייחודי (מספר הפריט עלול להיות משותף או ריק), כל עלות תתחבר למוצר המדויק אוטומטית — ומבטל לתמיד גם ״מספר פריט חסר״ וגם ״קוד משותף״. תנאי אחד: שב‑ERP תהיה עלות נפרדת לכל דגם, היכן שכיום דגמים חולקים קוד.</div>
+      <div class="k">אימות — צד GoSolutions</div>
+      <div class="t">עלות שנדחפת מופיעה במערכת GPI תוך שניות. אחרי כל אצווה, <b>GoSolutions בודקת בלוח GPI</b> אילו מוצרים כבר מציגים עלות + רווחיות, ומדווחת חזרה על כל עלות שלא התחברה לדגם הנכון (מפתח שגוי, קוד שעדיין משותף, טעות הקלדה). <b>סיום = כל מוצר ברשימה מציג עלות בלוח.</b></div>
     </div>
   </div>
 
