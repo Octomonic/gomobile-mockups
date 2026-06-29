@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile -->
+<!-- Change: bGate → Sales Dashboard data-push spec (for Baruch) — client document -->
+<!-- Generated: 2026-06-30 -->
+<!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>GoMobile × OctoMonic — מפרט דחיפת נתונים (bGate)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--gold:#F0C000;
+    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
+    --good:#0a8a5b;--good-bg:#e8f6ef;--warn-bg:#fff3e9;--warn-bd:#f6d4b6;--warn-d:#b8590a;
+    --stop-bg:#fdeaf0;--stop-bd:#f4c2d4;--stop-d:#b8006e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased}
+  .code{direction:ltr;unicode-bidi:embed;font-variant-numeric:tabular-nums;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;white-space:nowrap;background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--cerise-d)}
+
+  .printbtn{position:fixed;top:14px;inset-inline-end:16px;z-index:30;display:inline-flex;align-items:center;gap:7px;border:0;border-radius:10px;background:var(--cerise);color:#fff;font:800 12.5px Heebo;padding:9px 15px;cursor:pointer;box-shadow:0 4px 14px rgba(236,0,140,.32)}
+  .printbtn:hover{background:var(--cerise-d)}
+
+  .page{max-width:880px;margin:20px auto;background:#fff;box-shadow:0 8px 40px rgba(20,28,48,.16);border-radius:6px;overflow:hidden}
+  .bar{background:linear-gradient(115deg,#16182a 0%,#23132b 55%,#3a0f2c 100%);color:#fff;padding:16px 26px;display:flex;align-items:center;gap:14px;position:relative}
+  .bar::after{content:"";position:absolute;bottom:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--cerise),var(--coral),var(--gold))}
+  .bar img.oc{height:30px;width:auto}
+  .bar img.gm{height:22px;width:auto;opacity:.96}
+  .bar .x{color:var(--faint);font-weight:700;font-size:15px}
+  .bar .ttl{margin-inline-start:auto;text-align:end}
+  .bar .ttl .k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .bar .ttl .d{font-size:10px;color:var(--faint);font-weight:700;margin-top:2px}
+
+  .body{padding:20px 26px 16px}
+  .hero{text-align:center;padding:2px 0 13px;border-bottom:1px solid var(--line);margin-bottom:16px}
+  .hero .title{font-size:23px;font-weight:900;letter-spacing:-.3px;line-height:1.2;margin-bottom:7px}
+  .hero .subtitle{font-size:12.5px;color:var(--muted);line-height:1.55;max-width:66ch;margin:0 auto}
+
+  h2{font-size:14px;font-weight:900;margin:0 0 9px;display:flex;align-items:center;gap:8px}
+  h2 .badge{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:13px;flex:none;color:#fff}
+  h2 .cnt{font-size:11px;font-weight:800;color:var(--faint)}
+  section{margin-bottom:18px;break-inside:avoid;page-break-inside:avoid}
+
+  .note{font-size:11.5px;color:var(--muted);line-height:1.6;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:10px 13px;margin-bottom:11px}
+  .note b{color:var(--ink)}
+  ul.clean{list-style:none;font-size:11.5px;color:var(--muted);line-height:1.5}
+  ul.clean li{padding:4px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px}
+  ul.clean li:last-child{border-bottom:0}
+  ul.clean li .lead{color:var(--cerise-d);font-weight:800;flex:none}
+
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{padding:7px 10px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);font-weight:800;background:var(--soft)}
+  tbody tr:hover{background:#fafbfe}
+  td.f{white-space:nowrap}
+  td.m{color:var(--muted);line-height:1.5}
+  td.m b{color:var(--ink)}
+
+  .rq{display:inline-block;font-weight:800;font-size:10px;padding:1px 8px;border-radius:999px;white-space:nowrap}
+  .rq.req{background:var(--stop-bg);border:1px solid var(--stop-bd);color:var(--stop-d)}
+  .rq.rec{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-d)}
+  .rq.opt{background:#eef1f6;border:1px solid var(--line);color:var(--faint)}
+
+  .ds{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-bottom:16px;break-inside:avoid;page-break-inside:avoid}
+  .ds-h{display:flex;align-items:center;gap:10px;padding:11px 14px;background:linear-gradient(180deg,#fff,#fbfcff);border-bottom:1px solid var(--line)}
+  .ds-h .n{width:25px;height:25px;border-radius:7px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:12px;flex:none}
+  .ds-h .t{font-weight:900;font-size:13.5px}
+  .ds-h .u{margin-inline-start:auto}
+  .ds-b{padding:6px 14px 13px}
+  .ds-key{font-size:11px;color:var(--muted);margin:7px 2px 9px}
+  .ds-key b{color:var(--ink)}
+
+  .payload{direction:ltr;text-align:left;background:#0f1117;color:#dfe7ef;border-radius:9px;padding:11px 13px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;line-height:1.6;white-space:pre-wrap;word-break:break-all;margin:9px 0 3px}
+  .payload .v{color:#7cc6e8}
+  .ex-l{font-size:10.5px;font-weight:800;color:var(--faint);margin:9px 2px 0}
+
+  .next{border:1px solid var(--line);border-inline-start:4px solid var(--cerise);border-radius:9px;padding:12px 15px;background:var(--soft)}
+  .next .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cerise-d);font-weight:800}
+  .next .t{font-size:12px;color:var(--ink);margin-top:4px;line-height:1.55}
+  .next .t b{color:var(--cerise-d)}
+
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:8px;padding:8px 12px;font-size:11px;color:var(--warn-d);font-weight:600;line-height:1.5;margin:8px 0}
+
+  footer{padding:13px 26px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:11.5px;color:var(--muted)}
+  footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:13px;white-space:nowrap}
+  footer .brand img{height:18px;width:auto}
+  footer .terms{font-weight:600;text-align:end}
+
+  section,tr,.ds,.next{break-inside:avoid;page-break-inside:avoid}
+  @media print{
+    @page{size:A4;margin:10mm}
+    html,body{background:#fff}
+    .printbtn{display:none}
+    .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
+    thead th,.payload,.bar,.ds-h{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .brk{break-before:page;page-break-before:always}
+  }
+</style>
+</head>
+<body>
+<button class="printbtn" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF</button>
+
+<div class="page">
+  <div class="bar">
+    <img class="oc" src="octomonic.png" alt="OctoMonic" />
+    <span class="x">×</span>
+    <img class="gm" src="gomobile.png" alt="GoMobile" />
+    <div class="ttl">
+      <div class="k">GOMOBILE · ממשק נתונים</div>
+      <div class="d">30 ביוני 2026</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="hero">
+      <h1 class="title">דחיפת נתונים אל לוח המכירות — מפרט אינטגרציה</h1>
+      <p class="subtitle">אותו מנגנון שאתה כבר מפעיל עבור דחיפת העלויות ל‑GPI — POST, אימות בגוף הבקשה, שורות ממוספרות. <b>ארבע מערכות נתונים, כתובת אחת לכל אחת.</b> כאן בדיוק מה לשלוח בכל אחת, ואיך נראה ה‑payload. נקודת הקליטה כבר חיה ומאומתת.</p>
+    </div>
+
+    <section>
+      <h2><span class="badge" style="background:var(--cerise)">📡</span> איך כל שליחה נראית</h2>
+      <div class="note">
+        <b>כתובת</b> (אחת לכל מערכת): <span class="code">POST https://gomobile-sales.vercel.app/api/bgate/sales-data/&lt;dataset&gt;</span><br>
+        כאשר <span class="code">&lt;dataset&gt;</span> הוא אחד מ‑ <span class="code">stores</span> · <span class="code">salespeople</span> · <span class="code">sales</span> · <span class="code">customers</span>.
+      </div>
+      <ul class="clean">
+        <li><span class="lead">סוג</span><span><span class="code">Content-Type: application/x-www-form-urlencoded</span> — בדיוק כמו דחיפת העלויות.</span></li>
+        <li><span class="lead">אימות</span><span>בתוך גוף הבקשה: <span class="code">username=&lt;u&gt;&amp;userpassword=&lt;p&gt;</span> (נספק לך זוג נפרד מ‑GPI). פרטי גישה בכתובת ה‑URL נדחים.</span></li>
+        <li><span class="lead">שורות</span><span>שתי צורות מקובלות, בחר את הנוחה ל‑ERP שלך: <b>(א)</b> שדות ממוספרים <span class="code">field1=…&amp;field2=…</span>, או <b>(ב)</b> CSV מיקומי <span class="code">importmsg=v,v,…|v,v,…</span>.</span></li>
+        <li><span class="lead">גודל</span><span>עד <b>500 שורות לכל POST</b> — לחלק את טעינת ההיסטוריה לעמודים. שליחה חוזרת בטוחה (כפילות מזוהה ומדולגת, ערך ששונה מתעדכן במקום).</span></li>
+        <li><span class="lead">סדר</span><span>קודם <span class="code">stores</span> ו‑<span class="code">salespeople</span>, ואז <span class="code">sales</span> ו‑<span class="code">customers</span>. סדר הפוך לא שובר כלום — מכירה שהחנות/הסוכן שלה עוד לא נטענו <b>ממתינה</b> ונפתרת אוטומטית כשהם מגיעים. שום שורה לא נזרקת.</span></li>
+        <li><span class="lead">תשובה</span><span>JSON עם <span class="code">received · accepted · updated · duplicates · needs_mapping · rejected</span> — כך אתה רואה בדיוק מה נקלט ומה המתין, בלי לשאול אותנו.</span></li>
+      </ul>
+      <div class="note" style="margin-top:9px"><b>מקרא חובה:</b> <span class="rq req">חובה</span> שדה הכרחי · <span class="rq rec">מומלץ</span> מפעיל יכולת מסוימת · <span class="rq opt">רשות</span> שלח אם קל. בכל מקום שמופיע <span class="code">החזרה</span> — <span class="code">qty</span> ו‑<span class="code">amount</span> שליליים, עם <span class="code">transaction_type</span>, ומזהה שורה משלהם.</div>
+    </section>
+
+    <!-- 1 stores -->
+    <section>
+      <div class="ds">
+        <div class="ds-h"><span class="n" style="background:var(--sky)">1</span><span class="t">חנויות · stores</span><span class="u code">…/sales-data/stores</span></div>
+        <div class="ds-b">
+          <div class="ds-key">מפתח זהות: <b><span class="code">store_external_id</span></b> — יציב, לעולם לא ממוחזר.</div>
+          <table>
+            <thead><tr><th>שדה</th><th>סטטוס</th><th>משמעות</th></tr></thead>
+            <tbody>
+              <tr><td class="f"><span class="code">store_external_id</span></td><td><span class="rq req">חובה</span></td><td class="m">מזהה החנות היציב — המפתח שכל מכירה מצביעה אליו</td></tr>
+              <tr><td class="f"><span class="code">store_name</span></td><td><span class="rq req">חובה</span></td><td class="m">שם החנות (עברית)</td></tr>
+              <tr><td class="f"><span class="code">store_active</span></td><td><span class="rq opt">רשות</span></td><td class="m"><span class="code">true</span>/<span class="code">false</span> (ברירת מחדל פעיל)</td></tr>
+            </tbody>
+          </table>
+          <div class="ex-l">דוגמה (צורה א׳):</div>
+          <div class="payload">username=<span class="v">U</span>&amp;userpassword=<span class="v">P</span>&amp;store_external_id1=<span class="v">PT01</span>&amp;store_name1=<span class="v">פתח תקווה</span>&amp;store_active1=<span class="v">true</span>&amp;store_external_id2=<span class="v">RG01</span>&amp;store_name2=<span class="v">רמת גן</span></div>
+        </div>
+      </div>
+
+      <!-- 2 salespeople -->
+      <div class="ds">
+        <div class="ds-h"><span class="n" style="background:var(--coral)">2</span><span class="t">סוכנים · salespeople</span><span class="u code">…/sales-data/salespeople</span></div>
+        <div class="ds-b">
+          <div class="ds-key">מפתח זהות: <b><span class="code">agent_external_id</span></b> = <b>מזהה הסוכן המטפל</b>. השדה החשוב ביותר — חייב להיות זהה למה שמוטבע על כל שורת מכירה.</div>
+          <table>
+            <thead><tr><th>שדה</th><th>סטטוס</th><th>משמעות</th></tr></thead>
+            <tbody>
+              <tr><td class="f"><span class="code">agent_external_id</span></td><td><span class="rq req">חובה</span></td><td class="m">מזהה הסוכן המטפל (מפתח השיוך)</td></tr>
+              <tr><td class="f"><span class="code">agent_full_name</span></td><td><span class="rq req">חובה</span></td><td class="m">שם מלא (עברית)</td></tr>
+              <tr><td class="f"><span class="code">agent_home_store_external_id</span></td><td><span class="rq req">חובה</span></td><td class="m">= <span class="code">store_external_id</span> (חנות הבית; זיכוי בין‑חנויות עדיין מגיע פר‑מכירה)</td></tr>
+              <tr><td class="f"><span class="code">agent_active</span></td><td><span class="rq opt">רשות</span></td><td class="m"><span class="code">true</span>/<span class="code">false</span></td></tr>
+            </tbody>
+          </table>
+          <div class="ex-l">דוגמה:</div>
+          <div class="payload">username=<span class="v">U</span>&amp;userpassword=<span class="v">P</span>&amp;agent_external_id1=<span class="v">A1007</span>&amp;agent_full_name1=<span class="v">בן לוי</span>&amp;agent_home_store_external_id1=<span class="v">PT01</span>&amp;agent_active1=<span class="v">true</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 sales -->
+    <section class="brk">
+      <div class="ds">
+        <div class="ds-h"><span class="n" style="background:var(--good)">3</span><span class="t">מכירות · sales <span style="font-weight:700;color:var(--muted);font-size:11px">— הזרם המרכזי</span></span><span class="u code">…/sales-data/sales</span></div>
+        <div class="ds-b">
+          <div class="ds-key"><b>שורה אחת לכל שורת קבלה</b> (קבלה עם מכשיר + כיסוי + אחריות = 3 שורות, אותו <span class="code">receipt_id</span>). מפתח: <b><span class="code">bgate_sale_id</span></b>.</div>
+          <table>
+            <thead><tr><th>שדה</th><th>סטטוס</th><th>משמעות / פורמט</th></tr></thead>
+            <tbody>
+              <tr><td class="f"><span class="code">bgate_sale_id</span></td><td><span class="rq req">חובה</span></td><td class="m">מזהה <b>שורה</b> ייחודי. אם אין מזהה שורה מקורי — <span class="code">receipt_id:line_no</span></td></tr>
+              <tr><td class="f"><span class="code">receipt_id</span> · <span class="code">line_no</span></td><td><span class="rq req">חובה</span></td><td class="m">מקבץ את שורות אותה קבלה (מאפשר אחוז צירוף + 360 לקוח)</td></tr>
+              <tr><td class="f"><span class="code">occurred_at</span></td><td><span class="rq req">חובה</span></td><td class="m"><b>חותם זמן מלא עם אזור זמן</b> — למשל <span class="code">2026-06-30T14:32:00+03:00</span>. ⚠️ תאריך בלבד (<span class="code">2026-06-30</span>) <b>נדחה</b> — אנחנו חותכים לפי שעה/דקה</td></tr>
+              <tr><td class="f"><span class="code">store_id</span></td><td><span class="rq req">חובה</span></td><td class="m">= <span class="code">store_external_id</span> (היכן נרשמה)</td></tr>
+              <tr><td class="f"><span class="code">handling_agent_id</span></td><td><span class="rq req">חובה</span></td><td class="m">= <span class="code">agent_external_id</span> (למי נזקף)</td></tr>
+              <tr><td class="f"><span class="code">barcode</span></td><td><span class="rq req">חובה</span></td><td class="m">ברקוד / מק״ט הפריט</td></tr>
+              <tr><td class="f"><span class="code">product_name</span></td><td><span class="rq req">חובה</span></td><td class="m">תיאור השורה</td></tr>
+              <tr><td class="f"><span class="code">qty</span></td><td><span class="rq req">חובה</span></td><td class="m">מספר שלם, <b>עם סימן</b> — שלילי בהחזרה</td></tr>
+              <tr><td class="f"><span class="code">amount</span></td><td><span class="rq req">חובה</span></td><td class="m">סך השורה, <b>עם סימן</b>, ש״ח — <b>(לאשר: כולל מע״מ? בניכוי הנחה?)</b></td></tr>
+              <tr><td class="f"><span class="code">transaction_type</span></td><td><span class="rq req">חובה בהחזרה</span></td><td class="m"><span class="code">sale / return / refund / exchange / void</span>. החזרה = qty שלילי + <span class="code">bgate_sale_id</span> משלה</td></tr>
+              <tr><td class="f"><span class="code">is_warranty_line</span></td><td><span class="rq rec">מומלץ</span></td><td class="m"><span class="code">true</span> אם השורה <b>היא</b> מוצר אחריות/הרחבה (כך נחשב אחוז צירוף אחריות)</td></tr>
+              <tr><td class="f"><span class="code">customer_phone</span></td><td><span class="rq rec">מומלץ</span></td><td class="m">טלפון הלקוח (כל פורמט — אנחנו מנרמלים). נדרש ל‑360 לקוח</td></tr>
+              <tr><td class="f"><span class="code">sku</span> · <span class="code">source_updated_at</span> · <span class="code">backfill_flag</span></td><td><span class="rq rec">מומלץ</span></td><td class="m">מק״ט חלופי · זמן עדכון אחרון (זיהוי תיקון) · <span class="code">true</span> לאצוות ההיסטוריה (כדי לא לשחזר חגיגות על המסך)</td></tr>
+              <tr><td class="f"><span class="code">unit_price · discount_amount · amount_receipt_total · vat_rate</span></td><td><span class="rq opt">רשות</span></td><td class="m">שלח אם קל — משמש לאימות חישוב ה‑<span class="code">amount</span></td></tr>
+            </tbody>
+          </table>
+          <div class="ex-l">דוגמה (קבלה בת 2 שורות — מכשיר + אחריות):</div>
+          <div class="payload">username=<span class="v">U</span>&amp;userpassword=<span class="v">P</span>&amp;bgate_sale_id1=<span class="v">S100001</span>&amp;receipt_id1=<span class="v">R5001</span>&amp;line_no1=<span class="v">1</span>&amp;occurred_at1=<span class="v">2026-06-30T14:32:00+03:00</span>&amp;store_id1=<span class="v">PT01</span>&amp;handling_agent_id1=<span class="v">A1007</span>&amp;barcode1=<span class="v">7290000000123</span>&amp;product_name1=<span class="v">iPhone 16 128GB</span>&amp;qty1=<span class="v">1</span>&amp;amount1=<span class="v">4200</span>&amp;transaction_type1=<span class="v">sale</span>&amp;customer_phone1=<span class="v">052-555-1234</span>&amp;bgate_sale_id2=<span class="v">S100002</span>&amp;receipt_id2=<span class="v">R5001</span>&amp;line_no2=<span class="v">2</span>&amp;occurred_at2=<span class="v">2026-06-30T14:32:00+03:00</span>&amp;store_id2=<span class="v">PT01</span>&amp;handling_agent_id2=<span class="v">A1007</span>&amp;barcode2=<span class="v">7290000000999</span>&amp;product_name2=<span class="v">הרחבת אחריות</span>&amp;qty2=<span class="v">1</span>&amp;amount2=<span class="v">299</span>&amp;is_warranty_line2=<span class="v">true</span>&amp;customer_phone2=<span class="v">052-555-1234</span></div>
+          <div class="warn">קטגוריה, אחוזי צירוף אחריות/אביזרים, וכל היסטוריית הלקוח — <b>אנחנו גוזרים מהזרם הזה</b>. אין צורך לשלוח אותם בנפרד.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 customers -->
+    <section>
+      <div class="ds">
+        <div class="ds-h"><span class="n" style="background:var(--cerise)">4</span><span class="t">לקוחות · customers</span><span class="u code">…/sales-data/customers</span></div>
+        <div class="ds-b">
+          <div class="ds-key">זהות: <b>לפחות אחד מ‑</b> <span class="code">customer_phone</span> או <span class="code">bgate_customer_id</span>.</div>
+          <div class="warn">⚠️ המערכת הזו <b>עדיין לא סופית</b> — תום מכין רשימה כתובה של כל שדה שהוא רוצה בכרטיס הלקוח; נוסיף בהתאם.</div>
+          <table>
+            <thead><tr><th>שדה</th><th>סטטוס</th><th>משמעות</th></tr></thead>
+            <tbody>
+              <tr><td class="f"><span class="code">customer_phone</span></td><td><span class="rq req">חובה*</span></td><td class="m">טלפון (כל פורמט — אנחנו מנרמלים). אותו מפתח‑אדם כמו בזרם המכירות</td></tr>
+              <tr><td class="f"><span class="code">bgate_customer_id</span></td><td><span class="rq rec">מומלץ</span></td><td class="m">מזהה ה‑CRM שלך (שומר על זהות גם כשהטלפון משתנה)</td></tr>
+              <tr><td class="f"><span class="code">segment</span></td><td><span class="rq rec">מומלץ</span></td><td class="m">למשל vip / רגיל / חדש — <b>(לאשר את הרשימה המדויקת)</b></td></tr>
+              <tr><td class="f"><span class="code">current_device_model</span> · <span class="code">_has_warranty</span> · <span class="code">_has_accessory</span></td><td><span class="rq opt">רשות</span></td><td class="m">אנחנו יודעים לגזור גם מזרם המכירות; שלח כעדיפות אם זמין</td></tr>
+              <tr><td class="f"><span class="code">full_name · city · loyalty_tier · …</span></td><td><span class="rq opt">רשות</span></td><td class="m">להעשרת הכרטיס</td></tr>
+            </tbody>
+          </table>
+          <div class="ex-l">דוגמה:</div>
+          <div class="payload">username=<span class="v">U</span>&amp;userpassword=<span class="v">P</span>&amp;customer_phone1=<span class="v">052-555-1234</span>&amp;bgate_customer_id1=<span class="v">C88231</span>&amp;full_name1=<span class="v">דנה כהן</span>&amp;segment1=<span class="v">vip</span>&amp;current_device_model1=<span class="v">iPhone 15</span>&amp;current_device_has_warranty1=<span class="v">true</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- questions -->
+    <section>
+      <h2><span class="badge" style="background:var(--gold)">?</span> שאלות לתיאום בשיחה</h2>
+      <div class="note">אלה מה שצריך לסגור לפני טעינת ההיסטוריה — בעיקר 3, 5 ו‑8, שאם לא יסוכמו עלולים להחדיר נתון שגוי לחודשים אחורה.</div>
+      <ul class="clean">
+        <li><span class="lead">1</span><span><b>תדירות</b> אחרי הטעינה החד‑פעמית — POST לכל עסקה (כמעט‑חי), או אצווה כל N דקות / לילי?</span></li>
+        <li><span class="lead">2</span><span><b>עומק ההיסטוריה</b> — כמה אחורה?</span></li>
+        <li><span class="lead">3</span><span><b>רשימת קטגוריות אחת</b> מוסכמת — ואילו ערכים נחשבים ״סמארטפון״.</span></li>
+        <li><span class="lead">4</span><span><b>פורמט טלפון אחד</b> (אנחנו מנרמלים, אך לאשר שיש צורה עקבית).</span></li>
+        <li><span class="lead">5</span><span><b>משמעות <span class="code">amount</span></b> — כולל מע״מ? בניכוי הנחה? עם סימן בהחזרות?</span></li>
+        <li><span class="lead">6</span><span><b>רשימת שדות כרטיס הלקוח של תום</b> — לסיום מערכת 4.</span></li>
+        <li><span class="lead">7</span><span><b>הסוכן המטפל</b> מוטבע על כל שורה? איזה אחוז מהשורות נושא טלפון לקוח?</span></li>
+        <li><span class="lead">8</span><span><b>החזרה/זיכוי מקבל מזהה שורה משלו?</b></span></li>
+        <li><span class="lead">9</span><span><b>שליחה חוזרת של חנות/סוכן מעדכנת במקום</b> (שינוי שם, השבתה)?</span></li>
+      </ul>
+      <div class="next" style="margin-top:11px">
+        <div class="k">מעבר לארבע המערכות — שווה להעלות</div>
+        <div class="t">ארבע המערכות הן הפירוק הנכון; שום דבר חסר לא שובר יכולת קיימת. שלוש הרחבות שכדאי להזכיר: <b>(א) עלות → רווחיות</b> — כנראה בלי דחיפה חדשה, נשתמש בעלות שכבר נשלחת ל‑GPI ונחבר לפי ברקוד (תצוגת רווח, למנהלים בלבד). <b>(ב) עמלת סוכן</b> — האם bGate מחזיר עמלה פר‑שורה? שדה רשות אחד. <b>(ג) מלאי פר‑חנות</b> — המועמד היחיד למערכת חמישית: מלאי ברמת החנות ש‑WooCommerce לא נושא.</div>
+      </div>
+    </section>
+
+    <div class="next">
+      <div class="k">המצב כעת — צד GoSolutions</div>
+      <div class="t">נקודת הקליטה <b>כבר חיה ומאומתת</b> ב‑<span class="code">gomobile-sales.vercel.app/api/bgate/sales-data/&lt;dataset&gt;</span>, עם כל מנגנוני הבטיחות: כפילות = no‑op, תיקון = עדכון במקום (ללא ספירה כפולה), החזרה עם סימן, חותם‑זמן ללא שעה נדחה, ושורה שלא נפתרת <b>ממתינה ולא נזרקת</b>. ברגע שתתחיל לדחוף — זה נקלט.</div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic</span>
+    <span class="terms">4 מערכות נתונים · כתובת אחת לכל אחת · נקודת קליטה חיה · 30 ביוני 2026</span>
+  </footer>
+</div>
+</body>
+</html>
