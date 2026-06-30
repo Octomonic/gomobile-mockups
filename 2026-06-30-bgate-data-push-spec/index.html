@@ -63,6 +63,15 @@
   ol.q li::before{content:counter(q);position:absolute;inset-inline-start:0;top:9px;width:23px;height:23px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center}
   ol.q li .a{color:var(--faint);font-weight:700}
 
+  .need{border:1px solid var(--line);border-radius:11px;padding:12px 15px;margin-bottom:11px;background:linear-gradient(180deg,#fff,#fcfdff)}
+  .need-h{font-weight:900;font-size:15px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .need-h .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .need-h .tag{font-weight:700;color:var(--faint);font-size:12px}
+  .need-b{font-size:14px;color:var(--muted);line-height:1.7}
+  .need-b b{color:var(--ink)}
+  .need-b .code{margin:2px 1px;display:inline-block}
+  .need-sub{margin-top:6px;padding-inline-start:11px;border-inline-start:2px solid var(--line)}
+
   footer{padding:13px 28px 17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:13.5px;color:var(--muted)}
   footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:15px}
   footer .brand img{height:18px;width:auto}
@@ -113,30 +122,48 @@
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--gold)">3</span> סוגי הנתונים</h2>
-      <div class="four">
-        <div class="c"><div class="h"><span class="dot" style="background:var(--sky)"></span>חנויות</div><div class="t">רשימת החנויות, עם מזהה קבוע לכל אחת.</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div><div class="t">לפי הסוכן שהפיק את המסמך — כולל המקרה של יוזר כללי (השדה המשני).</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--gold)"></span>מכירות</div><div class="t">שורה לכל פריט — מה נמכר, מי מכר, מתי (עד הדקה), מחיר, הנחה ו<b>עלות</b> (לרווחיות). החזרות = מינוס / זיכוי.</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div><div class="t">לפי טלפון — היסטוריית רכישות + תיקונים/שירות. כ‑<b>3 שנים</b> אחורה.</div></div>
-        <div class="c" style="grid-column:1 / -1;border-color:var(--sky)"><div class="h"><span class="dot" style="background:var(--sky-d)"></span>מלאי לפי חנות <span style="font-weight:700;color:var(--faint);font-size:12px">· מערכת חמישית</span></div><div class="t">כמה יחידות יש מכל מוצר בכל חנות. לא יומן אירועים אלא <b>תמונת מצב</b>: סנאפשוט חד‑פעמי להתחלה, ואז עדכון בכל מכירה.</div></div>
+      <h2><span class="badge" style="background:var(--gold)">3</span> המידע שאנחנו צריכים</h2>
+      <p class="lead">לכל אחד מאלה — <b>שלח את כל מה שיש לך עליו</b>, אנחנו ניקח את כל השדות. השמות למטה הם דוגמאות בלבד. כל ההיסטוריה <b>3 שנים</b> אחורה.</p>
+
+      <div class="need">
+        <div class="need-h"><span class="dot" style="background:var(--sky)"></span>חנויות</div>
+        <div class="need-b"><b>כל המידע על כל חנות.</b> לדוגמה: <span class="code">מזהה קבוע</span> <span class="code">שם</span> <span class="code">עיר / כתובת</span> <span class="code">קוד</span> <span class="code">פעילה / סגורה</span> <span class="code">תאריך פתיחה</span></div>
+      </div>
+
+      <div class="need">
+        <div class="need-h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div>
+        <div class="need-b"><b>כל המידע על כל סוכן.</b> לדוגמה: <span class="code">מזהה קבוע</span> <span class="code">שם מלא</span> <span class="code">חנות בית</span> <span class="code">פעיל</span> <span class="code">תפקיד</span>. <b>כולל שני שדות הסוכן</b> — מי שעובד בחנות, ו<b>מי שהפיק את המסמך</b> (השדה המשני, למקרה של יוזר כללי בחנות אחרת).</div>
+      </div>
+
+      <div class="need">
+        <div class="need-h"><span class="dot" style="background:var(--gold)"></span>מכירות — המסמך (חשבונית / קבלה), שורה‑שורה</div>
+        <div class="need-b"><b>כל מה שיש על כל מסמך וכל שורה בו.</b>
+          <div class="need-sub" style="margin-top:7px"><b>ברמת המסמך:</b> <span class="code">מספר מסמך</span> <span class="code">חנות</span> <span class="code">הסוכן שהפיק</span> <span class="code">חותם זמן (עד הדקה)</span> <span class="code">טלפון לקוח</span> <span class="code">אמצעי תשלום</span> <span class="code">סך הכל</span></div>
+          <div class="need-sub" style="margin-top:6px"><b>בכל שורה:</b> <span class="code">מוצר (ברקוד / מק״ט / שם)</span> <span class="code">קטגוריה</span> <span class="code">כמות</span> <span class="code">מחיר</span> <span class="code">הנחה</span> <span class="code">סך אחרי הנחה</span> <span class="code">עלות</span> (לרווחיות) <span class="code">אחריות / אביזר</span></div>
+          <div class="need-sub" style="margin-top:6px"><b>החזרות / זיכויים:</b> מינוס או זיכוי — נראה את המבנה המדויק בדוגמה.</div>
+        </div>
+      </div>
+
+      <div class="need">
+        <div class="need-h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div>
+        <div class="need-b"><b>כל המידע על כל לקוח + כל ההיסטוריה שלו.</b>
+          <div class="need-sub" style="margin-top:7px"><b>הכרטיס:</b> <span class="code">טלפון (המפתח)</span> <span class="code">שם</span> <span class="code">מספרי כרטיס</span> <span class="code">עיר / כתובת</span> <span class="code">סגמנט</span></div>
+          <div class="need-sub" style="margin-top:6px"><b>ההיסטוריה:</b> כל הרכישות הקודמות (לפי טלפון), <b>וגם היסטוריית התיקונים / שירות</b>.</div>
+        </div>
+      </div>
+
+      <div class="need" style="border-color:var(--sky)">
+        <div class="need-h"><span class="dot" style="background:var(--sky-d)"></span>מלאי לפי חנות <span class="tag">· מערכת חמישית</span></div>
+        <div class="need-b"><b>כל המלאי.</b> <span class="code">חנות</span> × <span class="code">מוצר (ברקוד)</span> ← <span class="code">כמות</span>. <b>סנאפשוט מלא חד‑פעמי</b> להתחלה, ואז <b>עדכון בכל שינוי / מכירה</b>.</div>
       </div>
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--cerise)">4</span> שיוך מכירה תחת משתמש כללי</h2>
-      <p class="lead">חלק מהמכירות נרשמות תחת <b>משתמש כללי של החנות</b>, ולא תחת הלוגין האישי של הסוכן — למשל כשסוכן מתגבר בחנות אחרת. במקרים האלה המשתמש המחובר לא מספיק כדי לדעת מי מכר בפועל.</p>
-      <p class="lead" style="margin-bottom:0">לכן צריך גם את <b>המזהה המשני</b> שבו ה‑ERP מסמן את הסוכן בפועל — <b>הסוכן המטפל / סוכן העמלה</b> — על כל שורת מכירה. ככה נשייך כל מכירה לאדם הנכון, גם כשהיא נרשמה תחת המשתמש הכללי.</p>
-    </section>
-
-    <section>
-      <h2><span class="badge" style="background:var(--ink)">5</span> מה נשאר</h2>
-      <p class="lead">רוב הדברים נסגרו בשיחה. מה שנשאר:</p>
+      <h2><span class="badge" style="background:var(--ink)">4</span> מה נשאר</h2>
       <div class="qcard">
         <ol class="q">
           <li><b>דוגמה קטנה מכל סוג</b> — נראה איך הנתונים מגיעים ונתאים את המיפוי אצלנו, כולל מבנה ההחזרות (מינוס / זיכוי).</li>
           <li><b>עמלת סוכן</b> — אם היא רשומה אצלך, נכלול אותה; אם לא, לא חובה.</li>
-          <li><b>מלאי לפי חנות</b> — סנאפשוט חד‑פעמי להתחלה, ואז עדכון בכל מכירה.</li>
         </ol>
       </div>
     </section>
@@ -145,7 +172,7 @@
 
   <footer>
     <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic</span>
-    <span>ממשק הקליטה פעיל · 4 סוגי נתונים · 30 ביוני 2026</span>
+    <span>ממשק הקליטה פעיל · 5 סוגי נתונים · 30 ביוני 2026</span>
   </footer>
 </div>
 </body>
