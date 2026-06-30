@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Project: GoMobile -->
-<!-- Change: bGate → Sales Dashboard — friendly conversation-starter (for Baruch) -->
+<!-- Change: bGate → Sales Dashboard data push — technical brief (for Baruch) -->
 <!-- Generated: 2026-06-30 -->
 <!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
 <html lang="he" dir="rtl">
@@ -8,7 +8,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex,nofollow" />
-<title>GoMobile × OctoMonic — נתונים ללוח המכירות</title>
+<title>GoMobile × OctoMonic — דחיפת נתונים ללוח המכירות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -34,35 +34,36 @@
   .bar .ttl .d{font-size:10px;color:var(--faint);font-weight:700;margin-top:2px}
 
   .body{padding:22px 28px 18px}
-  .hero{padding:2px 0 15px;border-bottom:1px solid var(--line);margin-bottom:17px}
-  .hero .title{font-size:23px;font-weight:900;letter-spacing:-.3px;line-height:1.25;margin-bottom:8px}
-  .hero .subtitle{font-size:13px;color:var(--muted);line-height:1.65}
+  .hero{padding:2px 0 15px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .hero .title{font-size:22px;font-weight:900;letter-spacing:-.3px;line-height:1.25;margin-bottom:8px}
+  .hero .subtitle{font-size:12.5px;color:var(--muted);line-height:1.6}
   .hero .subtitle b{color:var(--ink)}
 
-  h2{font-size:14.5px;font-weight:900;margin:0 0 10px;display:flex;align-items:center;gap:8px}
-  h2 .badge{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:13px;flex:none;color:#fff}
-  section{margin-bottom:20px}
+  h2{font-size:14px;font-weight:900;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  h2 .badge{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:12px;flex:none;color:#fff;font-weight:900}
+  section{margin-bottom:19px}
 
-  .note{font-size:12.5px;color:var(--muted);line-height:1.65}
-  .note b{color:var(--ink)}
+  .lead{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+  ul.spec{list-style:none;font-size:12px;color:var(--muted);line-height:1.5}
+  ul.spec li{padding:6px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
+  ul.spec li:last-child{border-bottom:0}
+  ul.spec li::before{content:"›";color:var(--cerise);font-weight:900;flex:none}
+  ul.spec b{color:var(--ink)}
 
-  .four{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:4px}
-  .four .c{border:1px solid var(--line);border-radius:11px;padding:12px 14px;background:linear-gradient(180deg,#fff,#fcfdff)}
-  .four .c .h{font-weight:800;font-size:13.5px;display:flex;align-items:center;gap:8px;margin-bottom:4px}
-  .four .c .dot{width:9px;height:9px;border-radius:50%;flex:none}
-  .four .c .t{font-size:12px;color:var(--muted);line-height:1.55}
+  .four{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .four .c{border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:linear-gradient(180deg,#fff,#fcfdff)}
+  .four .c .h{font-weight:800;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:3px}
+  .four .c .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .four .c .t{font-size:11.5px;color:var(--muted);line-height:1.5}
 
-  .qcard{border:1px solid var(--line);border-radius:12px;padding:4px 18px;background:#fff;box-shadow:0 3px 16px rgba(20,28,48,.05)}
+  .qcard{border:1px solid var(--line);border-radius:11px;padding:4px 18px;background:#fff}
   ol.q{counter-reset:q;list-style:none}
-  ol.q li{counter-increment:q;position:relative;padding:11px 0;padding-inline-start:34px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.55}
+  ol.q li{counter-increment:q;position:relative;padding:9px 0;padding-inline-start:32px;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.5}
   ol.q li:last-child{border-bottom:0}
-  ol.q li::before{content:counter(q);position:absolute;inset-inline-start:0;top:9px;width:23px;height:23px;border-radius:50%;background:var(--cerise);color:#fff;font-weight:800;font-size:11.5px;display:grid;place-items:center}
+  ol.q li::before{content:counter(q);position:absolute;inset-inline-start:0;top:8px;width:21px;height:21px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:11px;display:grid;place-items:center}
   ol.q li .a{color:var(--faint);font-weight:700}
 
-  .soft{border:1px solid var(--line);border-inline-start:4px solid var(--coral);border-radius:9px;padding:11px 15px;background:var(--soft);font-size:12.5px;color:var(--muted);line-height:1.6}
-  .soft b{color:var(--ink)}
-
-  footer{padding:14px 28px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:12px;color:var(--muted)}
+  footer{padding:13px 28px 17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:11.5px;color:var(--muted)}
   footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:13px}
   footer .brand img{height:18px;width:auto}
 
@@ -72,7 +73,7 @@
     html,body{background:#fff}
     .printbtn{display:none}
     .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
-    .bar,.four .c{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .bar,.four .c,h2 .badge,ol.q li::before{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   }
 </style>
 </head>
@@ -92,51 +93,57 @@
 
   <div class="body">
     <div class="hero">
-      <h1 class="title">נתונים ללוח המכירות — בוא נדבר על זה</h1>
-      <p class="subtitle">היי ברוך 👋 בנינו את לוח המכירות החדש, ועכשיו נשמח למשוך ממך כמה סוגי נתונים — <b>ברוח של מה שאתה כבר שולח לנו היום עם העלויות</b>. הנה בקצרה מה אנחנו צריכים, ובעיקר כמה שאלות שנרצה לעבור עליהן איתך בשיחה. שום דבר פה לא נעול — באנו לסגור ביחד.</p>
+      <h1 class="title">דחיפת נתונים אל לוח המכירות</h1>
+      <p class="subtitle">לוח המכירות מקבל <b>ארבעה סוגי נתונים</b> מ‑bGate, באותו מנגנון של דחיפת העלויות. המסמך מסכם מה כולל כל סוג, ואת השאלות הפתוחות לסגירה לפני החיבור.</p>
     </div>
 
     <section>
-      <h2><span class="badge" style="background:var(--sky)">📦</span> מה אנחנו צריכים — בגדול</h2>
-      <p class="note" style="margin-bottom:11px">הרעיון פשוט — אתה דוחף אלינו, אנחנו קולטים. בגדול יש <b>ארבעה סוגי נתונים</b> שנשמח לקבל. את הפרטים המדויקים — איזה שדה, באיזה פורמט — נסגור ביחד בשיחה.</p>
+      <h2><span class="badge" style="background:var(--sky)">1</span> המנגנון</h2>
+      <ul class="spec">
+        <li><span>כתובת אחת לכל סוג: <span class="code">POST …/api/bgate/sales-data/&lt;dataset&gt;</span> — אחד מ‑ <span class="code">stores</span> · <span class="code">salespeople</span> · <span class="code">sales</span> · <span class="code">customers</span>.</span></li>
+        <li><span><span class="code">application/x-www-form-urlencoded</span>, אימות בגוף הבקשה (<span class="code">username</span> / <span class="code">userpassword</span>) — כמו דחיפת העלויות.</span></li>
+        <li><span>שורות: שדות נפרדים ממוספרים, או שורת CSV. עד <b>500 שורות</b> ל‑POST.</span></li>
+        <li><span>שליחה חוזרת בטוחה: כפילות מזוהה ומדולגת, ערך מעודכן דורס את הקודם.</span></li>
+        <li><span>סדר השליחה גמיש: שורת מכירה שהחנות/הסוכן שלה טרם נטענו ממתינה, ונפתרת אוטומטית כשהם מגיעים.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--coral)">2</span> סוגי הנתונים</h2>
       <div class="four">
         <div class="c"><div class="h"><span class="dot" style="background:var(--sky)"></span>חנויות</div><div class="t">רשימת החנויות, עם מזהה קבוע לכל אחת.</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div><div class="t">מי הסוכנים — לפי <b>הסוכן המטפל</b> שאתה בוחר בביגייט.</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--gold)"></span>מכירות</div><div class="t">מה נמכר, מי מכר, מתי ובכמה. איך זה בנוי אצלך — שורה לכל פריט?</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div><div class="t">כרטיס בסיסי לזיהוי מהיר על הרצפה — אם אפשר, לפי טלפון.</div></div>
+        <div class="c"><div class="h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div><div class="t">הסוכנים, לפי הסוכן המטפל (מזהה מי מכר).</div></div>
+        <div class="c"><div class="h"><span class="dot" style="background:var(--gold)"></span>מכירות</div><div class="t">נתוני המכירות — מה נמכר, מי מכר, מתי ובכמה.</div></div>
+        <div class="c"><div class="h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div><div class="t">נתוני לקוח בסיסיים, לזיהוי לפי טלפון.</div></div>
       </div>
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--cerise)">💬</span> מה נשמח להבין ביחד</h2>
-      <p class="note" style="margin-bottom:11px">כל אלה פתוחים — בוא נעבור עליהם בשיחה. אם תרצה, מספיק לענות לידם בכמה מילים.</p>
+      <h2><span class="badge" style="background:var(--cerise)">3</span> שאלות פתוחות</h2>
+      <p class="lead">נקודות לסגירה לפני טעינת ההיסטוריה:</p>
       <div class="qcard">
         <ol class="q">
-          <li>כל כמה זמן נוח לך לשלוח? אחרי טעינה ראשונית — חי על כל עסקה, או אצווה כל כמה דקות?</li>
-          <li>כמה היסטוריה אחורה אפשר לשלוח?</li>
-          <li>הסוכן המטפל מוטבע על כל שורת מכירה? <span class="a">(זה הלב של השיוך אצלנו)</span></li>
-          <li>הזמן על כל מכירה מגיע עם שעה מדויקת? <span class="a">(אנחנו מציגים פילוח עד רמת השעה)</span></li>
-          <li>ה‑<span class="code">amount</span> על שורה — כולל מע״מ? אחרי הנחה?</li>
-          <li>החזרות — איך הן נראות אצלך? מספר שלילי? מזהה שורה נפרד?</li>
-          <li>יש מזהה קבוע לכל חנות וכל סוכן, שלא מתחלף עם הזמן?</li>
-          <li>טלפון לקוח מופיע על רוב המכירות, או רק על חלק?</li>
-          <li>אילו קטגוריות מוצרים יש לך, ואיך אתה קורא להן?</li>
-          <li>מה הכי נוח לך טכנית — שדות נפרדים, או שורת CSV?</li>
+          <li>תדירות השליחה אחרי הטעינה הראשונית — פר‑עסקה, או אצווה כל פרק זמן?</li>
+          <li>עומק ההיסטוריה הזמין לשליחה.</li>
+          <li>האם הסוכן המטפל מוטבע על כל שורת מכירה?</li>
+          <li>האם זמן המכירה כולל שעה מדויקת? <span class="a">(הלוח מפלח עד רמת השעה)</span></li>
+          <li>שדה <span class="code">amount</span> — כולל מע״מ? אחרי הנחה?</li>
+          <li>מבנה ההחזרות — מספר שלילי? מזהה שורה נפרד?</li>
+          <li>האם יש מזהה קבוע לכל חנות ולכל סוכן?</li>
+          <li>איזה אחוז מהמכירות נושא טלפון לקוח?</li>
+          <li>רשימת הקטגוריות והשמות שלהן.</li>
+          <li>פורמט מועדף לשליחת השדות — שדות נפרדים, או שורת CSV.</li>
+          <li>האם bGate מחזיר <b>עלות</b> פר‑שורה? <span class="a">(העלות שכבר נשלחת ל‑GPI — לחישוב רווחיות)</span></li>
+          <li>האם bGate מחשב <b>עמלת סוכן</b> פר‑שורה?</li>
+          <li>האם קיימים נתוני <b>מלאי לפי חנות</b>?</li>
         </ol>
       </div>
     </section>
-
-    <section>
-      <h2><span class="badge" style="background:var(--coral)">✨</span> ואם בא לך לחשוב קצת קדימה</h2>
-      <div class="soft">כמה דברים שלא צריך עכשיו, אבל יכולים להיות שווים בהמשך — רק רעיונות, בלי לחץ: <b>עלות → רווחיות</b> (את העלות אתה כבר שולח לנו, אז אולי בלי שום עבודה נוספת), <b>עמלת הסוכן</b> אם אתה כבר מחשב אותה, ו<b>מלאי לפי חנות</b>. נשמח לשמוע מה מזה הכי הגיוני אצלך.</div>
-    </section>
-
-    <p class="note" style="text-align:center;font-size:12px;color:var(--faint)">מבחינתנו אפשר להתחיל מתי שנוח לך — אין שום לחץ. תודה ברוך 🙏</p>
   </div>
 
   <footer>
     <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic</span>
-    <span>4 סוגי נתונים · נתחיל מהשיחה · 30 ביוני 2026</span>
+    <span>ממשק הקליטה פעיל · 4 סוגי נתונים · 30 ביוני 2026</span>
   </footer>
 </div>
 </body>
