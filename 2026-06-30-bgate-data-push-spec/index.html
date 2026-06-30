@@ -99,17 +99,16 @@
 
     <section>
       <h2><span class="badge" style="background:var(--sky)">1</span> מה המערכת עושה — בקצרה</h2>
-      <p class="lead" style="margin-bottom:0">לוח המכירות מציג בזמן אמת את הביצועים של כל חנות וכל סוכן ברשת — מחזור, יחידות ועסקאות, מפולחים לפי חנות / סוכן / קטגוריה / חלון זמן, כולל השוואות בין תקופות ובין חנויות. אנשי הרצפה רואים יעדים, לוחות תוצאות ותחרויות, ובחיפוש לפי טלפון — כרטיס לקוח שמראה מה כדאי להציע. בנוסף: מעקב המרת המלצות לאפסל, מוצרים חדשים באתר ושינויי מחיר. הכול מבוסס על הנתונים ש‑bGate דוחף (מכירות, סוכנים, חנויות, לקוחות) יחד עם הקטלוג מ‑WooCommerce.</p>
+      <p class="lead" style="margin-bottom:0">לוח המכירות מציג בזמן אמת את הביצועים של כל חנות וכל סוכן ברשת — מחזור, יחידות, עסקאות ורווחיות, מפולחים לפי חנות / סוכן / קטגוריה / חלון זמן, כולל השוואות בין תקופות ובין חנויות. אנשי הרצפה רואים יעדים, לוחות תוצאות ותחרויות, ובחיפוש לפי טלפון — כרטיס לקוח עם כל ההיסטוריה, שמראה מה כדאי להציע. הכול מבוסס על הנתונים ש‑bGate דוחף.</p>
     </section>
 
     <section>
       <h2><span class="badge" style="background:var(--coral)">2</span> המנגנון</h2>
       <ul class="spec">
-        <li><span>כתובת אחת לכל סוג: <span class="code">POST …/api/bgate/sales-data/&lt;dataset&gt;</span> — אחד מ‑ <span class="code">stores</span> · <span class="code">salespeople</span> · <span class="code">sales</span> · <span class="code">customers</span>.</span></li>
-        <li><span><span class="code">application/x-www-form-urlencoded</span>, אימות בגוף הבקשה (<span class="code">username</span> / <span class="code">userpassword</span>) — כמו דחיפת העלויות.</span></li>
-        <li><span>שורות בפורמט <b>CSV</b> — בדיוק כמו דחיפת העלויות. עד <b>500 שורות</b> ל‑POST.</span></li>
-        <li><span>שליחה חוזרת בטוחה: כפילות מזוהה ומדולגת, ערך מעודכן דורס את הקודם.</span></li>
-        <li><span>סדר השליחה גמיש: שורת מכירה שהחנות/הסוכן שלה טרם נטענו ממתינה, ונפתרת אוטומטית כשהם מגיעים.</span></li>
+        <li><span><b>אותו מנגנון, אותו פורמט (CSV), אותו יוזר ואותה אותנטיקציה</b> של דחיפת העלויות — אין צורך בשום דבר חדש מצדך.</span></li>
+        <li><span>כתובת אחת לכל סוג: <span class="code">POST …/api/bgate/sales-data/&lt;dataset&gt;</span>. עד <b>500 שורות</b> ל‑POST.</span></li>
+        <li><span>שליחה חוזרת בטוחה: כפילות מדולגת, תיקון מעדכן. סדר גמיש — שורה שעוד לא נפתרה ממתינה ונפתרת לבד.</span></li>
+        <li><span><b>שלב ראשון:</b> דוגמה קטנה מכל סוג — נראה איך זה מגיע, ונתאים את המיפוי אצלנו.</span></li>
       </ul>
     </section>
 
@@ -117,9 +116,10 @@
       <h2><span class="badge" style="background:var(--gold)">3</span> סוגי הנתונים</h2>
       <div class="four">
         <div class="c"><div class="h"><span class="dot" style="background:var(--sky)"></span>חנויות</div><div class="t">רשימת החנויות, עם מזהה קבוע לכל אחת.</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div><div class="t">הסוכנים, לפי הסוכן המטפל (מזהה מי מכר).</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--gold)"></span>מכירות</div><div class="t">נתוני המכירות — מה נמכר, מי מכר, מתי ובכמה.</div></div>
-        <div class="c"><div class="h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div><div class="t">נתוני לקוח בסיסיים, לזיהוי לפי טלפון.</div></div>
+        <div class="c"><div class="h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div><div class="t">לפי הסוכן שהפיק את המסמך — כולל המקרה של יוזר כללי (השדה המשני).</div></div>
+        <div class="c"><div class="h"><span class="dot" style="background:var(--gold)"></span>מכירות</div><div class="t">שורה לכל פריט — מה נמכר, מי מכר, מתי (עד הדקה), מחיר, הנחה ו<b>עלות</b> (לרווחיות). החזרות = מינוס / זיכוי.</div></div>
+        <div class="c"><div class="h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div><div class="t">לפי טלפון — היסטוריית רכישות + תיקונים/שירות. כ‑<b>3 שנים</b> אחורה.</div></div>
+        <div class="c" style="grid-column:1 / -1;border-color:var(--sky)"><div class="h"><span class="dot" style="background:var(--sky-d)"></span>מלאי לפי חנות <span style="font-weight:700;color:var(--faint);font-size:12px">· מערכת חמישית</span></div><div class="t">כמה יחידות יש מכל מוצר בכל חנות. לא יומן אירועים אלא <b>תמונת מצב</b>: סנאפשוט חד‑פעמי להתחלה, ואז עדכון בכל מכירה.</div></div>
       </div>
     </section>
 
@@ -130,22 +130,13 @@
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--ink)">5</span> שאלות פתוחות</h2>
-      <p class="lead">נקודות לסגירה לפני טעינת ההיסטוריה:</p>
+      <h2><span class="badge" style="background:var(--ink)">5</span> מה נשאר</h2>
+      <p class="lead">רוב הדברים נסגרו בשיחה. מה שנשאר:</p>
       <div class="qcard">
         <ol class="q">
-          <li>תדירות השליחה אחרי הטעינה הראשונית — פר‑עסקה, או אצווה כל פרק זמן?</li>
-          <li>עומק ההיסטוריה — אנחנו רוצים <b>4 שנים</b> אחורה. אפשרי?</li>
-          <li>האם הסוכן המטפל מוטבע על כל שורת מכירה?</li>
-          <li>האם זמן המכירה כולל שעה מדויקת? <span class="a">(הלוח מפלח עד רמת השעה)</span></li>
-          <li>שדה <span class="code">amount</span> — כולל מע״מ? אחרי הנחה?</li>
-          <li>מבנה ההחזרות — מספר שלילי? מזהה שורה נפרד?</li>
-          <li>האם יש מזהה קבוע לכל חנות ולכל סוכן?</li>
-          <li>איך מזוהה לקוח אצלך — טלפון, אימייל, מזהה CRM, שם? ומה מתוך זה מגיע על שורת מכירה, כדי שנקשר אותה ללקוח? <span class="a">(וכשאין מזהה — מה כן יש?)</span></li>
-          <li>כרטיס הלקוח — האם היצוא כולל את כל ההיסטוריה (רכישות + קריאות שירות), ואפשר לשלוח אותו כמו שהוא?</li>
-          <li>האם bGate מחזיר <b>עלות</b> פר‑שורה? <span class="a">(העלות שכבר נשלחת ל‑GPI — לחישוב רווחיות)</span></li>
-          <li>האם bGate מחשב <b>עמלת סוכן</b> פר‑שורה?</li>
-          <li><b>מלאי לפי חנות</b> (ברקוד × חנות → כמות, מתעדכן) — קיים אצלך? נרצה למשוך גם את זה.</li>
+          <li><b>דוגמה קטנה מכל סוג</b> — נראה איך הנתונים מגיעים ונתאים את המיפוי אצלנו, כולל מבנה ההחזרות (מינוס / זיכוי).</li>
+          <li><b>עמלת סוכן</b> — אם היא רשומה אצלך, נכלול אותה; אם לא, לא חובה.</li>
+          <li><b>מלאי לפי חנות</b> — סנאפשוט חד‑פעמי להתחלה, ואז עדכון בכל מכירה.</li>
         </ol>
       </div>
     </section>
