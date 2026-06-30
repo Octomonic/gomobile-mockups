@@ -107,7 +107,7 @@
       <ul class="spec">
         <li><span>כתובת אחת לכל סוג: <span class="code">POST …/api/bgate/sales-data/&lt;dataset&gt;</span> — אחד מ‑ <span class="code">stores</span> · <span class="code">salespeople</span> · <span class="code">sales</span> · <span class="code">customers</span>.</span></li>
         <li><span><span class="code">application/x-www-form-urlencoded</span>, אימות בגוף הבקשה (<span class="code">username</span> / <span class="code">userpassword</span>) — כמו דחיפת העלויות.</span></li>
-        <li><span>שורות: שדות נפרדים ממוספרים, או שורת CSV. עד <b>500 שורות</b> ל‑POST.</span></li>
+        <li><span>שורות בפורמט <b>CSV</b> — בדיוק כמו דחיפת העלויות. עד <b>500 שורות</b> ל‑POST.</span></li>
         <li><span>שליחה חוזרת בטוחה: כפילות מזוהה ומדולגת, ערך מעודכן דורס את הקודם.</span></li>
         <li><span>סדר השליחה גמיש: שורת מכירה שהחנות/הסוכן שלה טרם נטענו ממתינה, ונפתרת אוטומטית כשהם מגיעים.</span></li>
       </ul>
@@ -141,13 +141,11 @@
           <li>שדה <span class="code">amount</span> — כולל מע״מ? אחרי הנחה?</li>
           <li>מבנה ההחזרות — מספר שלילי? מזהה שורה נפרד?</li>
           <li>האם יש מזהה קבוע לכל חנות ולכל סוכן?</li>
-          <li>איזה אחוז מהמכירות נושא טלפון לקוח?</li>
+          <li>איך מזוהה לקוח אצלך — טלפון, אימייל, מזהה CRM, שם? ומה מתוך זה מגיע על שורת מכירה, כדי שנקשר אותה ללקוח? <span class="a">(וכשאין מזהה — מה כן יש?)</span></li>
           <li>כרטיס הלקוח — האם היצוא כולל את כל ההיסטוריה (רכישות + קריאות שירות), ואפשר לשלוח אותו כמו שהוא?</li>
-          <li>רשימת הקטגוריות והשמות שלהן.</li>
-          <li>פורמט מועדף לשליחת השדות — שדות נפרדים, או שורת CSV.</li>
           <li>האם bGate מחזיר <b>עלות</b> פר‑שורה? <span class="a">(העלות שכבר נשלחת ל‑GPI — לחישוב רווחיות)</span></li>
           <li>האם bGate מחשב <b>עמלת סוכן</b> פר‑שורה?</li>
-          <li>האם קיימים נתוני <b>מלאי לפי חנות</b>?</li>
+          <li><b>מלאי לפי חנות</b> (ברקוד × חנות → כמות, מתעדכן) — קיים אצלך? נרצה למשוך גם את זה.</li>
         </ol>
       </div>
     </section>
