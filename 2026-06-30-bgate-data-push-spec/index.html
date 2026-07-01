@@ -71,8 +71,12 @@
   .need-b b{color:var(--ink)}
   .need-b .code{margin:2px 1px;display:inline-block}
   .need-sub{margin-top:6px;padding-inline-start:11px;border-inline-start:2px solid var(--line)}
-  .allnote{background:#fff6fb;border:1px solid #f6cfe2;border-inline-start:4px solid var(--cerise);border-radius:10px;padding:13px 16px;font-size:14px;line-height:1.7;color:var(--ink);margin-bottom:14px}
+  .allnote{background:linear-gradient(180deg,#fff2f9,#fcdcec);border:2.5px solid var(--cerise);border-radius:13px;padding:15px 18px;font-size:15px;line-height:1.7;color:var(--ink);margin-bottom:16px;box-shadow:0 4px 16px rgba(236,0,140,.14)}
   .allnote b{color:var(--cerise-d)}
+  .allnote .big{display:block;font-size:18px;font-weight:900;color:var(--cerise-d);margin-bottom:5px;letter-spacing:-.3px}
+  table.req tr.more td{color:var(--faint);background:#fbfcff;font-style:italic}
+  table.req tr.more td.f{font-weight:700}
+  table.req tr.more:first-of-type td{border-top:2px dashed var(--cerise)}
   .dsblock{margin-bottom:15px}
   .dsblock-h{font-weight:900;font-size:15px;display:flex;align-items:baseline;gap:8px;margin-bottom:7px;flex-wrap:wrap}
   .dsblock-h .dot{width:9px;height:9px;border-radius:50%;flex:none;align-self:center}
@@ -142,7 +146,7 @@
 
     <section>
       <h2><span class="badge" style="background:var(--gold)">3</span> המידע שאנחנו צריכים</h2>
-      <div class="allnote"><b>הכי חשוב:</b> השדות למטה הם <b>דוגמאות בלבד — לא רשימה סגורה</b>. לכל דאטהסט, <b>תדחוף את כל מה שקיים אצלך עליו</b> — גם שדות שלא ציינו כאן, ואנחנו נמפה אצלנו. כל ההיסטוריה <b>3 שנים</b> אחורה.</div>
+      <div class="allnote"><span class="big">רשימה פתוחה — לא סגורה</span>השדות למטה הם <b>דוגמאות בלבד</b>. לכל דאטהסט — <b>תדחוף את כל מה שקיים אצלך עליו</b>, גם שדות שלא ציינו כאן, ואנחנו כבר נמפה אצלנו. כל ההיסטוריה <b>3 שנים</b> אחורה.</div>
 
       <div class="dsblock">
         <div class="dsblock-h"><span class="dot" style="background:var(--sky)"></span>חנויות <span class="row">· שורה לכל חנות</span></div>
@@ -150,6 +154,8 @@
           <tr><td class="f">מזהה חנות קבוע</td><td>המפתח שכל מכירה מצביעה אליו</td></tr>
           <tr><td class="f">שם · עיר / כתובת · קוד</td><td>פרטי החנות</td></tr>
           <tr><td class="f">פעילה / סגורה · תאריך פתיחה</td><td>סטטוס</td></tr>
+          <tr class="more"><td class="f">…</td><td>…</td></tr>
+          <tr class="more"><td class="f">…</td><td>+ כל שדה נוסף שיש לך על החנות</td></tr>
         </tbody></table>
       </div>
 
@@ -159,6 +165,8 @@
           <tr><td class="f">מזהה סוכן קבוע</td><td>מפתח השיוך — מי מכר</td></tr>
           <tr><td class="f">שם מלא · חנות בית · פעיל · תפקיד</td><td>פרטי הסוכן</td></tr>
           <tr><td class="f">שני שדות הסוכן</td><td>מי שעובד בחנות, ו<b>מי שהפיק את המסמך</b> (השדה המשני, ליוזר כללי בחנות אחרת)</td></tr>
+          <tr class="more"><td class="f">…</td><td>…</td></tr>
+          <tr class="more"><td class="f">…</td><td>+ כל שדה נוסף שיש לך על הסוכן</td></tr>
         </tbody></table>
       </div>
 
@@ -170,6 +178,8 @@
           <tr><td class="lv">שורה</td><td class="f">עלות</td><td>לרווחיות</td></tr>
           <tr><td class="lv">שורה</td><td class="f">אחריות · אביזר · <b>הרחבות אחריות וביטוחים (GCP)</b></td><td>לזיהוי אפסלים ופודיומים</td></tr>
           <tr><td class="lv">החזרה</td><td class="f">מינוס / זיכוי</td><td>נראה את המבנה בדוגמה</td></tr>
+          <tr class="more"><td class="lv">…</td><td class="f">…</td><td>…</td></tr>
+          <tr class="more"><td class="lv">…</td><td class="f">…</td><td>+ כל שדה נוסף שיש על המסמך ועל השורה</td></tr>
         </tbody></table>
       </div>
 
@@ -179,6 +189,8 @@
           <tr><td class="f">טלפון (המפתח) · מספרי כרטיס</td><td>זיהוי הלקוח</td></tr>
           <tr><td class="f">שם · עיר / כתובת · סגמנט</td><td>פרטי הלקוח</td></tr>
           <tr><td class="f">היסטוריית רכישות · היסטוריית תיקונים / שירות</td><td><b>כל ההיסטוריה</b> (לפי טלפון)</td></tr>
+          <tr class="more"><td class="f">…</td><td>…</td></tr>
+          <tr class="more"><td class="f">…</td><td>+ כל שדה נוסף שיש לך על הלקוח</td></tr>
         </tbody></table>
       </div>
     </section>
