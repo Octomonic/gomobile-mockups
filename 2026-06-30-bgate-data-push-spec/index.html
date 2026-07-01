@@ -130,8 +130,15 @@
     <section>
       <h2><span class="badge" style="background:var(--coral)">2</span> המנגנון</h2>
       <ul class="spec">
-        <li><span><b>אותו מנגנון, אותו פורמט (CSV), אותו יוזר ואותה אותנטיקציה</b> של דחיפת העלויות.</span></li>
-        <li><span><b>כתובת (POST) לכל סוג</b> — עד <b>500 שורות</b> ל‑POST:
+        <li><span><b>אותו מנגנון בדיוק של דחיפת העלויות</b> — לרענון:
+          <span style="display:block;margin-top:6px;line-height:1.95">
+            · בקשת <b>POST</b> עם <span class="code">Content-Type: application/x-www-form-urlencoded</span><br>
+            · אימות בגוף הבקשה: <span class="code">username</span> / <span class="code">userpassword</span> — אותם פרטים כמו בעלויות<br>
+            · השורות בפורמט <b>CSV</b> כמו ה‑<span class="code">importmsg</span> של העלויות — שורות מופרדות ב‑<span class="code">|</span>, שדות בשורה מופרדים ב‑<span class="code">,</span> (סדר העמודות ניקבע מהדוגמה)<br>
+            · עד <b>500 שורות</b> ל‑POST
+          </span>
+        </span></li>
+        <li><span><b>כתובת (POST) לכל סוג:</b>
           <span style="display:block;margin-top:6px;line-height:2.1">
             חנויות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/stores</span><br>
             סוכנים — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/salespeople</span><br>
