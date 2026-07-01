@@ -71,7 +71,7 @@
   .need-b b{color:var(--ink)}
   .need-b .code{margin:2px 1px;display:inline-block}
   .need-sub{margin-top:6px;padding-inline-start:11px;border-inline-start:2px solid var(--line)}
-  .allnote{background:linear-gradient(180deg,#fff2f9,#fcdcec);border:2.5px solid var(--cerise);border-radius:13px;padding:15px 18px;font-size:15px;line-height:1.7;color:var(--ink);margin-bottom:16px;box-shadow:0 4px 16px rgba(236,0,140,.14)}
+  .allnote{background:linear-gradient(180deg,#fff2f9,#fcdcec);border:2.5px solid var(--cerise);border-radius:13px;padding:15px 18px;font-size:15px;line-height:1.7;color:var(--ink);margin:22px 0 16px;box-shadow:0 4px 16px rgba(236,0,140,.14)}
   .allnote b{color:var(--cerise-d)}
   .allnote .big{display:block;font-size:18px;font-weight:900;color:var(--cerise-d);margin-bottom:5px;letter-spacing:-.3px}
   table.req tr.more td{color:var(--faint);background:#fbfcff;font-style:italic}
@@ -100,6 +100,7 @@
     .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
     .bar,.four .c,h2 .badge,ol.q li::before,table.req th,table.req tr.more td,.allnote{-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .dsblock,.allnote{break-inside:avoid;page-break-inside:avoid}
+    h2{break-after:avoid;page-break-after:avoid}
     table.req tr{break-inside:avoid;page-break-inside:avoid}
   }
 </style>
