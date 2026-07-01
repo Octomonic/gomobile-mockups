@@ -126,8 +126,15 @@
     <section>
       <h2><span class="badge" style="background:var(--coral)">2</span> המנגנון</h2>
       <ul class="spec">
-        <li><span><b>אותו מנגנון, אותו פורמט (CSV), אותו יוזר ואותה אותנטיקציה</b> של דחיפת העלויות — אין צורך בשום דבר חדש מצדך.</span></li>
-        <li><span>כתובת אחת לכל סוג: <span class="code">POST …/api/bgate/sales-data/&lt;dataset&gt;</span>. עד <b>500 שורות</b> ל‑POST.</span></li>
+        <li><span><b>אותו מנגנון, אותו פורמט (CSV), אותו יוזר ואותה אותנטיקציה</b> של דחיפת העלויות.</span></li>
+        <li><span><b>כתובת (POST) לכל סוג</b> — עד <b>500 שורות</b> ל‑POST:
+          <span style="display:block;margin-top:6px;line-height:2.1">
+            חנויות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/stores</span><br>
+            סוכנים — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/salespeople</span><br>
+            מכירות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/sales</span><br>
+            לקוחות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/customers</span>
+          </span>
+        </span></li>
         <li><span>שליחה חוזרת בטוחה: כפילות מדולגת, תיקון מעדכן. סדר גמיש — שורה שעוד לא נפתרה ממתינה ונפתרת לבד.</span></li>
         <li><span><b>שלב ראשון:</b> דוגמה קטנה מכל סוג — נראה איך זה מגיע, ונתאים את המיפוי אצלנו.</span></li>
       </ul>
@@ -178,12 +185,7 @@
 
     <section>
       <h2><span class="badge" style="background:var(--ink)">4</span> מה נשאר</h2>
-      <div class="qcard">
-        <ol class="q">
-          <li><b>דוגמה קטנה מכל סוג</b> — נראה איך הנתונים מגיעים ונתאים את המיפוי אצלנו, כולל מבנה ההחזרות (מינוס / זיכוי).</li>
-          <li><b>עמלת סוכן</b> — אם היא רשומה אצלך, נכלול אותה; אם לא, לא חובה.</li>
-        </ol>
-      </div>
+      <p class="lead" style="margin-bottom:0"><b>דוגמה קטנה מכל סוג</b> — נראה איך הנתונים מגיעים, ונתאים את המיפוי אצלנו (כולל מבנה ההחזרות — מינוס / זיכוי).</p>
     </section>
 
     <section>
