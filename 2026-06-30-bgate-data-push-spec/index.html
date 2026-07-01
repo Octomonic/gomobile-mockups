@@ -73,6 +73,16 @@
   .need-sub{margin-top:6px;padding-inline-start:11px;border-inline-start:2px solid var(--line)}
   .allnote{background:#fff6fb;border:1px solid #f6cfe2;border-inline-start:4px solid var(--cerise);border-radius:10px;padding:13px 16px;font-size:14px;line-height:1.7;color:var(--ink);margin-bottom:14px}
   .allnote b{color:var(--cerise-d)}
+  .dsblock{margin-bottom:15px}
+  .dsblock-h{font-weight:900;font-size:15px;display:flex;align-items:baseline;gap:8px;margin-bottom:7px;flex-wrap:wrap}
+  .dsblock-h .dot{width:9px;height:9px;border-radius:50%;flex:none;align-self:center}
+  .dsblock-h .row{font-weight:700;color:var(--faint);font-size:12.5px}
+  table.req{width:100%;border-collapse:collapse;font-size:13px}
+  table.req th{background:var(--soft);text-align:start;padding:6px 10px;border:1px solid var(--line);font-weight:800;font-size:11.5px;color:var(--faint)}
+  table.req td{padding:6px 10px;border:1px solid var(--line);vertical-align:top;color:var(--muted);line-height:1.5}
+  table.req td.f{font-weight:700;color:var(--ink)}
+  table.req td.lv{white-space:nowrap;color:var(--faint);font-weight:700;font-size:12px}
+  table.req td b{color:var(--ink)}
 
   footer{padding:13px 28px 17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:13.5px;color:var(--muted)}
   footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:15px}
@@ -105,7 +115,7 @@
   <div class="body">
     <div class="hero">
       <h1 class="title">דחיפת נתונים אל לוח המכירות</h1>
-      <p class="subtitle">להלן מה לוח המכירות עושה, ארבעת <b>סוגי הנתונים</b> שאנחנו צריכים מ‑bGate, והשאלות הפתוחות לסגירה לפני החיבור.</p>
+      <p class="subtitle">להלן מה לוח המכירות עושה, <b>המידע</b> שאנחנו צריכים מ‑bGate, ומה שנשאר לסגור לפני החיבור.</p>
     </div>
 
     <section>
@@ -125,38 +135,44 @@
 
     <section>
       <h2><span class="badge" style="background:var(--gold)">3</span> המידע שאנחנו צריכים</h2>
-      <div class="allnote"><b>הכי חשוב:</b> השדות למטה הם <b>דוגמאות בלבד — לא רשימה סגורה</b>. לכל דאטהסט, <b>תדחוף את כל מה שקיים אצלך עליו</b> — גם שדות שלא ציינו כאן. עדיף שיהיה לנו הכל ואנחנו כבר נחליט מה להציג; מידע עודף לא עולה לנו כלום ולא מזיק. כל ההיסטוריה <b>3 שנים</b> אחורה.</div>
+      <div class="allnote"><b>הכי חשוב:</b> השדות למטה הם <b>דוגמאות בלבד — לא רשימה סגורה</b>. לכל דאטהסט, <b>תדחוף את כל מה שקיים אצלך עליו</b> — גם שדות שלא ציינו כאן, ואנחנו נמפה אצלנו. כל ההיסטוריה <b>3 שנים</b> אחורה.</div>
 
-      <div class="need">
-        <div class="need-h"><span class="dot" style="background:var(--sky)"></span>חנויות</div>
-        <div class="need-b"><b>כל המידע על כל חנות.</b> לדוגמה: <span class="code">מזהה קבוע</span> <span class="code">שם</span> <span class="code">עיר / כתובת</span> <span class="code">קוד</span> <span class="code">פעילה / סגורה</span> <span class="code">תאריך פתיחה</span></div>
+      <div class="dsblock">
+        <div class="dsblock-h"><span class="dot" style="background:var(--sky)"></span>חנויות <span class="row">· שורה לכל חנות</span></div>
+        <table class="req"><thead><tr><th>שדה (דוגמה)</th><th>מה זה</th></tr></thead><tbody>
+          <tr><td class="f">מזהה חנות קבוע</td><td>המפתח שכל מכירה מצביעה אליו</td></tr>
+          <tr><td class="f">שם · עיר / כתובת · קוד</td><td>פרטי החנות</td></tr>
+          <tr><td class="f">פעילה / סגורה · תאריך פתיחה</td><td>סטטוס</td></tr>
+        </tbody></table>
       </div>
 
-      <div class="need">
-        <div class="need-h"><span class="dot" style="background:var(--coral)"></span>סוכנים</div>
-        <div class="need-b"><b>כל המידע על כל סוכן.</b> לדוגמה: <span class="code">מזהה קבוע</span> <span class="code">שם מלא</span> <span class="code">חנות בית</span> <span class="code">פעיל</span> <span class="code">תפקיד</span>. <b>כולל שני שדות הסוכן</b> — מי שעובד בחנות, ו<b>מי שהפיק את המסמך</b> (השדה המשני, למקרה של יוזר כללי בחנות אחרת).</div>
+      <div class="dsblock">
+        <div class="dsblock-h"><span class="dot" style="background:var(--coral)"></span>סוכנים <span class="row">· שורה לכל סוכן</span></div>
+        <table class="req"><thead><tr><th>שדה (דוגמה)</th><th>מה זה</th></tr></thead><tbody>
+          <tr><td class="f">מזהה סוכן קבוע</td><td>מפתח השיוך — מי מכר</td></tr>
+          <tr><td class="f">שם מלא · חנות בית · פעיל · תפקיד</td><td>פרטי הסוכן</td></tr>
+          <tr><td class="f">שני שדות הסוכן</td><td>מי שעובד בחנות, ו<b>מי שהפיק את המסמך</b> (השדה המשני, ליוזר כללי בחנות אחרת)</td></tr>
+        </tbody></table>
       </div>
 
-      <div class="need">
-        <div class="need-h"><span class="dot" style="background:var(--gold)"></span>מכירות — המסמך (חשבונית / קבלה), שורה‑שורה</div>
-        <div class="need-b"><b>כל מה שיש על כל מסמך וכל שורה בו.</b>
-          <div class="need-sub" style="margin-top:7px"><b>ברמת המסמך:</b> <span class="code">מספר מסמך</span> <span class="code">חנות</span> <span class="code">הסוכן שהפיק</span> <span class="code">חותם זמן (עד הדקה)</span> <span class="code">טלפון לקוח</span> <span class="code">אמצעי תשלום</span> <span class="code">סך הכל</span></div>
-          <div class="need-sub" style="margin-top:6px"><b>בכל שורה:</b> <span class="code">מוצר (ברקוד / מק״ט / שם)</span> <span class="code">קטגוריה</span> <span class="code">כמות</span> <span class="code">מחיר</span> <span class="code">הנחה</span> <span class="code">סך אחרי הנחה</span> <span class="code">עלות</span> (לרווחיות) <span class="code">אחריות / אביזר</span></div>
-          <div class="need-sub" style="margin-top:6px"><b>החזרות / זיכויים:</b> מינוס או זיכוי — נראה את המבנה המדויק בדוגמה.</div>
-        </div>
+      <div class="dsblock">
+        <div class="dsblock-h"><span class="dot" style="background:var(--gold)"></span>מכירות <span class="row">· שורה לכל שורת פריט בקבלה — שדות המסמך חוזרים על כל שורה</span></div>
+        <table class="req"><thead><tr><th>רמה</th><th>שדה (דוגמה)</th><th>הערה</th></tr></thead><tbody>
+          <tr><td class="lv">מסמך</td><td class="f">מספר מסמך · חנות · סוכן שהפיק · חותם זמן (עד הדקה) · טלפון לקוח · אמצעי תשלום · סך הכל</td><td>כותרת הקבלה</td></tr>
+          <tr><td class="lv">שורה</td><td class="f">מוצר (ברקוד / מק״ט / שם) · קטגוריה · כמות · מחיר · הנחה · סך אחרי הנחה</td><td>הפריט</td></tr>
+          <tr><td class="lv">שורה</td><td class="f">עלות</td><td>לרווחיות</td></tr>
+          <tr><td class="lv">שורה</td><td class="f">אחריות · אביזר · <b>הרחבות אחריות וביטוחים (GCP)</b></td><td>לזיהוי אפסלים ופודיומים</td></tr>
+          <tr><td class="lv">החזרה</td><td class="f">מינוס / זיכוי</td><td>נראה את המבנה בדוגמה</td></tr>
+        </tbody></table>
       </div>
 
-      <div class="need">
-        <div class="need-h"><span class="dot" style="background:var(--cerise)"></span>לקוחות</div>
-        <div class="need-b"><b>כל המידע על כל לקוח + כל ההיסטוריה שלו.</b>
-          <div class="need-sub" style="margin-top:7px"><b>הכרטיס:</b> <span class="code">טלפון (המפתח)</span> <span class="code">שם</span> <span class="code">מספרי כרטיס</span> <span class="code">עיר / כתובת</span> <span class="code">סגמנט</span></div>
-          <div class="need-sub" style="margin-top:6px"><b>ההיסטוריה:</b> כל הרכישות הקודמות (לפי טלפון), <b>וגם היסטוריית התיקונים / שירות</b>.</div>
-        </div>
-      </div>
-
-      <div class="need" style="border-color:var(--sky)">
-        <div class="need-h"><span class="dot" style="background:var(--sky-d)"></span>מלאי לפי חנות <span class="tag">· מערכת חמישית</span></div>
-        <div class="need-b"><b>כל המלאי.</b> <span class="code">חנות</span> × <span class="code">מוצר (ברקוד)</span> ← <span class="code">כמות</span>. <b>סנאפשוט מלא חד‑פעמי</b> להתחלה, ואז <b>עדכון בכל שינוי / מכירה</b>.</div>
+      <div class="dsblock">
+        <div class="dsblock-h"><span class="dot" style="background:var(--cerise)"></span>לקוחות <span class="row">· שורה לכל לקוח</span></div>
+        <table class="req"><thead><tr><th>שדה (דוגמה)</th><th>מה זה</th></tr></thead><tbody>
+          <tr><td class="f">טלפון (המפתח) · מספרי כרטיס</td><td>זיהוי הלקוח</td></tr>
+          <tr><td class="f">שם · עיר / כתובת · סגמנט</td><td>פרטי הלקוח</td></tr>
+          <tr><td class="f">היסטוריית רכישות · היסטוריית תיקונים / שירות</td><td><b>כל ההיסטוריה</b> (לפי טלפון)</td></tr>
+        </tbody></table>
       </div>
     </section>
 
@@ -170,11 +186,16 @@
       </div>
     </section>
 
+    <section>
+      <h2><span class="badge" style="background:var(--sky-d)">5</span> מלאי לפי חנות — בשלב אחרון</h2>
+      <p class="lead" style="margin-bottom:0">את זה נחבר <b>אחרון, אחרי שכל השאר עובד והמכירות זורמות</b>. אז נבקש <b>סנאפשוט מלא חד‑פעמי</b> של המלאי (כמה מכל מוצר בכל חנות), ומשם <b>עדכון בכל מכירה / שינוי</b>. אין צורך להתעסק בזה עכשיו.</p>
+    </section>
+
   </div>
 
   <footer>
     <span class="brand"><img src="octomonic.png" alt="" /> OctoMonic</span>
-    <span>ממשק הקליטה פעיל · 5 סוגי נתונים · 30 ביוני 2026</span>
+    <span>ממשק הקליטה פעיל · 4 מערכות + מלאי בהמשך · 30 ביוני 2026</span>
   </footer>
 </div>
 </body>
