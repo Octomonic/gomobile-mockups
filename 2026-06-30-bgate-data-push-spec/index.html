@@ -98,7 +98,9 @@
     html,body{background:#fff}
     .printbtn{display:none}
     .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
-    .bar,.four .c,h2 .badge,ol.q li::before{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .bar,.four .c,h2 .badge,ol.q li::before,table.req th,table.req tr.more td,.allnote{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .dsblock,.allnote{break-inside:avoid;page-break-inside:avoid}
+    table.req tr{break-inside:avoid;page-break-inside:avoid}
   }
 </style>
 </head>
