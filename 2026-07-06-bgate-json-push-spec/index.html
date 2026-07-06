@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile -->
+<!-- Change: bGate → Sales Dashboard — JSON push spec (for Baruch, post 6.7 call) -->
+<!-- Generated: 2026-07-06 -->
+<!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>GoMobile × OctoMonic — מפרט השליחה (JSON)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--gold:#F0C000;
+    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased}
+  .code{direction:ltr;unicode-bidi:embed;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--cerise-d);white-space:nowrap}
+
+  .printbtn{position:fixed;top:14px;inset-inline-end:16px;z-index:30;display:inline-flex;align-items:center;gap:7px;border:0;border-radius:10px;background:var(--cerise);color:#fff;font:800 14.5px Heebo;padding:9px 15px;cursor:pointer;box-shadow:0 4px 14px rgba(236,0,140,.32)}
+  .printbtn:hover{background:var(--cerise-d)}
+
+  .page{max-width:820px;margin:20px auto;background:#fff;box-shadow:0 8px 40px rgba(20,28,48,.16);border-radius:6px;overflow:hidden}
+  .bar{background:linear-gradient(115deg,#16182a 0%,#23132b 55%,#3a0f2c 100%);color:#fff;padding:16px 26px;display:flex;align-items:center;gap:14px;position:relative}
+  .bar::after{content:"";position:absolute;bottom:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--cerise),var(--coral),var(--gold))}
+  .bar img.oc{height:30px;width:auto}
+  .bar img.gm{height:22px;width:auto;opacity:.96}
+  .bar .x{color:var(--faint);font-weight:700;font-size:17px}
+  .bar .ttl{margin-inline-start:auto;text-align:end}
+  .bar .ttl .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .bar .ttl .d{font-size:12px;color:var(--faint);font-weight:700;margin-top:2px}
+
+  .body{padding:22px 28px 18px}
+  .hero{padding:2px 0 15px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .hero .title{font-size:24px;font-weight:900;letter-spacing:-.3px;line-height:1.25;margin-bottom:8px}
+  .hero .subtitle{font-size:14.5px;color:var(--muted);line-height:1.6}
+  .hero .subtitle b{color:var(--ink)}
+
+  h2{font-size:16px;font-weight:900;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  h2 .badge{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-size:14px;flex:none;color:#fff;font-weight:900}
+  section{margin-bottom:19px}
+
+  .lead{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+  ul.spec{list-style:none;font-size:14px;color:var(--muted);line-height:1.55}
+  ul.spec li{padding:6px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
+  ul.spec li:last-child{border-bottom:0}
+  ul.spec li::before{content:"›";color:var(--cerise);font-weight:900;flex:none}
+  ul.spec b{color:var(--ink)}
+
+  pre.json{direction:ltr;unicode-bidi:embed;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;line-height:1.6;background:#101528;color:#dbe4ff;border-radius:11px;padding:14px 16px;overflow-x:auto;text-align:left}
+  pre.json .k{color:#7fd4ff}
+  pre.json .s{color:#ffd479}
+  pre.json .n{color:#ff9ecb}
+  .tokennote{background:linear-gradient(180deg,#fff8e8,#fdefc8);border:2px solid var(--gold);border-radius:11px;padding:11px 15px;font-size:14px;line-height:1.65;margin-top:10px}
+  .tokennote b{color:var(--ink)}
+
+  footer{padding:13px 28px 17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:13.5px;color:var(--muted)}
+  footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:15px}
+  footer .brand img{height:18px;width:auto}
+
+  @media print{
+    @page{size:A4;margin:11mm}
+    html,body{background:#fff}
+    .printbtn{display:none}
+    .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
+    .bar,h2 .badge,pre.json,.tokennote{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section,.tokennote,pre.json{break-inside:avoid;page-break-inside:avoid}
+    h2{break-after:avoid;page-break-after:avoid}
+  }
+</style>
+</head>
+<body>
+<button class="printbtn" onclick="window.print()">🖨️ שמירה כ-PDF</button>
+
+<div class="page">
+  <div class="bar">
+    <img class="oc" src="octomonic.png" alt="OctoMonic" />
+    <span class="x">×</span>
+    <img class="gm" src="gomobile.png" alt="GoMobile" />
+    <div class="ttl">
+      <div class="k">GOMOBILE · נתונים</div>
+      <div class="d">6 ביולי 2026</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="hero">
+      <h1 class="title">מפרט השליחה — JSON</h1>
+      <p class="subtitle">סוגר את מה שסיכמנו בשיחה: <b>JSON בלבד</b>, אימות בכותרת, ודוחפים את פיד ה‑BI <b>כמו שהוא</b> — בלי התאמות בצד שלך. הצד שלנו באוויר ומוכן.</p>
+    </div>
+
+    <section>
+      <h2><span class="badge" style="background:var(--sky)">1</span> הבקשה</h2>
+      <ul class="spec">
+        <li><span><b>POST</b> עם <span class="code">Content-Type: application/json</span></span></li>
+        <li><span>אימות בכותרת: <span class="code">Authorization: Bearer &lt;token&gt;</span></span></li>
+        <li><span>הגוף: <b>מערך JSON של אובייקטים</b> — רשומה לכל שורה. במכירות: שורה לכל פריט בקבלה, כולל קוד הסוכן.</span></li>
+        <li><span><b>שמות השדות — כמו שהם אצלך ב‑BI.</b> את המיפוי אנחנו עושים אצלנו; כל שדה שתשלח נשמר.</span></li>
+      </ul>
+      <div class="tokennote">🔑 <b>הטוקן נשלח בהודעה נפרדת</b> (לא כאן ולא במייל). נכנס לקונפיג אצלך, לא לקוד.</div>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--coral)">2</span> הכתובות — לפי סוג</h2>
+      <ul class="spec">
+        <li><span>חנויות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/stores</span></span></li>
+        <li><span>סוכנים — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/salespeople</span></span></li>
+        <li><span>מכירות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/sales</span></span></li>
+        <li><span>לקוחות — <span class="code" style="white-space:normal;word-break:break-all">https://gomobile-sales.vercel.app/api/bgate/sales-data/customers</span></span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--cerise)">3</span> דוגמה (מכירות)</h2>
+      <pre class="json">POST /api/bgate/sales-data/sales
+Authorization: Bearer &lt;token&gt;
+Content-Type: application/json
+
+[
+  { <span class="k">"sale_id"</span>: <span class="s">"98211"</span>, <span class="k">"receipt"</span>: <span class="s">"55123"</span>, <span class="k">"date"</span>: <span class="s">"2026-07-06 12:31:00"</span>,
+    <span class="k">"store"</span>: <span class="s">"DIZ"</span>, <span class="k">"agent"</span>: <span class="s">"1044"</span>, <span class="k">"barcode"</span>: <span class="s">"8806095689012"</span>,
+    <span class="k">"qty"</span>: <span class="n">1</span>, <span class="k">"total"</span>: <span class="n">3899</span>, <span class="k">"phone"</span>: <span class="s">"0521234567"</span> },
+  { <span class="k">"sale_id"</span>: <span class="s">"98212"</span>, <span class="k">"receipt"</span>: <span class="s">"55123"</span>, ... }
+]</pre>
+      <p class="lead" style="margin-top:8px">השמות בדוגמה להמחשה בלבד — <b>שלח את השמות שלך</b>. תשובה תקינה: <span class="code">{"ok":true,"received":2,"accepted":2,...}</span></p>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--ink)">4</span> כללים</h2>
+      <ul class="spec">
+        <li><span>עד <b>500 שורות</b> ל‑POST · עד <b>4MB</b> לבקשה</span></li>
+        <li><span><b>שליחה חוזרת בטוחה</b> — כפילות מדולגת, תיקון (אותו מזהה, ערך שונה) מעדכן. אפשר לשלוח פעמיים בלי נזק.</span></li>
+        <li><span><b>סדר גמיש</b> — מכירה שהגיעה לפני החנות/הסוכן שלה ממתינה ונקלטת לבד כשהם מגיעים.</span></li>
+        <li><span>שגיאות: <span class="code">401</span> טוקן שגוי · <span class="code">413</span> גדול מדי · <span class="code">415</span> לא JSON</span></li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom:6px">
+      <h2><span class="badge" style="background:var(--gold);color:var(--ink)">5</span> איך מתקדמים</h2>
+      <ul class="spec">
+        <li><span><b>דוגמה קטנה מכל סוג</b> — נמפה את השדות אצלנו ונאשר.</span></li>
+        <li><span>אחרי האישור — <b>היסטוריה 3 שנים</b> ומשם דחיפה שוטפת.</span></li>
+        <li><span>חנויות: <b>קוד + שם מספיקים</b> — את שאר הפרטים אנחנו משלימים מהאתר.</span></li>
+        <li><span>מלאי — בשלב אחרון, כמו שסיכמנו.</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <span class="brand"><img src="octomonic.png" alt="" />OctoMonic</span>
+    <span>הצד שלנו באוויר ומוכן לקליטה · 6 ביולי 2026</span>
+  </footer>
+</div>
+</body>
+</html>
