@@ -133,13 +133,12 @@
     <section>
       <h2><span class="badge" style="background:var(--coral)">2</span> המנגנון</h2>
       <ul class="spec">
-        <li><span><b>JSON</b> (עודכן בשיחה 6.7) — דוחפים את מה שה‑BI קורא, כמו שהוא:
+        <li><span><b>JSON בלבד</b> (עודכן בשיחה 6.7) — דוחפים את מה שה‑BI קורא, כמו שהוא:
           <span style="display:block;margin-top:6px;line-height:1.95">
             · בקשת <b>POST</b> עם <span class="code">Content-Type: application/json</span><br>
             · אימות בכותרת: <span class="code">Authorization: Bearer &lt;טוקן&gt;</span> — הטוקן נשלח בנפרד<br>
-            · הגוף: <b>מערך JSON של אובייקטים</b> — שורה לכל רשומה (במכירות: שורה לכל פריט בקבלה). כל שמות השדות שקיימים אצלך מתקבלים כמו שהם — אנחנו ממפים אצלנו<br>
-            · עד <b>500 שורות</b> ל‑POST · עד 4MB לבקשה<br>
-            · (הפורמט הקודם — form‑urlencoded עם username/userpassword — ממשיך לעבוד במקביל)
+            · הגוף: <b>מערך JSON של אובייקטים</b> — שורה לכל רשומה (במכירות: שורה לכל פריט בקבלה, כולל קוד הסוכן). שמות השדות — כמו שהם אצלך ב‑BI, בלי התאמות; אנחנו ממפים אצלנו<br>
+            · עד <b>500 שורות</b> ל‑POST · עד 4MB לבקשה · שליחה חוזרת בטוחה (כפילות מדולגת, תיקון מעדכן)
           </span>
         </span></li>
         <li><span><b>כתובת (POST) לכל סוג:</b>
