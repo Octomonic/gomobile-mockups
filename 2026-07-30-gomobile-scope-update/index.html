@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile -->
+<!-- Change: Updated scope vs the June 2026 offer — sales dashboard delivered & expanded, logistics not started -->
+<!-- Generated: 2026-07-30 -->
+<!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>GoMobile × OctoMonic — היקף מעודכן</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--gold:#F0C000;
+    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
+    --green:#12a150;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased}
+  .code{direction:ltr;unicode-bidi:embed;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;background:var(--soft);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--cerise-d);white-space:nowrap}
+
+  .printbtn{position:fixed;top:14px;inset-inline-end:16px;z-index:30;display:inline-flex;align-items:center;gap:7px;border:0;border-radius:10px;background:var(--cerise);color:#fff;font:800 14.5px Heebo;padding:9px 15px;cursor:pointer;box-shadow:0 4px 14px rgba(236,0,140,.32)}
+  .printbtn:hover{background:var(--cerise-d)}
+
+  .page{max-width:820px;margin:20px auto;background:#fff;box-shadow:0 8px 40px rgba(20,28,48,.16);border-radius:6px;overflow:hidden}
+  .bar{background:linear-gradient(115deg,#16182a 0%,#23132b 55%,#3a0f2c 100%);color:#fff;padding:16px 26px;display:flex;align-items:center;gap:14px;position:relative}
+  .bar::after{content:"";position:absolute;bottom:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--cerise),var(--coral),var(--gold))}
+  .bar img.oc{height:30px;width:auto}
+  .bar img.gm{height:22px;width:auto;opacity:.96}
+  .bar .x{color:var(--faint);font-weight:700;font-size:17px}
+  .bar .ttl{margin-inline-start:auto;text-align:end}
+  .bar .ttl .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .bar .ttl .d{font-size:12px;color:var(--faint);font-weight:700;margin-top:2px}
+
+  .body{padding:22px 28px 18px}
+  .hero{padding:2px 0 15px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .hero .title{font-size:24px;font-weight:900;letter-spacing:-.3px;line-height:1.25;margin-bottom:8px}
+  .hero .subtitle{font-size:14.5px;color:var(--muted);line-height:1.6}
+  .hero .subtitle b{color:var(--ink)}
+
+  h2{font-size:16px;font-weight:900;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  h2 .badge{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-size:14px;flex:none;color:#fff;font-weight:900}
+  section{margin-bottom:19px}
+
+  .lead{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+  ul.spec{list-style:none;font-size:14px;color:var(--muted);line-height:1.55}
+  ul.spec li{padding:6px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
+  ul.spec li:last-child{border-bottom:0}
+  ul.spec li::before{content:"›";color:var(--cerise);font-weight:900;flex:none}
+  ul.spec b{color:var(--ink)}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:4px}
+  th{text-align:start;font-weight:800;color:var(--ink);background:var(--soft);padding:8px 10px;border-bottom:2px solid var(--line);font-size:12.5px}
+  td{padding:8px 10px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top;line-height:1.5}
+  td b{color:var(--ink)}
+  tr:last-child td{border-bottom:0}
+  .tag{display:inline-block;font-size:11px;font-weight:900;border-radius:5px;padding:2px 7px;white-space:nowrap}
+  .tag.new{background:rgba(18,161,80,.12);color:var(--green)}
+  .tag.was{background:var(--soft);color:var(--faint)}
+  .tag.no{background:rgba(255,143,77,.15);color:#b45309}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:2px 0 4px}
+  .stat{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
+  .stat .v{font-size:17px;font-weight:900;color:var(--ink);letter-spacing:-.4px}
+  .stat .l{font-size:11px;color:var(--faint);font-weight:700;margin-top:2px}
+
+  .note{background:linear-gradient(180deg,#fff8e8,#fdefc8);border:2px solid var(--gold);border-radius:11px;padding:11px 15px;font-size:14px;line-height:1.65;margin-top:10px}
+  .note b{color:var(--ink)}
+  .note.plain{background:var(--soft);border:1px solid var(--line)}
+
+  footer{padding:13px 28px 17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:13.5px;color:var(--muted)}
+  footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:15px}
+  footer .brand img{height:18px;width:auto}
+
+  @media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  @media print{
+    @page{size:A4;margin:11mm}
+    html,body{background:#fff}
+    .printbtn{display:none}
+    .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
+    .bar,h2 .badge,.note,.stat,th,.tag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section,.note,table{break-inside:avoid;page-break-inside:avoid}
+    h2{break-after:avoid;page-break-after:avoid}
+  }
+</style>
+</head>
+<body>
+<button class="printbtn" onclick="window.print()">🖨️ שמירה כ-PDF</button>
+
+<div class="page">
+  <div class="bar">
+    <img class="oc" src="octomonic.png" alt="OctoMonic" />
+    <span class="x">×</span>
+    <img class="gm" src="gomobile.png" alt="GoMobile" />
+    <div class="ttl">
+      <div class="k">GOMOBILE · היקף</div>
+      <div class="d">30 ביולי 2026</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="hero">
+      <h1 class="title">היקף מעודכן — מערכת ביצועי המכירות</h1>
+      <p class="subtitle">
+        מסמך זה מעדכן את ההיקף שנקבע ב<b>הצעת הפיתוח מיוני 2026</b>, בעקבות סבבי האפיון עם
+        <b>אריאל</b> (21.7) ועם <b>משה</b> (19.7). המערכת <b>בייצור ומקבלת נתונים חיים מ-bGate</b>.
+        כל מספר במסמך נמדד מהמערכת החיה ב-30.7.2026.
+      </p>
+    </div>
+
+    <section>
+      <h2><span class="badge" style="background:var(--sky)">1</span> המצב מול ההצעה המקורית</h2>
+      <table>
+        <thead><tr><th style="width:34%">בהצעה (יוני 2026)</th><th style="width:22%">סטטוס</th><th>בפועל</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>דאשבורד מכירות לצוות</b><br>תחרות וביצועים · עוזר מכירות חכם</td>
+            <td><span class="tag new">נמסר · בייצור</span></td>
+            <td>נמסר במלואו, ובהיקף <b>רחב משמעותית</b> מזה שתואר בהצעה — ראו סעיף 2.</td>
+          </tr>
+          <tr>
+            <td><b>דאשבורד לוגיסטיקה</b><br>תמונת מלאי חיה · המלצות והעברות</td>
+            <td><span class="tag no">טרם החל</span></td>
+            <td>לא פותח ואינו חלק מההיקף הנוכחי. ראו סעיף 4.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note plain">
+        ההצעה תיארה את דאשבורד המכירות בשני משפטים: לוח מובילים ועוזר מכירות חכם.
+        מה שנבנה בפועל כולל גם <b>לוח בקרה מלא למנהלים, מנוע תחרויות, מסך קיר, ניהול משתמשים
+        והרשאות, ותשתית קליטה מנוטרת</b> — רכיבים שעלו באפיון ולא נכללו בתיאור המקורי.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--cerise)">2</span> מה נמסר בפועל</h2>
+
+      <div class="stats">
+        <div class="stat"><div class="v">1,069,357</div><div class="l">שורות מכירה</div></div>
+        <div class="stat"><div class="v">439,333</div><div class="l">עסקאות</div></div>
+        <div class="stat"><div class="v">278,627</div><div class="l">לקוחות</div></div>
+        <div class="stat"><div class="v">10,106</div><div class="l">פריטי קטלוג</div></div>
+        <div class="stat"><div class="v">12</div><div class="l">סניפים</div></div>
+        <div class="stat"><div class="v">219</div><div class="l">אנשי מכירות</div></div>
+        <div class="stat"><div class="v">12,334</div><div class="l">דחיפות מ-bGate</div></div>
+        <div class="stat"><div class="v">יוני 2023</div><div class="l">היסטוריה מ־</div></div>
+      </div>
+
+      <table>
+        <thead><tr><th style="width:26%">רכיב</th><th>תוכן</th><th style="width:15%"></th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>קליטה מ-bGate</b></td>
+            <td>ה-ERP הוא מקור האמת היחיד. כל דחיפה נשמרת גולמית לפני עיבוד, כך שתקלה אינה מאבדת מכירות. התראה אוטומטית אם הפיד שותק 45 דקות בשעות פעילות.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>לוח בקרה למנהלים</b></td>
+            <td>שורת סינון אחת (תאריכים · שעות · סניף · קטגוריה) המזינה שש לשוניות: סניף מול סניף · סקירה · מגמות · צוות · תקופה מול תקופה.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>מנוע השוואה</b></td>
+            <td>תקופה חלקית לעולם אינה נמדדת מול תקופה מלאה: התקופה הנוכחית עד הרגע הזה, והבסיס מכסה בדיוק אותו פרק זמן. יום נמדד מול <b>אותו יום בשבוע שעבר</b>, לא מול אתמול.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>הצמדת אחריות</b></td>
+            <td>מחושבת לפי הנוסחה של אריאל — <span class="code">זכאים − בלי כלום = הצמדה</span> — כאשר GCP ו-GMP נספרים בנפרד.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>מסך חנות</b></td>
+            <td>ארבעה פודיומים (המכירה הגדולה · GCP · אביזרים · GMP) המתחילים ריקים בכל בוקר · יעדים · דירוג · אתגרים · עדכונים.</td>
+            <td><span class="tag was">בהצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>עוזר מכירה חכם</b></td>
+            <td>זיהוי לקוח לפי טלפון מול היסטוריית bGate, והמלצות מהקטלוג האמיתי. ההתאמה היא <b>לדגם המדויק כולל רמת הדגם</b> — כיסוי ל-iPhone 17 Pro לא יוצע ל-Pro Max.</td>
+            <td><span class="tag was">בהצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>מסך קיר ושומר מסך</b></td>
+            <td>לאחר 90 שניות ללא מגע המסך עובר לתצוגת מוטיבציה מלאה; קיימת גם ככתובת קבועה למסך על הקיר.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>קרב בתים</b></td>
+            <td>מנוע התחרות שהחליף את קובצי האקסל: בתים, שיטת ניקוד הניתנת לעריכה, דירוג חי וחלוקת פרסים.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+          <tr>
+            <td><b>ניהול והרשאות</b></td>
+            <td>סיסמה אישית שהמשתמש קובע בכניסה הראשונה, אימות דו-שלבי, הרשאות לפי תפקיד ויומן פעילות מלא.</td>
+            <td><span class="tag new">מעבר להצעה</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--coral)">3</span> ממתין לנתונים מצד GoMobile</h2>
+      <p class="lead">הרכיבים בנויים ופועלים. הם יתמלאו ברגע שהנתונים יגיעו — <b>אין עבודת פיתוח נוספת</b>.</p>
+      <table>
+        <thead><tr><th style="width:26%">נושא</th><th>מה חסר</th><th style="width:16%">ממי</th></tr></thead>
+        <tbody>
+          <tr><td><b>יעדים</b></td><td>לא הוגדר יעד לאף סניף פעיל. עד אז מוצג "טרם הוגדר יעד לסניף" — ולא מספר משוער.</td><td>הנהלת GoMobile</td></tr>
+          <tr><td><b>מלאי</b></td><td>פיד המלאי הפסיק ב-14.7. בלעדיו אין התראת מלאי נמוך.</td><td>Baruch</td></tr>
+          <tr><td><b>סקר NPS</b></td><td>אין פיד תשובות, ולכן אין ציון ואין אינדיקציה מי ענה.</td><td>Baruch</td></tr>
+          <tr><td><b>870 מזהי לקוח</b></td><td>מופיעים ב-3,760 שורות מכירה אך לא בקובץ הלקוחות.</td><td>Baruch</td></tr>
+          <tr><td><b>51 מק״טים ללא מחיר</b></td><td>יוצאים מ-bGate במחיר ברירת מחדל של 10,000 ₪. רשימה עם המחירים הנכונים כבר הועברה.</td><td>Baruch</td></tr>
+          <tr><td><b>147 מק״טים</b></td><td>מופיעים במכירות ולא בקטלוג (0.04% מהשורות).</td><td>Baruch</td></tr>
+        </tbody>
+      </table>
+      <div class="note">
+        <b>עיקרון שנשמר לאורך כל המערכת:</b> המערכת אינה ממציאה מספרים. כאשר נתון חסר — מוצג מצב ריק
+        מפורש ולא הערכה. במהלך הפיתוח הוסרו ערכים שנראו אמיתיים אך לא היו: יעד יומי שהומצא,
+        אחוז עמלה שלא נמסר, אחוזי התאמה קבועים בהמלצות, ותגי הישגים שלא מדדו את מה שכתוב בהם.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="badge" style="background:var(--ink)">4</span> דאשבורד לוגיסטיקה — מחוץ להיקף הנוכחי</h2>
+      <p class="lead">
+        הפרויקט השני שתואר בהצעת יוני — תמונת מלאי חיה, המלצות חלוקה יומיות והעברות בין סניפים —
+        <b>לא פותח ואינו חלק מההיקף הנוכחי</b>.
+      </p>
+      <ul class="spec">
+        <li><span>בשיחה עם משה (19.7) הורחב התיאור וכלל גם <b>מלאי מת, סל-ת׳רו של 3 חודשים, מלאי בדרך, טיפול בחוסרים ולוח אירועים</b> — היקף גדול מזה שבהצעה המקורית.</span></li>
+        <li><span>תנאי מקדים: <b>פיד מלאי היסטורי</b>. הפיד הנוכחי אינו שומר היסטוריה, ולכן אין כיום נתונים ללמוד מהם.</span></li>
+        <li><span>נדרשים <b>אפיון והצעה נפרדים</b> לפני תחילת עבודה.</span></li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom:6px">
+      <h2><span class="badge" style="background:var(--gold);color:var(--ink)">5</span> סיכום</h2>
+      <ul class="spec">
+        <li><span><b>דאשבורד המכירות נמסר ופועל בייצור</b>, בהיקף רחב מזה שתואר בהצעה המקורית.</span></li>
+        <li><span>מה שנותר <b>אינו פיתוח אלא נתונים</b>: יעדים מההנהלה, ומלאי, NPS והשלמות קטלוג מ-bGate.</span></li>
+        <li><span><b>דאשבורד הלוגיסטיקה לא החל</b> ודורש אפיון והצעה נפרדים.</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <span class="brand"><img src="octomonic.png" alt="" />OctoMonic</span>
+    <span>המערכת בייצור · 30 ביולי 2026</span>
+  </footer>
+</div>
+</body>
+</html>
