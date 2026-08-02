@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Project: GoMobile -->
-<!-- Change: Updated scope vs the June 2026 offer — sales dashboard delivered, additions to the offer itemised -->
-<!-- Generated: 2026-07-30 -->
+<!-- Change: Updated scope for the sales dashboard, incorporating the 2.8 Ariel+Moshe spec session -->
+<!-- Generated: 2026-08-02 -->
 <!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
 <html lang="he" dir="rtl">
 <head>
@@ -14,8 +14,7 @@
 <style>
   :root{
     --cerise:#EC008C;--cerise-d:#b8006e;--sky:#29ABE2;--sky-d:#1479a8;--coral:#FF8F4D;--gold:#F0C000;
-    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;
-    --green:#12a150;
+    --ink:#14182a;--muted:#5b6478;--faint:#8a93a6;--line:#e7e9f0;--soft:#f3f5f9;--green:#12a150;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{font-family:'Heebo',system-ui,sans-serif;color:var(--ink);background:#eceef3;-webkit-font-smoothing:antialiased}
@@ -42,11 +41,12 @@
 
   h2{font-size:16px;font-weight:900;margin:0 0 10px;display:flex;align-items:center;gap:8px}
   h2 .badge{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-size:14px;flex:none;color:#fff;font-weight:900}
+  h3{font-size:13.5px;font-weight:900;margin:14px 0 6px;color:var(--ink)}
   section{margin-bottom:19px}
 
   .lead{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:10px}
-  ul.spec{list-style:none;font-size:14px;color:var(--muted);line-height:1.55}
-  ul.spec li{padding:6px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
+  ul.spec{list-style:none;font-size:13.5px;color:var(--muted);line-height:1.55}
+  ul.spec li{padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:9px}
   ul.spec li:last-child{border-bottom:0}
   ul.spec li::before{content:"›";color:var(--cerise);font-weight:900;flex:none}
   ul.spec b{color:var(--ink)}
@@ -56,17 +56,8 @@
   td{padding:8px 10px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top;line-height:1.5}
   td b{color:var(--ink)}
   tr:last-child td{border-bottom:0}
-  .tag{display:inline-block;font-size:11px;font-weight:900;border-radius:5px;padding:2px 7px;white-space:nowrap}
-  .tag.new{background:rgba(18,161,80,.12);color:var(--green)}
-  .tag.was{background:var(--soft);color:var(--faint)}
-  .tag.no{background:rgba(255,143,77,.15);color:#b45309}
 
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:2px 0 4px}
-  .stat{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
-  .stat .v{font-size:17px;font-weight:900;color:var(--ink);letter-spacing:-.4px}
-  .stat .l{font-size:11px;color:var(--faint);font-weight:700;margin-top:2px}
-
-  .note{background:linear-gradient(180deg,#fff8e8,#fdefc8);border:2px solid var(--gold);border-radius:11px;padding:11px 15px;font-size:14px;line-height:1.65;margin-top:10px}
+  .note{background:linear-gradient(180deg,#fff8e8,#fdefc8);border:2px solid var(--gold);border-radius:11px;padding:11px 15px;font-size:13.5px;line-height:1.6;margin-top:10px}
   .note b{color:var(--ink)}
   .note.plain{background:var(--soft);border:1px solid var(--line)}
 
@@ -74,16 +65,14 @@
   footer .brand{display:inline-flex;align-items:center;gap:7px;font-weight:800;color:var(--ink);font-size:15px}
   footer .brand img{height:18px;width:auto}
 
-  @media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
-
   @media print{
     @page{size:A4;margin:11mm}
     html,body{background:#fff}
     .printbtn{display:none}
     .page{margin:0;max-width:100%;box-shadow:none;border-radius:0}
-    .bar,h2 .badge,.note,.stat,th,.tag{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .bar,h2 .badge,.note,th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
     section,.note,table{break-inside:avoid;page-break-inside:avoid}
-    h2{break-after:avoid;page-break-after:avoid}
+    h2,h3{break-after:avoid;page-break-after:avoid}
   }
 </style>
 </head>
@@ -97,168 +86,106 @@
     <img class="gm" src="gomobile.png" alt="GoMobile" />
     <div class="ttl">
       <div class="k">GOMOBILE · היקף</div>
-      <div class="d">30 ביולי 2026</div>
+      <div class="d">2 באוגוסט 2026</div>
     </div>
   </div>
 
   <div class="body">
     <div class="hero">
-      <h1 class="title">היקף מעודכן — מערכת ביצועי המכירות</h1>
+      <h1 class="title">היקף מעודכן — דאשבורד מכירות</h1>
       <p class="subtitle">
-        מסמך זה מעדכן את ההיקף שנקבע ב<b>הצעת הפיתוח מיוני 2026</b>, בעקבות סבבי האפיון עם
-        <b>אריאל</b> (21.7) ועם <b>משה</b> (19.7). הפיתוח הושלם והמערכת פועלת בייצור על נתוני מכירות
-        חיים — אך <b>חלק מהיכולות עדיין אינן פעילות</b> משום שהנתונים הנדרשים להן טרם התקבלו מ-bGate.
-        כל מספר במסמך נמדד מהמערכת החיה ב-30.7.2026.
+        ההצעה מיוני 2026 קבעה: <b>"לאחר אישור ההצעה — אפיון מפורט וגיבוש לוח זמנים."</b>
+        האפיון בוצע בשלושה סבבים — <b>משה</b> (19.7), <b>אריאל</b> (21.7) ופגישת האפיון המשותפת
+        (2.8). המסמך מרכז את ההיקף שנקבע בהם.
       </p>
     </div>
 
     <section>
-      <h2><span class="badge" style="background:var(--sky)">1</span> המצב מול ההצעה המקורית</h2>
-      <table>
-        <thead><tr><th style="width:34%">בהצעה (יוני 2026)</th><th style="width:22%">סטטוס</th><th>בפועל</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>דאשבורד מכירות לצוות</b><br>תחרות וביצועים · עוזר מכירות חכם</td>
-            <td><span class="tag new">הפיתוח הושלם</span><br><span class="tag no" style="margin-top:4px">ממתין לנתונים</span></td>
-            <td>הפיתוח הושלם ובהיקף <b>רחב משמעותית</b> מזה שתואר בהצעה (סעיפים 2–3). המערכת פועלת על
-              נתוני מכירות חיים, אך <b>טרם ניתן למסור אותה כמוצר שלם</b> — חלק מהיכולות תלויות
-              בנתונים שטרם התקבלו (סעיף 4).</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="note plain">
-        ההצעה סיכמה בסופה: <b>"לאחר אישור ההצעה — אפיון מפורט וגיבוש לוח זמנים."</b>
-        האפיון הזה בוצע (משה 19.7, אריאל 21.7), ומה שנוסף להלן הוא תוצאה ישירה שלו — לא חריגה ממנו.
-      </div>
+      <h2><span class="badge" style="background:var(--sky)">1</span> מה נקבע בהצעה המקורית</h2>
+      <p class="lead">ההצעה תיארה את הדאשבורד בשני משפטים:</p>
+      <ul class="spec">
+        <li><span><b>"תחרות וביצועים"</b> — לוח מובילים, מדדים ומשוב שמניעים את צוות המכירות.</span></li>
+        <li><span><b>"עוזר מכירות חכם"</b> — הקלדת טלפון מזהה לקוח קיים ומציגה הצעות לפי ההיסטוריה שלו.</span></li>
+        <li><span>בנוסף: <b>מאגר ייעודי שמשקף את bGate</b>, ניהול משתמשים והרשאות, והתאמה לתהליכי העבודה של GoMobile.</span></li>
+      </ul>
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--cerise)">2</span> מה נמסר בפועל</h2>
+      <h2><span class="badge" style="background:var(--cerise)">2</span> ההיקף המעודכן</h2>
+      <p class="lead">כל מה שנוסף להיקף בשלושת סבבי האפיון, לפי תחום.</p>
 
-      <div class="stats">
-        <div class="stat"><div class="v">1,069,357</div><div class="l">שורות מכירה</div></div>
-        <div class="stat"><div class="v">439,333</div><div class="l">עסקאות</div></div>
-        <div class="stat"><div class="v">278,627</div><div class="l">לקוחות</div></div>
-        <div class="stat"><div class="v">10,106</div><div class="l">פריטי קטלוג</div></div>
-        <div class="stat"><div class="v">12</div><div class="l">סניפים</div></div>
-        <div class="stat"><div class="v">219</div><div class="l">אנשי מכירות</div></div>
-        <div class="stat"><div class="v">12,334</div><div class="l">דחיפות מ-bGate</div></div>
-        <div class="stat"><div class="v">יוני 2023</div><div class="l">היסטוריה מ־</div></div>
-      </div>
+      <h3>לוח בקרה להנהלה</h3>
+      <ul class="spec">
+        <li><span>שורת סינון אחת — תאריכים · <b>חלון שעות ברזולוציית דקה</b> · סניף · קטגוריה — המזינה את כל הלשוניות.</span></li>
+        <li><span><b>השוואה בארבע רמות</b>: יום · שבוע · חודש · שנה, ובנוסף <b>מול אתמול</b> בלחיצה אחת.</span></li>
+        <li><span>תקופה חלקית נמדדת תמיד <b>מול אותו פרק זמן בדיוק</b>, ויום מול <b>אותו יום בשבוע שעבר</b> — לא מול אתמול.</span></li>
+        <li><span><b>אחוז ודלתא (עלייה/ירידה, אדום/ירוק) על כל שורת קטגוריה</b> בפירוט, לא רק על השורה הראשית.</span></li>
+        <li><span><b>שורות סך הכל</b> — סך הכל ליום וסך הכל לתקופה.</span></li>
+        <li><span><b>השוואה לסוף יום</b> — היכן הסניף עומד עכשיו מול היכן שהוא אמור להגיע.</span></li>
+        <li><span>בהנהלה נראים <b>כל ערוצי המכירה</b> (אתר · הפצה · מעבדה · עסקי) לצורך השוואה; בתצוגת הסניפים הם מוחרגים כדי שהמספר ישקף את רצפת החנות.</span></li>
+        <li><span>הצגה <b>עם מע״מ ובלי מע״מ</b>.</span></li>
+        <li><span><b>שומר מסך להנהלה</b> — תצוגת ההשוואה והפודיומים מתחלפות ביניהן.</span></li>
+      </ul>
 
-      <p class="lead">ההצעה תיארה כל רכיב במשפט. הטבלה מראה מה נבנה בפועל מול אותן מילים.</p>
-      <table>
-        <thead><tr><th style="width:30%">לשון ההצעה</th><th>מה נבנה בפועל</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>"לוח מובילים"</b></td>
-            <td>
-              <b>ארבעה פודיומים נפרדים</b> במקום אחד — המכירה הגדולה (שיא עסקה ₪) · GoCare Plus (יח׳) ·
-              אביזרים (₪) · GoMobile Plus (יח׳). בכל פודיום <b>טופ-3 ומקומות 4–10</b>, ומעבר בין
-              <b>היום</b> ל<b>החודש מצטבר</b>. הפודיומים מתאפסים בכל בוקר ומתמלאים במהלך היום.
-              בנוסף: דירוג הסניף השבועי ופיד מכירות חי.
-            </td>
-          </tr>
-          <tr>
-            <td><b>"מדדים ומשוב"</b></td>
-            <td>
-              חמישה מדדי-על (מחזור · יחידות · עסקאות · סל ממוצע · אנשי מכירות פעילים), ולצדם:
-              <b>הצמדת אחריות</b> לפי נוסחת אריאל <span class="code">זכאים − בלי כלום = הצמדה</span>
-              כאשר <b>GCP ו-GMP נספרים בנפרד</b> · המרת המלצות לאפסל · תמהיל קטגוריות ·
-              פילוח לפי שעה · מגמת 14 יום לכל סניף בנפרד.
-            </td>
-          </tr>
-          <tr>
-            <td><b>לוח בקרה למנהלים</b><br>והשוואה בין סניפים</td>
-            <td>
-              שורת סינון אחת (תאריכים · שעות · סניף · קטגוריה) המזינה חמש לשוניות. ההשוואה כוללת
-              <b>ארבע רמות תקופה</b> — יום · שבוע · חודש · שנה — וכלל אחיד: <b>תקופה חלקית לעולם
-              אינה נמדדת מול תקופה מלאה</b>, אלא מול אותו פרק זמן בדיוק. יום נמדד מול <b>אותו יום
-              בשבוע שעבר</b>, לא מול אתמול. חלון השעות ברזולוציית <b>דקה</b>, עם קיצורים
-              (בוקר · צהריים · ערב · שיא). כשבסיס ההשוואה קטן מדי לאחוז — מוצג ההפרש בשקלים.
-            </td>
-          </tr>
-          <tr>
-            <td><b>"עוזר מכירות חכם — הצעות לפי ההיסטוריה שלו"</b></td>
-            <td>
-              מעבר להצעות: <b>כרטיס לקוח מלא</b> — מכשיר נוכחי · רכישה אחרונה · סל ממוצע ·
-              <b>שיעור צירוף אביזרים</b> · <b>שיעור צירוף אחריות</b> · הוצאה לפי קטגוריה ·
-              היסטוריית הפריטים שקנה. ההמלצות מותאמות <b>לדגם המדויק כולל רמת הדגם</b> —
-              כיסוי ל-iPhone 17 Pro לא יוצע ל-Pro Max — והחבילה מגוונת בסוגי אביזר ולא חוזרת על עצמה.
-            </td>
-          </tr>
-          <tr>
-            <td><b>"מאגר ייעודי שמשקף את bGate"</b></td>
-            <td>
-              בנוסף לשיקוף: כל דחיפה <b>נשמרת גולמית לפני העיבוד</b>, כך שתקלה אינה מאבדת מכירות והן
-              נקלטות בהשלמה · <b>התראה אוטומטית</b> אם הפיד שותק 45 דקות בשעות פעילות ·
-              דוח קליטה יומי.
-            </td>
-          </tr>
-          <tr>
-            <td><b>הרשאות ומשתמשים</b></td>
-            <td>סיסמה אישית שהמשתמש קובע בכניסה הראשונה · אימות דו-שלבי · הרשאות לפי תפקיד · יומן פעילות מלא.</td>
-          </tr>
-        </tbody>
-      </table>
+      <h3>מסך חנות ומסך קיר</h3>
+      <ul class="spec">
+        <li><span><b>ארבעה פודיומים</b> במקום לוח מובילים אחד — המכירה הגדולה · GoCare Plus · אביזרים · GoMobile Plus. בכל אחד טופ-3 ומקומות 4–10, ומעבר בין היום לחודש מצטבר.</span></li>
+        <li><span><b>פודיום טריידינג</b> וסך טריידים, באותו פורמט.</span></li>
+        <li><span><b>סך רישומי מועדון</b>.</span></li>
+        <li><span><b>חמש העסקאות האחרונות</b> ברשת, מעל הפודיומים, בסדר יורד — <b>שם המוכר · סניף · שעה ותאריך</b>. מוצג גם לעובדים וגם בלוח ההנהלה.</span></li>
+        <li><span><b>יעדים</b> לפי סניף ותקופה, במסלול כפול — יחידות ומחזור זה לצד זה.</span></li>
+        <li><span><b>אתגרים</b> — סניף מול סניף, ואתגרי יום עם מוביל חי.</span></li>
+        <li><span><b>מסך קיר</b> ייעודי לסניף, ושומר מסך שנכנס מעצמו כשהטאבלט לא בשימוש.</span></li>
+        <li><span><b>הודעות מההנהלה</b> לסניף בודד או לכל הרשת.</span></li>
+      </ul>
+
+      <h3>עוזר המכירה וכרטיס הלקוח</h3>
+      <ul class="spec">
+        <li><span>הכרטיס עובר <b>ממסך קופץ למסך לקוח מלא</b>: חמש-שש הרכישות האחרונות, ולצדן כפתור לפתיחת <b>כל היסטוריית הרכישות</b>.</span></li>
+        <li><span><b>דירוג לקוח לפי הוצאה ב-12 החודשים האחרונים</b> (לא שנה קלנדרית):
+          <b>סילבר</b> עד ₪10,000 · <b>גולד</b> ₪10,000–20,000 · <b>פלטינום</b> מעל ₪20,000.</span></li>
+        <li><span><b>שינוי מול 12 החודשים הקודמים</b> באחוזים — האם הלקוח גדל או קטן.</span></li>
+        <li><span><b>יחס אביזרים למכשירים</b> של אותו לקוח.</span></li>
+        <li><span><b>קטגוריות אפסל</b> — ביטוח · אחריות · אביזרים · מוצרים נלווים. המערכת מציעה לפחות אחד מכל קטגוריה רלוונטית, קשור למוצר בעל הערך הגבוה ביותר שנרכש.</span></li>
+        <li><span><b>לפחות שתי הצעות לכל מכירת טלפון</b>.</span></li>
+        <li><span>לקוח שלא רכש GCP — הצעת <b>שנת אחריות נוספת</b>.</span></li>
+        <li><span><b>הצעות מבוססות תזמון</b> — טרייד-אין אחרי שנה וחצי עד שנתיים; מוצר חדש שיצא מאז הרכישה האחרונה מוצע יזומה.</span></li>
+        <li><span>לכל הצעה <b>קישור למוצר</b>.</span></li>
+        <li><span>סדר העדיפות שנקבע: <b>ביטוח ואחריות תחילה, אחריהם אביזרים, ואז טרייד-אין</b>.</span></li>
+      </ul>
+
+      <h3>פידים לרצפת המכירה</h3>
+      <ul class="spec">
+        <li><span><b>מוצרים חדשים</b> מהקטלוג, עם תמונת מוצר ומחיר. <b>מסונן</b> — ללא חלקי חילוף ופריטי מעבדה.</span></li>
+        <li><span><b>פיד עסקאות חי</b> עם <b>חותמת שעה</b> לכל עסקה.</span></li>
+        <li><span><b>מלאי נמוך</b> — "שווה לדחוף לפני שאוזל".</span></li>
+      </ul>
+
+      <h3>תחרות הבתים</h3>
+      <ul class="spec">
+        <li><span>מנוע התחרות שמחליף את קובץ האקסל: חלוקה לבתים, שיטת ניקוד הניתנת לעריכה מהמסך, דירוג חי, חלוקת פרסים וספי כשירות לכל בית.</span></li>
+        <li><span>הקלט מגיע <b>אוטומטית מ-bGate</b> — אריאל אינו נדרש להזין או להעלות קובץ.</span></li>
+      </ul>
+
+      <h3>אמינות, אבטחה ובקרה</h3>
+      <ul class="spec">
+        <li><span>שמירת כל דחיפה גולמית לפני עיבוד, כך שתקלה אינה מאבדת מכירות.</span></li>
+        <li><span>התראה תוך 30 דקות אם המכירות מפסיקות להגיע · התראה אחת לכל תקלה · שקט בשבת ובלילה · דוח תקלות יומי.</span></li>
+        <li><span>זיהוי המקרה שבו ה-ERP מתחבר אך אינו שולח דבר, ושמירת משלוח פגום עם דוח אבחון להעברה ל-bGate.</span></li>
+        <li><span><b>דוח התאמה מול הספרים שלכם</b>, ותיעוד מלא של כל חילופי הנתונים.</span></li>
+        <li><span>יומן פעילות · הרשאות לפי תפקיד · אימות דו-שלבי · הגנה מפני שאיבת מאגר הלקוחות.</span></li>
+      </ul>
     </section>
 
     <section>
-      <h2><span class="badge" style="background:var(--green)">3</span> מה שלא הופיע בהצעה כלל</h2>
-      <p class="lead">
-        <b>50 יכולות</b> שנבנו במלואן ואינן מוזכרות בהצעת יוני באף צורה. מקובצות לפי נושא.
-      </p>
-      <table>
-        <thead><tr><th style="width:24%">תחום</th><th>מה נבנה</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>תחרויות</b><br><span style="font-size:11.5px;color:var(--faint)">10 יכולות</span></td>
-            <td><b>קרב בתים</b> — חלוקה לבתים, שיטת ניקוד הניתנת לעריכה מהמסך (₪ אביזרים לנקודה · נקודות למורחבת · מינימום לזכאות), דירוג חי, חלוקת פרסים, ספי כשירות שונים לכל בית, ופרסי מנהלים בנפרד.
-              <b>קרב סניף מול סניף</b> — מנהל בוחר סניף יריב ומטריקה (יחידות או מחזור), מפעיל ומכבה לפי רצון. <b>אתגרי היום</b> — אתגרים מוגדרים מראש עם מוביל חי.</td>
-          </tr>
-          <tr>
-            <td><b>יעדים</b><br><span style="font-size:11.5px;color:var(--faint)">3 יכולות</span></td>
-            <td>הגדרת יעד לסניף לתקופה (יומי · שבועי · חודשי), <b>מסלול כפול</b> — יחידות ומחזור זה לצד זה, כל אחד עם התקדמות ויתרה. כשלא הוגדר יעד — נאמר במפורש ולא מוצג מספר.</td>
-          </tr>
-          <tr>
-            <td><b>מסך קיר</b><br><span style="font-size:11.5px;color:var(--faint)">8 יכולות</span></td>
-            <td>מסך ייעודי לתלייה בסניף, המציג את נתוני אותו סניף בשמו. <b>קרוסלה של ארבעה פאנלים</b> — פודיום ענק · טיקר "זה עתה נמכר" עם שם המוכר · מכירות היום מול היעד — או נעילה על פאנל אחד קבוע. בנוסף, טאבלט שנשאר ללא מגע 90 שניות הופך מעצמו לתצוגת מוטיבציה.</td>
-          </tr>
-          <tr>
-            <td><b>מדדי אחריות ואפסל</b><br><span style="font-size:11.5px;color:var(--faint)">3 יכולות</span></td>
-            <td>שיעור הצמדת האחריות למכשירים הזכאים, <b>GCP ו-GMP בנפרד</b> ולא כמספר אחד, ו<b>מדידת עוזר המכירה עצמו</b> — כמה מההמלצות שהוצגו לנציגים הבשילו בפועל למכירה.</td>
-          </tr>
-          <tr>
-            <td><b>תקשורת לרצפה</b><br><span style="font-size:11.5px;color:var(--faint)">3 יכולות</span></td>
-            <td>הודעות מההנהלה לסניף בודד או לכל הרשת ישירות מהמערכת, והתראות מערכת אישיות (אבן דרך · אתגר · התראה) עם סימון נקרא/לא נקרא.</td>
-          </tr>
-          <tr>
-            <td><b>פידים לרצפה</b><br><span style="font-size:11.5px;color:var(--faint)">5 יכולות</span></td>
-            <td>מוצרים חדשים בקטלוג עם <b>תמונות מוצר</b>, מוצרים חדשים באתר, <b>שינויי מחיר</b> וירידות מחיר, ומלאי נמוך — "שווה לדחוף לפני שאוזל".</td>
-          </tr>
-          <tr>
-            <td><b>אמינות וניטור</b><br><span style="font-size:11.5px;color:var(--faint)">9 יכולות</span></td>
-            <td>התראה תוך 30 דקות אם המכירות מפסיקות להגיע · התראה אחת לכל תקלה, בשקט בשבת ובלילה · דוח תקלות יומי במייל · זיהוי המקרה שבו ה-ERP מתחבר אך אינו שולח דבר · שמירת משלוח פגום ודוח אבחון להעברה ל-bGate · <b>תיעוד מלא של כל חילופי הנתונים</b> ו<b>דוח התאמה מול הספרים שלכם</b>.</td>
-          </tr>
-          <tr>
-            <td><b>אבטחה ובקרה</b><br><span style="font-size:11.5px;color:var(--faint)">5 יכולות</span></td>
-            <td>יומן פעילות מלא · מדדי אבטחה ושימוש · מעקב אחר מסלולי השימוש במסכים · <b>הגנה מפני שאיבת מאגר הלקוחות</b> — נציג יכול לחפש לקוח אך לא להוריד את הרשימה · והתראה על שימוש חריג בטוקן או בחיפוש לקוחות.</td>
-          </tr>
-          <tr>
-            <td><b>דיוק הנתונים</b><br><span style="font-size:11.5px;color:var(--faint)">2 יכולות</span></td>
-            <td><b>הדרת ערוצים שאינם קמעונאיים</b> — אתר, מעבדה, הפצה ועסקי אינם נספרים בביצועי הסניפים, כך שהמספר משקף את מה שנמכר בפועל על רצפת החנות. בנוסף: סטטוס אחריות המכשיר הנוכחי של הלקוח.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2><span class="badge" style="background:var(--coral)">4</span> מה נדרש להשלמת המערכת</h2>
-      <p class="lead">להפעלת המערכת במלוא היכולות שלה נדרשים הנתונים הבאים:</p>
+      <h2><span class="badge" style="background:var(--coral)">3</span> נדרש מ-GoMobile או מ-bGate</h2>
       <table>
         <thead><tr><th>נדרש</th><th style="width:18%">מקור</th></tr></thead>
         <tbody>
           <tr><td><b>יעדים לסניפים</b></td><td>GoMobile</td></tr>
+          <tr><td><b>נתוני GCP ו-88</b> — הבסיס לתחרות הבתים</td><td>bGate</td></tr>
+          <tr><td><b>נתוני טריידינג</b></td><td>bGate</td></tr>
+          <tr><td><b>רישומי מועדון</b></td><td>bGate</td></tr>
           <tr><td><b>פיד מלאי</b></td><td>bGate</td></tr>
           <tr><td><b>פיד תשובות NPS</b></td><td>bGate</td></tr>
           <tr><td><b>870 מזהי לקוח חסרים</b></td><td>bGate</td></tr>
@@ -269,18 +196,17 @@
     </section>
 
     <section style="margin-bottom:6px">
-      <h2><span class="badge" style="background:var(--gold);color:var(--ink)">5</span> סיכום</h2>
+      <h2><span class="badge" style="background:var(--ink)">4</span> מחוץ להיקף זה</h2>
       <ul class="spec">
-        <li><span><b>הפיתוח הושלם</b>, בהיקף רחב מזה שתואר בהצעה המקורית, והמערכת פועלת בייצור על נתוני מכירות חיים.</span></li>
-        <li><span><b>המערכת טרם שלמה.</b> חלק מהיכולות בנויות אך אינן פעילות, משום שהנתונים שהן מבוססות עליהם טרם התקבלו.</span></li>
-        <li><span>מה שחסר <b>אינו פיתוח אלא נתונים</b>: יעדים מ-GoMobile, ומלאי, NPS והשלמות קטלוג מ-bGate. עם קבלתם היכולות ייפתחו ללא עבודה נוספת.</span></li>
+        <li><span><b>מעקב שעות עבודה ופתיחת חנות</b> — עלה בפגישת 2.8. דורש התממשקות למערכת נוכחות (TimeWatch או מקבילה), בניית שכבת API ולוגיקה נפרדת. <b>אפיון והצעה נפרדים.</b></span></li>
+        <li><span><b>פיד שינויי מחיר מלא</b> — מחייב שהקטלוג המלא יעבור למערכת מודיעין התמחור, ומשם יימשך מעקב השינויים.</span></li>
       </ul>
     </section>
   </div>
 
   <footer>
     <span class="brand"><img src="octomonic.png" alt="" />OctoMonic</span>
-    <span>המערכת בייצור · 30 ביולי 2026</span>
+    <span>אפיון מעודכן · 2 באוגוסט 2026</span>
   </footer>
 </div>
 </body>
