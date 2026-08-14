@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile — GPI V2 -->
+<!-- Change: standalone project offer (HE) -->
+<!-- Generated: 2026-08-14 -->
+<!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPI V2 — הצעת פרויקט | OctoMonic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --ink:#0f172a; --ink2:#334155; --muted:#64748b; --line:#e2e8f0;
+    --bg:#f8fafc; --card:#ffffff; --brand:#EC008C; --navy:#0F172A;
+    --ok:#15803d; --soft:#f1f5f9;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Heebo',system-ui,-apple-system,sans-serif;
+    line-height:1.75; font-size:17px; -webkit-font-smoothing:antialiased;
+  }
+
+  /* ── OctoMonic × GoMobile branding bar (mandatory) ── */
+  .brand-bar{
+    position:sticky; top:0; z-index:1000; height:88px; background:var(--navy);
+    display:flex; align-items:center; justify-content:center; padding:0 20px;
+  }
+  .brand-bar .lockup{display:flex; align-items:center; gap:16px}
+  .brand-bar img.oct{height:72px; width:auto; display:block}
+  .brand-bar .chip{
+    background:#fff; border-radius:14px; padding:7px 12px; display:flex; align-items:center;
+  }
+  .brand-bar img.client{height:54px; width:auto; display:block}
+  .brand-bar .x{color:#64748b; font-size:20px; font-weight:500}
+  .brand-bar .bdate{
+    position:absolute; inset-inline-start:24px; color:#94a3b8; font-size:13px; letter-spacing:.02em;
+  }
+  @media(max-width:640px){
+    .brand-bar{height:72px}
+    .brand-bar img.oct{height:56px}
+    .brand-bar img.client{height:42px}
+    .brand-bar .bdate{display:none}
+  }
+
+  .wrap{max-width:860px; margin:0 auto; padding:0 22px 90px}
+
+  /* hero */
+  .hero{padding:56px 0 30px; border-bottom:1px solid var(--line); margin-bottom:44px}
+  .eyebrow{color:var(--brand); font-weight:700; font-size:14px; letter-spacing:.08em; margin:0 0 10px}
+  h1{font-size:44px; line-height:1.15; margin:0 0 16px; font-weight:900; letter-spacing:-.02em}
+  .lede{font-size:19px; color:var(--ink2); margin:0 0 26px; max-width:62ch}
+  .pills{display:flex; flex-wrap:wrap; gap:10px}
+  .pill{
+    background:var(--card); border:1px solid var(--line); border-radius:999px;
+    padding:8px 16px; font-size:14.5px; font-weight:500; color:var(--ink2);
+  }
+  .pill b{color:var(--ink); font-weight:700}
+
+  h2{font-size:27px; margin:52px 0 8px; font-weight:800; letter-spacing:-.01em}
+  h2 .num{color:var(--brand); font-weight:900; margin-inline-end:10px}
+  h3{font-size:19px; margin:30px 0 8px; font-weight:700}
+  p{margin:0 0 14px}
+  .sub{color:var(--muted); font-size:15px; margin:0 0 22px}
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:24px 26px; margin:20px 0;
+  }
+
+  table{width:100%; border-collapse:collapse; margin:18px 0; font-size:16px; background:var(--card)}
+  th,td{padding:13px 16px; text-align:start; border-bottom:1px solid var(--line); vertical-align:top}
+  th{background:var(--soft); font-weight:700; font-size:14.5px; color:var(--ink2)}
+  tr:last-child td{border-bottom:none}
+  table{border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  td b{font-weight:700}
+
+  ul{margin:0 0 16px; padding-inline-start:22px}
+  li{margin-bottom:9px}
+  li::marker{color:var(--brand)}
+
+  .note{
+    background:#fff7fb; border:1px solid #fbcfe8; border-radius:12px;
+    padding:15px 18px; font-size:15.5px; color:var(--ink2); margin:18px 0;
+  }
+
+  /* payment */
+  .pay{
+    background:var(--navy); color:#fff; border-radius:20px; padding:34px 32px; margin:26px 0 14px;
+  }
+  .pay h3{color:#fff; margin:0 0 20px; font-size:21px}
+  .pay-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    padding:15px 0; border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  .pay-row:last-of-type{border-bottom:none}
+  .pay-label{color:#cbd5e1; font-size:16px}
+  .pay-val{font-size:29px; font-weight:900; white-space:nowrap}
+  .pay-val small{font-size:15px; font-weight:500; color:#94a3b8}
+  .split{
+    display:flex; gap:12px; margin-top:22px; padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.14);
+  }
+  .split div{
+    flex:1; background:rgba(255,255,255,.07); border-radius:12px; padding:15px 17px;
+  }
+  .split .k{color:#94a3b8; font-size:13.5px; margin-bottom:3px}
+  .split .v{font-size:18px; font-weight:700}
+  .vat{color:#94a3b8; font-size:14.5px; margin:16px 0 0}
+
+  .terms{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0}
+  .terms div{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px}
+  .terms .k{color:var(--muted); font-size:13.5px; margin-bottom:4px}
+  .terms .v{font-weight:700; font-size:16.5px}
+  @media(max-width:640px){ .terms{grid-template-columns:1fr} .split{flex-direction:column} h1{font-size:33px} }
+
+  .pdfwrap{text-align:center; margin:56px 0 30px}
+  .pdfbtn{
+    background:var(--brand); color:#fff; border:none; border-radius:999px;
+    padding:15px 34px; font-size:16.5px; font-weight:700; cursor:pointer;
+    font-family:inherit; box-shadow:0 4px 14px rgba(236,0,140,.28);
+  }
+  footer{
+    border-top:1px solid var(--line); padding-top:26px; text-align:center;
+    color:var(--muted); font-size:14.5px; line-height:2;
+  }
+  footer b{color:var(--ink); font-weight:700}
+
+  @media print{
+    .brand-bar{position:static}
+    .pdfwrap{display:none}
+    body{background:#fff; font-size:12.5pt}
+    .pay{background:#0F172A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    h2{page-break-after:avoid} table,.card,.pay{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  <span class="bdate">14.08.2026</span>
+  <span class="lockup">
+    <img class="oct" src="octomonic-logo.png" alt="OctoMonic">
+    <span class="x">&times;</span>
+    <span class="chip"><img class="client" src="gomobile-logo.svg" alt="GoMobile"></span>
+  </span>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">הצעת פרויקט</p>
+    <h1>GPI V2</h1>
+    <p class="lede">
+      מערכת תמחור אחת לכל הקטלוג: כל המוצרים הנמכרים מנוהלים ממקום אחד, ולצד כל מוצר מוצגים
+      גם מחירי המתחרים וגם כמה יחידות נמכרו בפועל.
+    </p>
+    <div class="pills">
+      <span class="pill"><b>3,614</b> מק״טים מנוהלים</span>
+      <span class="pill"><b>~1,000</b> מק״טים בסריקת מתחרים</span>
+      <span class="pill">מקור מתחרים חדש — <b>Zap</b></span>
+      <span class="pill">מסירה — <b>ספטמבר 2026</b></span>
+    </div>
+  </div>
+
+  <h2><span class="num">1</span>מה כולל הפרויקט</h2>
+
+  <h3>כל הקטלוג במערכת</h3>
+  <p>
+    3,614 המק״טים הנמכרים בפועל נכנסים למערכת, וניתן לבצע דרכה שינוי מחיר לכל אחד מהם —
+    ולא רק בקטגוריות הנסרקות כיום.
+  </p>
+  <p class="sub">
+    3,614 = כלל המוצרים המפורסמים באתר, בניכוי שורות שאינן מוצרים למכירה: 615 שורות מעבדה
+    ותיקונים, 60 מציאון ותצוגה, 41 חבילות ומבצעים כפולים, וכפילויות.
+  </p>
+  <p>
+    מוצרים שאינם מפורסמים באתר אינם מוצגים במערכת — כך שכל מוצר שמופיע הוא מוצר חי, עם תמונה
+    ועם נתונים מלאים.
+  </p>
+
+  <h3>הפרדה בין מוצר מנוהל למוצר נסרק</h3>
+  <table>
+    <tr><th>&nbsp;</th><th>המשמעות</th><th>היקף</th></tr>
+    <tr>
+      <td><b>מנוהל</b></td>
+      <td>המוצר במערכת וניתן לשנות לו מחיר</td>
+      <td>כל הקטלוג (~3,614)</td>
+    </tr>
+    <tr>
+      <td><b>נסרק</b></td>
+      <td>נאספים עבורו מחירי מתחרים להשוואה</td>
+      <td>~1,000 מק״טים נבחרים</td>
+    </tr>
+  </table>
+  <p>
+    רשימת המק״טים הנסרקים נקבעת בתחילת הפרויקט וניתנת לשינוי לאורך הדרך. הכנסה או הוצאה של
+    מוצר מהרשימה אינה כרוכה בעלות נוספת.
+  </p>
+
+  <h3>Zap כמקור מתחרים</h3>
+  <p>
+    במקום הדבקת קישור לכל מתחרה בנפרד — עמוד Zap אחד של מוצר מחזיר <b>10–24 חנויות בבת אחת</b>.
+  </p>
+  <ul>
+    <li>בסקירה שבוצעה נצפו <b>56 חנויות</b>, מתוכן <b>53 שאינן במעקב כיום</b>.</li>
+    <li>צמצום משמעותי של עבודת ההדבקה הידנית של קישורים.</li>
+    <li>תצוגת המתחרים המובילים בלבד — למשל עשרת הזולים — לפי הגדרה שתיקבע.</li>
+    <li>המנגנון כבר נבנה ונבדק מול עמודים חיים; הפרויקט מפעיל אותו ומוסיף את המסכים.</li>
+  </ul>
+  <div class="note">
+    הצעה ב-Zap שאינה מציינת יבואן מסומנת כ״דורשת אימות״ ואינה נכנסת להשוואה אוטומטית — מחיר
+    שאין ודאות לאיזה מוצר הוא שייך אינו משמש להשוואה.
+  </div>
+
+  <h3>נתוני מכירות לצד המחיר</h3>
+  <p>
+    בכל מוצר מוצגות <b>כמות היחידות שנמכרה</b> ו<b>המחירים בפועל בשבועיים האחרונים</b>, מתוך
+    מערכת המכירות. הנתונים מאוחדים לרמת המוצר — iPhone 17 Pro 256GB מוצג כמספר אחד, ולא מפוצל
+    לפי צבעים. כך החלטת התמחור נעשית מול ביקוש אמיתי ולא רק מול המתחרים.
+  </p>
+
+  <h3>מאגר מק״טים מאוחד</h3>
+  <p>
+    תשתית המקשרת בין מזהי המוצר בשלוש המערכות — האתר, ה-ERP ומערכת התמחור — ומתעדכנת אוטומטית.
+    זהו הרכיב שמאפשר להציג נתוני מכירות מדויקים לכל מוצר, ומייתר עבודת התאמה ידנית בהמשך.
+  </p>
+
+  <h3>השלמת הכיסוי הקיים</h3>
+  <p>
+    סגירת פערי המתחרים בקטגוריות הנסרקות והפעלת <b>שעונים חכמים</b> — 67 מוצרים ללא השוואה כיום.
+  </p>
+
+  <h2><span class="num">2</span>מה לא נכלל</h2>
+  <ul>
+    <li>מוצרים שאינם ברשימת הנסרקים — מנוהלים במערכת, ללא איסוף מחירי מתחרים.</li>
+    <li>מוצרים שאין להם מתחרה זמין באף מקור. קיימים כיום 15 מוצרי דגל כאלה; לא ניתן לסגור אותם
+        במאמץ נוסף, אלא רק אם המוצר יופיע אצל מתחרה.</li>
+    <li>הצעות Zap ללא סימון יבואן — מוצגות, אך אינן משמשות להשוואה אוטומטית.</li>
+    <li>שינויים בצד ה-ERP או אתר האינטרנט.</li>
+    <li>מערכת ניהול תורים ולוחות מחוונים לחנויות — פרויקטים נפרדים.</li>
+  </ul>
+
+  <h2><span class="num">3</span>עלויות</h2>
+
+  <div class="pay">
+    <h3>סיכום עלויות</h3>
+    <div class="pay-row">
+      <span class="pay-label">פיתוח הפרויקט — חד-פעמי</span>
+      <span class="pay-val">₪6,000</span>
+    </div>
+    <div class="pay-row">
+      <span class="pay-label">תחזוקה ותמיכה — תוספת חודשית</span>
+      <span class="pay-val">₪300 <small>לחודש</small></span>
+    </div>
+    <div class="split">
+      <div><div class="k">עם אישור ההצעה</div><div class="v">40% — ₪2,400</div></div>
+      <div><div class="k">עם המסירה</div><div class="v">60% — ₪3,600</div></div>
+    </div>
+    <p class="vat">* לכל המחירים יש להוסיף מע״מ.</p>
+  </div>
+
+  <h3>עלויות תפעול</h3>
+  <p>
+    עלויות הסריקה והאחסון משולמות ישירות על ידי GoMobile, כפי שנעשה כיום. היקף הסריקה גדל ולכן
+    העלות עולה בהתאם: בהיקף של כ-1,000 מק״טים נסרקים העלות הצפויה היא
+    <b>כ-₪670–830 לחודש</b> (לעומת כ-₪310 כיום), הכוללת שדרוג של חבילת הסריקות — החבילה הנוכחית
+    מנוצלת כיום בכ-70% ואינה מספיקה להיקף המורחב.
+  </p>
+  <div class="note">
+    החזקת הקטלוג המלא כשלעצמה אינה מייקרת את התפעול. העלות התפעולית נגזרת ממספר המק״טים
+    <b>הנסרקים</b> בלבד — ולכן שינוי הרכב הקטלוג לאורך השנה אינו משנה אותה.
+  </div>
+
+  <h2><span class="num">4</span>תנאים עיקריים</h2>
+  <div class="terms">
+    <div><div class="k">מסירה</div><div class="v">עד סוף ספטמבר 2026</div></div>
+    <div><div class="k">תנאי תשלום</div><div class="v">40% אישור · 60% מסירה</div></div>
+    <div><div class="k">תחזוקה ותמיכה</div><div class="v">₪300 לחודש</div></div>
+    <div><div class="k">תוקף ההצעה</div><div class="v">14 יום</div></div>
+  </div>
+
+  <h2><span class="num">5</span>מה נדרש מ-GoMobile</h2>
+  <ul>
+    <li><b>בחירת רשימת המק״טים לסריקה</b> (~1,000) — מעבר משותף לפי קטגוריה בתחילת הפרויקט.</li>
+    <li><b>קביעת מספר המתחרים המוצגים</b> מתוך Zap — למשל עשרת הזולים.</li>
+    <li>השלמת הפערים בנתונים מול ספק ה-ERP.</li>
+  </ul>
+
+  <div class="pdfwrap">
+    <button class="pdfbtn" onclick="window.print()">⬇️ שמרו את ההצעה כ-PDF</button>
+  </div>
+
+  <footer>
+    <b>תום לוי</b> · מייסד ומנכ״ל, Octomonic<br>
+    054-207-7279 · tom@octomonic.com · octomonic.com
+  </footer>
+
+</div>
+</body>
+</html>
