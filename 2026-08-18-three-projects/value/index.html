@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile — GPI value report (live data) -->
+<!-- Generated: 2026-08-18 · figures queried from the GPI production database -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPI — דוח ערך | OctoMonic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="brand-bar">
+  <span class="bdate">18.08.2026</span>
+  <span class="lockup">
+    <img class="oct" src="../octomonic-logo.png" alt="OctoMonic">
+    <span class="x">&times;</span>
+    <span class="chip" style="background:#fff;border-radius:14px;padding:7px 12px;display:flex;align-items:center;cursor:default">
+      <img class="client" src="../gomobile-logo.svg" alt="GoMobile"></span>
+  </span>
+</div>
+<div class="wrap wide">
+  <a class="back" href="../">&#8594; חזרה לסקירת הפרויקטים</a>
+
+  <div class="hero">
+    <p class="eyebrow">דוח ערך — נתונים חיים</p>
+    <h1>מה קרה מאז שהמערכת עלתה</h1>
+    <p class="lede">
+      כל המספרים במסמך זה נשלפו ממסד הנתונים של GPI, לתקופה 01.06.2026 עד 17.08.2026.
+      אפשר לסנן לפי קטגוריה — כל הגרפים והמספרים מתעדכנים בהתאם.
+    </p>
+    <div class="pills">
+      <span class="pill">תקופה — <b>11 שבועות</b></span>
+      <span class="pill">מקור — <b>מסד הנתונים החי</b></span>
+      <span class="pill">סינון — <b>לפי קטגוריה</b></span>
+    </div>
+  </div>
+
+  <div class="filters" id="filters"><span class="fl">קטגוריה:</span></div>
+
+  <div class="stats" id="kpis"></div>
+  <p class="sub" id="kpisub"></p>
+
+  <div class="panel">
+    <h3>קצב העדכון — GoMobile מול המתחרים</h3>
+    <p class="cap">שינויי מחיר לכל מק״ט בחודש. זהו המדד ההשוואתי: כמה פעמים מחיר של מוצר מתעדכן בממוצע.</p>
+    <div class="barlist" id="cadence"></div>
+    <div class="note" id="cadnote"></div>
+  </div>
+
+  <div class="panel">
+    <h3>פעילות לאורך זמן</h3>
+    <p class="cap">שינויי מחיר שבוצעו דרך GPI, בפילוח שבועי.</p>
+    <div class="chart" id="weekly"></div>
+    <div class="legend">
+      <span><i style="background:#EC008C"></i>הורדות מחיר</span>
+      <span><i style="background:#0F172A"></i>העלאות מחיר</span>
+      <span><i style="background:#cbd5e1"></i>ללא שינוי מתועד בכיוון</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>תגובה לשינויי מתחרים</h3>
+    <p class="cap">מתוך שינויי המחיר שזוהו אצל המתחרים — באיזה שיעור עודכן המחיר באותו מק״ט אצלכם בתוך 14 יום.</p>
+    <div class="barlist" id="react"></div>
+  </div>
+
+  <div class="panel">
+    <h3>היקף הכיסוי</h3>
+    <p class="cap">כמה מהקטלוג המנוהל נוגע בפועל בעדכוני מחיר.</p>
+    <table>
+      <tr><th>קטגוריה</th><th class="n">שינויי מחיר</th><th class="n">מק״טים שעודכנו</th><th class="n">ממוצע למק״ט</th></tr>
+      <tbody id="covtable"></tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>איך נמדד:</b> "שינוי מחיר" אצלכם = עדכון מחיר שבוצע בפועל דרך GPI ואושר על ידי המערכת.
+    אצל המתחרים = מחיר שנצפה בסריקה ושונה מהמחיר שנצפה בסריקה הקודמת לאותו מוצר.
+    שיעור ההצלחה מחושב מתוך סך בקשות העדכון.
+  </div>
+
+  <div class="pdfwrap"><button class="pdfbtn" onclick="window.print()">שמירה כ-PDF</button></div>
+  <footer><b>תום לוי</b> · מייסד ומנכ״ל, OctoMonic<br>054-207-7279 · tom@octomonic.com</footer>
+</div>
+<script>
+const D = {"gmWeek": [{"w": "2026-06-01", "c": "lego", "n": 2, "cut": 0, "rai": 0}, {"w": "2026-06-01", "c": "smartphone", "n": 2, "cut": 0, "rai": 0}, {"w": "2026-06-01", "c": "tablet", "n": 1, "cut": 0, "rai": 0}, {"w": "2026-06-08", "c": "lego", "n": 64, "cut": 18, "rai": 10}, {"w": "2026-06-08", "c": "smartphone", "n": 103, "cut": 52, "rai": 6}, {"w": "2026-06-08", "c": "smartwatch", "n": 12, "cut": 4, "rai": 4}, {"w": "2026-06-08", "c": "sound", "n": 3, "cut": 0, "rai": 1}, {"w": "2026-06-08", "c": "tablet", "n": 31, "cut": 14, "rai": 1}, {"w": "2026-06-08", "c": "vacuum", "n": 10, "cut": 2, "rai": 0}, {"w": "2026-06-15", "c": "lego", "n": 45, "cut": 30, "rai": 14}, {"w": "2026-06-15", "c": "smartphone", "n": 87, "cut": 51, "rai": 12}, {"w": "2026-06-15", "c": "smartwatch", "n": 5, "cut": 1, "rai": 3}, {"w": "2026-06-15", "c": "sound", "n": 1, "cut": 1, "rai": 0}, {"w": "2026-06-15", "c": "tablet", "n": 22, "cut": 15, "rai": 5}, {"w": "2026-06-15", "c": "vacuum", "n": 2, "cut": 1, "rai": 1}, {"w": "2026-06-22", "c": "lego", "n": 46, "cut": 43, "rai": 3}, {"w": "2026-06-22", "c": "smartphone", "n": 167, "cut": 117, "rai": 10}, {"w": "2026-06-22", "c": "smartwatch", "n": 18, "cut": 14, "rai": 3}, {"w": "2026-06-22", "c": "sound", "n": 16, "cut": 9, "rai": 3}, {"w": "2026-06-22", "c": "tablet", "n": 37, "cut": 29, "rai": 3}, {"w": "2026-06-22", "c": "vacuum", "n": 26, "cut": 20, "rai": 3}, {"w": "2026-06-29", "c": "lego", "n": 45, "cut": 27, "rai": 18}, {"w": "2026-06-29", "c": "smartphone", "n": 137, "cut": 77, "rai": 28}, {"w": "2026-06-29", "c": "smartwatch", "n": 7, "cut": 6, "rai": 1}, {"w": "2026-06-29", "c": "sound", "n": 35, "cut": 23, "rai": 5}, {"w": "2026-06-29", "c": "tablet", "n": 14, "cut": 11, "rai": 2}, {"w": "2026-06-29", "c": "vacuum", "n": 44, "cut": 34, "rai": 2}, {"w": "2026-07-06", "c": "lego", "n": 43, "cut": 39, "rai": 4}, {"w": "2026-07-06", "c": "smartphone", "n": 98, "cut": 52, "rai": 28}, {"w": "2026-07-06", "c": "smartwatch", "n": 14, "cut": 10, "rai": 2}, {"w": "2026-07-06", "c": "sound", "n": 21, "cut": 5, "rai": 6}, {"w": "2026-07-06", "c": "tablet", "n": 14, "cut": 1, "rai": 7}, {"w": "2026-07-06", "c": "vacuum", "n": 68, "cut": 33, "rai": 20}, {"w": "2026-07-13", "c": "lego", "n": 33, "cut": 28, "rai": 5}, {"w": "2026-07-13", "c": "smart_home", "n": 9, "cut": 8, "rai": 0}, {"w": "2026-07-13", "c": "smartphone", "n": 60, "cut": 19, "rai": 28}, {"w": "2026-07-13", "c": "smartwatch", "n": 1, "cut": 0, "rai": 1}, {"w": "2026-07-13", "c": "sound", "n": 17, "cut": 7, "rai": 5}, {"w": "2026-07-13", "c": "tablet", "n": 23, "cut": 7, "rai": 15}, {"w": "2026-07-13", "c": "vacuum", "n": 42, "cut": 28, "rai": 1}, {"w": "2026-07-20", "c": "lego", "n": 9, "cut": 6, "rai": 3}, {"w": "2026-07-20", "c": "smartphone", "n": 61, "cut": 34, "rai": 13}, {"w": "2026-07-20", "c": "smartwatch", "n": 11, "cut": 10, "rai": 0}, {"w": "2026-07-20", "c": "sound", "n": 6, "cut": 4, "rai": 2}, {"w": "2026-07-20", "c": "tablet", "n": 23, "cut": 11, "rai": 7}, {"w": "2026-07-20", "c": "vacuum", "n": 29, "cut": 6, "rai": 0}, {"w": "2026-07-27", "c": "lego", "n": 35, "cut": 25, "rai": 9}, {"w": "2026-07-27", "c": "smart_home", "n": 9, "cut": 7, "rai": 2}, {"w": "2026-07-27", "c": "smartphone", "n": 64, "cut": 25, "rai": 26}, {"w": "2026-07-27", "c": "smartwatch", "n": 15, "cut": 7, "rai": 7}, {"w": "2026-07-27", "c": "sound", "n": 10, "cut": 6, "rai": 3}, {"w": "2026-07-27", "c": "tablet", "n": 7, "cut": 2, "rai": 2}, {"w": "2026-07-27", "c": "vacuum", "n": 34, "cut": 26, "rai": 0}, {"w": "2026-08-03", "c": "lego", "n": 58, "cut": 45, "rai": 11}, {"w": "2026-08-03", "c": "smartphone", "n": 75, "cut": 41, "rai": 26}, {"w": "2026-08-03", "c": "smartwatch", "n": 12, "cut": 5, "rai": 7}, {"w": "2026-08-03", "c": "sound", "n": 7, "cut": 4, "rai": 0}, {"w": "2026-08-03", "c": "tablet", "n": 7, "cut": 5, "rai": 2}, {"w": "2026-08-03", "c": "vacuum", "n": 30, "cut": 26, "rai": 1}, {"w": "2026-08-10", "c": "lego", "n": 17, "cut": 5, "rai": 12}, {"w": "2026-08-10", "c": "smartphone", "n": 74, "cut": 23, "rai": 36}, {"w": "2026-08-10", "c": "smartwatch", "n": 5, "cut": 4, "rai": 1}, {"w": "2026-08-10", "c": "sound", "n": 15, "cut": 9, "rai": 4}, {"w": "2026-08-10", "c": "tablet", "n": 13, "cut": 8, "rai": 5}, {"w": "2026-08-10", "c": "vacuum", "n": 29, "cut": 15, "rai": 4}, {"w": "2026-08-17", "c": "smartphone", "n": 8, "cut": 1, "rai": 4}, {"w": "2026-08-17", "c": "sound", "n": 2, "cut": 0, "rai": 1}, {"w": "2026-08-17", "c": "tablet", "n": 4, "cut": 2, "rai": 0}], "compWeek": [{"w": "2026-05-04", "s": "eline", "c": "other", "ch": 1, "ob": 9}, {"w": "2026-05-04", "s": "eline", "c": "smartphone", "ch": 15, "ob": 73}, {"w": "2026-05-04", "s": "eline", "c": "tablet", "ch": 4, "ob": 24}, {"w": "2026-05-04", "s": "ksp", "c": "lego", "ch": 73, "ob": 484}, {"w": "2026-05-04", "s": "ksp", "c": "other", "ch": 2, "ob": 129}, {"w": "2026-05-04", "s": "ksp", "c": "smartphone", "ch": 2, "ob": 205}, {"w": "2026-05-04", "s": "ksp", "c": "tablet", "ch": 1, "ob": 40}, {"w": "2026-05-04", "s": "ksp", "c": "vacuum", "ch": 2, "ob": 34}, {"w": "2026-05-04", "s": "superpharm", "c": "lego", "ch": 17, "ob": 221}, {"w": "2026-05-04", "s": "superpharm", "c": "other", "ch": 1, "ob": 10}, {"w": "2026-05-04", "s": "superpharm", "c": "smartphone", "ch": 4, "ob": 34}, {"w": "2026-05-04", "s": "superpharm", "c": "tablet", "ch": 0, "ob": 20}, {"w": "2026-05-04", "s": "superpharm", "c": "vacuum", "ch": 9, "ob": 42}, {"w": "2026-05-04", "s": "tripley", "c": "other", "ch": 3, "ob": 50}, {"w": "2026-05-04", "s": "tripley", "c": "smartphone", "ch": 3, "ob": 85}, {"w": "2026-05-04", "s": "tzilzul", "c": "other", "ch": 2, "ob": 8}, {"w": "2026-05-04", "s": "tzilzul", "c": "smartphone", "ch": 32, "ob": 120}, {"w": "2026-05-04", "s": "tzilzul", "c": "tablet", "ch": 2, "ob": 30}, {"w": "2026-05-04", "s": "tzilzul", "c": "vacuum", "ch": 3, "ob": 30}, {"w": "2026-05-11", "s": "eline", "c": "other", "ch": 0, "ob": 2}, {"w": "2026-05-11", "s": "eline", "c": "smartphone", "ch": 19, "ob": 38}, {"w": "2026-05-11", "s": "eline", "c": "tablet", "ch": 3, "ob": 10}, {"w": "2026-05-11", "s": "ksp", "c": "lego", "ch": 0, "ob": 77}, {"w": "2026-05-11", "s": "ksp", "c": "other", "ch": 13, "ob": 35}, {"w": "2026-05-11", "s": "ksp", "c": "smartphone", "ch": 14, "ob": 54}, {"w": "2026-05-11", "s": "ksp", "c": "tablet", "ch": 1, "ob": 13}, {"w": "2026-05-11", "s": "ksp", "c": "vacuum", "ch": 3, "ob": 14}, {"w": "2026-05-11", "s": "superpharm", "c": "lego", "ch": 10, "ob": 61}, {"w": "2026-05-11", "s": "superpharm", "c": "other", "ch": 1, "ob": 2}, {"w": "2026-05-11", "s": "superpharm", "c": "smartphone", "ch": 5, "ob": 9}, {"w": "2026-05-11", "s": "superpharm", "c": "tablet", "ch": 1, "ob": 6}, {"w": "2026-05-11", "s": "superpharm", "c": "vacuum", "ch": 6, "ob": 14}, {"w": "2026-05-11", "s": "tripley", "c": "other", "ch": 1, "ob": 12}, {"w": "2026-05-11", "s": "tripley", "c": "smartphone", "ch": 1, "ob": 6}, {"w": "2026-05-11", "s": "tripley", "c": "tablet", "ch": 0, "ob": 5}, {"w": "2026-05-11", "s": "tzilzul", "c": "smartphone", "ch": 15, "ob": 29}, {"w": "2026-05-11", "s": "tzilzul", "c": "tablet", "ch": 2, "ob": 9}, {"w": "2026-05-11", "s": "tzilzul", "c": "vacuum", "ch": 6, "ob": 10}, {"w": "2026-05-18", "s": "eline", "c": "other", "ch": 1, "ob": 1}, {"w": "2026-05-18", "s": "eline", "c": "smartphone", "ch": 4, "ob": 5}, {"w": "2026-05-18", "s": "eline", "c": "tablet", "ch": 0, "ob": 2}, {"w": "2026-05-18", "s": "ksp", "c": "lego", "ch": 0, "ob": 55}, {"w": "2026-05-18", "s": "ksp", "c": "vacuum", "ch": 0, "ob": 1}, {"w": "2026-05-18", "s": "superpharm", "c": "lego", "ch": 0, "ob": 108}, {"w": "2026-05-18", "s": "superpharm", "c": "smartphone", "ch": 0, "ob": 7}, {"w": "2026-05-18", "s": "tripley", "c": "tablet", "ch": 0, "ob": 6}, {"w": "2026-05-25", "s": "eline", "c": "smartphone", "ch": 1, "ob": 6}, {"w": "2026-05-25", "s": "eline", "c": "tablet", "ch": 5, "ob": 7}, {"w": "2026-05-25", "s": "ksp", "c": "smartphone", "ch": 0, "ob": 17}, {"w": "2026-05-25", "s": "ksp", "c": "tablet", "ch": 0, "ob": 7}, {"w": "2026-05-25", "s": "superpharm", "c": "smartphone", "ch": 0, "ob": 11}, {"w": "2026-05-25", "s": "superpharm", "c": "tablet", "ch": 0, "ob": 10}, {"w": "2026-05-25", "s": "tzilzul", "c": "smartphone", "ch": 0, "ob": 8}, {"w": "2026-05-25", "s": "tzilzul", "c": "tablet", "ch": 1, "ob": 5}, {"w": "2026-06-01", "s": "eline", "c": "smartphone", "ch": 42, "ob": 78}, {"w": "2026-06-01", "s": "eline", "c": "tablet", "ch": 12, "ob": 19}, {"w": "2026-06-01", "s": "ksp", "c": "lego", "ch": 66, "ob": 259}, {"w": "2026-06-01", "s": "ksp", "c": "smartphone", "ch": 23, "ob": 100}, {"w": "2026-06-01", "s": "ksp", "c": "tablet", "ch": 3, "ob": 29}, {"w": "2026-06-01", "s": "ksp", "c": "vacuum", "ch": 11, "ob": 29}, {"w": "2026-06-01", "s": "superpharm", "c": "lego", "ch": 102, "ob": 285}, {"w": "2026-06-01", "s": "superpharm", "c": "smartphone", "ch": 24, "ob": 63}, {"w": "2026-06-01", "s": "superpharm", "c": "tablet", "ch": 6, "ob": 30}, {"w": "2026-06-01", "s": "superpharm", "c": "vacuum", "ch": 11, "ob": 21}, {"w": "2026-06-01", "s": "tripley", "c": "smartphone", "ch": 6, "ob": 27}, {"w": "2026-06-01", "s": "tripley", "c": "tablet", "ch": 0, "ob": 21}, {"w": "2026-06-01", "s": "tzilzul", "c": "smartphone", "ch": 33, "ob": 63}, {"w": "2026-06-01", "s": "tzilzul", "c": "tablet", "ch": 10, "ob": 19}, {"w": "2026-06-01", "s": "tzilzul", "c": "vacuum", "ch": 15, "ob": 20}, {"w": "2026-06-08", "s": "eline", "c": "smartphone", "ch": 35, "ob": 185}, {"w": "2026-06-08", "s": "eline", "c": "tablet", "ch": 8, "ob": 19}, {"w": "2026-06-08", "s": "ksp", "c": "lego", "ch": 12, "ob": 404}, {"w": "2026-06-08", "s": "ksp", "c": "smartphone", "ch": 12, "ob": 244}, {"w": "2026-06-08", "s": "ksp", "c": "tablet", "ch": 2, "ob": 27}, {"w": "2026-06-08", "s": "ksp", "c": "vacuum", "ch": 12, "ob": 28}, {"w": "2026-06-08", "s": "superpharm", "c": "lego", "ch": 64, "ob": 400}, {"w": "2026-06-08", "s": "superpharm", "c": "smartphone", "ch": 30, "ob": 144}, {"w": "2026-06-08", "s": "superpharm", "c": "tablet", "ch": 6, "ob": 23}, {"w": "2026-06-08", "s": "superpharm", "c": "vacuum", "ch": 6, "ob": 24}, {"w": "2026-06-08", "s": "tripley", "c": "smartphone", "ch": 4, "ob": 66}, {"w": "2026-06-08", "s": "tripley", "c": "tablet", "ch": 0, "ob": 18}, {"w": "2026-06-08", "s": "tzilzul", "c": "smartphone", "ch": 34, "ob": 141}, {"w": "2026-06-08", "s": "tzilzul", "c": "tablet", "ch": 11, "ob": 15}, {"w": "2026-06-08", "s": "tzilzul", "c": "vacuum", "ch": 10, "ob": 18}, {"w": "2026-06-15", "s": "eline", "c": "smartphone", "ch": 44, "ob": 222}, {"w": "2026-06-15", "s": "eline", "c": "tablet", "ch": 9, "ob": 18}, {"w": "2026-06-15", "s": "ksp", "c": "lego", "ch": 23, "ob": 436}, {"w": "2026-06-15", "s": "ksp", "c": "smartphone", "ch": 15, "ob": 289}, {"w": "2026-06-15", "s": "ksp", "c": "tablet", "ch": 1, "ob": 26}, {"w": "2026-06-15", "s": "ksp", "c": "vacuum", "ch": 13, "ob": 28}, {"w": "2026-06-15", "s": "superpharm", "c": "lego", "ch": 52, "ob": 434}, {"w": "2026-06-15", "s": "superpharm", "c": "smartphone", "ch": 33, "ob": 174}, {"w": "2026-06-15", "s": "superpharm", "c": "tablet", "ch": 5, "ob": 26}, {"w": "2026-06-15", "s": "superpharm", "c": "vacuum", "ch": 6, "ob": 24}, {"w": "2026-06-15", "s": "tripley", "c": "smartphone", "ch": 4, "ob": 78}, {"w": "2026-06-15", "s": "tripley", "c": "tablet", "ch": 0, "ob": 14}, {"w": "2026-06-15", "s": "tzilzul", "c": "smartphone", "ch": 33, "ob": 162}, {"w": "2026-06-15", "s": "tzilzul", "c": "tablet", "ch": 10, "ob": 16}, {"w": "2026-06-15", "s": "tzilzul", "c": "vacuum", "ch": 5, "ob": 14}, {"w": "2026-06-22", "s": "eline", "c": "smartphone", "ch": 53, "ob": 219}, {"w": "2026-06-22", "s": "eline", "c": "sound", "ch": 0, "ob": 1}, {"w": "2026-06-22", "s": "eline", "c": "tablet", "ch": 10, "ob": 18}, {"w": "2026-06-22", "s": "ksp", "c": "lego", "ch": 15, "ob": 466}, {"w": "2026-06-22", "s": "ksp", "c": "smartphone", "ch": 8, "ob": 283}, {"w": "2026-06-22", "s": "ksp", "c": "sound", "ch": 0, "ob": 8}, {"w": "2026-06-22", "s": "ksp", "c": "tablet", "ch": 1, "ob": 31}, {"w": "2026-06-22", "s": "ksp", "c": "vacuum", "ch": 13, "ob": 59}, {"w": "2026-06-22", "s": "superpharm", "c": "lego", "ch": 35, "ob": 456}, {"w": "2026-06-22", "s": "superpharm", "c": "smartphone", "ch": 25, "ob": 166}, {"w": "2026-06-22", "s": "superpharm", "c": "sound", "ch": 1, "ob": 10}, {"w": "2026-06-22", "s": "superpharm", "c": "tablet", "ch": 3, "ob": 24}, {"w": "2026-06-22", "s": "superpharm", "c": "vacuum", "ch": 21, "ob": 52}, {"w": "2026-06-22", "s": "tripley", "c": "smartphone", "ch": 2, "ob": 76}, {"w": "2026-06-22", "s": "tripley", "c": "tablet", "ch": 0, "ob": 14}, {"w": "2026-06-22", "s": "tzilzul", "c": "smartphone", "ch": 42, "ob": 153}, {"w": "2026-06-22", "s": "tzilzul", "c": "smartwatch", "ch": 0, "ob": 2}, {"w": "2026-06-22", "s": "tzilzul", "c": "sound", "ch": 1, "ob": 7}, {"w": "2026-06-22", "s": "tzilzul", "c": "tablet", "ch": 7, "ob": 15}, {"w": "2026-06-22", "s": "tzilzul", "c": "vacuum", "ch": 17, "ob": 36}, {"w": "2026-06-29", "s": "eline", "c": "smartphone", "ch": 29, "ob": 210}, {"w": "2026-06-29", "s": "eline", "c": "sound", "ch": 0, "ob": 2}, {"w": "2026-06-29", "s": "eline", "c": "tablet", "ch": 8, "ob": 17}, {"w": "2026-06-29", "s": "ksp", "c": "lego", "ch": 47, "ob": 460}, {"w": "2026-06-29", "s": "ksp", "c": "smartphone", "ch": 26, "ob": 273}, {"w": "2026-06-29", "s": "ksp", "c": "sound", "ch": 0, "ob": 8}, {"w": "2026-06-29", "s": "ksp", "c": "tablet", "ch": 6, "ob": 36}, {"w": "2026-06-29", "s": "ksp", "c": "vacuum", "ch": 19, "ob": 177}, {"w": "2026-06-29", "s": "superpharm", "c": "lego", "ch": 14, "ob": 437}, {"w": "2026-06-29", "s": "superpharm", "c": "smartphone", "ch": 38, "ob": 167}, {"w": "2026-06-29", "s": "superpharm", "c": "sound", "ch": 1, "ob": 10}, {"w": "2026-06-29", "s": "superpharm", "c": "tablet", "ch": 4, "ob": 25}, {"w": "2026-06-29", "s": "superpharm", "c": "vacuum", "ch": 34, "ob": 151}, {"w": "2026-06-29", "s": "tripley", "c": "smartphone", "ch": 1, "ob": 84}, {"w": "2026-06-29", "s": "tripley", "c": "sound", "ch": 0, "ob": 2}, {"w": "2026-06-29", "s": "tripley", "c": "tablet", "ch": 9, "ob": 12}, {"w": "2026-06-29", "s": "tzilzul", "c": "smartphone", "ch": 23, "ob": 148}, {"w": "2026-06-29", "s": "tzilzul", "c": "smartwatch", "ch": 3, "ob": 4}, {"w": "2026-06-29", "s": "tzilzul", "c": "sound", "ch": 5, "ob": 6}, {"w": "2026-06-29", "s": "tzilzul", "c": "tablet", "ch": 10, "ob": 16}, {"w": "2026-06-29", "s": "tzilzul", "c": "vacuum", "ch": 37, "ob": 113}, {"w": "2026-07-06", "s": "eline", "c": "smartphone", "ch": 25, "ob": 202}, {"w": "2026-07-06", "s": "eline", "c": "sound", "ch": 1, "ob": 5}, {"w": "2026-07-06", "s": "eline", "c": "tablet", "ch": 9, "ob": 16}, {"w": "2026-07-06", "s": "ksp", "c": "lego", "ch": 11, "ob": 458}, {"w": "2026-07-06", "s": "ksp", "c": "smartphone", "ch": 8, "ob": 265}, {"w": "2026-07-06", "s": "ksp", "c": "sound", "ch": 0, "ob": 7}, {"w": "2026-07-06", "s": "ksp", "c": "tablet", "ch": 5, "ob": 37}, {"w": "2026-07-06", "s": "ksp", "c": "vacuum", "ch": 39, "ob": 168}, {"w": "2026-07-06", "s": "superpharm", "c": "lego", "ch": 23, "ob": 440}, {"w": "2026-07-06", "s": "superpharm", "c": "smartphone", "ch": 23, "ob": 146}, {"w": "2026-07-06", "s": "superpharm", "c": "sound", "ch": 3, "ob": 9}, {"w": "2026-07-06", "s": "superpharm", "c": "tablet", "ch": 3, "ob": 25}, {"w": "2026-07-06", "s": "superpharm", "c": "vacuum", "ch": 35, "ob": 156}, {"w": "2026-07-06", "s": "tripley", "c": "smartphone", "ch": 10, "ob": 85}, {"w": "2026-07-06", "s": "tripley", "c": "sound", "ch": 0, "ob": 4}, {"w": "2026-07-06", "s": "tripley", "c": "tablet", "ch": 0, "ob": 10}, {"w": "2026-07-06", "s": "tzilzul", "c": "smartphone", "ch": 26, "ob": 131}, {"w": "2026-07-06", "s": "tzilzul", "c": "smartwatch", "ch": 4, "ob": 4}, {"w": "2026-07-06", "s": "tzilzul", "c": "sound", "ch": 2, "ob": 5}, {"w": "2026-07-06", "s": "tzilzul", "c": "tablet", "ch": 12, "ob": 16}, {"w": "2026-07-06", "s": "tzilzul", "c": "vacuum", "ch": 26, "ob": 120}, {"w": "2026-07-13", "s": "eline", "c": "smartphone", "ch": 11, "ob": 206}, {"w": "2026-07-13", "s": "eline", "c": "sound", "ch": 2, "ob": 6}, {"w": "2026-07-13", "s": "eline", "c": "tablet", "ch": 8, "ob": 14}, {"w": "2026-07-13", "s": "ksp", "c": "lego", "ch": 21, "ob": 452}, {"w": "2026-07-13", "s": "ksp", "c": "smartphone", "ch": 20, "ob": 263}, {"w": "2026-07-13", "s": "ksp", "c": "sound", "ch": 0, "ob": 8}, {"w": "2026-07-13", "s": "ksp", "c": "tablet", "ch": 1, "ob": 32}, {"w": "2026-07-13", "s": "ksp", "c": "vacuum", "ch": 17, "ob": 208}, {"w": "2026-07-13", "s": "superpharm", "c": "lego", "ch": 22, "ob": 436}, {"w": "2026-07-13", "s": "superpharm", "c": "smartphone", "ch": 16, "ob": 156}, {"w": "2026-07-13", "s": "superpharm", "c": "sound", "ch": 3, "ob": 10}, {"w": "2026-07-13", "s": "superpharm", "c": "tablet", "ch": 6, "ob": 26}, {"w": "2026-07-13", "s": "superpharm", "c": "vacuum", "ch": 28, "ob": 153}, {"w": "2026-07-13", "s": "tripley", "c": "smartphone", "ch": 8, "ob": 92}, {"w": "2026-07-13", "s": "tripley", "c": "sound", "ch": 0, "ob": 4}, {"w": "2026-07-13", "s": "tripley", "c": "tablet", "ch": 2, "ob": 8}, {"w": "2026-07-13", "s": "tzilzul", "c": "smartphone", "ch": 15, "ob": 134}, {"w": "2026-07-13", "s": "tzilzul", "c": "smartwatch", "ch": 4, "ob": 4}, {"w": "2026-07-13", "s": "tzilzul", "c": "sound", "ch": 0, "ob": 6}, {"w": "2026-07-13", "s": "tzilzul", "c": "tablet", "ch": 4, "ob": 16}, {"w": "2026-07-13", "s": "tzilzul", "c": "vacuum", "ch": 23, "ob": 131}, {"w": "2026-07-20", "s": "eline", "c": "smartphone", "ch": 14, "ob": 210}, {"w": "2026-07-20", "s": "eline", "c": "sound", "ch": 1, "ob": 6}, {"w": "2026-07-20", "s": "eline", "c": "tablet", "ch": 4, "ob": 14}, {"w": "2026-07-20", "s": "ksp", "c": "lego", "ch": 7, "ob": 460}, {"w": "2026-07-20", "s": "ksp", "c": "smartphone", "ch": 9, "ob": 271}, {"w": "2026-07-20", "s": "ksp", "c": "sound", "ch": 0, "ob": 8}, {"w": "2026-07-20", "s": "ksp", "c": "tablet", "ch": 2, "ob": 33}, {"w": "2026-07-20", "s": "ksp", "c": "vacuum", "ch": 17, "ob": 216}, {"w": "2026-07-20", "s": "superpharm", "c": "lego", "ch": 23, "ob": 436}, {"w": "2026-07-20", "s": "superpharm", "c": "smartphone", "ch": 20, "ob": 161}, {"w": "2026-07-20", "s": "superpharm", "c": "sound", "ch": 2, "ob": 10}, {"w": "2026-07-20", "s": "superpharm", "c": "tablet", "ch": 2, "ob": 29}, {"w": "2026-07-20", "s": "superpharm", "c": "vacuum", "ch": 27, "ob": 146}, {"w": "2026-07-20", "s": "tripley", "c": "smartphone", "ch": 5, "ob": 96}, {"w": "2026-07-20", "s": "tripley", "c": "sound", "ch": 0, "ob": 4}, {"w": "2026-07-20", "s": "tripley", "c": "tablet", "ch": 0, "ob": 8}, {"w": "2026-07-20", "s": "tzilzul", "c": "smartphone", "ch": 20, "ob": 127}, {"w": "2026-07-20", "s": "tzilzul", "c": "smartwatch", "ch": 3, "ob": 4}, {"w": "2026-07-20", "s": "tzilzul", "c": "sound", "ch": 1, "ob": 4}, {"w": "2026-07-20", "s": "tzilzul", "c": "tablet", "ch": 8, "ob": 15}, {"w": "2026-07-20", "s": "tzilzul", "c": "vacuum", "ch": 27, "ob": 130}, {"w": "2026-07-27", "s": "eline", "c": "smartphone", "ch": 11, "ob": 211}, {"w": "2026-07-27", "s": "eline", "c": "sound", "ch": 1, "ob": 6}, {"w": "2026-07-27", "s": "eline", "c": "tablet", "ch": 4, "ob": 14}, {"w": "2026-07-27", "s": "ksp", "c": "lego", "ch": 5, "ob": 448}, {"w": "2026-07-27", "s": "ksp", "c": "smartphone", "ch": 14, "ob": 330}, {"w": "2026-07-27", "s": "ksp", "c": "sound", "ch": 1, "ob": 8}, {"w": "2026-07-27", "s": "ksp", "c": "tablet", "ch": 0, "ob": 30}, {"w": "2026-07-27", "s": "ksp", "c": "vacuum", "ch": 10, "ob": 216}, {"w": "2026-07-27", "s": "superpharm", "c": "lego", "ch": 60, "ob": 408}, {"w": "2026-07-27", "s": "superpharm", "c": "smartphone", "ch": 23, "ob": 161}, {"w": "2026-07-27", "s": "superpharm", "c": "sound", "ch": 2, "ob": 10}, {"w": "2026-07-27", "s": "superpharm", "c": "tablet", "ch": 3, "ob": 29}, {"w": "2026-07-27", "s": "superpharm", "c": "vacuum", "ch": 45, "ob": 140}, {"w": "2026-07-27", "s": "tripley", "c": "smartphone", "ch": 4, "ob": 109}, {"w": "2026-07-27", "s": "tripley", "c": "sound", "ch": 1, "ob": 4}, {"w": "2026-07-27", "s": "tripley", "c": "tablet", "ch": 0, "ob": 8}, {"w": "2026-07-27", "s": "tzilzul", "c": "smartphone", "ch": 11, "ob": 130}, {"w": "2026-07-27", "s": "tzilzul", "c": "sound", "ch": 1, "ob": 4}, {"w": "2026-07-27", "s": "tzilzul", "c": "tablet", "ch": 5, "ob": 13}, {"w": "2026-07-27", "s": "tzilzul", "c": "vacuum", "ch": 18, "ob": 123}, {"w": "2026-08-03", "s": "eline", "c": "smartphone", "ch": 13, "ob": 199}, {"w": "2026-08-03", "s": "eline", "c": "sound", "ch": 2, "ob": 6}, {"w": "2026-08-03", "s": "eline", "c": "tablet", "ch": 6, "ob": 13}, {"w": "2026-08-03", "s": "ksp", "c": "lego", "ch": 43, "ob": 448}, {"w": "2026-08-03", "s": "ksp", "c": "smartphone", "ch": 6, "ob": 330}, {"w": "2026-08-03", "s": "ksp", "c": "sound", "ch": 1, "ob": 8}, {"w": "2026-08-03", "s": "ksp", "c": "tablet", "ch": 0, "ob": 28}, {"w": "2026-08-03", "s": "ksp", "c": "vacuum", "ch": 16, "ob": 205}, {"w": "2026-08-03", "s": "superpharm", "c": "lego", "ch": 21, "ob": 403}, {"w": "2026-08-03", "s": "superpharm", "c": "smartphone", "ch": 23, "ob": 148}, {"w": "2026-08-03", "s": "superpharm", "c": "sound", "ch": 3, "ob": 10}, {"w": "2026-08-03", "s": "superpharm", "c": "tablet", "ch": 4, "ob": 28}, {"w": "2026-08-03", "s": "superpharm", "c": "vacuum", "ch": 34, "ob": 144}, {"w": "2026-08-03", "s": "tripley", "c": "smartphone", "ch": 2, "ob": 108}, {"w": "2026-08-03", "s": "tripley", "c": "sound", "ch": 0, "ob": 4}, {"w": "2026-08-03", "s": "tripley", "c": "tablet", "ch": 0, "ob": 7}, {"w": "2026-08-03", "s": "tzilzul", "c": "smartphone", "ch": 19, "ob": 118}, {"w": "2026-08-03", "s": "tzilzul", "c": "sound", "ch": 3, "ob": 6}, {"w": "2026-08-03", "s": "tzilzul", "c": "tablet", "ch": 5, "ob": 12}, {"w": "2026-08-03", "s": "tzilzul", "c": "vacuum", "ch": 33, "ob": 132}, {"w": "2026-08-10", "s": "eline", "c": "smartphone", "ch": 13, "ob": 202}, {"w": "2026-08-10", "s": "eline", "c": "sound", "ch": 1, "ob": 6}, {"w": "2026-08-10", "s": "eline", "c": "tablet", "ch": 6, "ob": 12}, {"w": "2026-08-10", "s": "ksp", "c": "lego", "ch": 12, "ob": 430}, {"w": "2026-08-10", "s": "ksp", "c": "smartphone", "ch": 13, "ob": 295}, {"w": "2026-08-10", "s": "ksp", "c": "sound", "ch": 0, "ob": 8}, {"w": "2026-08-10", "s": "ksp", "c": "tablet", "ch": 0, "ob": 29}, {"w": "2026-08-10", "s": "ksp", "c": "vacuum", "ch": 10, "ob": 192}, {"w": "2026-08-10", "s": "superpharm", "c": "lego", "ch": 32, "ob": 391}, {"w": "2026-08-10", "s": "superpharm", "c": "smartphone", "ch": 30, "ob": 159}, {"w": "2026-08-10", "s": "superpharm", "c": "sound", "ch": 3, "ob": 10}, {"w": "2026-08-10", "s": "superpharm", "c": "tablet", "ch": 3, "ob": 26}, {"w": "2026-08-10", "s": "superpharm", "c": "vacuum", "ch": 40, "ob": 146}, {"w": "2026-08-10", "s": "tripley", "c": "smartphone", "ch": 1, "ob": 102}, {"w": "2026-08-10", "s": "tripley", "c": "sound", "ch": 0, "ob": 4}, {"w": "2026-08-10", "s": "tripley", "c": "tablet", "ch": 1, "ob": 8}, {"w": "2026-08-10", "s": "tzilzul", "c": "smartphone", "ch": 11, "ob": 115}, {"w": "2026-08-10", "s": "tzilzul", "c": "sound", "ch": 4, "ob": 6}, {"w": "2026-08-10", "s": "tzilzul", "c": "tablet", "ch": 7, "ob": 8}, {"w": "2026-08-10", "s": "tzilzul", "c": "vacuum", "ch": 25, "ob": 132}, {"w": "2026-08-17", "s": "eline", "c": "smartphone", "ch": 1, "ob": 33}, {"w": "2026-08-17", "s": "eline", "c": "tablet", "ch": 3, "ob": 6}, {"w": "2026-08-17", "s": "ksp", "c": "smartphone", "ch": 1, "ob": 48}, {"w": "2026-08-17", "s": "ksp", "c": "tablet", "ch": 0, "ob": 14}, {"w": "2026-08-17", "s": "ksp", "c": "vacuum", "ch": 1, "ob": 32}, {"w": "2026-08-17", "s": "superpharm", "c": "smartphone", "ch": 3, "ob": 26}, {"w": "2026-08-17", "s": "superpharm", "c": "tablet", "ch": 2, "ob": 12}, {"w": "2026-08-17", "s": "superpharm", "c": "vacuum", "ch": 6, "ob": 26}, {"w": "2026-08-17", "s": "tripley", "c": "smartphone", "ch": 0, "ob": 17}, {"w": "2026-08-17", "s": "tripley", "c": "tablet", "ch": 0, "ob": 4}, {"w": "2026-08-17", "s": "tzilzul", "c": "smartphone", "ch": 4, "ob": 19}, {"w": "2026-08-17", "s": "tzilzul", "c": "tablet", "ch": 2, "ob": 4}, {"w": "2026-08-17", "s": "tzilzul", "c": "vacuum", "ch": 2, "ob": 22}], "gmCat": [{"c": "smartphone", "ch": 936, "sk": 167, "ch56": 716, "sk56": 150}, {"c": "lego", "ch": 397, "sk": 177, "ch56": 283, "sk56": 150}, {"c": "vacuum", "ch": 314, "sk": 36, "ch56": 302, "sk56": 36}, {"c": "tablet", "ch": 196, "sk": 53, "ch56": 136, "sk56": 49}, {"c": "sound", "ch": 133, "sk": 28, "ch56": 126, "sk56": 26}, {"c": "smartwatch", "ch": 100, "sk": 31, "ch56": 83, "sk56": 27}, {"c": "smart_home", "ch": 18, "sk": 10, "ch56": 18, "sk56": 10}], "cad": [{"s": "eline", "c": "other", "ch": 2, "sk": 4, "ch56": 0, "sk56": 0}, {"s": "eline", "c": "smartphone", "ch": 330, "sk": 43, "ch56": 161, "sk56": 41}, {"s": "eline", "c": "sound", "ch": 8, "sk": 4, "ch56": 8, "sk56": 4}, {"s": "eline", "c": "tablet", "ch": 99, "sk": 15, "ch56": 54, "sk56": 9}, {"s": "ksp", "c": "lego", "ch": 335, "sk": 187, "ch56": 161, "sk56": 169}, {"s": "ksp", "c": "other", "ch": 15, "sk": 42, "ch56": 0, "sk56": 0}, {"s": "ksp", "c": "smartphone", "ch": 171, "sk": 85, "ch56": 105, "sk56": 64}, {"s": "ksp", "c": "sound", "ch": 2, "sk": 4, "ch56": 2, "sk56": 4}, {"s": "ksp", "c": "tablet", "ch": 23, "sk": 30, "ch56": 15, "sk56": 20}, {"s": "ksp", "c": "vacuum", "ch": 183, "sk": 21, "ch56": 137, "sk56": 20}, {"s": "superpharm", "c": "lego", "ch": 475, "sk": 187, "ch56": 230, "sk56": 164}, {"s": "superpharm", "c": "other", "ch": 2, "sk": 4, "ch56": 0, "sk56": 0}, {"s": "superpharm", "c": "smartphone", "ch": 297, "sk": 37, "ch56": 197, "sk56": 30}, {"s": "superpharm", "c": "sound", "ch": 18, "sk": 5, "ch56": 18, "sk56": 5}, {"s": "superpharm", "c": "tablet", "ch": 48, "sk": 18, "ch56": 28, "sk56": 17}, {"s": "superpharm", "c": "vacuum", "ch": 308, "sk": 14, "ch56": 262, "sk56": 13}, {"s": "tripley", "c": "other", "ch": 4, "sk": 12, "ch56": 0, "sk56": 0}, {"s": "tripley", "c": "smartphone", "ch": 51, "sk": 28, "ch56": 33, "sk56": 19}, {"s": "tripley", "c": "sound", "ch": 1, "sk": 2, "ch56": 1, "sk56": 2}, {"s": "tripley", "c": "tablet", "ch": 12, "sk": 9, "ch56": 12, "sk56": 7}, {"s": "tzilzul", "c": "other", "ch": 2, "sk": 2, "ch56": 0, "sk56": 0}, {"s": "tzilzul", "c": "smartphone", "ch": 318, "sk": 50, "ch56": 166, "sk56": 31}, {"s": "tzilzul", "c": "smartwatch", "ch": 14, "sk": 2, "ch56": 14, "sk56": 2}, {"s": "tzilzul", "c": "sound", "ch": 17, "sk": 4, "ch56": 17, "sk56": 4}, {"s": "tzilzul", "c": "tablet", "ch": 96, "sk": 12, "ch56": 57, "sk56": 8}, {"s": "tzilzul", "c": "vacuum", "ch": 247, "sk": 12, "ch56": 201, "sk56": 11}], "rx": [{"c": "smartphone", "t": 1167, "f": 738}, {"c": "lego", "t": 810, "f": 272}, {"c": "vacuum", "t": 738, "f": 516}, {"c": "tablet", "t": 278, "f": 113}, {"c": "sound", "t": 46, "f": 45}, {"c": "other", "t": 25, "f": 0}, {"c": "smartwatch", "t": 14, "f": 12}], "tot": {"applied": 2094, "rejected": 70, "failed": 23, "from": "2026-06-01", "to": "2026-08-17"}};
+const HE={lego:'לגו',smart_home:'בית חכם',smartphone:'סמארטפונים',smartwatch:'שעונים חכמים',sound:'שמע',tablet:'טאבלטים',vacuum:'שואבי אבק',other:'אחר'};
+const SITE={ksp:'KSP',superpharm:'סופר-פארם',eline:'E-Line',tzilzul:'צלצול',tripley:'טריפלי'};
+const CATS=[...new Set(D.gmCat.map(x=>x.c))].filter(c=>c&&c!=='other').sort();
+let cur='all';
+const nf=n=>n.toLocaleString('en-US');
+const sel=(a,c)=>c==='all'?a:a.filter(x=>x.c===c);
+
+function kpis(){
+  const g=sel(D.gmCat,cur);
+  const ch=g.reduce((a,b)=>a+b.ch,0), sk=g.reduce((a,b)=>a+b.sk,0);
+  const w=sel(D.gmWeek,cur); const cut=w.reduce((a,b)=>a+b.cut,0), rai=w.reduce((a,b)=>a+b.rai,0);
+  const rate=cur==='all'?((D.tot.applied/(D.tot.applied+D.tot.rejected+D.tot.failed))*100).toFixed(1):null;
+  document.getElementById('kpis').innerHTML=[
+    ['שינויי מחיר שבוצעו',nf(ch)],
+    ['מק״טים שעודכנו',nf(sk)],
+    ['הורדות מחיר',nf(cut)],
+    ['העלאות מחיר',nf(rai)]
+  ].map(([k,v])=>`<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+  document.getElementById('kpisub').textContent = rate
+    ? `שיעור הצלחה של בקשות העדכון: ${rate}% (${nf(D.tot.applied)} בוצעו, ${D.tot.rejected} נדחו בבקרה, ${D.tot.failed} נכשלו).`
+    : `בקטגוריה זו בוצעו ${nf(ch)} עדכוני מחיר על ${nf(sk)} מק״טים.`;
+}
+
+function cadence(){
+  const rows=[];
+  const g=sel(D.gmCat,cur);
+  const gch=g.reduce((a,b)=>a+b.ch56,0), gsk=g.reduce((a,b)=>a+b.sk56,0);
+  rows.push({n:'GoMobile',v:gsk?gch/gsk/2:0,sk:gsk,me:true});
+  const bySite={};
+  for(const r of sel(D.cad,cur)){ (bySite[r.s]??={ch:0,sk:0}); bySite[r.s].ch+=r.ch56; bySite[r.s].sk+=r.sk56; }
+  for(const [s,v] of Object.entries(bySite)) if(v.sk) rows.push({n:SITE[s]||s,v:v.ch/v.sk/2,sk:v.sk,me:false});
+  rows.sort((a,b)=>b.v-a.v);
+  const max=Math.max(...rows.map(r=>r.v),0.1);
+  document.getElementById('cadence').innerHTML=rows.map(r=>
+    `<div class="b"><div class="nmx">${r.n}</div>
+     <div class="track"><div class="fill ${r.me?'me':''}" style="width:${Math.max(2,r.v/max*100)}%"></div></div>
+     <div class="vx">${r.v.toFixed(2)}</div></div>`).join('');
+  const me=rows.find(r=>r.me), rank=rows.findIndex(r=>r.me)+1;
+  const slower=rows.filter(r=>!r.me&&r.v<me.v).map(r=>r.n);
+  document.getElementById('cadnote').innerHTML = me.sk
+    ? `<b>GoMobile מדורגת ${rank} מתוך ${rows.length}</b> בקצב עדכון המחירים, על פני <b>${nf(me.sk)} מק״טים</b> — הבסיס הרחב ביותר מבין כל השחקנים בהשוואה.` +
+      (slower.length?` קצב העדכון גבוה מ-${slower.join(', ')}.`:'')
+    : 'אין מספיק נתונים בקטגוריה זו לשמונת השבועות האחרונים.';
+}
+
+function weekly(){
+  const w=sel(D.gmWeek,cur), by={};
+  for(const r of w){ (by[r.w]??={n:0,cut:0,rai:0}); by[r.w].n+=r.n; by[r.w].cut+=r.cut; by[r.w].rai+=r.rai; }
+  const ks=Object.keys(by).sort(), max=Math.max(...ks.map(k=>by[k].n),1);
+  const W=Math.max(520,ks.length*62), H=210, PAD=26, bw=(W-PAD*2)/ks.length;
+  let svg=`<svg viewBox="0 0 ${W} ${H+34}" preserveAspectRatio="xMidYMid meet">`;
+  ks.forEach((k,i)=>{
+    const t=by[k], x=PAD+i*bw+bw*0.16, w2=bw*0.68;
+    const h=t.n/max*H, hc=t.cut/max*H, hr=t.rai/max*H, ho=Math.max(0,h-hc-hr);
+    let y=H;
+    y-=hc; svg+=`<rect x="${x}" y="${y}" width="${w2}" height="${hc}" fill="#EC008C" rx="2"/>`;
+    y-=hr; svg+=`<rect x="${x}" y="${y}" width="${w2}" height="${hr}" fill="#0F172A"/>`;
+    y-=ho; svg+=`<rect x="${x}" y="${y}" width="${w2}" height="${ho}" fill="#cbd5e1" rx="2"/>`;
+    svg+=`<text x="${x+w2/2}" y="${y-6}" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">${t.n}</text>`;
+    svg+=`<text x="${x+w2/2}" y="${H+18}" text-anchor="middle" font-size="11" fill="#64748b">${k.slice(8,10)}/${k.slice(5,7)}</text>`;
+  });
+  svg+=`<line x1="${PAD}" y1="${H}" x2="${W-PAD}" y2="${H}" stroke="#e2e8f0"/></svg>`;
+  document.getElementById('weekly').innerHTML=svg;
+}
+
+function react(){
+  const r=sel(D.rx,cur).reduce((a,b)=>({t:a.t+b.t,f:a.f+b.f}),{t:0,f:0});
+  const rows=(cur==='all'?D.rx.filter(x=>x.c!=='other'):sel(D.rx,cur)).map(x=>({n:HE[x.c]||x.c,v:x.t?x.f/x.t*100:0,t:x.t}));
+  rows.sort((a,b)=>b.v-a.v);
+  const head=`<div class="b"><div class="nmx"><b>סה״כ</b></div>
+    <div class="track"><div class="fill me" style="width:${r.t?r.f/r.t*100:0}%"></div></div>
+    <div class="vx">${r.t?(r.f/r.t*100).toFixed(0):0}%</div></div>`;
+  document.getElementById('react').innerHTML=head+rows.map(x=>
+    `<div class="b"><div class="nmx">${x.n}</div>
+     <div class="track"><div class="fill" style="width:${x.v}%"></div></div>
+     <div class="vx">${x.v.toFixed(0)}%</div></div>`).join('');
+}
+
+function covtable(){
+  const g=(cur==='all'?D.gmCat.filter(x=>x.c!=='other'):sel(D.gmCat,cur)).slice().sort((a,b)=>b.ch-a.ch);
+  document.getElementById('covtable').innerHTML=g.map(x=>
+    `<tr><td><b>${HE[x.c]||x.c}</b></td><td class="n">${nf(x.ch)}</td><td class="n">${nf(x.sk)}</td>
+     <td class="n">${x.sk?(x.ch/x.sk).toFixed(1):'—'}</td></tr>`).join('');
+}
+
+function render(){ kpis(); cadence(); weekly(); react(); covtable();
+  document.querySelectorAll('#filters .chip').forEach(b=>b.classList.toggle('on',b.dataset.c===cur)); }
+
+const f=document.getElementById('filters');
+[['all','הכל'],...CATS.map(c=>[c,HE[c]||c])].forEach(([c,l])=>{
+  const b=document.createElement('button'); b.className='chip'; b.dataset.c=c; b.textContent=l;
+  b.onclick=()=>{cur=c; render();}; f.appendChild(b);
+});
+render();
+</script>
+</body>
+</html>

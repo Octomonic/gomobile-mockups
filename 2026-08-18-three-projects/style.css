@@ -1,0 +1,178 @@
+/* OctoMonic × GoMobile — shared offer/report styles (house system) */
+:root{
+  color-scheme: light only;
+  --ink:#0f172a; --ink2:#334155; --muted:#64748b; --line:#e2e8f0;
+  --bg:#f8fafc; --card:#ffffff; --brand:#EC008C; --navy:#0F172A;
+  --ok:#15803d; --warn:#b45309; --soft:#f1f5f9;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Heebo',system-ui,-apple-system,sans-serif;
+  line-height:1.75; font-size:17px; -webkit-font-smoothing:antialiased;
+}
+
+.brand-bar{
+  position:sticky; top:0; z-index:1000; height:88px; background:var(--navy);
+  display:flex; align-items:center; justify-content:center; padding:0 20px;
+}
+.brand-bar .lockup{display:flex; align-items:center; gap:16px}
+.brand-bar img.oct{height:72px; width:auto; display:block}
+.brand-bar .chip{background:#fff; border-radius:14px; padding:7px 12px; display:flex; align-items:center}
+.brand-bar img.client{height:54px; width:auto; display:block}
+.brand-bar .x{color:#64748b; font-size:20px; font-weight:500}
+.brand-bar .bdate{position:absolute; inset-inline-start:24px; color:#94a3b8; font-size:13px; letter-spacing:.02em}
+@media(max-width:640px){
+  .brand-bar{height:72px} .brand-bar img.oct{height:56px}
+  .brand-bar img.client{height:42px} .brand-bar .bdate{display:none}
+}
+
+.wrap{max-width:860px; margin:0 auto; padding:0 22px 90px}
+.wide{max-width:1000px}
+
+.back{
+  display:inline-flex; align-items:center; gap:7px; margin:26px 0 0; color:var(--muted);
+  text-decoration:none; font-size:15px; font-weight:500;
+}
+.back:hover{color:var(--brand)}
+
+.hero{padding:46px 0 30px; border-bottom:1px solid var(--line); margin-bottom:44px}
+.eyebrow{color:var(--brand); font-weight:700; font-size:14px; letter-spacing:.08em; margin:0 0 10px}
+h1{font-size:44px; line-height:1.15; margin:0 0 16px; font-weight:900; letter-spacing:-.02em}
+.lede{font-size:19px; color:var(--ink2); margin:0 0 26px; max-width:62ch}
+.pills{display:flex; flex-wrap:wrap; gap:10px}
+.pill{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-size:14.5px; font-weight:500; color:var(--ink2)}
+.pill b{color:var(--ink); font-weight:700}
+
+h2{font-size:27px; margin:52px 0 8px; font-weight:800; letter-spacing:-.01em}
+h2 .num{color:var(--brand); font-weight:900; margin-inline-end:10px}
+h3{font-size:19px; margin:30px 0 8px; font-weight:700}
+p{margin:0 0 14px}
+.sub{color:var(--muted); font-size:15.5px; margin:0 0 18px}
+ul{margin:0 0 16px; padding-inline-start:22px}
+li{margin-bottom:7px}
+
+table{width:100%; border-collapse:collapse; margin:18px 0 22px; font-size:16px}
+th,td{text-align:start; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--soft); font-weight:700; font-size:14.5px; color:var(--ink2)}
+td b{font-weight:700}
+td.n,th.n{font-variant-numeric:tabular-nums}
+
+.note{background:var(--soft); border-inline-start:3px solid var(--brand); border-radius:0 12px 12px 0;
+  padding:15px 18px; margin:18px 0; font-size:16px; color:var(--ink2)}
+.note b{color:var(--ink)}
+
+/* clickable offer cards (hub) */
+.cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:28px 0 10px}
+.oc{
+  background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px 24px;
+  display:flex; flex-direction:column; text-decoration:none; color:inherit;
+  transition:border-color .18s, transform .18s, box-shadow .18s;
+}
+.oc:hover{border-color:var(--brand); transform:translateY(-2px); box-shadow:0 10px 26px rgba(15,23,42,.08)}
+.oc .tag{color:var(--brand); font-size:12.5px; font-weight:700; letter-spacing:.06em; margin-bottom:8px}
+.oc .nm{font-size:21px; font-weight:800; margin-bottom:6px; line-height:1.3}
+.oc .ds{color:var(--muted); font-size:15px; flex:1; margin-bottom:18px}
+.oc .pr{font-size:27px; font-weight:900; letter-spacing:-.02em}
+.oc .pm{color:var(--muted); font-size:14.5px; font-weight:500; margin-bottom:14px}
+.oc .go{color:var(--brand); font-weight:700; font-size:15px}
+@media(max-width:760px){ .cards{grid-template-columns:1fr} }
+
+/* value-report button */
+.bigbtn{
+  display:flex; align-items:center; gap:18px; background:var(--navy); color:#fff;
+  border-radius:18px; padding:24px 28px; text-decoration:none; margin:16px 0 0;
+  transition:transform .18s, box-shadow .18s;
+}
+.bigbtn:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(15,23,42,.22)}
+.bigbtn .ic{font-size:30px; line-height:1}
+.bigbtn .t{flex:1}
+.bigbtn .t b{display:block; font-size:19px; font-weight:800; margin-bottom:2px}
+.bigbtn .t span{color:#94a3b8; font-size:15px}
+.bigbtn .arrow{color:var(--brand); font-size:22px; font-weight:900}
+
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 8px}
+.stats div{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:17px 16px; text-align:center}
+.stats .v{font-size:26px; font-weight:900; letter-spacing:-.02em; line-height:1.2; font-variant-numeric:tabular-nums}
+.stats .k{color:var(--muted); font-size:13px; margin-top:3px}
+@media(max-width:640px){ .stats{grid-template-columns:1fr 1fr} }
+
+.steps{counter-reset:s; margin:20px 0}
+.steps .s{background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:17px 20px; margin-bottom:11px; display:flex; gap:15px; align-items:flex-start}
+.steps .s::before{counter-increment:s; content:counter(s); background:var(--brand); color:#fff;
+  font-weight:900; font-size:14px; min-width:27px; height:27px; border-radius:999px;
+  display:flex; align-items:center; justify-content:center; margin-top:3px}
+.steps .s b{display:block; margin-bottom:2px}
+.steps .s span{color:var(--ink2); font-size:15.5px}
+
+.menu{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:6px 22px; margin:18px 0 8px}
+.menu .row{display:flex; justify-content:space-between; align-items:baseline; gap:18px;
+  padding:14px 0; border-bottom:1px solid var(--line)}
+.menu .row:last-child{border-bottom:none}
+.menu .lbl{color:var(--ink2); font-size:16px}
+.menu .val{font-weight:800; font-size:17px; white-space:nowrap; text-align:end}
+.menu .val small{display:block; font-weight:500; font-size:13.5px; color:var(--muted); white-space:normal}
+.menu .free{color:var(--ok)}
+
+.pay{background:var(--navy); color:#fff; border-radius:20px; padding:34px 32px; margin:26px 0 14px}
+.pay h3{color:#fff; margin:0 0 20px; font-size:21px}
+.pay-row{display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+  padding:15px 0; border-bottom:1px solid rgba(255,255,255,.14)}
+.pay-row:last-of-type{border-bottom:none}
+.pay-label{color:#cbd5e1; font-size:16px}
+.pay-val{font-size:29px; font-weight:900; white-space:nowrap; font-variant-numeric:tabular-nums}
+.pay-val small{font-size:15px; font-weight:500; color:#94a3b8}
+.split{display:flex; gap:12px; margin-top:22px; padding-top:20px; border-top:1px solid rgba(255,255,255,.14)}
+.split div{flex:1; background:rgba(255,255,255,.07); border-radius:12px; padding:15px 17px}
+.split .k{color:#94a3b8; font-size:13.5px; margin-bottom:3px}
+.split .v{font-size:18px; font-weight:700}
+.vat{color:#94a3b8; font-size:14.5px; margin:16px 0 0}
+
+.terms{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0}
+.terms div{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px}
+.terms .k{color:var(--muted); font-size:13.5px; margin-bottom:4px}
+.terms .v{font-weight:700; font-size:16.5px}
+@media(max-width:640px){ .terms{grid-template-columns:1fr} .split{flex-direction:column} h1{font-size:33px} }
+
+/* ── report: filters + charts ── */
+.filters{display:flex; gap:10px; flex-wrap:wrap; align-items:center; background:var(--card);
+  border:1px solid var(--line); border-radius:14px; padding:14px 18px; margin:20px 0 8px;
+  position:sticky; top:88px; z-index:900}
+.filters .fl{color:var(--muted); font-size:14px; font-weight:600; margin-inline-end:2px}
+.chip{background:var(--soft); border:1px solid var(--line); border-radius:999px; padding:6px 15px;
+  font-size:14.5px; font-weight:600; color:var(--ink2); cursor:pointer; font-family:inherit;
+  transition:background .15s, color .15s, border-color .15s}
+.chip:hover{border-color:var(--brand)}
+.chip.on{background:var(--brand); border-color:var(--brand); color:#fff}
+@media(max-width:640px){ .filters{position:static} }
+
+.panel{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin:18px 0}
+.panel h3{margin:0 0 4px}
+.panel .cap{color:var(--muted); font-size:14.5px; margin:0 0 16px}
+.chart{width:100%; overflow-x:auto}
+.chart svg{display:block; min-width:520px; width:100%; height:auto}
+.legend{display:flex; gap:16px; flex-wrap:wrap; margin-top:12px; font-size:14px; color:var(--ink2)}
+.legend i{display:inline-block; width:12px; height:12px; border-radius:3px; margin-inline-end:6px; vertical-align:-1px}
+
+.barlist{margin:6px 0 0}
+.barlist .b{display:grid; grid-template-columns:120px 1fr 76px; gap:12px; align-items:center; margin-bottom:11px}
+.barlist .nmx{font-size:15px; font-weight:600; text-align:start}
+.barlist .track{background:var(--soft); border-radius:999px; height:24px; overflow:hidden}
+.barlist .fill{height:100%; border-radius:999px; background:var(--muted); transition:width .35s ease}
+.barlist .fill.me{background:var(--brand)}
+.barlist .vx{font-weight:800; font-variant-numeric:tabular-nums; text-align:end; font-size:15.5px}
+@media(max-width:640px){ .barlist .b{grid-template-columns:92px 1fr 62px} }
+
+.pdfwrap{text-align:center; margin:56px 0 30px}
+.pdfbtn{background:var(--brand); color:#fff; border:none; border-radius:999px; padding:15px 34px;
+  font-size:16.5px; font-weight:700; cursor:pointer; font-family:inherit; box-shadow:0 4px 14px rgba(236,0,140,.28)}
+footer{border-top:1px solid var(--line); padding-top:26px; text-align:center; color:var(--muted); font-size:14.5px; line-height:2}
+footer b{color:var(--ink); font-weight:700}
+
+@media print{
+  .brand-bar{position:static} .pdfwrap,.filters,.back{display:none}
+  body{background:#fff; font-size:12.5pt}
+  .pay,.bigbtn{background:#0F172A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  h2{page-break-after:avoid} table,.panel,.pay,.stats,.menu,.oc{page-break-inside:avoid}
+}
