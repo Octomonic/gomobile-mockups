@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!-- Project: GoMobile — three projects, one decision (GPI V2 · Queue · Glassix API) -->
+<!-- Change: combined offer walkthrough for the 18.08.2026 meeting -->
+<!-- Generated: 2026-08-18 -->
+<!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שלושה פרויקטים — סקירה והצעות מחיר | OctoMonic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --ink:#0f172a; --ink2:#334155; --muted:#64748b; --line:#e2e8f0;
+    --bg:#f8fafc; --card:#ffffff; --brand:#EC008C; --navy:#0F172A;
+    --ok:#15803d; --soft:#f1f5f9;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Heebo',system-ui,-apple-system,sans-serif;
+    line-height:1.75; font-size:17px; -webkit-font-smoothing:antialiased;
+  }
+
+  /* ── OctoMonic × GoMobile branding bar (mandatory) ── */
+  .brand-bar{
+    position:sticky; top:0; z-index:1000; height:88px; background:var(--navy);
+    display:flex; align-items:center; justify-content:center; padding:0 20px;
+  }
+  .brand-bar .lockup{display:flex; align-items:center; gap:16px}
+  .brand-bar img.oct{height:72px; width:auto; display:block}
+  .brand-bar .chip{
+    background:#fff; border-radius:14px; padding:7px 12px; display:flex; align-items:center;
+  }
+  .brand-bar img.client{height:54px; width:auto; display:block}
+  .brand-bar .x{color:#64748b; font-size:20px; font-weight:500}
+  .brand-bar .bdate{
+    position:absolute; inset-inline-start:24px; color:#94a3b8; font-size:13px; letter-spacing:.02em;
+  }
+  @media(max-width:640px){
+    .brand-bar{height:72px}
+    .brand-bar img.oct{height:56px}
+    .brand-bar img.client{height:42px}
+    .brand-bar .bdate{display:none}
+  }
+
+  .wrap{max-width:860px; margin:0 auto; padding:0 22px 90px}
+
+  .hero{padding:56px 0 30px; border-bottom:1px solid var(--line); margin-bottom:44px}
+  .eyebrow{color:var(--brand); font-weight:700; font-size:14px; letter-spacing:.08em; margin:0 0 10px}
+  h1{font-size:44px; line-height:1.15; margin:0 0 16px; font-weight:900; letter-spacing:-.02em}
+  .lede{font-size:19px; color:var(--ink2); margin:0 0 26px; max-width:62ch}
+  .pills{display:flex; flex-wrap:wrap; gap:10px}
+  .pill{
+    background:var(--card); border:1px solid var(--line); border-radius:999px;
+    padding:8px 16px; font-size:14.5px; font-weight:500; color:var(--ink2);
+  }
+  .pill b{color:var(--ink); font-weight:700}
+
+  h2{font-size:27px; margin:52px 0 8px; font-weight:800; letter-spacing:-.01em}
+  h2 .num{color:var(--brand); font-weight:900; margin-inline-end:10px}
+  h3{font-size:19px; margin:30px 0 8px; font-weight:700}
+  p{margin:0 0 14px}
+  .sub{color:var(--muted); font-size:15.5px; margin:0 0 18px}
+  ul{margin:0 0 16px; padding-inline-start:22px}
+  li{margin-bottom:7px}
+
+  table{width:100%; border-collapse:collapse; margin:18px 0 22px; font-size:16px}
+  th,td{text-align:start; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{background:var(--soft); font-weight:700; font-size:14.5px; color:var(--ink2)}
+  td b{font-weight:700}
+
+  .note{
+    background:var(--soft); border-inline-start:3px solid var(--brand);
+    border-radius:0 12px 12px 0; padding:15px 18px; margin:18px 0; font-size:16px; color:var(--ink2);
+  }
+  .note b{color:var(--ink)}
+
+  /* summary cards — the three projects at a glance */
+  .three{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:26px 0 10px}
+  .three .p{
+    background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 20px;
+    display:flex; flex-direction:column;
+  }
+  .three .tag{color:var(--brand); font-size:12.5px; font-weight:700; letter-spacing:.06em; margin-bottom:6px}
+  .three .nm{font-size:18px; font-weight:800; margin-bottom:4px; line-height:1.3}
+  .three .ds{color:var(--muted); font-size:14.5px; flex:1; margin-bottom:14px}
+  .three .pr{font-size:24px; font-weight:900; letter-spacing:-.02em}
+  .three .pm{color:var(--muted); font-size:14px; font-weight:500}
+  @media(max-width:760px){ .three{grid-template-columns:1fr} }
+
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 8px}
+  .stats div{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:17px 16px; text-align:center;
+  }
+  .stats .v{font-size:26px; font-weight:900; letter-spacing:-.02em; line-height:1.2}
+  .stats .k{color:var(--muted); font-size:13px; margin-top:3px}
+  @media(max-width:640px){ .stats{grid-template-columns:1fr 1fr} }
+
+  /* expansion price menu */
+  .menu{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:6px 22px; margin:18px 0 8px;
+  }
+  .menu .row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:18px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .menu .row:last-child{border-bottom:none}
+  .menu .lbl{color:var(--ink2); font-size:16px}
+  .menu .val{font-weight:800; font-size:17px; white-space:nowrap; text-align:end}
+  .menu .val small{display:block; font-weight:500; font-size:13.5px; color:var(--muted); white-space:normal}
+  .menu .free{color:var(--ok)}
+
+  .pay{
+    background:var(--navy); color:#fff; border-radius:20px; padding:34px 32px; margin:26px 0 14px;
+  }
+  .pay h3{color:#fff; margin:0 0 20px; font-size:21px}
+  .pay-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    padding:15px 0; border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  .pay-row:last-of-type{border-bottom:none}
+  .pay-label{color:#cbd5e1; font-size:16px}
+  .pay-val{font-size:29px; font-weight:900; white-space:nowrap}
+  .pay-val small{font-size:15px; font-weight:500; color:#94a3b8}
+  .split{
+    display:flex; gap:12px; margin-top:22px; padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.14);
+  }
+  .split div{
+    flex:1; background:rgba(255,255,255,.07); border-radius:12px; padding:15px 17px;
+  }
+  .split .k{color:#94a3b8; font-size:13.5px; margin-bottom:3px}
+  .split .v{font-size:18px; font-weight:700}
+  .vat{color:#94a3b8; font-size:14.5px; margin:16px 0 0}
+
+  .terms{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0}
+  .terms div{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px}
+  .terms .k{color:var(--muted); font-size:13.5px; margin-bottom:4px}
+  .terms .v{font-weight:700; font-size:16.5px}
+  @media(max-width:640px){ .terms{grid-template-columns:1fr} .split{flex-direction:column} h1{font-size:33px} }
+
+  .pdfwrap{text-align:center; margin:56px 0 30px}
+  .pdfbtn{
+    background:var(--brand); color:#fff; border:none; border-radius:999px;
+    padding:15px 34px; font-size:16.5px; font-weight:700; cursor:pointer;
+    font-family:inherit; box-shadow:0 4px 14px rgba(236,0,140,.28);
+  }
+  footer{
+    border-top:1px solid var(--line); padding-top:26px; text-align:center;
+    color:var(--muted); font-size:14.5px; line-height:2;
+  }
+  footer b{color:var(--ink); font-weight:700}
+
+  @media print{
+    .brand-bar{position:static}
+    .pdfwrap{display:none}
+    body{background:#fff; font-size:12.5pt}
+    .pay{background:#0F172A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    h2{page-break-after:avoid} table,.card,.pay,.stats,.menu,.three .p{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar">
+  <span class="bdate">18.08.2026</span>
+  <span class="lockup">
+    <img class="oct" src="octomonic-logo.png" alt="OctoMonic">
+    <span class="x">&times;</span>
+    <span class="chip"><img class="client" src="gomobile-logo.svg" alt="GoMobile"></span>
+  </span>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">סקירה והצעות מחיר</p>
+    <h1>שלושה פרויקטים</h1>
+    <p class="lede">
+      שלוש הצעות נפרדות, שכל אחת מהן עומדת בפני עצמה: הרחבת מערכת התמחור לכל הקטלוג,
+      מערכת ניהול תורים לסניף אילת, וממשק שיאפשר לסוכן החכם לגשת לנתוני הלקוח.
+      לכל פרויקט מוגדר במסמך זה מה כלול במחיר הבסיס, ומה עולה כל הרחבה מעבר לו.
+    </p>
+    <div class="pills">
+      <span class="pill">פיתוח — <b>₪15,500</b></span>
+      <span class="pill">חודשי — <b>₪750</b></span>
+      <span class="pill">ניתן לאשר <b>כל פרויקט בנפרד</b></span>
+    </div>
+  </div>
+
+  <div class="three">
+    <div class="p">
+      <div class="tag">פרויקט 1</div>
+      <div class="nm">GPI — הרחבה לכל הקטלוג</div>
+      <div class="ds">כל 3,614 המק״טים הנמכרים נכנסים למערכת התמחור, עם Zap כמקור מתחרים ונתוני מכירות לצד המחיר.</div>
+      <div class="pr">₪6,000</div>
+      <div class="pm">+ ₪300 לחודש</div>
+    </div>
+    <div class="p">
+      <div class="tag">פרויקט 2</div>
+      <div class="nm">ניהול תורים — אילת</div>
+      <div class="ds">תור, מסך תצוגה, הודעות ללקוח, ומנוע לידים שמחזיר את מי שעזב לפני שהגיע תורו.</div>
+      <div class="pr">₪8,000</div>
+      <div class="pm">+ ₪300 לחודש</div>
+    </div>
+    <div class="p">
+      <div class="tag">פרויקט 3</div>
+      <div class="nm">ממשק לסוכן החכם</div>
+      <div class="ds">שער גישה מאובטח שמאפשר ל-Glassix לשלוף את הקנייה האחרונה של הלקוח לפי מספר טלפון.</div>
+      <div class="pr">₪1,500</div>
+      <div class="pm">+ ₪150 לחודש</div>
+    </div>
+  </div>
+
+  <div class="note">
+    שלושת הפרויקטים בלתי תלויים זה בזה. אפשר לאשר אחד, שניים או שלושה — התמחור אינו משתנה
+    לפי מספר הפרויקטים שנבחרים, למעט הרחבת מערכת התורים לכלל הרשת (סעיף 2).
+  </div>
+
+  <h2><span class="num">1</span>GPI — הרחבה לכל הקטלוג</h2>
+  <p>
+    היום המערכת מנהלת חלק מהקטלוג. ההרחבה מכניסה אליה את <b>כל המוצרים שנמכרים בפועל</b>,
+    מוסיפה את Zap כמקור מתחרים במקום הדבקת קישורים ידנית, ומציגה לצד כל מוצר גם כמה יחידות
+    נמכרו ובאיזה מחיר בפועל.
+  </p>
+
+  <div class="stats">
+    <div><div class="v">3,614</div><div class="k">מק״טים במערכת</div></div>
+    <div><div class="v">~1,000</div><div class="k">נסרקים מול מתחרים</div></div>
+    <div><div class="v">10–24</div><div class="k">חנויות מעמוד Zap אחד</div></div>
+    <div><div class="v">14 יום</div><div class="k">נתוני מכירות לצד המחיר</div></div>
+  </div>
+
+  <h3>מה כלול במחיר הבסיס</h3>
+  <ul>
+    <li>כל <b>3,614</b> המק״טים הנמכרים נכנסים למערכת וניתנים לניהול ולשינוי מחיר.</li>
+    <li><b>כ-1,000 מק״טים נסרקים</b> מול מתחרים. הרשימה נקבעת יחד בתחילת הפרויקט,
+        וניתנת לשינוי בכל עת <b>ללא עלות</b>.</li>
+    <li><b>Zap כמקור מתחרים</b> — עמוד מוצר אחד מחזיר 10 עד 24 חנויות בבת אחת, עם בחירה
+        כמה מהזולות להציג.</li>
+    <li>הצעות ללא ציון יבואן מסומנות <b>״דורש בדיקה״</b> ואינן נכנסות להשוואה האוטומטית.</li>
+    <li><b>כמות שנמכרה ומחירי המכירה בפועל</b> ב-14 הימים האחרונים, לצד כל מוצר.</li>
+    <li><b>מפתח מק״ט אחיד</b> בין האתר, ה-ERP ו-GPI, שמתעדכן אוטומטית.</li>
+    <li>סגירת פערי כיסוי קיימים והפעלת <b>שעונים חכמים</b> (67 מוצרים ללא השוואה היום).</li>
+  </ul>
+
+  <h3>מה לא כלול</h3>
+  <ul>
+    <li>מק״טים שאינם ברשימת הסריקה — מנוהלים במערכת, ללא איסוף מחירי מתחרים.</li>
+    <li>מוצרים שאין להם מתחרה זמין באף מקור — כ-15 מוצרי דגל היום.</li>
+    <li>שינויים בצד ה-ERP או האתר.</li>
+    <li>הצגת מלאי לצד המחיר — נדחתה על ידיכם; ראו מחירון ההרחבות.</li>
+  </ul>
+
+  <h3>מחירון הרחבות</h3>
+  <p class="sub">כל תוספת מעבר להיקף הבסיס, מתומחרת מראש.</p>
+  <div class="menu">
+    <div class="row">
+      <span class="lbl">הרחבת רשימת המק״טים הנסרקים</span>
+      <span class="val free">ללא עלות פיתוח<small>עלות תפעול בלבד — כ-₪150 לחודש לכל 250 מק״טים</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl">אתר מתחרה נוסף</span>
+      <span class="val">₪1,500<small>חד-פעמי</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl">קטגוריה נוספת מחוץ לקטלוג</span>
+      <span class="val">₪1,000<small>חד-פעמי</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl">הצגת מלאי לצד המחיר</span>
+      <span class="val">בתיאום<small>מותנה בהעברת נתוני מלאי מה-ERP</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl">כללי עדכון מחיר אוטומטיים והתראות</span>
+      <span class="val">בתיאום<small>יתומחר לפי ההגדרה שתיבחר</small></span>
+    </div>
+  </div>
+
+  <h3>עלויות תפעול</h3>
+  <p>
+    משולמות ישירות על ידיכם, כפי שהיום. בהיקף של כ-1,000 מק״טים נסרקים —
+    <b>כ-₪670 עד ₪830 לחודש</b>, לעומת כ-₪310 היום. העלייה נובעת משדרוג חבילת הסריקות,
+    המנוצלת כיום בכ-70%. הסכום כולל גם את עלות האחסון ובסיס הנתונים.
+  </p>
+  <div class="note">
+    החזקת הקטלוג המלא כשלעצמה אינה מייקרת את התפעול — העלות נגזרת ממספר המק״טים
+    <b>הנסרקים</b> בלבד.
+  </div>
+
+  <div class="pay">
+    <h3>פרויקט 1 — GPI</h3>
+    <div class="pay-row">
+      <span class="pay-label">פיתוח — חד-פעמי</span>
+      <span class="pay-val">₪6,000</span>
+    </div>
+    <div class="pay-row">
+      <span class="pay-label">תחזוקה ותמיכה</span>
+      <span class="pay-val">₪300 <small>לחודש</small></span>
+    </div>
+    <div class="split">
+      <div><div class="k">מקדמה עם אישור ההצעה</div><div class="v">40% · ₪2,400</div></div>
+      <div><div class="k">עם המסירה</div><div class="v">60% · ₪3,600</div></div>
+    </div>
+    <p class="vat">משך הביצוע — כשלושה שבועות. לכל הסכומים יש להוסיף מע״מ.</p>
+  </div>
+
+  <h2><span class="num">2</span>ניהול תורים ומנוע לידים — אילת</h2>
+  <p>
+    המערכת עושה שני דברים: מנהלת את התור עצמו — כרטיס, מיקום, זמן המתנה והודעה כשמגיע התור —
+    ומזהה את מי שנרשם ועזב לפני שהגיע תורו, כדי לחזור אליו.
+  </p>
+
+  <div class="stats">
+    <div><div class="v">157</div><div class="k">קבלות ליום באילת</div></div>
+    <div><div class="v">238</div><div class="k">יום השיא שנמדד</div></div>
+    <div><div class="v">2.3×</div><div class="k">מהסניף הבא בתור</div></div>
+    <div><div class="v">99.6%</div><div class="k">מספרי טלפון תקינים</div></div>
+  </div>
+  <p class="sub">כל הנתונים נמדדו ממערכת המכירות שלכם על פני 60 הימים האחרונים.</p>
+
+  <h3>מה כלול במחיר הבסיס — סניף אילת</h3>
+  <ul>
+    <li><b>כניסה לתור בשלוש דרכים:</b> סריקת QR שפותחת וואטסאפ, עמדת טאבלט בכניסה,
+        או רישום על ידי נציג.</li>
+    <li>מספר כרטיס יומי, תור אחד לכל העמדות, <b>הצגת מיקום והערכת זמן המתנה</b>
+        המחושבת מזמני הטיפול בפועל.</li>
+    <li><b>הודעות ללקוח:</b> אישור כניסה, התראה מקדימה, והודעת ״הגיע תורך״ עם מספר העמדה.</li>
+    <li><b>מסך תצוגה בסניף</b> עם צליל התראה בכל שינוי בתור.</li>
+    <li><b>אפליקציית עמדה</b> לנציג: קריאה לבא בתור, קריאה חוזרת, אי-הופעה, העברה והשהיה.</li>
+    <li><b>מנוע לידים</b> המפריד בין שלושה מצבים — עזב לפני שנקרא, נקרא ולא הגיע,
+        טופל ולא רכש — עם מסלול חזרה לכל אחד, כולל הפניית תיירים לסניף הקרוב לביתם.</li>
+    <li>איתור <b>הזמנה קיימת מהאתר</b> לפי מספר טלפון, כדי להתחיל בהכנתה בזמן ההמתנה.</li>
+    <li>דוח יומי ושבועי, כולל <b>מכירות שנסגרו בעקבות הפניות</b>.</li>
+    <li><b>פיצול התור לפי סוג שירות</b> — רכישה, שירות, איסוף — ללא עלות נוספת.</li>
+  </ul>
+
+  <h3>מה לא כלול</h3>
+  <ul>
+    <li>הזמנות שנפתחו בסניף — עד להעברת המידע מצד ברוך.</li>
+    <li>חומרה: טאבלט ומסך תצוגה — נרכשים על ידיכם.</li>
+    <li>מערכת קופה — פרויקט נפרד.</li>
+  </ul>
+
+  <h3>מחירון הרחבה לסניפים נוספים</h3>
+  <div class="menu">
+    <div class="row">
+      <span class="lbl">כל סניף נוסף, בנפרד</span>
+      <span class="val">₪2,000<small>+ ₪250 לחודש</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl"><b>כלל הרשת — תשעה סניפים, בהתחייבות מראש</b></span>
+      <span class="val">₪20,000<small>+ ₪2,100 לחודש · במקום ₪24,000 ו-₪2,300</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl">פיצול התור לפי סוג שירות</span>
+      <span class="val free">כלול</span>
+    </div>
+    <div class="row">
+      <span class="lbl">איתור הזמנות שנפתחו בסניף</span>
+      <span class="val">בתיאום<small>מותנה בהעברת המידע מצד ברוך</small></span>
+    </div>
+  </div>
+  <div class="note">
+    הרחבה לסניף נוסף היא <b>הגדרה, לא פיתוח</b> — ולכן העלות לסניף נמוכה משמעותית
+    מהפיילוט. מדידת המכירות שנסגרות בעקבות הפניות היא שתאפשר להחליט על ההרחבה
+    על בסיס נתונים ולא הערכה.
+  </div>
+
+  <h3>עלויות שוטפות</h3>
+  <p>
+    עלות ההודעות בלבד, משולמת ישירות על ידיכם. בהיקף אילת — כ-13,500 הודעות בחודש:
+    <b>כ-₪100 עד ₪160 לחודש</b> בוואטסאפ עם גיבוי SMS, לעומת כ-₪340 עד ₪540 ב-SMS בלבד.
+    הודעות וואטסאפ הנשלחות בתוך 24 שעות מפניית הלקוח אינן כרוכות בתשלום, ומכיוון
+    שהכניסה לתור מתבצעת בסריקת QR — הלקוח הוא היוזם.
+  </p>
+
+  <div class="pay">
+    <h3>פרויקט 2 — ניהול תורים</h3>
+    <div class="pay-row">
+      <span class="pay-label">פיתוח — חד-פעמי, סניף אילת</span>
+      <span class="pay-val">₪8,000</span>
+    </div>
+    <div class="pay-row">
+      <span class="pay-label">תחזוקה ותמיכה</span>
+      <span class="pay-val">₪300 <small>לחודש</small></span>
+    </div>
+    <div class="pay-row">
+      <span class="pay-label">כל סניף נוסף</span>
+      <span class="pay-val">₪2,000 <small>+ ₪250 לחודש</small></span>
+    </div>
+    <div class="split">
+      <div><div class="k">מקדמה עם אישור ההצעה</div><div class="v">40% · ₪3,200</div></div>
+      <div><div class="k">עם המסירה</div><div class="v">60% · ₪4,800</div></div>
+    </div>
+    <p class="vat">משך הביצוע — כארבעה שבועות. לכל הסכומים יש להוסיף מע״מ.</p>
+  </div>
+
+  <h2><span class="num">3</span>ממשק לסוכן החכם</h2>
+  <p>
+    כדי שהסוכן החכם יוכל לענות ללקוח מה הוא קנה ומתי, הוא צריך גישה לנתוני הלקוח שלכם.
+    מה שנבנה אינו שאילתה בודדת אלא <b>שער גישה מאובטח</b> — נקודת כניסה אחת, מבוקרת
+    ומתועדת, שדרכה נכנסת כל פנייה של Glassix.
+  </p>
+
+  <h3>מה כלול במחיר הבסיס</h3>
+  <ul>
+    <li><b>מפתח גישה ייעודי</b> ל-Glassix, שניתן לבטל בכל רגע ללא השפעה על שאר המערכת.</li>
+    <li><b>תיעוד מלא של כל פנייה</b> — מי שאל, על איזה לקוח ומתי. זהו התיעוד הנדרש
+        לצורכי הגנת הפרטיות.</li>
+    <li><b>הגבלת קצב</b> ומכסה חודשית, כדי שתקלה בצד שלהם לא תוכל להעמיס על המערכת.</li>
+    <li><b>סינון שדות</b> — נתוני עלות ורווחיות אינם יוצאים מהמערכת בשום מצב.</li>
+    <li><b>זיהוי לקוח אמין:</b> מספר שמגיע מוואטסאפ בפורמט בינלאומי מזוהה נכון,
+        ולקוח שיש לו יותר מרשומה אחת במערכת — כל ההיסטוריה שלו מאוחדת.</li>
+    <li>הגדרה חד-משמעית של <b>״הקנייה האחרונה״</b> — החלפה יוצרת זיכוי וחשבונית באותה
+        דקה, והמערכת יודעת להחזיר את הנכון מביניהם.</li>
+    <li>סביבת בדיקות ומסמך אפיון למפתחים של Glassix.</li>
+  </ul>
+
+  <div class="note">
+    השאילתה הראשונה הכלולה במחיר: <b>הקנייה האחרונה של הלקוח לפי מספר טלפון</b>.
+    הפניות מוגשות ממאגר נפרד, כך שתעבורת Glassix אינה נוגעת במערכת שהסניפים עובדים איתה —
+    תקלה אצלם לא מאטה את הקופות אצלכם.
+  </div>
+
+  <h3>מחירון הרחבות</h3>
+  <div class="menu">
+    <div class="row">
+      <span class="lbl">כל סוג שאילתה נוסף — על נתונים שכבר קיימים במערכת<br>
+        <span class="pm" style="color:var(--muted); font-size:14px">לדוגמה: סטטוס אחריות, היסטוריית רכישות מלאה</span></span>
+      <span class="val">₪150<small>לחודש, לכל שאילתה</small></span>
+    </div>
+    <div class="row">
+      <span class="lbl">שאילתה הדורשת מקור נתונים חדש</span>
+      <span class="val">בתיאום<small>לדוגמה: מלאי — מותנה בהעברה מה-ERP</small></span>
+    </div>
+  </div>
+  <p class="sub">
+    ההקמה החד-פעמית כוללת את שער הגישה כולו. לכן כל שאילתה נוספת עולה רק את התוספת
+    החודשית — החלק היקר כבר נבנה.
+  </p>
+
+  <div class="pay">
+    <h3>פרויקט 3 — ממשק לסוכן החכם</h3>
+    <div class="pay-row">
+      <span class="pay-label">הקמה — חד-פעמי</span>
+      <span class="pay-val">₪1,500</span>
+    </div>
+    <div class="pay-row">
+      <span class="pay-label">שאילתת ״הקנייה האחרונה״</span>
+      <span class="pay-val">₪150 <small>לחודש</small></span>
+    </div>
+    <div class="pay-row">
+      <span class="pay-label">כל שאילתה נוספת</span>
+      <span class="pay-val">₪150 <small>לחודש</small></span>
+    </div>
+    <p class="vat">משך הביצוע — כשבוע ממועד האישור. לכל הסכומים יש להוסיף מע״מ.</p>
+  </div>
+
+  <h2><span class="num">4</span>סיכום</h2>
+  <table>
+    <tr><th>הפרויקט</th><th>פיתוח</th><th>חודשי</th><th>משך</th></tr>
+    <tr><td><b>GPI — הרחבה לכל הקטלוג</b></td><td>₪6,000</td><td>₪300</td><td>3 שבועות</td></tr>
+    <tr><td><b>ניהול תורים — אילת</b></td><td>₪8,000</td><td>₪300</td><td>4 שבועות</td></tr>
+    <tr><td><b>ממשק לסוכן החכם</b></td><td>₪1,500</td><td>₪150</td><td>שבוע</td></tr>
+    <tr><td><b>סה״כ</b></td><td><b>₪15,500</b></td><td><b>₪750</b></td><td>&nbsp;</td></tr>
+  </table>
+  <p class="sub">לכל הסכומים יש להוסיף מע״מ. עלויות התפעול השוטפות משולמות ישירות על ידיכם.</p>
+
+  <h3>סדר הביצוע</h3>
+  <p>
+    הפרויקטים מבוצעים בזה אחר זה, ולא במקביל. הממשק לסוכן החכם קצר ואינו מתנגש
+    בשניים האחרים. סדר העדיפויות נתון לבחירתכם — ככל שהאישור מוקדם יותר, כך המסירה מוקדמת יותר.
+  </p>
+  <table>
+    <tr><th>&nbsp;</th><th>אם מאושר עכשיו</th></tr>
+    <tr><td><b>ממשק לסוכן החכם</b></td><td>סוף אוגוסט</td></tr>
+    <tr><td><b>GPI — הרחבה</b></td><td>אמצע ספטמבר</td></tr>
+    <tr><td><b>ניהול תורים — אילת</b></td><td>אמצע אוקטובר</td></tr>
+  </table>
+
+  <h3>מה נדרש מכם</h3>
+  <ul>
+    <li><b>GPI:</b> בחירת כ-1,000 המק״טים הנסרקים — נעבור עליהם יחד לפי קטגוריה —
+        והחלטה כמה מתחרים מ-Zap להציג.</li>
+    <li><b>תורים:</b> החלטה על ערוץ ההודעות, רכישת מסך וטאבלט לסניף אילת,
+        ואישור נוסח ההודעות ללקוח.</li>
+    <li><b>סוכן חכם:</b> איש קשר טכני מצד Glassix, ואישור בכתב להעברת נתוני לקוחות אליהם.</li>
+  </ul>
+
+  <div class="terms">
+    <div><div class="k">תוקף ההצעות</div><div class="v">14 יום</div></div>
+    <div><div class="k">תנאי תשלום</div><div class="v">40% מקדמה · 60% במסירה</div></div>
+  </div>
+
+  <div class="pdfwrap">
+    <button class="pdfbtn" onclick="window.print()">שמירה כ-PDF</button>
+  </div>
+
+  <footer>
+    <b>תום לוי</b> · מייסד ומנכ״ל, OctoMonic<br>
+    054-207-7279 · tom@octomonic.com
+  </footer>
+
+</div>
+</body>
+</html>
