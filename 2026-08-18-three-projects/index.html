@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Project: GoMobile — three projects, one decision (GPI V2 · Queue · Glassix API) -->
+<!-- Project: GoMobile — two projects, one decision (GPI V2 · Queue) -->
 <!-- Change: combined offer walkthrough for the 18.08.2026 meeting -->
 <!-- Generated: 2026-08-18 -->
 <!-- Repo: https://github.com/Octomonic/gomobile-mockups -->
@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>שלושה פרויקטים — סקירה והצעות מחיר | OctoMonic</title>
+<title>שני פרויקטים — סקירה והצעות מחיר | OctoMonic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -79,8 +79,8 @@
   }
   .note b{color:var(--ink)}
 
-  /* summary cards — the three projects at a glance */
-  .three{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:26px 0 10px}
+  /* summary cards — the projects at a glance */
+  .three{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:26px 0 10px}
   .three .p{
     background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 20px;
     display:flex; flex-direction:column;
@@ -181,15 +181,15 @@
 
   <div class="hero">
     <p class="eyebrow">סקירה והצעות מחיר</p>
-    <h1>שלושה פרויקטים</h1>
+    <h1>שני פרויקטים</h1>
     <p class="lede">
-      שלוש הצעות נפרדות, שכל אחת מהן עומדת בפני עצמה: הרחבת מערכת התמחור לכל הקטלוג,
-      מערכת ניהול תורים לסניף אילת, וממשק שיאפשר לסוכן החכם לגשת לנתוני הלקוח.
+      שתי הצעות נפרדות, שכל אחת מהן עומדת בפני עצמה: הרחבת מערכת התמחור לכל הקטלוג,
+      ומערכת ניהול תורים לסניף אילת.
       לכל פרויקט מוגדר במסמך זה מה כלול במחיר הבסיס, ומה עולה כל הרחבה מעבר לו.
     </p>
     <div class="pills">
-      <span class="pill">פיתוח — <b>₪15,500</b></span>
-      <span class="pill">חודשי — <b>₪750</b></span>
+      <span class="pill">פיתוח — <b>₪14,000</b></span>
+      <span class="pill">חודשי — <b>₪600</b></span>
       <span class="pill">ניתן לאשר <b>כל פרויקט בנפרד</b></span>
     </div>
   </div>
@@ -209,17 +209,10 @@
       <div class="pr">₪8,000</div>
       <div class="pm">+ ₪300 לחודש</div>
     </div>
-    <div class="p">
-      <div class="tag">פרויקט 3</div>
-      <div class="nm">ממשק לסוכן החכם</div>
-      <div class="ds">שער גישה מאובטח שמאפשר ל-Glassix לשלוף את הקנייה האחרונה של הלקוח לפי מספר טלפון.</div>
-      <div class="pr">₪1,500</div>
-      <div class="pm">+ ₪150 לחודש</div>
-    </div>
   </div>
 
   <div class="note">
-    שלושת הפרויקטים בלתי תלויים זה בזה. אפשר לאשר אחד, שניים או שלושה — התמחור אינו משתנה
+    שני הפרויקטים בלתי תלויים זה בזה. אפשר לאשר אחד או את שניהם — התמחור אינו משתנה
     לפי מספר הפרויקטים שנבחרים, למעט הרחבת מערכת התורים לכלל הרשת (סעיף 2).
   </div>
 
@@ -402,98 +395,23 @@
     <p class="vat">משך הביצוע — כארבעה שבועות. לכל הסכומים יש להוסיף מע״מ.</p>
   </div>
 
-  <h2><span class="num">3</span>ממשק לסוכן החכם</h2>
-  <p>
-    כדי שהסוכן החכם יוכל לענות ללקוח מה הוא קנה ומתי, הוא צריך גישה לנתוני הלקוח שלכם.
-    מה שנבנה אינו שאילתה בודדת אלא <b>שער גישה מאובטח</b> — נקודת כניסה אחת, מבוקרת
-    ומתועדת, שדרכה נכנסת כל פנייה של Glassix.
-  </p>
-
-  <h3>מה כלול במחיר הבסיס</h3>
-  <ul>
-    <li><b>מפתח גישה ייעודי</b> ל-Glassix, שניתן לבטל בכל רגע ללא השפעה על שאר המערכת.</li>
-    <li><b>תיעוד מלא של כל פנייה</b> — מי שאל, על איזה לקוח ומתי. זהו התיעוד הנדרש
-        לצורכי הגנת הפרטיות.</li>
-    <li><b>הגבלת קצב</b> ומכסה חודשית, כדי שתקלה בצד שלהם לא תוכל להעמיס על המערכת.</li>
-    <li><b>סינון שדות</b> — נתוני עלות ורווחיות אינם יוצאים מהמערכת בשום מצב.</li>
-    <li><b>זיהוי לקוח אמין:</b> מספר שמגיע מוואטסאפ בפורמט בינלאומי מזוהה נכון,
-        ולקוח שיש לו יותר מרשומה אחת במערכת — כל ההיסטוריה שלו מאוחדת.</li>
-    <li>הגדרה חד-משמעית של <b>״הקנייה האחרונה״</b> — החלפה יוצרת זיכוי וחשבונית באותה
-        דקה, והמערכת יודעת להחזיר את הנכון מביניהם.</li>
-    <li>סביבת בדיקות ומסמך אפיון למפתחים של Glassix.</li>
-  </ul>
-
-  <div class="note">
-    השאילתה הראשונה הכלולה במחיר: <b>הקנייה האחרונה של הלקוח לפי מספר טלפון</b>.
-    הפניות מוגשות ממאגר נפרד, כך שתעבורת Glassix אינה נוגעת במערכת שהסניפים עובדים איתה —
-    תקלה אצלם לא מאטה את הקופות אצלכם.
-  </div>
-
-  <h3>מה לא כלול</h3>
-  <ul>
-    <li>
-      <b>קובץ החשבונית עצמו.</b> המערכת מחזירה את מלוא פרטי הרכישה — תאריך, סניף, פריטים,
-      מחירים, מע״מ, סה״כ ומספר המסמך — אך לא את מסמך החשבונית. הפקת מסמכי מס היא באחריות
-      מערכת ה-ERP בלבד. מספר המסמך נכלל בתשובה, כך ש-Glassix יכולים לפנות ישירות ל-ERP
-      אם יידרש הקובץ.
-    </li>
-    <li>שאילתות על נתונים שאינם קיימים היום במערכת — ראו מחירון ההרחבות.</li>
-  </ul>
-
-  <h3>מחירון הרחבות</h3>
-  <div class="menu">
-    <div class="row">
-      <span class="lbl">כל סוג שאילתה נוסף — על נתונים שכבר קיימים במערכת<br>
-        <span class="pm" style="color:var(--muted); font-size:14px">לדוגמה: סטטוס אחריות, היסטוריית רכישות מלאה</span></span>
-      <span class="val">₪150<small>לחודש, לכל שאילתה</small></span>
-    </div>
-    <div class="row">
-      <span class="lbl">שאילתה הדורשת מקור נתונים חדש</span>
-      <span class="val">בתיאום<small>לדוגמה: מלאי — מותנה בהעברה מה-ERP</small></span>
-    </div>
-  </div>
-  <p class="sub">
-    ההקמה החד-פעמית כוללת את שער הגישה כולו. לכן כל שאילתה נוספת עולה רק את התוספת
-    החודשית — החלק היקר כבר נבנה.
-  </p>
-
-  <div class="pay">
-    <h3>פרויקט 3 — ממשק לסוכן החכם</h3>
-    <div class="pay-row">
-      <span class="pay-label">הקמה — חד-פעמי</span>
-      <span class="pay-val">₪1,500</span>
-    </div>
-    <div class="pay-row">
-      <span class="pay-label">שאילתת ״הקנייה האחרונה״</span>
-      <span class="pay-val">₪150 <small>לחודש</small></span>
-    </div>
-    <div class="pay-row">
-      <span class="pay-label">כל שאילתה נוספת</span>
-      <span class="pay-val">₪150 <small>לחודש</small></span>
-    </div>
-    <p class="vat">משך הביצוע — כשבוע ממועד האישור. לכל הסכומים יש להוסיף מע״מ.</p>
-  </div>
-
-  <h2><span class="num">4</span>סיכום</h2>
+  <h2><span class="num">3</span>סיכום</h2>
   <table>
     <tr><th>הפרויקט</th><th>פיתוח</th><th>חודשי</th><th>משך</th></tr>
     <tr><td><b>GPI — הרחבה לכל הקטלוג</b></td><td>₪6,000</td><td>₪300</td><td>3 שבועות</td></tr>
     <tr><td><b>ניהול תורים — אילת</b></td><td>₪8,000</td><td>₪300</td><td>4 שבועות</td></tr>
-    <tr><td><b>ממשק לסוכן החכם</b></td><td>₪1,500</td><td>₪150</td><td>שבוע</td></tr>
-    <tr><td><b>סה״כ</b></td><td><b>₪15,500</b></td><td><b>₪750</b></td><td>&nbsp;</td></tr>
+    <tr><td><b>סה״כ</b></td><td><b>₪14,000</b></td><td><b>₪600</b></td><td>&nbsp;</td></tr>
   </table>
   <p class="sub">לכל הסכומים יש להוסיף מע״מ. עלויות התפעול השוטפות משולמות ישירות על ידיכם.</p>
 
   <h3>סדר הביצוע</h3>
   <p>
-    הפרויקטים מבוצעים בזה אחר זה, ולא במקביל. הממשק לסוכן החכם קצר ואינו מתנגש
-    בשניים האחרים. סדר העדיפויות נתון לבחירתכם — ככל שהאישור מוקדם יותר, כך המסירה מוקדמת יותר.
+    הפרויקטים מבוצעים בזה אחר זה, ולא במקביל. סדר העדיפויות נתון לבחירתכם — ככל שהאישור מוקדם יותר, כך המסירה מוקדמת יותר.
   </p>
   <table>
     <tr><th>&nbsp;</th><th>אם מאושר עכשיו</th></tr>
-    <tr><td><b>ממשק לסוכן החכם</b></td><td>סוף אוגוסט</td></tr>
-    <tr><td><b>GPI — הרחבה</b></td><td>אמצע ספטמבר</td></tr>
-    <tr><td><b>ניהול תורים — אילת</b></td><td>אמצע אוקטובר</td></tr>
+    <tr><td><b>GPI — הרחבה</b></td><td>תחילת ספטמבר</td></tr>
+    <tr><td><b>ניהול תורים — אילת</b></td><td>תחילת אוקטובר</td></tr>
   </table>
 
   <h3>מה נדרש מכם</h3>
@@ -502,7 +420,6 @@
         והחלטה כמה מתחרים מ-Zap להציג.</li>
     <li><b>תורים:</b> החלטה על ערוץ ההודעות, רכישת מסך וטאבלט לסניף אילת,
         ואישור נוסח ההודעות ללקוח.</li>
-    <li><b>סוכן חכם:</b> איש קשר טכני מצד Glassix, ואישור בכתב להעברת נתוני לקוחות אליהם.</li>
   </ul>
 
   <div class="terms">
