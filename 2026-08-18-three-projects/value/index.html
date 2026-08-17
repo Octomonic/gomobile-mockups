@@ -52,7 +52,7 @@
 
   <div class="panel">
     <h3>פעילות לאורך זמן</h3>
-    <p class="cap">שינויי מחיר שבוצעו דרך GPI, בפילוח שבועי.</p>
+    <p class="cap">שינויי מחיר שבוצעו דרך GPI, בפילוח שבועי. השבוע הראשון והאחרון חלקיים — הנתונים נכונים עד 17.08.</p>
     <div class="chart" id="weekly"></div>
     <div class="legend">
       <span><i style="background:#EC008C"></i>הורדות מחיר</span>
@@ -126,8 +126,11 @@ function cadence(){
      <div class="vx">${r.v.toFixed(2)}</div></div>`).join('');
   const me=rows.find(r=>r.me), rank=rows.findIndex(r=>r.me)+1;
   const slower=rows.filter(r=>!r.me&&r.v<me.v).map(r=>r.n);
+  const maxRival = Math.max(0, ...rows.filter(r=>!r.me).map(r=>r.sk||0));
+  const widest = me.sk > maxRival;
   document.getElementById('cadnote').innerHTML = me.sk
-    ? `<b>GoMobile מדורגת ${rank} מתוך ${rows.length}</b> בקצב עדכון המחירים, על פני <b>${nf(me.sk)} מק״טים</b> — הבסיס הרחב ביותר מבין כל השחקנים בהשוואה.` +
+    ? `<b>GoMobile מדורגת ${rank} מתוך ${rows.length}</b> בקצב עדכון המחירים, על פני <b>${nf(me.sk)} מק״טים</b>` +
+      (widest ? ' — הבסיס הרחב ביותר מבין כל השחקנים בהשוואה.' : `, מול ${nf(maxRival)} אצל המתחרה הרחב ביותר.`) +
       (slower.length?` קצב העדכון גבוה מ-${slower.join(', ')}.`:'')
     : 'אין מספיק נתונים בקטגוריה זו לשמונת השבועות האחרונים.';
 }
