@@ -61,7 +61,6 @@
   <div class="filters" id="filters"><span class="fl">קטגוריה:</span></div>
 
   <div class="stats" id="kpis"></div>
-  <p class="sub" id="kpisub"></p>
 
 
   <div class="panel">
@@ -138,16 +137,12 @@ function kpis(){
   const g=sel(D.gmCat,cur);
   const ch=g.reduce((a,b)=>a+b.ch,0), sk=g.reduce((a,b)=>a+b.sk,0);
   const w=sel(D.gmWeek,cur); const cut=w.reduce((a,b)=>a+b.cut,0), rai=w.reduce((a,b)=>a+b.rai,0);
-  const rate=cur==='all'?((D.tot.applied/(D.tot.applied+D.tot.rejected+D.tot.failed))*100).toFixed(1):null;
   document.getElementById('kpis').innerHTML=[
     ['שינויי מחיר שבוצעו',nf(ch)],
     ['מק״טים שעודכנו',nf(sk)],
     ['הורדות מחיר',nf(cut)],
     ['העלאות מחיר',nf(rai)]
   ].map(([k,v])=>`<div><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
-  document.getElementById('kpisub').textContent = rate
-    ? `שיעור הצלחה של בקשות העדכון: ${rate}% (${nf(D.tot.applied)} בוצעו, ${D.tot.rejected} נדחו בבקרה, ${D.tot.failed} נכשלו).`
-    : `בקטגוריה זו בוצעו ${nf(ch)} עדכוני מחיר על ${nf(sk)} מק״טים.`;
 }
 
 function cadence(){
