@@ -256,7 +256,7 @@ function ratios(){
   // benchmark against KSP by name (Tom, 18/08) — falls back to the busiest rival only if
   // KSP has no tracked activity in the selected category.
   const top=(bySite['ksp'] ? ['ksp',bySite['ksp']] : Object.entries(bySite).sort((a,b)=>b[1]-a[1])[0]);
-  const share=(gch+rivalTotal)?gch/(gch+rivalTotal)*100:0;
+  const vsAll=rivalTotal?gch/rivalTotal*100:0;   // GM as a % of ALL five rivals put together
   const mult=top&&top[1]?gch/top[1]:0;
   const rx=sel(D.rx,cur).reduce((a,b)=>({t:a.t+b.t,f:a.f+b.f}),{t:0,f:0});
   const succ=(D.tot.applied/(D.tot.applied+D.tot.rejected+D.tot.failed))*100;
@@ -266,7 +266,8 @@ function ratios(){
   const tiles=[
     {v:'×'+mult.toFixed(1), k:'יותר שינויי מחיר מ-'+(top?(SITE[top[0]]||top[0]):'המתחרה'),
      s:(top&&top[0]==='ksp')?'מול KSP, על אותם מק״טים נמדדים':'המתחרה הפעיל ביותר בקטגוריה'},
-    {v:share.toFixed(0)+'%', k:'מכלל שינויי המחיר בשוק הנמדד', s:'GoMobile מול חמשת המתחרים יחד'},
+    {v:vsAll.toFixed(0)+'%', k:'ממספר שינויי המחיר של כל חמשת המתחרים <b>יחד</b>',
+     s:nf(gch)+' שינויים אצל GoMobile מול '+nf(rivalTotal)+' אצל כולם יחד'},
     {v:D.meta.viaGpiPct.toFixed(0)+'%', k:'משינויי המחיר מבוצעים דרך GPI', s:'ולא ידנית מחוץ למערכת'},
     {v:succ.toFixed(0)+'%', k:'מהעדכונים שנשלחו בוצעו בהצלחה', s:'השאר נעצרו בבקרה לפני הכתיבה'},
     {v:(rx.t?rx.f/rx.t*100:0).toFixed(0)+'%', k:'משינויי המתחרים נענו תוך 14 יום', s:'תגובה על אותו מק״ט'},
