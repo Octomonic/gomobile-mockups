@@ -69,8 +69,8 @@
   </div>
 
   <div class="panel">
-    <h3>קצב העדכון — GoMobile מול המתחרים</h3>
-    <p class="cap">שינויי מחיר לכל מק״ט בחודש. זהו המדד ההשוואתי: כמה פעמים מחיר של מוצר מתעדכן בממוצע.</p>
+    <h3>היקף עדכוני המחיר — GoMobile מול המתחרים</h3>
+    <p class="cap">מספר שינויי המחיר בפועל ב-8 השבועות האחרונים. בסוגריים — הקצב הממוצע לכל מק״ט בחודש, ומספר המק״טים שבהם נוגעים.</p>
     <div class="barlist" id="cadence"></div>
     <div class="note" id="cadnote"></div>
   </div>
@@ -139,24 +139,23 @@ function cadence(){
   const rows=[];
   const g=sel(D.gmCat,cur);
   const gch=g.reduce((a,b)=>a+b.ch56,0), gsk=g.reduce((a,b)=>a+b.sk56,0);
-  rows.push({n:'GoMobile',v:gsk?gch/gsk/2:0,sk:gsk,me:true});
+  rows.push({n:'GoMobile',ch:gch,sk:gsk,me:true});
   const bySite={};
-  for(const r of sel(D.cad,cur)){ (bySite[r.s]??={ch:0,sk:0}); bySite[r.s].ch+=r.ch56; bySite[r.s].sk+=r.sk56; }
-  for(const [s,v] of Object.entries(bySite)) if(v.sk) rows.push({n:SITE[s]||s,v:v.ch/v.sk/2,sk:v.sk,me:false});
-  rows.sort((a,b)=>b.v-a.v);
-  const max=Math.max(...rows.map(r=>r.v),0.1);
-  document.getElementById('cadence').innerHTML=rows.map(r=>
-    `<div class="b"><div class="nmx">${r.n}</div>
-     <div class="track"><div class="fill ${r.me?'me':''}" style="width:${Math.max(2,r.v/max*100)}%"></div></div>
-     <div class="vx">${r.v.toFixed(2)}</div></div>`).join('');
-  const me=rows.find(r=>r.me), rank=rows.findIndex(r=>r.me)+1;
-  const slower=rows.filter(r=>!r.me&&r.v<me.v).map(r=>r.n);
-  const maxRival = Math.max(0, ...rows.filter(r=>!r.me).map(r=>r.sk||0));
-  const widest = me.sk > maxRival;
-  document.getElementById('cadnote').innerHTML = me.sk
-    ? `<b>GoMobile מדורגת ${rank} מתוך ${rows.length}</b> בקצב עדכון המחירים, על פני <b>${nf(me.sk)} מק״טים</b>` +
-      (widest ? ' — הבסיס הרחב ביותר מבין כל השחקנים בהשוואה.' : `, מול ${nf(maxRival)} אצל המתחרה הרחב ביותר.`) +
-      (slower.length?` קצב העדכון גבוה מ-${slower.join(', ')}.`:'')
+  for(const r of sel(D.cad,cur)){ (bySite[r.s] ??= {ch:0,sk:0}); bySite[r.s].ch+=r.ch56; bySite[r.s].sk+=r.sk56; }
+  for(const [s,v] of Object.entries(bySite)) if(v.ch) rows.push({n:SITE[s]||s,ch:v.ch,sk:v.sk,me:false});
+  rows.sort((a,b)=>b.ch-a.ch);
+  const max=Math.max(...rows.map(r=>r.ch),1);
+  document.getElementById('cadence').innerHTML=rows.map(r=>{
+    const rate=r.sk?(r.ch/r.sk/2).toFixed(2):'—';
+    return `<div class="b"><div class="nmx">${r.n}<br><span style="font-weight:500;font-size:12px;color:var(--muted)">${rate} למק״ט · ${nf(r.sk)} מק״טים</span></div>
+      <div class="track"><div class="fill ${r.me?'me':''}" style="width:${Math.max(2,r.ch/max*100)}%"></div></div>
+      <div class="vx">${nf(r.ch)}</div></div>`;
+  }).join('');
+  const me=rows.find(r=>r.me), rivals=rows.filter(r=>!r.me).reduce((a,b)=>a+b.ch,0);
+  const rank=rows.findIndex(r=>r.me)+1;
+  document.getElementById('cadnote').innerHTML = me && me.ch
+    ? `<b>GoMobile ביצעה ${nf(me.ch)} שינויי מחיר</b> — ${rank===1?'יותר מכל מתחרה':'במקום '+rank}, מול ${nf(rivals)} אצל <b>כל חמשת המתחרים יחד</b>.` +
+      ` הקצב לכל מק״ט נמוך יותר אצל מי שמנהל קטלוג קטן ומשנה בו מחירים תכופות — ולכן המספר המוחלט הוא ההשוואה המשמעותית.`
     : 'אין מספיק נתונים בקטגוריה זו לשמונת השבועות האחרונים.';
 }
 
