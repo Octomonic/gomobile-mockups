@@ -259,7 +259,6 @@ function ratios(){
   const vsAll=rivalTotal?gch/rivalTotal*100:0;   // GM as a % of ALL five rivals put together
   const mult=top&&top[1]?gch/top[1]:0;
   const rx=sel(D.rx,cur).reduce((a,b)=>({t:a.t+b.t,f:a.f+b.f}),{t:0,f:0});
-  const succ=(D.tot.applied/(D.tot.applied+D.tot.rejected+D.tot.failed))*100;
   const w=sel(D.gmWeek,cur);
   const cut=w.reduce((a,b)=>a+b.cut,0), rai=w.reduce((a,b)=>a+b.rai,0);
   const reach=cur==='all' ? gskAll/D.meta.activeSkus*100 : null;
@@ -269,7 +268,6 @@ function ratios(){
     {v:vsAll.toFixed(0)+'%', k:'ממספר שינויי המחיר של כל חמשת המתחרים <b>יחד</b>',
      s:nf(gch)+' שינויים אצל GoMobile מול '+nf(rivalTotal)+' אצל כולם יחד'},
     {v:D.meta.viaGpiPct.toFixed(0)+'%', k:'משינויי המחיר מבוצעים דרך GPI', s:'ולא ידנית מחוץ למערכת'},
-    {v:succ.toFixed(0)+'%', k:'מהעדכונים שנשלחו בוצעו בהצלחה', s:'השאר נעצרו בבקרה לפני הכתיבה'},
     {v:(rx.t?rx.f/rx.t*100:0).toFixed(0)+'%', k:'משינויי המתחרים נענו תוך 14 יום', s:'תגובה על אותו מק״ט'},
     {v:(cut+rai?rai/(cut+rai)*100:0).toFixed(0)+'%', k:'מהשינויים הם העלאות מחיר', s:'לעומת 19% ביוני'},
   ];
